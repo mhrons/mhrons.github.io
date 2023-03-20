@@ -1,0 +1,6 @@
+site_name: Milan Docs
+site_url: https://mhrons.github.io/
+nav:
+    - Home: index.md
+    - About: about.md
+theme: readthedocs
