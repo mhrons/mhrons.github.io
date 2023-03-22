@@ -2,5 +2,20 @@ site_name: Milan Docs
 site_url: https://mhrons.github.io/
 nav:
     - Home: index.md
-    - About: about.md
-theme: readthedocs
+    - Photovoltaic intermitency and its smoothing: pv_log.md
+theme:
+  name: readthedocs
+  include_homepage_in_sidebar: true
+  prev_next_buttons_location: bottom
+  navigation_depth: 4
+  collapse_navigation: false
+  titles_only: false
+
+extra_javascript: 
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+markdown_extensions:
+    - mdx_math
+    - attr_list
+    - md_in_html
+
