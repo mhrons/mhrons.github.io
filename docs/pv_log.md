@@ -204,10 +204,9 @@ For illustration, 3 graph types are displayed by graphs:
 - Measured GI and its smooth equivalent by different smoothing methods
 - Accumulated GX by different smoothing methods
 
-The displayed signals are based on the solar measurement from following days:
+The displayed signals are based on the solar measurement from 2 days:
 
-- 2022-03-04: Medium solar exposure with strong solar intermittency
-- 022-04-04: High solar exposure with strong solar intermittency
+**2022-03-04: Medium solar exposure with strong solar intermittency:**
 
 <figure markdown>
   ![IPLPF Costs](img/2022-03-04_from11h_to12h.png){ width="650"}
@@ -229,6 +228,8 @@ The displayed signals are based on the solar measurement from following days:
   <figcaption>Figure 5: Time course of GX accumulated by 4 different smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
 .  
+**2022-04-04: High solar exposure with strong solar intermittency:**
+
 <figure markdown>
   ![IPLPF Costs](img/2022-04-04_from11h_to12h.png){ width="650"}
   <figcaption>Figure 6: Measured GI synchronized with GIF (predicted 30 minutes ago) between 11:00 and 12:00. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
