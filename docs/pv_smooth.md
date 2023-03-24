@@ -44,12 +44,12 @@ and near-to-minimum throughput of accumulated energy per cycle: $${1 \over 2} \i
 
 The rate of accumulation is expressed by (4) and (5) which are minimized by Δt during a working cycle T = 24 hours (in case of PV energy). The rate of accumulation is also expressed by the power demand during a solar gap. This results from the installed power of PVPP.
 
-Let us assume that PV power is proportional to the global solar irradiance GI [W/m2]. In our experiment, the solar irradiance is intercepted by a planar panel 20cm x 16cm on the earth’s surface at latitude=48.2°N, longitude=17.1°E, and the plane of incidence is elevated by 47°, south-oriented. Based on the proportionality between the PV power p(t) and the measured GI(t), we substitute the signals p(τ), s(τ+Δt) in (1) by the measured signal GI(τ) and by its “predicted-and-smoothed” counterpart. After substituting, the expression (1) computes the time course of specific accumulated energy GX(t) [Wh/m2] by the filter.
+Let us assume that PV power is proportional to the global solar irradiance GI [W/m2]. In our experiment, the solar irradiance is intercepted by a planar panel 20cm x 16cm on the earth’s surface at latitude=48.2°N, longitude=17.1°E, and the plane of incidence is elevated by 47°, south-oriented. Based on the proportionality between the PV power p(t) and the global irradiance GI(t), we substitute the signals p(τ), s(τ+Δt) in (1) by the measured signal GI(τ) and by its “predicted-and-smoothed” counterpart. After substituting, the expression (1) computes the time course of specific accumulated energy GX(t) [Wh/m2] by the filter.
 
 ## Ideal smoothing (IPLPF)
 We simulated the operation of ideal predictive PV smoothing (IPLPF) by means of LPF excited by the exact future signal GI(t+Δt) where GI(t) is measured and the time advance Δt (given by the LPF group delay) eliminates the filter’s time lag. In theory, such a "ex post" simulated smoothing would minimize the accumulation of energy by the filter. This analysis aims to establish the theoretical potential and affordability of PV smoothing. The numeric experiment is based on the measured solar irradiance over a period of 1 year, assuming contemporary prices of Lithium-Ion accumulators and EDLC supercapacitors.  
 The measured GI time series eventually allows to calculate the specific accumulator’s capacity [Wh/m2], its specific power [W/m2], specific energy throughput [Wh/m2/day], [Wh/m2/year] requested by the IPLPF smoothing. Based on the accumulators’ specifications and prices as of 2021, the corresponding accumulation costs have been calculated. The simulation proved that the IPLPF is definitely worthwhile with the German power purchase tariff and PV feed-in tariff in 2021. The ideal smoothing costs are substantially lower than the difference between purchase tariff and PV feed-in tariff (assuming that the smooth PV infeed partially compensates for the distribution costs). The simulation suggests an affordable smoothing model for a hybrid small-scale PV plant, and foresees a future smoothing technology for large-scale PV plants.  
-### Smoothing by IPLPF vs by LPF  
+### Smoothing by IPLPF vs LPF  
 Global irradiance GI measured (legend meas), filtered GI, and specific accumulated energy GX by LPF (legend lp) and by IPLPF (legend aavg0):  
 ![PV Logger](img/GI_PV2.3but7.5.2022-04-04.png){: style="width: 49%; align='left';"}
 ![PV Logger](img/GX_PV2.3but7.5.2022-04-04.png){: style="width: 49%; align='right';"}
@@ -146,11 +146,12 @@ Filter order is the third OLAP dimension, impact of which was analyzed together 
 - Filter order does not affect the smoothing quality of PLPF method and for small filter orders, the smoothing quality of PLPF is better than that of SPLPF.
 - Increasing of the filter order improves the smoothing quality of SPLPF, which becomes technically equivalent with PLPF from the 3th order onwards.
 - Increasing of the filter order only slightly reduces the accumulation rate by the PLPF method. The accumulation rate by PLPF is always substantially larger than by SPLPF.
-- Increasing of the filter order appreciably reduces the accumulation rate by the SPLPF method. By increasing the filter order with a relatively small prediction error, SPLPF gradually converges to the accumulation rate induced by the IPLPF method.
+- Increasing of the filter order appreciably reduces the accumulation rate by the SPLPF method. ***By increasing the filter order with a relatively small prediction error, SPLPF gradually converges to the accumulation rate induced by the IPLPF method.***
 
-The signal GI(t) is graphically displayed as measured, predicted, and smoothed by the four different smoothing methods. Finally, a per-day time course of the specific accumulated energy GX [Wh/m2] is displayed, corresponding to the smoothing method. Performance of the 3rd-order low-pass filter is shown by the graphs. Two days with strong solar intermittency have been selected for the simulation: A day with the medium solar exposure 3.0 kWh/m2, and a day with the high solar exposure 5.9 kWh/m2. (GI was measured at the above-specified plane of incidence.) Time advance Δt = 30 minutes was applied in order to achieve a desired smoothing effect on both selected days. Accumulation rate by the four different smoothing methods was calculated, based on the measured GI(t) signal. The results are summarized in Table 2 and Table 3: In the column "Δ GX", a difference between the maximum and minimum specific accumulated energy is calculated by the expression (4). In the column "Throughput", a total daily flow of the specific energy through the accumulator is calculated by (5). For a comparison, the daily specific global exposure at the plane of incidence is  displayed too.
+## Summary
+The signal GI(t) is graphically displayed as measured, predicted, and smoothed by the four different smoothing methods. Finally, a per-day time course of the specific accumulated energy GX [Wh/m2] is displayed, corresponding to the smoothing method. Performance of the 3rd-order low-pass filter is shown by the graphs. Two days with strong solar intermittency have been selected for the simulation: a day with medium solar exposure 3.0 kWh/m2, and a day with high solar exposure 5.9 kWh/m2 (measured at the above-specified plane of incidence). Time advance Δt = 30 minutes was applied in order to achieve a desired smoothing effect on both selected days. Accumulation rate by the four different smoothing methods was calculated, based on the measured GI(t) signal. The results are summarized in Table 2 and Table 3: In the column "Δ GX", a difference between the maximum and minimum specific accumulated energy is calculated by the expression (4). In the column "Throughput", a total daily flow of the specific energy through the accumulator is calculated by (5). For a comparison, the daily specific global exposure at the plane of incidence is  displayed too.
 
-## Accumulated energy by smoothing
+### Accumulated energy by smoothing
 <figure markdown>
   ![IPLPF Costs](img/Accu_Rate_220304.png){ width="650"}
   <figcaption>Table 2</figcaption>
@@ -165,7 +166,7 @@ With "better GI prediction accuracy", the SPLPF smoothing required 21% - 22% o
 
 With "worse GI prediction accuracy", the SPLPF smoothing required 24% - 33% of the BESS energy capacity (Δ GX) used by the LPF method during the selected days, or 19% - 28% of the capacity used by the PLPF method. SPLPF eventually required 1.2 - 1.8 times the energy capacity used by the IPLPF method. The SPLPF method put 59% - 77% of the daily energy flow through the accumulator relative to the LPF method, or 63% - 69% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more  energy through BESS than the IPLPF method.
 
-## Graphical display
+### Graphical display
 For the illustration, 3 graph types are displayed below:
 
 - Measured GI, synchronized with predicted GIf

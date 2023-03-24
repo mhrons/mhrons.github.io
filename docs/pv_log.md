@@ -20,7 +20,7 @@ Measurement of solar irradiance for the sake of PV smoothing must meet the follo
 
 Actually, the momentary solar irradiance has to be measured at any plane of incidence under given atmospheric conditions. Fulfilling all of these demands is not possible only by measuring the global (GHI) and diffused (dHI) horizontal irradiance (both of which are regularly measured by national weather services).
 
-A corresponding measurement system and data logger have been developed and is in operation since 04/2021 at the author's site (48.2°, 17.1°).
+A corresponding measurement system with data logger has been developed and is in operation since 04/2021 at the author's site (48.2°, 17.1°).
 
 ![PV_logger](img/PV_Logger.JPG){ width="300"  align=right }
 
