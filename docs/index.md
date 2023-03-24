@@ -9,3 +9,5 @@ My photovoltaic projects:
 [PV Logger](https://mhrons.github.io/pv_log/)
 
 [PV Smoothing](https://mhrons.github.io/pv_smooth/)
+
+![](https://komarev.com/ghpvc/?username=mhrons&color=blue)
