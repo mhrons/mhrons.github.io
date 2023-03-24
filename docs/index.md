@@ -1,17 +1,8 @@
-# Welcome to MkDocs
+![Milan](img/Milan.jpg){: style="width: 20%; align='left';"}
+Better integration of intermittent renewable energy in the grid!
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+My photovoltaic projects:
 
-## Commands
+[PV Logger](https://mhrons.github.io/pv_log/)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+[PV Smoothing](https://mhrons.github.io/pv_smooth/)
