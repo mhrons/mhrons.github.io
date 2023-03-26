@@ -6,6 +6,7 @@ nav:
     - Smoothing of PV intermitency: pv_smooth.md
 theme:
   name: readthedocs
+  custom_dir: custom_theme/
   include_homepage_in_sidebar: true
   prev_next_buttons_location: bottom
   navigation_depth: 4
@@ -20,3 +21,5 @@ markdown_extensions:
     - attr_list
     - md_in_html
 
+watch: 
+    - custom_theme/
