@@ -1,5 +1,5 @@
 AC/DC = AC to DC power conversion  
-A/D = analog-to-digital data conversion  
+A/D = analog to digital data conversion  
 BESS = battery energy storage system  
 CapEx = Capital Expenditures for PV smoothing [€/kW]  
 DC/AC = DC to AC power inversion  
