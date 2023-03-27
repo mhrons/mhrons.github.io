@@ -4,6 +4,7 @@ nav:
     - About me: index.md
     - Photovoltaic intermitency: pv_log.md
     - Smoothing of PV intermitency: pv_smooth.md
+    - Glossary: v_glossary.md
 theme:
   name: readthedocs
   custom_dir: custom_theme/
