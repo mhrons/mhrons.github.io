@@ -79,14 +79,14 @@ Infeed to grid by "Hybrid with BESS” on-grid system: 1/3 of the generated PV e
 Li-Ion & supercapacitor (SC): [life cycle parameters and prices](https://batteryuniversity.com/article/bu-209-how-does-a-supercapacitor-work) are as of 2021.  
 Hybrid supercapacitor (HSC): estimated price is based on the relation btw. Li-Ion and SC prices.
 
-The costs are specific per 1 kW of installed PV power. Installed PV power = DC output power of PV plant (before DC/AC connversion) assuming its solar incidence 1kW/m2 (1 Sun).  
+The costs are specific per 1 kW of installed PV power. Installed PV power = DC output power of PV plant (before DC/AC conversion) assuming its solar incidence 1kW/m2 (1 Sun).  
 CapEx = initial investment to PV smoothing. OpEx = regular (e.g. yearly) costs necessary for its uninterrupted function. The greater from (CapEx, interval * OpEx) defines the cost of PV smoothing for a given service interval. However, when the smoothing uses >1 accumulation technologies concurrently, the service interval has to be fixed before calculating OpEx. (Reason: Given the service interval, two technologies with different wear-outs can be optimally mixed.) Hybrid systems and sole PV plants use different cost models, because the sole PV plant uses a mixed accumulation technology for smoothing. Energy losses due to the AC/DC conversion and accumulation were neglected.
 
 ### Applications of IPLPF
 #### Small-scale hybrid PV system
 Typical installed PV power <10kW is connected to the low-voltage grid, having a BESS with energy capacity ≈ 2h x installed power [W]. After charging the BESS to a threshold SOC (e.g. 90%), the BESS can smooth the PV infeed to the grid (PV power overflow) for affordable costs, if the remaining free BESS capacity is left free for the smoothing and the BESS power is available for smoothing (and additional technical measures avoid its microcycling). The power intermittency of small scale PV plants has no impact on the grid, unless their penetration in the grid is high. ***IPLPF technology offers an affordable smoothing of PV power in the grid areas with high penetration of small-scale hybrid PV systems.***
 
-Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a Li-Ion battery with relative power (PPVmax x 1h)/SOCmax >> 1, otherwise the battery’s life cycle would be curtailed. It is cheaper to oversize its delta(SOC) capacity appropriately, than to overload it by too much power.
+Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a Li-Ion battery with relative power (Pmax x 1h)/SOCmax >> 1, otherwise the battery’s life cycle would be curtailed. It is cheaper to oversize its delta(SOC) capacity appropriately, than to overload it by too much power.
 
 #### Large-scale PV plant without BESS
 Installed power >100 kW is connected to the grid on a middle- or high-voltage level. Water pumps provide efficient storage for large scale PV plants (cheaper and cleaner than a corresponding BESS would provide), but no power smoothing because the water pumps are too sluggish for such a task. Large-scale PV intermittency can be “smoothed” by a solely smoothing battery with a relatively low capacity =delta(SOC) providing high relative power ≈10C. Such a high power can be provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these still do not provide enough cheap capacity to satisfy the IPLPF smoothing. Currently there is a lack of accumulation technology suitable for smoothing the large-scale PV plants.
@@ -117,23 +117,23 @@ We simulated the predicted signal GIf(t+Δt) from the measured, left-shifted GI 
 Both errors are applied at the "future" time t+Δt, whereas the LPF group delay hence Δt depend on the requested PV power smoothing rate and on the LPF order. In the simulation, we control the prediction error by 2 quantitative (OLAP) dimensions:
 
 - Interval of prediction, after passing of which the smoothing impact on the predicted signal is strengthened, is defined by the parameter smooth_int [minute]. The shorter this interval, the steeper the smoothing effect rises towards future.
-- Standard deviation of the random prediction error (dimensionless parameter SE). A new random value is repeatedly superimposed to the future GI signal each time after passing a 6-minute interval of prediction. This assures that the random error statistically cumulates.
+- Standard deviation of the random prediction error (dimensionless parameter SE). A new random value is superimposed to the future GI values each time after passing a 6-minute interval of prediction. Hence the impact of random error on GIf(t+Δt) is statistically cumulated.
 
 GI predictors with two different accuracies have been simulated:
 
 - “Better prediction accuracy”: smooth_int = 6 minutes, SE = 0.05
 - "Worse prediction accuracy": smooth_int = 3 minutets, SE = 0.1.
 
-For each method, the smoothing quality and the rate of accumulated energy were analyzed by means of LPF orders 1 to 4. Filters of different orders are tuned in order to generate equivalent smoothing quality, provided that the filters of different orders are excited by the measured, optimally shifted input signal (like in IPLPF case). When adhering such a tuning rule, increasing of the LPF order increases its cut-off frequency, while the optimal advance Δt increases only slightly.  
-The smoothing of PV power during a day with strong solar intermittency was analyzed by the 4 above-listed smoothing methods:
-The results of analysis are graphically displayed. The prediction error (see Figure 2, Figure 6) empirically exhibits the following dependencies along partial OLAP dimensions:
+For each method, the smoothing quality and the rate of accumulated energy were analyzed by means of LPF orders 1 to 4. Filters of different orders are tuned to generate equivalent smoothing quality, provided that the filters of different orders are excited by the measured, optimally shifted input signal (like in IPLPF case). When adhering this tuning rule, increasing of the LPF order increases its cut-off frequency, while the optimal advance Δt increases only slightly.  
+The smoothing of PV power during a day with strong solar intermittency was analyzed by the four above-listed smoothing methods:
+The results of analysis are graphically displayed. The prediction error (see Figure 2, Figure 6) exhibits the following empiric dependencies along the partial OLAP dimensions:
 
 ### Smoothing quality by prediction error
 
 #### Smoothed predicted signal:
 
 - Changing the value of smooth_int affects the power smoothing quality neither by SPLPF nor by PLPF method, while for all parameter values, the SPLPF method provides worse smoothing than the PLPF method (Figure 3, Figure 4, Figure 7, Figure 8).
-- Lowering the value of smooth_int dramatically increases the accumulation rate by the PLPF method, which is always much larger than by SPLPF method (Figure 5, Figure 9). For some parameter values, the PLPF method even exceeds the accumulation rate induced by the LPF method (Figure 9). In the SPLPF method, the accumulation rate increases only slightly and much more slowly than in the PLPF method.
+- Lowering the value of smooth_int dramatically increases the accumulation rate by the PLPF method, which is always much larger than the accumulation rate by SPLPF method (Figure 5, Figure 9). For some parameter values, the PLPF method even exceeds the accumulation rate induced by the LPF method (Figure 9). In the SPLPF method, the accumulation rate increases only slightly and much more slowly than in the PLPF method.
 
 #### Random error in predicted values:
 
@@ -165,6 +165,8 @@ The signal GI(t) is graphically displayed as measured, predicted, and smoothed b
 With "better GI prediction accuracy", the SPLPF smoothing required 21% - 22% of the BESS energy capacity (Δ GX) used by the LPF method during the selected days, or 24% - 41% of the capacity used by the PLPF method. SPLPF eventually required 1.0 - 1.2 times the energy capacity used by the IPLPF method. The SPLPF smoothing put 58% - 73% of the energy flow through the accumulator relative to the LPF method, or 75% - 83% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more energy through BESS than the IPLPF method.
 
 With "worse GI prediction accuracy", the SPLPF smoothing required 24% - 33% of the BESS energy capacity (Δ GX) used by the LPF method during the selected days, or 19% - 28% of the capacity used by the PLPF method. SPLPF eventually required 1.2 - 1.8 times the energy capacity used by the IPLPF method. The SPLPF method put 59% - 77% of the daily energy flow through the accumulator relative to the LPF method, or 63% - 69% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more  energy through BESS than the IPLPF method.
+
+Although we haven't analyzed the whole year (simulation of GIf is computationally intensive), the analysis of 4 smoothing methods based on 2 days with high solar intermittency, different solar exposures and various prediction error gave us a real assumption that SPLPF performs much better than PLPF, and that ***SPLPF performs close to the ideal smoothing IPLPF with the appropriate filter order and if the prediction error is not too high.*** These empiric results have been also theoretically justified.
 
 ### Graphical display
 For the illustration, 3 graph types are displayed below:
