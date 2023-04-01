@@ -7,6 +7,7 @@ dHI = diffused horizontal irradiance [W/m2]
 DHI = direct horizontal irradiance [W/m2]  
 DNI = direct normal irradiance [W/m2]  
 EDLC = electric double layer capacitor (supercapacitor)  
+FESS = flywheel energy storage system  
 GHI = global horizontal irradiance [W/m2]  
 GI = global irradiance [W/m2]  
 GIf = forecasted future global irradiance [W/m2]  
