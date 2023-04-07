@@ -1,8 +1,9 @@
 #List of abbreviations
 AC/DC = AC to DC power conversion  
 A/D = analog to digital data conversion  
+AI = artificial intelligence
 BESS = battery energy storage system  
-CapEx = capital expenditure for PV smoothing [€/kW]  
+CapEx = capital expenditures for PV smoothing [€/kW]  
 DC/AC = DC to AC power conversion (inversion)  
 dHI = diffused horizontal irradiance [W/m2]  
 DHI = direct horizontal irradiance [W/m2]  
@@ -20,7 +21,7 @@ Li-Ion = Lithium-Ion accumulation technology
 LPF = low-pass filter  
 MPPT = maximum power point tracking  
 OLAP = online analytical processing (of pre-aggregated data)  
-OpEx = operational expenditure for PV smoothing [€/kW/year]  
+OpEx = operational expenses for PV smoothing [€/kW/year]  
 PLPF = predictive low-pass filter  
 PV = photovoltaic  
 PVPP = photovoltasic power plant  
