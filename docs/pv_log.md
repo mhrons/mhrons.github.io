@@ -26,13 +26,19 @@ A corresponding measurement system with data logger has been developed and is in
 
  The system consists of 2 units:
 
-1. external console having 4 reference PV panels fixed in different angles, and temperature sensors sticked to the panels,
+1. external console carrying 4 reference PV panels fixed in different angles, and temperature sensors sticked to the panels,
 2. internal measurement unit, serving as a MPPT controller, battery charger, heat sink, A/D converter, and data logger.
 
 Here are the main system highlights:
 
-* Four monocrystaline PV panels (sensors) are mounted at different angles. The panels are calibrated by means of Ineichen’s clear-sky model, having its Linke-turbidity factor calibrated by the reference GHI, dHI measured at the near meteorological site. The PV panels are re-calibrated once a year.
-* Temperature sensors are fixed onto each PV panel. The panels are always operated at maximum output power (MPPT). Their operating point is dynamically adjusted according to the temperature drift of their A-V characteristics and internal resistance. The measured output power of each panel is then divided by its active surface area and by its (known) efficiency at given surface temperature. The measurement is finally expressed as "photovoltaic global irradiance" in W/m2 analogous to GI measured at given angle of the plane of incidence, but taking into account the spectral and optical properties of PV panels.
+* Four monocrystaline PV panels (sensors) are mounted at different angles. The panels are calibrated by means of 
+[Ineichen’s clear-sky model](https://pvlib-python.readthedocs.io/en/v0.4.3/generated/pvlib.clearsky.ineichen.html)
+, having the 
+[Linke-turbidity factor](https://glossary.ametsoc.org/wiki/Linke_turbidity_factor)
+ calibrated by the reference GHI, dHI measured at the near meteorological site. The PV panels are re-calibrated once a year.
+* Temperature sensors are fixed onto each PV panel. The panels are always operated at 
+[maximum output power (MPPT)](https://www.leonics.com/support/article2_14j/articles2_14j_en.php)
+. Their operating point is dynamically adjusted to follow to the temperature drift of their A-V characteristics and internal resistance. The measured output power of each panel is further divided by its active surface area and by its (known) efficiency at given surface temperature. The measurement is finally expressed as "photovoltaic global irradiance" in W/m2 analogous to GI measured at given angle of the plane of incidence, but taking into account the spectral and optical properties of PV panels.
 * Data logger operates with a dynamic sampling frequency. This captures the whole spectrum of solar intermittency, but eliminates redundancy in the stored data. The sampling period ranges from 0.5 second to 10 minutes, according to the solar intermittency. Several years of such a irregular time series can be stored in a relational database with tablespace <1TB.
 * The off-grid measurement system is self-powered 24 hours x 7 days a week. Except the measurement, the PV sensors supply power to the data logger and charge its backup accumulator. The system requires a minimum maintenance.
 ![GI](img/GI.2022-01-15.png){ width="300"  align=right }
@@ -41,5 +47,5 @@ Here are the main system highlights:
 Daily profiles (12 h) of photovoltaic GI [W/m2] measured at 4 fixed planes. GHI corresponds to the horizontal plane and extrapolated GNI corresponds to the virtually solar-tracked plane of incidence. Its normal vector points to the extra-normal area in winter while the solar elevation is lower than the elevation of the 4 fixed normal vectors. The approximated GNI is therefore less accurate in winter.
 ![Cels](img/Cels.2022-01-15.png){ width="300"  align=right }
 
-Daily temperature profiles (24 h) at PV surfaces, and the ambient temperature. The PV surface's temperature is affected by the ambient temperature, solar irradiance (infrared spectrum), and by the wind. The ambient temperature is higher than the sky temperature in the night while the PV panels are cooled by their own radiation.
+Daily temperature profiles (24 h) at PV surfaces, and the ambient temperature. The PV surface's temperature is affected by the ambient temperature, solar irradiance, and by the wind. The ambient temperature is higher than the sky temperature, so the PV pnales are always cooled by their own radiation. This effect can be observed in the night when the panels are not exposed to solar radiation.
 
