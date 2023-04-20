@@ -319,12 +319,13 @@ The results of analysis have been tabelized and plotted. The impact of predictio
 <p>With "worse GI prediction accuracy", the SPLPF smoothing required 24% - 33% of the BESS energy capacity (Δ GX) used by the LPF method during the selected days, or 19% - 28% of the capacity used by the PLPF method. SPLPF eventually required 1.2 - 1.8 times the energy capacity used by the IPLPF method. The SPLPF method put 59% - 77% of the daily energy flow through the accumulator relative to the LPF method, or 63% - 69% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more  energy through BESS than the IPLPF method.</p>
 <p>Although we haven't analyzed the whole year (simulation of GIf is computationally intensive), the analysis of 4 smoothing methods based on 2 days with high solar intermittency, different solar exposures and various prediction error gave us a real assumption that SPLPF performs much better than PLPF, and that <strong><em>SPLPF performs close to the ideal smoothing IPLPF with the appropriate filter order and provided that the prediction error is not too high.</em></strong> These empiric results have been also theoretically justified.</p>
 <h2 id="graphical-display-of-smoothing">Graphical display of smoothing</h2>
-<p>Plotted are the measured time-courses of 2 days, both exhibiting a strong solar intermittency. For the illustration, 4 graph types have been plotted, expressing the smoothing quality by various criteria:</p>
+<p>Plotted are the measured time-courses of 2 days, both exhibiting the strong solar intermittency. For illustration, various time courses have been plotted to express the smoothing quality by various criteria:</p>
 <ul>
-<li>Measured GI, synchronized with predicted GIf (1 hour zoomed from the daily time course)</li>
-<li>Measured GI and its smooth equivalent by the prediction accuracy and smoothing method, applying optimal LPF order</li>
-<li>Accumulated GX by the prediction accuracy and smoothing method, applying optimal LPF order</li>
-<li>Accumulated GX by the filter order and prediction accuracy, using IPLPF and SPLPF smoothing methods</li>
+<li>Measured GI(t), synchronized with predicted GIf (1 hour zoomed from the daily time course)</li>
+<li>Measured GI(t) and its smooth equivalent by the prediction accuracy and smoothing method, applying optimal LPF order</li>
+<li>Accumulated GX(t) by the prediction accuracy and smoothing method, applying optimal LPF order</li>
+<li>Smoothed GI(t) by the filter order and prediction accuracy, using the IPLPF and SPLPF smoothing methods</li>
+<li>Accumulated GX by the filter order and prediction accuracy, using the IPLPF and SPLPF smoothing methods</li>
 </ul>
 <h3 id="smoothing-quality-by-prediction-error_1">Smoothing quality by prediction error</h3>
 <h4 id="day-with-medium-insolation">Day with medium insolation</h4>
