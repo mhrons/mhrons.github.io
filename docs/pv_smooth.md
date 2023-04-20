@@ -172,12 +172,13 @@ With "worse GI prediction accuracy", the SPLPF smoothing required 24% - 33% of
 Although we haven't analyzed the whole year (simulation of GIf is computationally intensive), the analysis of 4 smoothing methods based on 2 days with high solar intermittency, different solar exposures and various prediction error gave us a real assumption that SPLPF performs much better than PLPF, and that ***SPLPF performs close to the ideal smoothing IPLPF with the appropriate filter order and provided that the prediction error is not too high.*** These empiric results have been also theoretically justified.
 
 ## Graphical display of smoothing
-Plotted are the measured time-courses of 2 days, both exhibiting a strong solar intermittency. For the illustration, 4 graph types have been plotted, expressing the smoothing quality by various criteria:
+Plotted are the measured time-courses of 2 days, both exhibiting the strong solar intermittency. For illustration, various time courses have been plotted to express the smoothing quality by various criteria:
 
-- Measured GI, synchronized with predicted GIf (1 hour zoomed from the daily time course)
-- Measured GI and its smooth equivalent by the prediction accuracy and smoothing method, applying optimal LPF order
-- Accumulated GX by the prediction accuracy and smoothing method, applying optimal LPF order
-- Accumulated GX by the filter order and prediction accuracy, using IPLPF and SPLPF smoothing methods
+- Measured GI(t), synchronized with predicted GIf (1 hour zoomed from the daily time course)
+- Measured GI(t) and its smooth equivalent by the prediction accuracy and smoothing method, applying optimal LPF order
+- Accumulated GX(t) by the prediction accuracy and smoothing method, applying optimal LPF order
+- Smoothed GI(t) by the filter order and prediction accuracy, using the IPLPF and SPLPF smoothing methods
+- Accumulated GX by the filter order and prediction accuracy, using the IPLPF and SPLPF smoothing methods
 
 ###  Smoothing quality by prediction error
 
