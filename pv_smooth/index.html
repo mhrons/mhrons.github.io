@@ -103,7 +103,25 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#accumulated-energy-by-smoothing">Accumulated energy by smoothing</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#graphical-display">Graphical display</a>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#graphical-display-of-smoothing">Graphical display of smoothing</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#smoothing-quality-by-prediction-error_1">Smoothing quality by prediction error</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#day-with-medium-insolation">Day with medium insolation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#day-with-high-insolation">Day with high insolation</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#smoothing-quality-by-lpf-order_1">Smoothing quality by LPF order</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#day-with-medium-insolation_1">Day with medium insolation</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#day-with-high-insolation_1">Day with high insolation</a>
+    </li>
+        </ul>
     </li>
         </ul>
     </li>
@@ -251,7 +269,7 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 <li>as the advance Δt increases, the (unwanted) smoothing of the predicted signal GIf strengthens</li>
 <li>as the advance Δt increases, the impact of  random error on GIf increases (statistically cumulates)</li>
 </ul>
-<p>Both errors are applied at the "future" time t+Δt, whereas the LPF group delay, hence Δt depend on the demanded quality of smoothing which is adjusted by the order and cut-off frequency of LPF. In the simulation, we control the prediction error by 2 quantitative (OLAP) dimensions:</p>
+<p>Both errors are applied at the "future" time t+Δt whereas Δt is given by the demanded smoothing quality. Δt matches with the group delay which is controlled by the order and cut-off frequency of LPF. In the simulation, we trim the prediction error by 2 quantitative (OLAP) dimensions:</p>
 <ul>
 <li>Interval of prediction, after passing of which the smoothing impact on the predicted signal is strengthened, is defined by the parameter smooth_int [minute]. The shorter this interval, the steeper the smoothing effect rises towards predicted future.</li>
 <li>Standard deviation of the random prediction error (dimensionless parameter SE). A random value is superimposed to future GI values. This is re-generated each time after passing a 6-minute interval of prediction. Hence the impact of random error on GIf(t+Δt) statistically cumulates over the prediction time.</li>
@@ -276,15 +294,15 @@ The results of analysis have been tabelized and plotted. The impact of predictio
 <li>Increasing the value of SE parameter significantly increases the accumulation rate by the PLPF method (Figure 5, Figure 9), which is for all values SE &gt; 0 much higher than by the SPLPF method. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly in the SPLPF method, and less so the higher the filter order.</li>
 </ul>
 <h3 id="smoothing-quality-by-lpf-order">Smoothing quality by LPF order</h3>
-<p>Filter order is the third OLAP dimension, impact of which was analyzed together with the prediction error. We analyzed the LPF orders 1 to 4:</p>
+<p>Filter order is the third OLAP dimension, impact of which was analyzed together with the prediction error. We analyzed the LPF orders 1 to 4 (figures 10 to 21):</p>
 <ul>
 <li>Filter order does not affect the smoothing quality of PLPF method and for small filter orders, the smoothing quality of PLPF is better than that of SPLPF.</li>
-<li>Increasing of the filter order improves the smoothing quality of SPLPF, which becomes technically equivalent with PLPF from the 3rd order onwards.</li>
-<li>Increasing of the filter order only slightly reduces the accumulation rate by the PLPF method. The accumulation rate by PLPF is always substantially larger than by SPLPF.</li>
-<li>Increasing of the filter order appreciably reduces the accumulation rate by the SPLPF method. <strong><em>By increasing the filter order with a relatively small prediction error, SPLPF gradually converges to the accumulation rate induced by the IPLPF method.</em></strong></li>
+<li>Increasing the filter order from 1 to 3 significantly improves the quality of SPLPF smoothing, given simulated prediction error (Figures 10-13, 16-18).</li>
+<li>Increasing the filter order only slightly reduces the accumulation rate by PLPF smoothing. The accumulation rate by PLPF is always substantially larger than by SPLPF.</li>
+<li>Increasing the filter order from 1 to 3 significantly reduces the accumulation rate by SPLPF smoothing, given simulated prediction error (Figures 13-15, 19-21). <strong><em>By means of optimal filter order with a relatively small prediction error, SPLPF shrinks the accumulation rate close to the IPLPF method.</em></strong></li>
 </ul>
 <h2 id="summary">Summary</h2>
-<p>The signal GI(t) is plotted as measured, predicted, and smoothed by the four different smoothing methods. Finally, a daily time course of the specific accumulated energy GX [Wh/m2] is displayed, corresponding to the smoothing method. Performance of the 3rd-order low-pass filter is shown by the graphs. Two days with strong solar intermittency have been selected for the simulation: a day with medium solar exposure 3.0 kWh/m2, and a day with high solar exposure 5.9 kWh/m2 (measured at the above-specified plane of incidence). Time advance Δt = 30 minutes was applied in order to achieve a desired smoothing effect on both selected days. Accumulation rate by the four different smoothing methods is aggregated, based on the measured GI(t) signal. The results are summarized in Table 2 and Table 3: In the column "ΔGX", a difference between the maximum and minimum specific accumulated energy is calculated by the expression (4). In the column "Throughput", a total daily flow of the specific energy through the accumulator is calculated by (5). For a comparison, the daily specific global exposure at the plane of incidence is  displayed too.</p>
+<p>The signal GI(t) is plotted as measured, predicted, and smoothed by the four different smoothing methods. Finally, a daily time course of the specific accumulated energy GX [Wh/m2] is displayed, corresponding to the smoothing method. Performance of the 3rd-order low-pass filter is shown by the graphs. Two days with strong solar intermittency have been selected for the simulation: a day with medium solar exposure 3.0 kWh/m2, and a day with high solar exposure 5.9 kWh/m2 (measured at the above-specified plane of incidence). Time advance Δt = 30 minutes was applied in order to achieve a desired smoothing effect on both selected days. Accumulation rate by the four different smoothing methods has benn aggregated, based on the measured GI(t) signal. The results are summarized in Table 2 and Table 3: In the column "ΔGX", a difference between the maximum and minimum specific accumulated energy is calculated by the expression (4). In the column "Throughput", a total daily flow of the specific energy through the accumulator is calculated by (5). For a comparison, the daily specific global exposure at the plane of incidence is  displayed too.</p>
 <h3 id="accumulated-energy-by-smoothing">Accumulated energy by smoothing</h3>
 <figure>
 <p><img alt="IPLPF Costs" src="../img/Accu_Rate_220304.png" width="650" />
@@ -300,56 +318,120 @@ The results of analysis have been tabelized and plotted. The impact of predictio
 <p>With "better GI prediction accuracy", the SPLPF smoothing required 21% - 22% of the BESS energy capacity (Δ GX) used by the LPF method during the selected days, or 24% - 41% of the capacity used by the PLPF method. SPLPF eventually required 1.0 - 1.2 times the energy capacity used by the IPLPF method. The SPLPF smoothing put 58% - 73% of the energy flow through the accumulator relative to the LPF method, or 75% - 83% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more energy through BESS than the IPLPF method.</p>
 <p>With "worse GI prediction accuracy", the SPLPF smoothing required 24% - 33% of the BESS energy capacity (Δ GX) used by the LPF method during the selected days, or 19% - 28% of the capacity used by the PLPF method. SPLPF eventually required 1.2 - 1.8 times the energy capacity used by the IPLPF method. The SPLPF method put 59% - 77% of the daily energy flow through the accumulator relative to the LPF method, or 63% - 69% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more  energy through BESS than the IPLPF method.</p>
 <p>Although we haven't analyzed the whole year (simulation of GIf is computationally intensive), the analysis of 4 smoothing methods based on 2 days with high solar intermittency, different solar exposures and various prediction error gave us a real assumption that SPLPF performs much better than PLPF, and that <strong><em>SPLPF performs close to the ideal smoothing IPLPF with the appropriate filter order and provided that the prediction error is not too high.</em></strong> These empiric results have been also theoretically justified.</p>
-<h3 id="graphical-display">Graphical display</h3>
-<p>For the illustration, 3 graph types are displayed below:</p>
+<h2 id="graphical-display-of-smoothing">Graphical display of smoothing</h2>
+<p>Plotted are the measured time-courses of 2 days, both exhibiting a strong solar intermittency. For the illustration, 4 graph types have been plotted, expressing the smoothing quality by various criteria:</p>
 <ul>
-<li>Measured GI, synchronized with predicted GIf</li>
-<li>Measured GI and its smooth equivalent by different smoothing methods</li>
-<li>Accumulated GX by different smoothing methods</li>
+<li>Measured GI, synchronized with predicted GIf (1 hour zoomed from the daily time course)</li>
+<li>Measured GI and its smooth equivalent by the prediction accuracy and smoothing method, applying optimal LPF order</li>
+<li>Accumulated GX by the prediction accuracy and smoothing method, applying optimal LPF order</li>
+<li>Accumulated GX by the filter order and prediction accuracy, using IPLPF and SPLPF smoothing methods</li>
 </ul>
-<p>The displayed signals are based on the measured data from 2 days:</p>
-<p><strong>2022-03-04: Medium solar exposure with strong solar intermittency:</strong></p>
+<h3 id="smoothing-quality-by-prediction-error_1">Smoothing quality by prediction error</h3>
+<h4 id="day-with-medium-insolation">Day with medium insolation</h4>
 <figure>
-<p><img alt="IPLPF Costs" src="../img/2022-03-04_from11h_to12h.png" width="650" />
+<p><img alt="GIf_220304" src="../img/2022-03-04_from11h_to12h.png" width="650" />
   </p>
 <figcaption>Figure 2: Measured GI synchronized with GIf (predicted 30 minutes ago) between 11:00 and 12:00. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
 <figure>
-<p><img alt="IPLPF Costs" src="../img/se0.05_6min_2022-03-04.png" width="650" />
+<p><img alt="GIs_LoErr_220304" src="../img/se0.05_6min_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 3: Measured and smoothed GI by 4 different methods, with better prediction accuracy</figcaption>
+<figcaption>Figure 3: Measured and smoothed GI by 4 different methods; better prediction accuracy</figcaption>
 </figure>
 <figure>
-<p><img alt="IPLPF Costs" src="../img/se0.1_3min_2022-03-04.png" width="650" />
+<p><img alt="GIs_HiErr_220304" src="../img/se0.1_3min_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 4: Measured and smoothed GI by 4 different methods, with worse prediction accuracy</figcaption>
+<figcaption>Figure 4: Measured and smoothed GI by 4 smoothing methods; worse prediction accuracy</figcaption>
 </figure>
 <figure>
-<p><img alt="IPLPF Costs" src="../img/sim24_2022-03-04.png" width="650" />
+<p><img alt="GX_220304" src="../img/sim24_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 5: Time course of GX accumulated by 4 different smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
+<figcaption>Figure 5: Time course of GX accumulated by 4 smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
-<p>.<br />
-<strong>2022-04-04: High solar exposure with strong solar intermittency:</strong></p>
+<h4 id="day-with-high-insolation">Day with high insolation</h4>
 <figure>
-<p><img alt="IPLPF Costs" src="../img/2022-04-04_from11h_to12h.png" width="650" />
+<p><img alt="GIf_220404" src="../img/2022-04-04_from11h_to12h.png" width="650" />
   </p>
 <figcaption>Figure 6: Measured GI synchronized with GIf (predicted 30 minutes ago) between 11:00 and 12:00. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
 <figure>
-<p><img alt="IPLPF Costs" src="../img/se0.05_6min_2022-04-04.png" width="650" />
+<p><img alt="GIs_LoErr_220404" src="../img/se0.05_6min_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 7: Measured and smoothed GI by 4 different methods, with better prediction accuracy</figcaption>
+<figcaption>Figure 7: Measured and smoothed GI by 4 smoothing methods; better prediction accuracy</figcaption>
 </figure>
 <figure>
-<p><img alt="IPLPF Costs" src="../img/se0.1_3min_2022-04-04.png" width="650" />
+<p><img alt="GIs_HiErr_220404" src="../img/se0.1_3min_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 8: Measured and smoothed GI by 4 different methods, with worse prediction accuracy</figcaption>
+<figcaption>Figure 8: Measured and smoothed GI by 4 smoothing methods; worse prediction accuracy</figcaption>
 </figure>
 <figure>
-<p><img alt="IPLPF Costs" src="../img/sim24_2022-04-04.png" width="650" />
+<p><img alt="GX_220404" src="../img/sim24_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 9: Time course of GX accumulated by 4 different smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
+<figcaption>Figure 9: Time course of GX accumulated by 4 smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
+</figure>
+<h3 id="smoothing-quality-by-lpf-order_1">Smoothing quality by LPF order</h3>
+<h4 id="day-with-medium-insolation_1">Day with medium insolation</h4>
+<figure>
+<p><img alt="GIs_aavg0_220304" src="../img/order_gi_aavg0_2022-03-04.png" width="650" />
+  </p>
+<figcaption>Figure 10: Time course of IPLPF-smoothed GI by filter order</figcaption>
+</figure>
+<figure>
+<p><img alt="GIs_LoErr_220304" src="../img/order_gi_plp7_2022-03-04.png" width="650" />
+  </p>
+<figcaption>Figure 11: Time course of SPLPF-smoothed GI by filter order; better prediction accuracy</figcaption>
+</figure>
+<figure>
+<p><img alt="GIs_HiErr_220304" src="../img/order_gi_plp13_2022-03-04.png" width="650" />
+  </p>
+<figcaption>Figure 12: Time course of SPLPF-smoothed GI by filter order; worse prediction accuracy</figcaption>
+</figure>
+<figure>
+<p><img alt="GX_aavg0_220304" src="../img/order_gx_aavg0_2022-03-04.png" width="650" />
+  </p>
+<figcaption>Figure 13: Time course of IPLPF-smoothed GX by filter order</figcaption>
+</figure>
+<figure>
+<p><img alt="GX_LoErr_220304" src="../img/order_gx_plp7_2022-03-04.png" width="650" />
+  </p>
+<figcaption>Figure 14: Time course of SPLPF-smoothed GX by filter order; better prediction accuracy</figcaption>
+</figure>
+<figure>
+<p><img alt="GX_HiErr_220304" src="../img/order_gx_plp13_2022-03-04.png" width="650" />
+  </p>
+<figcaption>Figure 15: Time course of SPLPF-smoothed GX by filter order; worse prediction accuracy</figcaption>
+</figure>
+<p>.  </p>
+<h4 id="day-with-high-insolation_1">Day with high insolation</h4>
+<figure>
+<p><img alt="GIs_aavg0_220404" src="../img/order_gi_aavg0_2022-04-04.png" width="650" />
+  </p>
+<figcaption>Figure 16: Time course of IPLPF-smoothed GI by filter order</figcaption>
+</figure>
+<figure>
+<p><img alt="GIs_LoErr_220404" src="../img/order_gi_plp7_2022-04-04.png" width="650" />
+  </p>
+<figcaption>Figure 17: Time course of SPLPF-smoothed GI by filter order; better prediction accuracy</figcaption>
+</figure>
+<figure>
+<p><img alt="GIs_HiErr_220404" src="../img/order_gi_plp13_2022-04-04.png" width="650" />
+  </p>
+<figcaption>Figure 18: Time course of SPLPF-smoothed GI by filter order; worse prediction accuracy</figcaption>
+</figure>
+<figure>
+<p><img alt="GX_aavg0_220404" src="../img/order_gx_aavg0_2022-04-04.png" width="650" />
+  </p>
+<figcaption>Figure 19 Time course of GX by filter order; IPLPF smoothing)</figcaption>
+</figure>
+<figure>
+<p><img alt="GX_LoErr_220404" src="../img/order_gx_plp7_2022-04-04.png" width="650" />
+  </p>
+<figcaption>Figure 20: Time course of GX by filter order; SPLPF smoothing with better prediction accuracy</figcaption>
+</figure>
+<figure>
+<p><img alt="GX_HiErr_220404" src="../img/order_gx_plp13_2022-04-04.png" width="650" />
+  </p>
+<figcaption>Figure 21: Time course of GX by filter order; SPLPF smoothing with worse prediction accuracy</figcaption>
 </figure>
               
             </div>
