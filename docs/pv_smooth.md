@@ -39,7 +39,7 @@ Mean quadratic deviation of SOC is near to minimum: $${1 \over T} \int_{0}^T SOC
 
 Hence near-to-minimum required accumulaton capacity per cycle: $$\Delta SOC = max(SOC) – min(SOC) ≈ min\ \ \ \ \ \ \ \ \ (4)$$
 
-The value ΔSOC should be predicted and ESS must be charged to ΔSOC/2 at the begining of each cycle T (24 hours in case of PV energy) in order to always keep SOC≥0.  
+The value ΔSOC should be predicted and ESS must be accordingly pre-charged at the begining of each cycle T (24 hours in case of PV energy) in order to always keep SOC≥0.  
 Eventually, near-to-minimum throughput of accumulated energy per cycle is achieved by Δt: $${1 \over 2} \int_{0}^T|p(\tau)-s(\tau+\Delta t)|d \tau ≈ min\ \ \ \ \ \ \ \ \ (5)$$
 
 The rate of accumulation is expressed by (4) and (5) which are minimized by Δt during a working cycle T. The rate of accumulation is also expressed by the extreme ESS power demand p(τ)-s(τ+Δt) during a sudden loss or peak of direct sunlight. This value results from the installed power of PVPP.
