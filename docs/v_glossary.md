@@ -1,4 +1,4 @@
-#List of abbreviations
+#List of acronyms
 AC/DC = AC to DC power conversion  
 A/D = analog to digital data conversion  
 AI = artificial intelligence  
