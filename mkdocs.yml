@@ -21,6 +21,14 @@ markdown_extensions:
     - mdx_math
     - attr_list
     - md_in_html
+    - meta
 
 watch: 
     - custom_theme/
+    
+plugins:
+    - search: {}
+    - encryptcontent:
+        title_prefix: '[LOCK] '
+        encryption_info_message: "Please contact the author if you want to read it"
+        summary: "This content is password-protected"
