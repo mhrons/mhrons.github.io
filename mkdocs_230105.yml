@@ -15,25 +15,13 @@ theme:
   titles_only: false
 
 extra_javascript: 
-    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+    - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 markdown_extensions:
-#    - mdx_math
+    - mdx_math
     - attr_list
     - md_in_html
-    - meta
-    - pymdownx.betterem
-    - pymdownx.arithmatex
-    - pymdownx.caret
-    - pymdownx.mark
-    - pymdownx.tilde
     
 watch: 
     - custom_theme/
 
-plugins:
-    - search:
-    - encryptcontent:
-        title_prefix: '[LOCK] '
-        summary: 'This content is related to a pending patent'
-        encryption_info_message: "Contact the author for access to this page."
