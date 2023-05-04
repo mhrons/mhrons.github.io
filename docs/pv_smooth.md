@@ -23,7 +23,7 @@ In the schematic diagram on Figure 1, a PV power plant (PVPP) is connected to th
 
 - In theory, an ideal predictive smoothing **IPLPF** would excite LPF by the exact future PV power signal p(t+Δt) where the time advance Δt is absolutely equal to the LPF's group delay at frequencies f<<f~c~ where f~c~ is the cut-off frequency of LPF. The smooth power signal s(t+Δt) would be the response of LPF to the input signal p(t+Δt).
 
-- According to the schematic diagram, **PLPF** smoothing method excites the LPF by a predicted PV power signal pf(t+Δt). Its predictor is trained by the sky-imagery signal and by the measured PV power p(t).
+- According to the schematic diagram, **PLPF** smoothing method excites the LPF by a predicted PV power signal p~f~(t+Δt). Its predictor is trained by the sky-imagery signal and by the measured PV power p(t).
 
 - Eventually, a smart smoothing method **SPLPF** (patent pending) has been designed, integrating the filter with the PV predictor which is trained by the sky-imagery signal and by the measured PV power p(t). This method uses a modified scheme.
 
