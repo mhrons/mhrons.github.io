@@ -35,5 +35,5 @@ plugins:
     - search:
     - encryptcontent:
         title_prefix: '[LOCK] '
-        summary: 'This content is related to a pending patent'
+        summary: 'This content is password-protected'
         encryption_info_message: "Contact the author for access to this page."
