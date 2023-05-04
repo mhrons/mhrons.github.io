@@ -30,17 +30,27 @@ In the schematic diagram on Figure 1, a PV power plant (PVPP) is connected to th
 ## Accumulation of energy by smoothing
 For the simplicity of analysis, energy losses in AC/DC conversion and accumulation are neglected.  
 Time course of the accumulated energy by ESS:  
-![formula1](img/formula1.png){: style="width: 45%;"}  
+
+$$SOC(t)=\int_{0}^t (p(\tau)-s(\tau+\Delta t))d\tau\ \ \ \ \ \ \ \ \ (1)$$
+
 defines the change of its state-of-charge [Wh] since time=0 until time=t, while SOC may acquire both positive and negative values. (Always-positive SOC values should be technically managed in ESS.) The time advance Δt reduces absolute values of the integrated function. The above-defined time advance Δt ensures following technical criteria to be satisfied:  
-Mean value of SOC is near to zero:  
-![formula2](img/formula2.png){: style="width: 35%; align='right';"}  
-Mean quadratic deviation of SOC is near to minimum:  
-![formula3](img/formula3.png){: style="width: 40%; align='right';"}  
-Hence the required accumulaton capacity per cycle is near to minimum:  
-![formula4](img/formula4.png){: style="width: 60%; align='right';"}  
+Mean value of SOC is near to zero:
+
+$${1 \over T} \int_{0}^T SOC (t) dt ≈ 0\ \ \ \ \ \ \ \ \ (2)$$
+
+Mean quadratic deviation of SOC is near to minimum: 
+
+$${1 \over T} \int_{0}^T SOC^2 (t) dt ≈ min\ \ \ \ \ \ \ \ \ (3)$$
+
+Hence the required accumulaton capacity per cycle is near to minimum:
+
+$$\Delta SOC = max(SOC) – min(SOC) ≈ min\ \ \ \ \ \ \ \ \ (4)$$
+
 The value ΔSOC should be predicted and ESS must be accordingly pre-charged at the begining of each cycle T (24 hours in case of PV energy) in order to keep SOC≥0 during the cycle.  
-Eventually, near-to-minimum throughput of accumulated energy per cycle is achieved by Δt:  
-![formula5](img/formula5.png){: style="width: 55%; align='right';"}  
+Eventually, near-to-minimum throughput of accumulated energy per cycle is achieved by Δt:
+
+$${1 \over 2} \int_{0}^T|p(\tau)-s(\tau+\Delta t)|d \tau ≈ min\ \ \ \ \ \ \ \ \ (5)$$
+
 The rate of accumulation is expressed by (4) and (5) which are minimized during a working cycle T. The rate of accumulation is also expressed by the extreme ESS power demand p(τ)-s(τ+Δt) during a sudden loss or peak of direct sunlight. This value results from the installed power of PVPP.
 
 Let us expect that the PV power is proportional to the global solar irradiance GI [W/m2]. In our experiment, the solar irradiance is intercepted by a planar panel 20 cm x 16 cm on the earth’s surface at latitude=48.2°N, longitude=17.1°E, with the plane of incidence elevated by 47°, south-oriented. At this point it should be mentioned that the spectrum of real PV power is usually smoother than the spectrum of GI(t), as the (usually greater) surface area of the corresponding PVPP plane acts like a moving-average filter. Unfortunately, the size and speed of clouds prevent a true smoothing effect from being achieved. Assuming proportionality between the PV power p(t) and the global irradiance GI(t), we analyze the worst case of PV intermittency. Let us substitute the signals p(τ), s(τ+Δt) in (1) by the measured signal GI(τ) and by its “predicted-and-smoothed” counterpart GIs(τ+Δt). After substituting, the expression (1) computes the time course of specific accumulated energy GX(t) [Wh/m2] by the filter.
