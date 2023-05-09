@@ -35,5 +35,5 @@ plugins:
     - search:
     - encryptcontent:
         title_prefix: '[LOCK] '
-        summary: 'This content is password-protected'
-        encryption_info_message: "Contact the author for access to this page."
+        summary: 'This content is not public'
+        encryption_info_message: "Please contact the author for access to this page."
