@@ -35,11 +35,11 @@ Time course of the accumulated energy by ESS:
 $$SOC(t)=\int_{0}^t (p(\tau)-s(\tau+\Delta t))d\tau\tag{1}\label{eq:1}$$
 
 defines the change in the state-of-charge [Wh] since time=0 until time=t, while SOC may acquire both positive and negative values. (Always-positive SOC values in ESS can be technically managed.) The time advance Δt reduces absolute values of the integrated function. The IPLPF-defined time advance Δt ensures that following technical criteria are satisfied:  
-Mean value of \eqref{eq:1} is near to zero:  
+Mean value of SOC is near to zero:  
 
 $${1 \over T} \int_{0}^T SOC (t) dt ≈ 0\tag{2}\label{eq:2}$$
 
-Mean quadratic deviation of \eqref{eq:1} is near to minimum:  
+Mean quadratic deviation of SOC is near to minimum:  
 
 $${1 \over T} \int_{0}^T SOC^2 (t) dt ≈ min\tag{3}\label{eq:3}$$
 
@@ -56,13 +56,13 @@ The rate of accumulation expressed by \eqref{eq:4} and \eqref{eq:5} can be minim
 
 $$P_{ESS}=max|p(\tau)-s(\tau+\Delta t)|\tag{6}\label{eq:6}$$
 
-Its value is about 80% of the installed PV power.
+Its practical value is about 80% of the installed PV power.
 
 Let us expect that the PV power p(t) is proportional to the global solar irradiance GI [W/m^2^]. In our experiment, the solar irradiance is intercepted by a planar panel 20 cm x 16 cm on the earth’s surface at latitude=48.2°N, longitude=17.1°E, with the plane of incidence elevated by 47°, south-oriented. To be exact, we should mention that p(t) is usually smoother than GI(t), as the (usually greater) surface area of the corresponding PV plane acts like a moving-average filter of GI(t). Unfortunately, the size and speed of clouds prevent a true smoothing effect from being achieved. By assuming the proportionality between GI(t) and p(t) we analyze the worst case of PV intermittency. Let us now substitute the signals p(τ), s(τ+Δt) in \eqref{eq:1}, \eqref{eq:5}, \eqref{eq:6} by the measured signal GI(τ) and by its “predicted-and-smoothed” counterpart GI~s~(τ+Δt). After substituting, the intergal \eqref{eq:1} computes the time course of specific accumulated energy GX(t) [Wh/m^2^] by the filter, whereas SOC(t) is proportional to GX(t).
 
 ## Ideal predictive smoothing (IPLPF)
 We simulate the operation of ideal predictive PV smoothing (IPLPF) by means of LPF excited by the exact future signal GI(t+Δt) where GI(t) is measured and the time advance Δt (as defined above) eliminates the filter’s time lag. In theory, such a ex-post simulated smoothing would minimize the accumulation of energy by the filter. This analysis aims to reveal the potential affordability of PV smoothing. The numeric experiment is based on the measured solar irradiance over a period of 1 year, assuming contemporary prices of Lithium-Ion accumulators and EDLC supercapacitors.  
-The measured time series GI(t) eventually allows to calculate the specific accumulator’s capacity [Wh/m^2^], its specific power [W/m^2^], specific accumulated throughput [Wh/m^2^/day], [Wh/m^2^/year] requested by the IPLPF smoothing. Based on the accumulators' specifications and prices in 2021, the corresponding accumulation costs have been aggregated. The result has confirmed that the IPLPF operation is worthwhile with the German power purchase tariff and PV feed-in tariff as of 2021. The ideal smoothing costs could be substantially lower than the difference between purchase and PV feed-in tariffs. (Assuming that the smooth PV infeed partially eliminates the distribution costs.) 
+The measured signal GI(t) determines the specific ESS parameters, requested by the IPLPF smoothing: maximum specific power GI~ESS~=max|GI(τ)-GI~s~(τ+Δt)|, maximum specific energy capacity ΔGX=max(GX)-min(GX) and specific accumulated throughput required by the IPLPF smoothing. Based on the accumulators' specifications and prices in 2021, the corresponding accumulation costs have been aggregated. The results have confirmed that the IPLPF operation is worthwhile with the German power purchase tariff and PV feed-in tariff as of 2021. The ideal smoothing costs could be substantially lower than the difference between purchase and PV feed-in tariffs. (Assuming that the smooth PV infeed partially eliminates the distribution costs.) 
 The IPLPF simulation suggests an affordable smoothing model for a hybrid small-scale PV plant, and suggests the accumulation technology for a large-scale PV plant.  
 ### Smoothing by IPLPF vs LPF  
 Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific energy GX accumulated by filters:  
@@ -76,7 +76,7 @@ The smoothing costs result from the energy accumulation. Accumulation costs are 
 
 - ΔSOC [Wh] reserved for smoothing \eqref{eq:4} i.e. mandated ESS capacity
 - accumulated energy throughput [Wh] by smoothing \eqref{eq:5}
-- maximum power [W] to/from ESS \eqref{eq:6}, balancing the intermittent PV power
+- maximum power [W] from/to ESS \eqref{eq:6}, balancing the intermittent PV power
 
 In practice, the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the illustrated example, IPLPF needs only 24% ΔSOC relative to LPF, and IPLPF accumulates about 50% of the energy throughput relative to LPF. Both ΔSOC and energy throughput reach their theoretical minimum by means of IPLPF smoothing.  
 The higher LPF order or its lower cut-off frequency, the smoother output, but "earlier" input signal needed to eliminate the filter's time lag. (In case of PLPF smoothing: The greater Δt, the greater prediction error and the greater rate of accumulation!)  
@@ -102,7 +102,7 @@ CapEx = initial investment to PV smoothing. OpEx = regular (e.g. yearly) costs n
 A household with installed PV power <10kW is connected to the low-voltage grid, having a BESS with energy capacity ≈ 2h x installed PV power. After charging the BESS to a threshold SOC (e.g. 87%), the BESS provides enough power to smooth the PV infeed (overflowing PV power) to the grid for affordable costs, provided that the remaining free BESS capacity is left for smoothing, and additional technical measures avoid the microcycling of BESS. The power intermittency of small scale PV plants has no impact on the grid, unless their concentration in the grid is high. ***IPLPF technology offers an affordable smoothing of PV power in the grid areas with high concentration of small-scale hybrid PV systems.***
 
 #### Suitable accumulators for IPLPF
-The measured signal GI(t) determines specific ESS parameters: maximum specific power GI~ESS~=max|GI(τ)-GI~s~(τ+Δt)|, maximum specific energy capacity ΔGX=max(GX)-min(GX) and specific accumulated throughput required by the IPLPF smoothing. Although IPLPF shrinks the necessary capacity and accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily obscured by clouds. The lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a Li-Ion battery by a relative power >> 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with IPLPF sole smoothing requirements.  
+Although the IPLPF shrinks the necessary capacity and accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily obscured by clouds. The lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a Li-Ion battery by a relative power >> 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with IPLPF sole smoothing requirements.  
 Actually, the IPLPF demands are well satisfied by a 
 [flywheel (FESS)](https://energystorage.org/why-energy-storage/technologies/flywheel-energy-storage-systems-fess/)
 : 1) Its maximum relative power 10 h^-1^ poses no limit within demands of IPLPF smoothing. 2) IPLPF accumulates energy only on solar-intermittent days (else no accumulation is needed), and the flywheels wear out only while rotating (FESS with mechanical bearings). Because of unknown prices and life cycle parameters, we calculated neither CapExp, nor OpExp of the flywheel in a role of IPLPF accumulator. However, ***the native synergy between demands and features identifies the flywheel as a suitable accumulator for IPLPF smoothing.***
@@ -114,10 +114,10 @@ Because of missing FESS prices and wear-out data, we have cost-optimized the IPL
 , combining advantages of EDLC & RedOx technologies.
 
 ### Summary of IPLPF
-One year of continous GI(t) measurement has confirmed that the ideal PV smoothing is affordable with Lithium-Ion technology, if properly implemented in a hybrid PV system (inclusive measures against micro-cycling of the battery). Although the HSC technology is yet unavailable, the intensive seek for energy makes it very likely to be soon mature for large-scale PV installations. The flywheel can be an affordable energy storage in the IPLPF smoothing of PV power. ***Low accumulation rate by the IPLPF smoothing should motivate the further development of technologies among which accurate nowcasting of PV power and smart filtering of PV power are crucial.***
+One year of continous GI(t) measurement has confirmed that the ideal PV smoothing is affordable with Lithium-Ion technology, if properly implemented in a hybrid PV system (inclusive measures against micro-cycling of the battery). Although the HSC technology is yet unavailable, the intensive seek for energy makes it very likely to be soon mature for large-scale PV installations. The flywheel can be an affordable energy storage for the IPLPF smoothing of PV power. ***Low accumulated energy by IPLPF should motivate the further development of technologies among which accurate nowcasting of PV power and smart filtering of PV power are crucial.***
   
 ## Real smoothing of PV power
-The main objective is to analyze the smoothing quality and accumulation rate (in summary "performance of the PV power smoothing") in real conditions. The measured global irradiance signal GI(t) allows not only for the simulation of ideal predictive low-pass smoothing (IPLPF), but also for the predictive smoothing of PV power (PLPF), exciting the low-pass filter by a predicted signal GI~f~(t+Δt). The values GI~f~ are biased by a prediction error. As we will show, this error induces a significant accumulation of energy compared to the IPLPF smoothing. We simulated the prediction error into the measured GI values with the aim to statistically represent the real predicted signal GI~f~(t+Δt) while having a possibility of trimming the prediction error. Hence the measured signal GI(t) allowed us to empirically analyze the performance of the ex-post simulated PLPF method.  
+The main objective is to analyze the smoothing quality and accumulation rate (in summary: performance) of the PV power smoothing in real conditions. The measured global irradiance signal GI(t) allows not only the simulation of ideal predictive low-pass smoothing (IPLPF), but also the predictive smoothing of PV power (PLPF), exciting the low-pass filter by a predicted signal GI~f~(t+Δt). The values GI~f~ are biased by a prediction error. As we will show, this error induces a significant accumulation of energy when compared to the IPLPF smoothing. We simulated the prediction error into the measured GI values with the aim to statistically represent the real predicted signal GI~f~(t+Δt) while having a possibility of trimming the prediction error. Hence the measured signal GI(t) allowed us to empirically analyze the performance of the ex-post simulated PLPF method.  
 In addition to PLPF, we have developed a “smart predictive" low-pass smoothing method (patent pending SPLPF), minimizing the accumulated energy with respect to the predicted values GI~f~. Finally, we analyzed the performance of four different PV smoothing methods:
 
 1. LPF: Input of LPF is excited by the measured signal GI(t)
@@ -125,7 +125,7 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 3. PLPF: Input of LPF is excited by the simulated-predicted signal GI~f~(t+Δt)
 4. SPLPF: Smart power filter excited by the simulated-predicted signal GI~f~.
 
-Smoothing of PV power during 2 days with strong solar intermittency and different insolations was analyzed by the four above-listed smoothing methods. For each method, the smoothing quality and rate of accumulation were analyzed by means of various LPF orders. Filters of different orders were tuned to exhibit an equivalent smoothing quality in the reference IPLPF method, provided that the filter of each order is excited by the measured, optimally shifted GI signal. When holding the equivalent smoothing quality, increasing the order of LPF increases its cut-off frequency, but only slightly increases the optimal advance Δt. The goal is to identify the LPF order that accumulates minimum energy. The results of analysis have been tabelized and plotted.
+Smoothing of PV power during 2 days with strong solar intermittency and various insolation was analyzed by the four above-listed smoothing methods. For each method, the smoothing quality and rate of accumulation were analyzed by means of various LPF orders. Filters of different orders were tuned to provide an equivalent smoothing quality with the reference IPLPF method, provided that the filter of each order is excited by the measured, optimally shifted GI signal. While holding the equivalent smoothing quality, increasing the order of LPF increases its cut-off frequency, but only slightly increases the optimal advance Δt. The goal is to identify the LPF order that accumulates minimum energy. The results of analysis have been tabelized and plotted.
 
 ### Simulation of predicted PV power
 We simulated the predicted signal GI~f~(t+Δt) from the measured, left-shifted signal GI(t+Δt) by smoothing its "future" time course and by superimposing a random error to its "future" value with respect to the fundamental properties of PV predictors:
@@ -133,12 +133,12 @@ We simulated the predicted signal GI~f~(t+Δt) from the measured, left-shifted s
 - as the advance Δt increases, the (unwanted) smoothing of the predicted signal GI~f~ strengthens
 - as the advance Δt increases, the impact of random error on GI~f~ increases (statistically cumulates)
 
-Both errors are applied at the "future" time t+Δt where the advance Δt (LPF group delay) result from the demanded quality of smoothing. The group delay is controlled by the order and cut-off frequency of LPF. The goal of GI~f~ simulation is to observe, how does the smoothing quality and accumulated energy depend on the prediction error. We adjust the prediction error by 2 quantitative partial dimensions (OLAP):
+Both errors are applied at the "future" time t+Δt where the advance Δt (LPF group delay) result from the demanded quality of smoothing. The group delay is controlled by the order and cut-off frequency of LPF. The goal of GI~f~ simulation is to observe, how does the smoothing quality and accumulated energy depend on the prediction error. We adjust the prediction error by 2 quantitative dimensions (OLAP):
 
 - Interval of prediction, after passing of which the smoothing impact on the predicted signal is strengthened, is defined by the parameter smooth_int [minute]. The shorter this interval, the steeper the smoothing effect rises towards predicted future.
 - Standard deviation of the random prediction error (dimensionless parameter SE). A random value is superimposed to each future GI value. This error is re-generated after passing each 6-minute interval of prediction. The impact of random error on GI~f~(t+Δt) is statistically cumulated over Δt.
 
-GI predictors with two different accuracies have been simulated:
+In this report, we simulate GI predictors with two different accuracies:
 
 - “Better prediction accuracy”: smooth_int = 6 minutes, SE = 0.05
 - "Worse prediction accuracy": smooth_int = 3 minutets, SE = 0.1.
@@ -165,7 +165,7 @@ Filter order is the third OLAP dimension, impact of which on the smoothing perfo
 - Increasing the filter order only slightly reduces the accumulation rate by PLPF which is always substantially greater than the accumulation rate by SPLPF.
 - Increasing the filter order notably reduces the accumulation rate induced by both IPLPF and SPLPF smoothing methods (Figures 13-15, 19-21). With the simulated predictor, this trend is reversed between orders 3 and 4 by the SPLPF method. ***With the simulated predictor, SPLPF performs best with the filter order 3.***
 
-## Tabelized summary
+## Numeric results of smoothing
 Two days with strong solar intermittency have been selected for the simulation: a day with medium solar exposure 3.0 kWh/m^2^, and a day with high solar exposure 5.9 kWh/m^2^ (measured at the above-specified plane of incidence). A 3rd-order low-pass filter excited by the input power signal with time advance Δt = 30 minutes has been applied in order to provide a desired smoothing quality of the PV power. Accumulation rate by four different smoothing methods has been aggregated, based on the measured signal GI(t) and the simulated-predicted signal GI~f~(t+Δt). The results are summarized in Tables 2 and 3: In the column "ΔGX", a difference between the maximum and minimum specific accumulated energy is calculated by the expression (4). In the column "Throughput", a daily flow of specific energy through the accumulator is calculated by (5). A daily specific global exposure in the plane of incidence is also shown for comparison.
 
 ### Accumulated energy by smoothing
