@@ -15,7 +15,10 @@ theme:
   titles_only: false
 
 extra_javascript: 
-    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+#    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'    
+    - https://polyfill.io/v3/polyfill.min.js?features=es6
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+#    - mathjax_config.js
 
 markdown_extensions:
 #    - mdx_math
@@ -23,7 +26,7 @@ markdown_extensions:
     - md_in_html
     - meta
     - pymdownx.betterem
-    - pymdownx.arithmatex
+#    - pymdownx.arithmatex
     - pymdownx.caret
     - pymdownx.mark
     - pymdownx.tilde
@@ -37,3 +40,4 @@ plugins:
         title_prefix: '[LOCK] '
         summary: 'This content is not public'
         encryption_info_message: "Please contact the author for access to this page."
+        arithmatex: True
