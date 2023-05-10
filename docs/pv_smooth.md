@@ -145,12 +145,12 @@ In this report, we simulate GI predictors with two different accuracies:
 
 ### Impact of prediction error
 
-The impact of prediction error (see Figures 2, 6) exhibits the following empiric dependencies of the tracking criteria by the two OLAP dimensions:
+The prediction error (see Figures 2, 6) exhibits the following dependencies of smoothing performance on the two OLAP dimensions:
 
 #### Smoothed predicted signal
 
 - Changing the value of smooth_int affects the power smoothing quality neither by SPLPF nor by PLPF method, while for all parameter values, the PLPF method is more smooth than the SPLPF method (Figures 3, 4, 7, 8).
-- Lowering the value of smooth_int dramatically increases the accumulation rate by PLPF, which is always much greater than the accumulation rate by SPLPF (Figures 5, 9). With the worse prediction accuracy, the PLPF method even exceeds the accumulation rate induced by the LPF method (Figure 9). In the SPLPF method, the accumulation rate increases only slightly and much more slowly than in PLPF.
+- Lowering the value of smooth_int dramatically increases the accumulation rate of PLPF, which is always much greater than the accumulation rate of SPLPF (Figures 5, 9). With the worse prediction accuracy, the PLPF method even exceeds the accumulation rate induced by the LPF method (Figure 9). In the SPLPF method, the accumulation rate increases only slightly and much more slowly than in PLPF.
 
 #### Random error in predicted values
 
@@ -183,7 +183,7 @@ With "better GI prediction accuracy", the SPLPF smoothing required 21% - 22% o
 
 With "worse GI prediction accuracy", the SPLPF smoothing required 24% - 33% of the ESS energy capacity (ΔGX) used by the LPF method during the selected days, or 19% - 28% of the capacity used by the PLPF method. SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by the IPLPF method. The SPLPF method put 59% - 77% of the daily energy flow through the accumulator relative to the LPF method, or 63% - 69% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more  energy through ESS than the IPLPF method.
 
-Although we haven't analyzed the whole year (the numerical simulation is computationally intensive), the numerical analysis of 4 smoothing methods on several days with various solar intermittency and solar exposure, by 4 filter orders with various prediction error brings a deep insight to the performance of the SPLPF method. This performs much better than PLPF and ***with a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The empirical results have been eventualy theoretically proven. 
+Although we haven't analyzed the whole year (the numerical simulation is computationally intensive), the numerical analysis of 4 smoothing methods on selected days with various solar intermittency and solar exposure, by 4 filter orders and with various prediction error has brought a deep insight to the SPLPF smoothing performance. This method performs much better than PLPF and ***with a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The empirical results have also been theoretically proven. 
 
 ## Graphical display of smoothing
 The following graphs show the smoothing quality and accumulated energy according to the smoothing method and the 3 OLAP dimensions. The measured PV data from 2 selected days have been processed and plotted as the following per-day time courses:
