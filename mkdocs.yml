@@ -38,6 +38,6 @@ plugins:
     - search:
     - encryptcontent:
         title_prefix: '[LOCK] '
-        summary: 'This content is not public'
+        summary: 'This content is private'
         encryption_info_message: "Please contact the author for access to this page."
         arithmatex: True
