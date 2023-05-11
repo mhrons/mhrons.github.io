@@ -1,6 +1,6 @@
 ![Milan](img/Milan.jpg){width="70"}
 
-My name is **Milan Hronský**.  
+My name is **Milan Hronský**  
 I live in Slovakia, and work on  **better integration of intermittent renewable energy in the grid**.  
 You can contact me via [LinkedIn](https://www.linkedin.com/in/milan-hronsky-76132224/)
   
