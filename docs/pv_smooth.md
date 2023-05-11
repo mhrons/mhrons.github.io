@@ -147,13 +147,11 @@ In this report, we simulate GI predictors with two different accuracies:
 
 The prediction error (see Figures 2, 6) exhibits the following dependencies of smoothing performance on the two OLAP dimensions:
 
-#### Smoothed predicted signal
-
+**Smoothed predicted signal**  
 - Changing the value of smooth_int affects the power smoothing quality neither by SPLPF nor by PLPF method, while for all parameter values, the PLPF method is more smooth than the SPLPF method (Figures 3, 4, 7, 8).
 - Lowering the value of smooth_int dramatically increases the accumulation rate of PLPF, which is always much greater than the accumulation rate of SPLPF (Figures 5, 9). With the worse prediction accuracy, the PLPF method even exceeds the accumulation rate induced by the LPF method (Figure 9). In the SPLPF method, the accumulation rate increases only slightly and much more slowly than in PLPF.
 
-#### Random error in predicted values
-
+**Random error in predicted values**  
 - Increasing the SE parameter does not degrade the power smoothing quality by the PLPF method, but it does degrade the smoothing by SPLPF (check Figure 7 vs Figure 8). In PLPF, the smoothing quality with standard error SE > 0 is always better than in SPLPF.
 - Increasing the value of SE parameter significantly increases the accumulation rate by the PLPF method (Figures 5, 9), which is for all values SE > 0 much higher than by the SPLPF method. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly in the SPLPF method, and less so the higher the filter order (1 - 3).
 
