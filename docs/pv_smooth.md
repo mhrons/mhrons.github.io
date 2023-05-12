@@ -56,7 +56,7 @@ The accumulation rate is expressed by \eqref{eq:4} and \eqref{eq:5}, and also by
 
 $$P_{ESS}=max|p(\tau)-s(\tau+\Delta t)|\tag{6}\label{eq:6}$$
 
-Its typical value is about 80% of the installed PV power.
+In practise, its maximum value does not exceed 80% of the installed PV power.
 
 Let us expect that the PV power p(t) is proportional to the global solar irradiance GI [W/m^2^]. In our experiment, the solar irradiance is intercepted by a planar panel 20 cm x 16 cm on the earth’s surface at latitude=48.2°N, longitude=17.1°E, with the plane of incidence elevated by 47°, south-oriented. To be exact, we should mention that p(t) is usually smoother than GI(t), as the (usually greater) surface area of the corresponding PV plane acts like a moving-average filter of GI(t). Unfortunately, the size and speed of clouds prevent a true smoothing effect from being achieved. By assuming the proportionality between GI(t) and p(t) we analyze the worst case of PV intermittency. Let us now substitute the signals p(τ), s(τ+Δt) in \eqref{eq:1}, \eqref{eq:5}, \eqref{eq:6} by the measured signal GI(τ) and by its “predicted-and-smoothed” counterpart GI~s~(τ+Δt). After substituting, the intergal \eqref{eq:1} computes the time course of specific accumulated energy GX(t) [Wh/m^2^] by the filter, whereas SOC(t) is proportional to GX(t). The integral \eqref{eq:5} computes the specific accumulated throughput [Wh/m^2^] per cycle T.
 
@@ -164,24 +164,26 @@ Filter order is the third OLAP dimension, impact of which on the smoothing perfo
 - Increasing the filter order notably reduces the accumulation rate induced by both IPLPF and SPLPF smoothing methods (Figures 13-15, 19-21). With the simulated predictor, this trend is reversed between orders 3 and 4 by the SPLPF method. ***With the simulated predictor, SPLPF performs best with the filter order 3.***
 
 ## Numeric results of smoothing
-Two days with strong solar intermittency have been selected for the simulation: a day with medium solar exposure 3.0 kWh/m^2^, and a day with high solar exposure 5.9 kWh/m^2^ (measured at the above-specified plane of incidence). A 3rd-order low-pass filter excited by the input power signal with time advance Δt = 30 minutes has been applied in order to provide a desired smoothing quality of the PV power. Accumulation rate by four different smoothing methods has been aggregated, based on the measured signal GI(t) and the simulated-predicted signal GI~f~(t+Δt). The results are summarized in Tables 2 and 3: In the column "ΔGX", a difference between the maximum and minimum specific accumulated energy is calculated by the expression (4). In the column "Throughput", a daily flow of specific energy through the accumulator is calculated by (5). A daily specific global exposure in the plane of incidence is also shown for comparison.
+Two days with strong solar intermittency have been selected for the simulation: a day with medium solar exposure 3.0 kWh/m^2^, and a day with high solar exposure 5.9 kWh/m^2^ (measured at the above-specified plane of incidence). A 3rd-order low-pass filter excited by the input power signal with time advance Δt = 30 minutes has been applied in order to provide a desired smoothing quality of the PV power. Accumulation rate by four different smoothing methods has been aggregated, based on the measured signal GI(t) and the simulated-predicted signal GI~f~(t+Δt). The results are per-day summarized in Tables 2 and 3:
 
-### Accumulated energy by smoothing
+### Accumulation rate by smoothing
 <figure markdown>
   ![IPLPF Costs](img/Accu_Rate_220304.png){ width="650"}
   <figcaption>Table 2</figcaption>
 </figure>
-.  
+  
 <figure markdown>
   ![IPLPF Costs](img/Accu_Rate_220404.png){ width="650"}
   <figcaption>Table 3</figcaption>
 </figure>
 
-With "better GI prediction accuracy", the SPLPF smoothing required 21% - 22% of the ESS energy capacity (ΔGX) used by the LPF method during the selected days, or 24% - 41% of the capacity used by the PLPF method. SPLPF eventually required 1.0 - 1.2 times the ESS capacity used by the IPLPF method. The SPLPF smoothing put 58% - 73% of the energy flow through the accumulator relative to the LPF method, or 75% - 83% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more energy through ESS than the IPLPF method.
+Maximum specific power from/to ESS calculated by \eqref{eq:6} is in the column "GI~ESS~". Difference between the maximum and minimum specific accumulated energy calculated by \eqref{eq:4} is in the column "ΔGX". Daily flow of the specific energy through ESS calculated by \eqref{eq:5} is in the column "Throughput". Daily specific global exposure in the plane of incidence is also displayed.
 
-With "worse GI prediction accuracy", the SPLPF smoothing required 24% - 33% of the ESS energy capacity (ΔGX) used by the LPF method during the selected days, or 19% - 28% of the capacity used by the PLPF method. SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by the IPLPF method. The SPLPF method put 59% - 77% of the daily energy flow through the accumulator relative to the LPF method, or 63% - 69% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more  energy through ESS than the IPLPF method.
+With "better prediction accuracy", the SPLPF smoothing required 21% - 22% of the ESS energy capacity (ΔGX) used by the LPF method during the selected days, or 24% - 41% of the capacity used by the PLPF method. SPLPF eventually required 1.0 - 1.2 times the ESS capacity used by the IPLPF method. The SPLPF smoothing put 58% - 73% of the energy flow through the accumulator relative to the LPF method, or 75% - 83% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more energy through ESS than the IPLPF method.
 
-Although we haven't analyzed the whole year (the numerical simulation is computationally intensive), the numerical analysis of 4 smoothing methods on selected days with various solar intermittency and solar exposure, by 4 filter orders and with various prediction error has brought a deep insight to the SPLPF performance. This smoothing method performs much better than PLPF and ***with a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The empirical results have also been theoretically proven. 
+With "worse prediction accuracy", the SPLPF smoothing required 24% - 33% of the ESS energy capacity (ΔGX) used by the LPF method during the selected days, or 19% - 28% of the capacity used by the PLPF method. SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by the IPLPF method. The SPLPF method put 59% - 77% of the daily energy flow through the accumulator relative to the LPF method, or 63% - 69% of the energy throughput by the PLPF method. SPLPF eventually put 1.0 - 1.1 times more  energy through ESS than the IPLPF method.
+
+Although we did not analyze the whole year (numerical simulation is computationally intensive), numerical analysis of the 4 smoothing methods on selected days with various solar intermittency and solar exposure, with 4 filter orders, and with various prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF, and ***with a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The empirical results have been theoretically proven.
 
 ## Graphical display of smoothing
 The following graphs show the smoothing quality and accumulated energy according to the smoothing method and the 3 OLAP dimensions. The measured PV data from 2 selected days have been processed and plotted as the following per-day time courses:
