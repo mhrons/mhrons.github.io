@@ -2,8 +2,9 @@ site_name: Milan Docs
 site_url: https://mhrons.github.io/
 nav:
     - About me: index.md
-    - Photovoltaic intermitency: pv_log.md
-    - Smoothing of PV intermitency: pv_smooth.md
+    - Photovoltaic intermitency: pv_intermit.md
+    - PV Logger: pv_log.md
+    - Analysis of PV Smoothing: pv_smooth.md
     - Glossary: v_glossary.md
 theme:
   name: readthedocs

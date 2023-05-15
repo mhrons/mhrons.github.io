@@ -1,10 +1,5 @@
-# Photovoltaic intermittency and its measurement
-**Impact on the grid**  
-Intermittency of solar irradiance causes that the time course of photovoltaic (PV) power generation is unstable in time. As the share of PV energy in the grid grows, the intermittency of solar power poses an increasing risk to the power quality and grid stability. To mitigate the temporary unbalance between PV infeed and power consumption, the grid operator sets PV generators off-grid (or at least to a low efficiency mode) while the solar intermittency is strong. For example, the losses of intermittent PV energy were 7% in 2011 in the US state Arizona. This loss-rate is determined by the irregular solar intermittency and by the share of PV energy in the grid: The higher PV share, the higher relative(!) losses of PV energy due to its intermittency. Extra grid-control costs are raised due to the PV intermittency. This overall impact has been projected to the last guaranteed feed-in tariff for new PV installations in Germany: In 2020, a new feed-in tariff was only about 1/3 of the purchase tariff. The state guarantee has been canceled as of 2021, and there is no more doubt that only technical innovations can further augment the share of PV energy in the grid: Smoothing of PV power could eliminate the losses of PV energy and the costs of additional grid control. A smooth time course of renewable power can be easily complemented by other resources (e.g. gas- and water turbines), which is impossible with the rapidly-changing renewable power.  
-On the other hand, the loss-free PV smoothing takes up expensive accumulation capacity, otherwise usable as a night energy storage. The objective is a loss-free smoothing of PV power with minimized accumulation costs.
-
-## Measurement of global irradiance
-***Accurate measurement of global irradiance (GI) is a prerequisite to analyze PV smoothing:***  
+# Measurement of global irradiance
+***Accurate measurement of global irradiance (GI) is a prerequisite for the analysis of PV smoothing:***  
 
 * Accurate short-term forecasting (nowcasting) of PV power is crucial to minimize the accumulation of energy in the PV power smoothing. PV power predictors are based on artificial intelligence (AI) and they can be trained by a sky-imagery and by the measured signal GI(t), in particular its fraction intercepted by a tilted PV panel.
 * Using the measured time series GI(t), we can "ex-post" excite the low-pass filter with a "predicted" input signal GIf(t+Δt). That is, the measured signal is shifted to the left and its values are artificially biased by the simulated prediction error, simulating its real prediction. Given the predicted signal and the desired ramping limit of smoothed PV power, the accumulated energy by the filter should be minimized, hence minimized costs of the PV power smoothing.
@@ -29,7 +24,7 @@ A corresponding measurement system with data logger has been developed and is in
 1. external console carrying 4 reference PV panels mounted in different angles, and temperature sensors sticked on the panels,
 2. internal measurement unit, serving as a MPPT controller, battery charger, heat sink, A/D converter, and data logger.
 
-The main system highlights:
+## Measurement system features
 
 * The reference monocrystaline silicon PV panels (sensors) have been calibrated by means of 
 [Ineichen’s clear-sky model](https://pvlib-python.readthedocs.io/en/v0.4.3/generated/pvlib.clearsky.ineichen.html)
