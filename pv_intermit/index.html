@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/v_glossary/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/pv_intermit/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Glossary - Milan Docs</title>
+    <title>Photovoltaic intermitency - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Glossary";
-        var mkdocs_page_input_path = "v_glossary.md";
-        var mkdocs_page_url = "/v_glossary/";
+        var mkdocs_page_name = "Photovoltaic intermitency";
+        var mkdocs_page_input_path = "pv_intermit.md";
+        var mkdocs_page_url = "/pv_intermit/";
       </script>
     
     <script src="../js/jquery-3.6.0.min.js" defer></script>
@@ -44,10 +44,10 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">About me</a>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pv_intermit/">Photovoltaic intermitency</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_intermit/#losless-smoothing-of-pv-power">Losless smoothing of PV power</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Photovoltaic intermitency</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#losless-smoothing-of-pv-power">Losless smoothing of PV power</a>
     </li>
     </ul>
                 </li>
@@ -61,7 +61,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pv_smooth/">[LOCK] Analysis of PV Smoothing</a>
+                <li class="toctree-l1"><a class="reference internal" href="../pv_smooth/">Analysis of PV Smoothing</a>
     <ul>
     <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#accumulation-of-energy-by-smoothing">Accumulation of energy by smoothing</a>
     </li>
@@ -128,9 +128,9 @@
     </ul>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Glossary</a>
-    <ul class="current">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../v_glossary/">Glossary</a>
+    <ul>
     </ul>
                 </li>
               </ul>
@@ -148,7 +148,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Glossary</li>
+      <li>Photovoltaic intermitency</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -157,45 +157,19 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="list-of-acronyms">List of acronyms</h1>
-<p>AC/DC = AC to DC power conversion<br />
-A/D = analog to digital data conversion<br />
-AI = artificial intelligence<br />
-BESS = battery energy storage system<br />
-CapEx = capital expenditures for PV smoothing [\$/kW]<br />
-DC/AC = DC to AC power conversion (inversion)<br />
-dHI = diffused horizontal irradiance [W/m<sup>2</sup>]<br />
-DHI = direct horizontal irradiance [W/m<sup>2</sup>]<br />
-DNI = direct normal irradiance [W/m<sup>2</sup>]<br />
-EDLC = electric double layer capacitor (supercapacitor)<br />
-ESS = energy storage system (unspecified technology)<br />
-FESS = flywheel energy storage system<br />
-GHI = global horizontal irradiance [W/m<sup>2</sup>]<br />
-GI = global irradiance [W/m<sup>2</sup>] (unspecified plane of incidence)<br />
-GIf = forecasted future global irradiance [W/m<sup>2</sup>]<br />
-GNI = global normal irradiance [W/m<sup>2</sup>]<br />
-GX = specific accumulated energy by filter (GI-corresponding) [Wh/m<sup>2</sup>]<br />
-HSC = hybrid supercapacitor<br />
-IPLPF = ideal predictive low-pass filter<br />
-Li-Ion = Lithium-Ion accumulation technology<br />
-LPF = low-pass filter<br />
-MPPT = maximum power point tracking<br />
-OLAP = online analytical processing (of pre-aggregated data)<br />
-OpEx = operational expenditures for PV smoothing [\$/kW/year]<br />
-PLPF = predictive low-pass filter<br />
-PV = photovoltaic<br />
-PVPP = photovoltasic power plant<br />
-RedOx = Reduction-Oxidation accumulation technology<br />
-SC = supercapacitor<br />
-SE = standard error<br />
-SOC = state of charge [Wh]<br />
-SPLPF = smart predictive low-pass filter<br />
-Δt = advance time interval [minute]</p>
+                <h1 id="photovoltaic-intermittency">Photovoltaic intermittency</h1>
+<p><strong>Impact on the grid</strong><br />
+Intermittency of solar irradiance due to the moving clouds causes that the PV power is unstable in time. As the share of photovltsaic (PV) power in the grid grows, its fluctuations pose an increasing risk to the power quality and the grid stability. To mitigate this renewable phenomenon, the grid operator sets the PV generators off-grid (or at least in low-efficiency mode) while the solar intermittency is strong. The losses of intermittent PV energy were e.g. 7% in 2011 in the US state Arizona. This loss-rate is determined by the magnitude of fluctuating PV power which is given by the solar intermittency and by the share of PV energy in the grid: The higher PV share, the higher relative(!) losses of PV energy due to its intermittency. Extra grid-control costs are raised due to the PV intermittency. This overall impact has been projected to the last guaranteed feed-in tariff for new PV installations in Germany: In 2020, a new feed-in tariff was only about 1/3 of the purchase tariff. The state guarantee has been canceled since 2021, and there is no more doubt that only technical innovations can further augment the share of PV energy in the grid: Smoothing of PV power could eliminate the losses of PV energy and the costs of additional grid control. A smooth time course of renewable power can be easily complemented by other resources (e.g. gas- and water turbines), which is impossible with the rapidly-changing renewable power.  </p>
+<h2 id="losless-smoothing-of-pv-power">Losless smoothing of PV power</h2>
+<p>Energy balancing between the grid and the battery may smooth the fluctuating intermittent PV power almost loss-free. A tradeoff of the lossless PV smoothing is that it takes up expensive accumulation capacity. There have been several smoothing algorithms published, accumulating less energy than the basic application of a low-pass filter (LPF) does. Actually, these smoothing methods still accumulate too much energy which prevents them from being economically viable.<br />
+Our first goal was to analyze an ideal PV smoothing model which accumulates the minimum energy in theory, assuming that its LPF is excited by the exact future PV power signal. Based on the measured solar radiation data from 1 year, we have numerically proven that the ideal PV smoothing is affordable alongside the german purchase and PV feed-in tariffs as of 2021.<br />
+Next, we optimized the smoothing model to minimize energy storage even when the predicted PV power signal is biased by error. Based on the measured data, we aggregated its accumulated energy at different prediction errors. The results have proven that the optimized real PV smoothing is still affordable, provided the prediction error is not too high.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../pv_smooth/" class="btn btn-neutral float-left" title="[LOCK] Analysis of PV Smoothing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral float-left" title="About me"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../pv_log/" class="btn btn-neutral float-right" title="PV Logger">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -218,8 +192,10 @@ SPLPF = smart predictive low-pass filter<br />
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../pv_smooth/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
     
+    
+      <span><a href="../pv_log/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>  

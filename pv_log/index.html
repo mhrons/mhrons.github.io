@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/pv_log/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Photovoltaic intermitency - Milan Docs</title>
+    <title>PV Logger - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Photovoltaic intermitency";
+        var mkdocs_page_name = "PV Logger";
         var mkdocs_page_input_path = "pv_log.md";
         var mkdocs_page_url = "/pv_log/";
       </script>
@@ -44,16 +44,24 @@
                 <li class="toctree-l1"><a class="reference internal" href="..">About me</a>
                 </li>
               </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pv_intermit/">Photovoltaic intermitency</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_intermit/#losless-smoothing-of-pv-power">Losless smoothing of PV power</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Photovoltaic intermitency</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">PV Logger</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#measurement-of-global-irradiance">Measurement of global irradiance</a>
+    <li class="toctree-l2"><a class="reference internal" href="#measurement-system-features">Measurement system features</a>
     </li>
     </ul>
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pv_smooth/">Smoothing of PV intermitency</a>
+                <li class="toctree-l1"><a class="reference internal" href="../pv_smooth/">Analysis of PV Smoothing</a>
     <ul>
     <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#accumulation-of-energy-by-smoothing">Accumulation of energy by smoothing</a>
     </li>
@@ -140,7 +148,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>Photovoltaic intermitency</li>
+      <li>PV Logger</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -149,12 +157,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="photovoltaic-intermittency-and-its-measurement">Photovoltaic intermittency and its measurement</h1>
-<p><strong>Impact on the grid</strong><br />
-Intermittency of solar irradiance causes that the time course of photovoltaic (PV) power generation is unstable in time. As the share of PV energy in the grid grows, the intermittency of solar power poses an increasing risk to the power quality and grid stability. To mitigate the temporary unbalance between PV infeed and power consumption, the grid operator sets PV generators off-grid (or at least to a low efficiency mode) while the solar intermittency is strong. For example, the losses of intermittent PV energy were 7% in 2011 in the US state Arizona. This loss-rate is determined by the irregular solar intermittency and by the share of PV energy in the grid: The higher PV share, the higher relative(!) losses of PV energy due to its intermittency. Extra grid-control costs are raised due to the PV intermittency. This overall impact has been projected to the last guaranteed feed-in tariff for new PV installations in Germany: In 2020, a new feed-in tariff was only about 1/3 of the purchase tariff. The state guarantee has been canceled as of 2021, and there is no more doubt that only technical innovations can further augment the share of PV energy in the grid: Smoothing of PV power could eliminate the losses of PV energy and the costs of additional grid control. A smooth time course of renewable power can be easily complemented by other resources (e.g. gas- and water turbines), which is impossible with the rapidly-changing renewable power.<br />
-On the other hand, the loss-free PV smoothing takes up expensive accumulation capacity, otherwise usable as a night energy storage. The objective is a loss-free smoothing of PV power with minimized accumulation costs.</p>
-<h2 id="measurement-of-global-irradiance">Measurement of global irradiance</h2>
-<p><strong><em>Accurate measurement of global irradiance (GI) is a prerequisite to analyze PV smoothing:</em></strong>  </p>
+                <h1 id="measurement-of-global-irradiance">Measurement of global irradiance</h1>
+<p><strong><em>Accurate measurement of global irradiance (GI) is a prerequisite for the analysis of PV smoothing:</em></strong>  </p>
 <ul>
 <li>Accurate short-term forecasting (nowcasting) of PV power is crucial to minimize the accumulation of energy in the PV power smoothing. PV power predictors are based on artificial intelligence (AI) and they can be trained by a sky-imagery and by the measured signal GI(t), in particular its fraction intercepted by a tilted PV panel.</li>
 <li>Using the measured time series GI(t), we can "ex-post" excite the low-pass filter with a "predicted" input signal GIf(t+Δt). That is, the measured signal is shifted to the left and its values are artificially biased by the simulated prediction error, simulating its real prediction. Given the predicted signal and the desired ramping limit of smoothed PV power, the accumulated energy by the filter should be minimized, hence minimized costs of the PV power smoothing.</li>
@@ -175,7 +179,7 @@ On the other hand, the loss-free PV smoothing takes up expensive accumulation ca
 <li>external console carrying 4 reference PV panels mounted in different angles, and temperature sensors sticked on the panels,</li>
 <li>internal measurement unit, serving as a MPPT controller, battery charger, heat sink, A/D converter, and data logger.</li>
 </ol>
-<p>The main system highlights:</p>
+<h2 id="measurement-system-features">Measurement system features</h2>
 <ul>
 <li>The reference monocrystaline silicon PV panels (sensors) have been calibrated by means of 
 <a href="https://pvlib-python.readthedocs.io/en/v0.4.3/generated/pvlib.clearsky.ineichen.html">Ineichen’s clear-sky model</a>
@@ -197,8 +201,8 @@ On the other hand, the loss-free PV smoothing takes up expensive accumulation ca
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="About me"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../pv_smooth/" class="btn btn-neutral float-right" title="Smoothing of PV intermitency">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pv_intermit/" class="btn btn-neutral float-left" title="Photovoltaic intermitency"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../pv_smooth/" class="btn btn-neutral float-right" title="Analysis of PV Smoothing">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -221,7 +225,7 @@ On the other hand, the loss-free PV smoothing takes up expensive accumulation ca
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../pv_intermit/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
       <span><a href="../pv_smooth/" style="color: #fcfcfc">Next &raquo;</a></span>
