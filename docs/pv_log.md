@@ -24,7 +24,7 @@ A corresponding measurement system with data logger has been developed and is in
 1. external console carrying 4 reference PV panels mounted in different angles, and temperature sensors sticked on the panels,
 2. internal measurement unit, serving as a MPPT controller, battery charger, heat sink, A/D converter, and data logger.
 
-## Measurement system features
+## System features
 
 * The reference monocrystaline silicon PV panels (sensors) have been calibrated by means of 
 [Ineichen’s clear-sky model](https://pvlib-python.readthedocs.io/en/v0.4.3/generated/pvlib.clearsky.ineichen.html)
