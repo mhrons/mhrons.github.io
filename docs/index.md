@@ -1,9 +1,9 @@
 ![Milan](img/Milan.jpg){width="70"}
 
 My name is **Milan Hronský**  
-I live in Slovakia, and work on  **better integration of intermittent renewable energy in the grid**.  
-You can contact me via [LinkedIn](https://www.linkedin.com/in/milan-hronsky-76132224/)
-  
+I live in Slovakia, and work on  **better integration of renewable energy in the grid**.  
+A common problem of renewable energy is its [intermittency](https://mhrons.github.io/pv_intermit/)
+
 My photovoltaic projects:
 
 - [PV Logger](https://mhrons.github.io/pv_log/)
@@ -13,4 +13,6 @@ My photovoltaic projects:
 - [PV Smoothing](https://mhrons.github.io/pv_smooth/)
 
 ![GI Smoothing](img/GI_PV2.3but7.5.2022-04-04.png){width="100"}
+
+You can reach me out on [LinkedIn](https://www.linkedin.com/in/milan-hronsky-76132224/)
 
