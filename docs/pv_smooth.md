@@ -124,7 +124,7 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 3. PLPF: Input of LPF is excited by the simulated-predicted signal GI~f~(t+Δt)
 4. SPLPF: Smart power filter excited by the simulated-predicted signal GI~f~.
 
-Smoothing of PV power during selected days with strong solar intermittency and various insolation was analyzed by the four above-listed smoothing methods. For each method, the smoothing quality and rate of accumulation were analyzed by means of various LPF orders. Filters of different orders were tuned to provide an equivalent smoothing quality in the reference IPLPF method, provided that the filter of each order is excited by the measured, optimally shifted GI signal. While keeping the equivalent smoothing quality, increasing the order of LPF increases its cut-off frequency, but only slightly increases the optimal advance Δt. The goal is to identify the LPF order which accumulates the minimum energy. The results of analysis have been tabelized and plotted.
+Smoothing of PV power during selected days with strong solar intermittency and various insolation was analyzed by the four above-listed smoothing methods. For each method, the smoothing quality and rate of accumulation were analyzed by means of various LPF orders. Filters of different orders were tuned to provide equivalent smoothing quality by the reference IPLPF method, provided that the filter of each order is excited by the measured, optimally shifted GI signal. While keeping the equivalent smoothing quality, increasing the order of LPF increases its cut-off frequency, but only slightly increases the optimal advance Δt. The goal is to identify the LPF order which accumulates the minimum energy. The results of analysis have been tabelized and plotted.
 
 ### Simulation of predicted PV power
 We simulated the predicted signal GI~f~(t+Δt) from the measured, left-shifted signal GI(t+Δt) by smoothing its "future" time course and by superimposing a random error to its "future" value with respect to the fundamental properties of PV predictors:
@@ -249,7 +249,7 @@ Following graphs compare the smoothing by IPLPF vs SPLPF method:
 
 <figure markdown>
   ![GIs_aavg0_220304](img/order_gi_aavg0_2022-03-04.png){ width="650"}
-  <figcaption>Figure 10: Time course of IPLPF-smoothed GI by filter order</figcaption>
+  <figcaption>Figure 10: Time course of IPLPF-smoothed GI shows similar quality for each filter order</figcaption>
 </figure>
   
 <figure markdown>
@@ -282,7 +282,7 @@ Following graphs compare the smoothing by IPLPF vs SPLPF method:
 
 <figure markdown>
   ![GIs_aavg0_220404](img/order_gi_aavg0_2022-04-04.png){ width="650"}
-  <figcaption>Figure 16: Time course of IPLPF-smoothed GI by filter order</figcaption>
+  <figcaption>Figure 16: Time course of IPLPF-smoothed GI shows similar quality for each filter order</figcaption>
 </figure>
   
 <figure markdown>
