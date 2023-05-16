@@ -13,7 +13,7 @@ theme:
   prev_next_buttons_location: bottom
   navigation_depth: 4
   collapse_navigation: false
-  titles_only: true
+  titles_only: false
 
 extra_javascript: 
 #    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'    
