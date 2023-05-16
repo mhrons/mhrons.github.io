@@ -39,6 +39,6 @@ plugins:
     - search:
     - encryptcontent:
         title_prefix: '[LOCK] '
-        summary: 'This page is private'
+        summary: 'This is a private page'
         encryption_info_message: "Please contact the author for access to this page."
         arithmatex: True
