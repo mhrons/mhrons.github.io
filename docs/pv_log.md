@@ -35,7 +35,7 @@ A corresponding measurement system with data logger has been developed and is in
 [maximum output power (MPPT)](https://www.leonics.com/support/article2_14j/articles2_14j_en.php)
 . Their operating point is being dynamically adjusted for the temperature drift of their A-V characteristics and for their internal resistance. The measured output power of each panel is divided by its active surface area and by its (known) efficiency at given surface temperature. The measurement is eventually expressed as "photovoltaic global irradiance" in W/m2 analogous to GI measured at given angle of the plane of incidence, but taking into account the reflexion and spectral response of PV panels.
 * Data logger samples GI with a dynamic frequency. The sampling period ranges from 0.5 second to 10 minutes, according to the solar intermittency. This captures the whole spectrum of solar intermittency, but eliminates the redundancy in stored data. Several years of such an irregular time series can be stored in a relational database with tablespace <1TB.
-* The off-grid measurement system is self-powered 24 hours x 7 days a week. Except the measurement, the PV sensors supply power to the data logger and charge its backup accumulator. The system requires a minimum maintenance.
+* The off-grid measurement system is self-powered 24 hours x 7 days a week. In addition to measurement, the PV sensors supply power to the data logger and charge its backup accumulator. The system requires a minimum maintenance.
 ![GI](img/GI.2022-01-15.png){ width="300"  align=right }
 * Simultaneous measurement of GI in 4 fixed normal angles allows an accurate interpolation of GI at any plane of incidence pointing its normal vector among the 4 fixed normal vectors (intra-normal area).
 
