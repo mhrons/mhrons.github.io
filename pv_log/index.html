@@ -70,20 +70,8 @@
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#smoothing-by-iplpf-vs-lpf">Smoothing by IPLPF vs LPF</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#costs-of-iplpf-smoothing">Costs of IPLPF smoothing</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../pv_smooth/#conditions-of-cost-calculation">Conditions of cost calculation:</a>
-    </li>
-        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#applications-of-iplpf">Applications of IPLPF</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../pv_smooth/#small-scale-hybrid-pv-system">Small-scale hybrid PV system</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../pv_smooth/#suitable-accumulators-for-iplpf">Suitable accumulators for IPLPF</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../pv_smooth/#large-scale-pv-plant">Large-scale PV plant</a>
-    </li>
-        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#summary-of-iplpf">Summary of IPLPF</a>
     </li>
@@ -108,20 +96,8 @@
     <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#graphical-display-of-smoothing">Graphical display of smoothing</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#analysis-by-prediction-error">Analysis by prediction error</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../pv_smooth/#day-with-medium-insolation">Day with medium insolation</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../pv_smooth/#day-with-high-insolation">Day with high insolation</a>
-    </li>
-        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#analysis-by-lpf-order_1">Analysis by LPF order</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="../pv_smooth/#day-with-medium-insolation_1">Day with medium insolation</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="../pv_smooth/#day-with-high-insolation_1">Day with high insolation</a>
-    </li>
-        </ul>
     </li>
         </ul>
     </li>
@@ -190,7 +166,7 @@
 <a href="https://www.leonics.com/support/article2_14j/articles2_14j_en.php">maximum output power (MPPT)</a>
 . Their operating point is being dynamically adjusted for the temperature drift of their A-V characteristics and for their internal resistance. The measured output power of each panel is divided by its active surface area and by its (known) efficiency at given surface temperature. The measurement is eventually expressed as "photovoltaic global irradiance" in W/m2 analogous to GI measured at given angle of the plane of incidence, but taking into account the reflexion and spectral response of PV panels.</li>
 <li>Data logger samples GI with a dynamic frequency. The sampling period ranges from 0.5 second to 10 minutes, according to the solar intermittency. This captures the whole spectrum of solar intermittency, but eliminates the redundancy in stored data. Several years of such an irregular time series can be stored in a relational database with tablespace &lt;1TB.</li>
-<li>The off-grid measurement system is self-powered 24 hours x 7 days a week. Except the measurement, the PV sensors supply power to the data logger and charge its backup accumulator. The system requires a minimum maintenance.
+<li>The off-grid measurement system is self-powered 24 hours x 7 days a week. In addition to measurement, the PV sensors supply power to the data logger and charge its backup accumulator. The system requires a minimum maintenance.
 <img align="right" alt="GI" src="../img/GI.2022-01-15.png" width="300" /></li>
 <li>Simultaneous measurement of GI in 4 fixed normal angles allows an accurate interpolation of GI at any plane of incidence pointing its normal vector among the 4 fixed normal vectors (intra-normal area).</li>
 </ul>
