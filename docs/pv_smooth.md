@@ -6,7 +6,7 @@ The objective of PV smoothing is to meet the ramping limits of PV power (set by 
  e.g. 
 [zero group-delay filter](https://www.planetanalog.com/five-things-to-know-about-prediction-and-negative-delay-filters/)
 , [Kalman filter](https://www.kalmanfilter.net/default.aspx)
- have been developed to avoid the accumulation of PV energy due to the LPF time lag and the nowcasting error. Nevertheless, the accumulation of PV power and its cost induced by the predictive filters still exceed the production cost of fossil and nuclear electricity (assuming current social cost of CO~2~ and nuclear waste). The advantage of predictive filters is that they integrate the predictor and LPF into a same entity, but their disadvantage is that the predictor is trained by a limited information carried by the measured power signal p(t).  
+ have been developed to avoid the accumulation of PV energy due to the LPF time lag and the nowcasting error. Nevertheless, the accumulation of PV power and its cost induced by the predictive filters still exceed the production cost of fossil and nuclear electricity (assuming current social cost of CO~2~ and nuclear waste). The advantage of predictive filters is that they integrate the predictor and LPF into a same functional entity, but their disadvantage is that the predictor is trained by a limited information carried by the measured power signal p(t).  
 We focus our analysis on the application of
 [LPF](https://www.analog.com/en/design-center/glossary/low-pass-filter.html)
  excited by 
@@ -144,7 +144,7 @@ In this report, we simulate GI predictors with two different accuracies:
 
 ### Impact of prediction error
 
-The prediction error (see Figures 2, 6) exhibits the following dependencies of smoothing performance on the two OLAP dimensions:
+The prediction error (see Figures 2, 6) exhibits the following dependencies of smoothing performance on 2 OLAP dimensions:
 
 **Smoothed predicted signal**
 
