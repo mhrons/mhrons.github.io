@@ -62,7 +62,14 @@ Let us expect that the PV power p(t) is proportional to the global solar irradia
 
 ## Ideal predictive smoothing (IPLPF)
 We simulate the operation of ideal predictive PV smoothing (IPLPF) by means of LPF excited by the exact future signal GI(t+Δt) where GI(t) is measured and the time advance Δt (as above defined) eliminates the filter’s time lag. In theory, such a ex-post simulated smoothing would minimize the accumulation of energy by the given LPF. ***This analysis aims to reveal the potential affordability of PV smoothing.*** The numeric experiment is based on the measured solar irradiance over a period of 1 year, assuming contemporary prices of Lithium-Ion accumulators and EDLC supercapacitors.  
-The measured signal GI(t) and applied LPF determine the specific ESS parameters requested by the IPLPF smoothing: maximum specific power GI~ESS~=max|GI(τ)-GI~s~(τ+Δt)|, maximum specific energy capacity ΔGX=max(GX)-min(GX) and specific accumulated throughput required by the IPLPF smoothing. Based on the accumulators' specifications and prices in 2021, the corresponding accumulation costs have been aggregated. The results have confirmed that the IPLPF operation is worthwhile with the German power purchase tariff and PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). 
+The measured signal GI(t) and applied LPF allow for the aggregation of specific ESS parameters requested by the IPLPF smoothing:
+
+- maximum specific power GI~ESS~=max|GI(τ)-GI~s~(τ+Δt)| by \eqref{eq:6},
+- maximum specific energy capacity ΔGX=max(GX)-min(GX) by \eqref{eq:4},
+- specific IPLPF-accumulated throughput by \eqref{eq:5}.
+
+These 3 valuesd define the rate of accumulation. ***Given LPF, the IPLPF accumulation rate quantifies the solar intermittency.***  
+Based on the accumulators' specifications and prices in 2021, the corresponding accumulation costs have been aggregated. The results have confirmed that the IPLPF operation is worthwhile with the German power purchase tariff and PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). 
 The IPLPF simulation proposes an affordable smoothing model for a hybrid small PV plant and suggests an accumulation technology for a large PV plant.  
 ### Smoothing by IPLPF vs LPF  
 Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific energy GX accumulated by filters:  
@@ -72,13 +79,7 @@ Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific en
 The left graph shows the measured and low-passed (legend “lp”) GI signals on a day with high solar exposure and strong intermittency. The graph on the right shows the specific accumulated energy GX [Wh/m^2^] by IPLPF (legend "aavg0") vs LPF (legend "lp") on the given day. Exactly-predicted input signal GI(t+Δt) shifts the IPLPF output to the left, minimizing the standard deviation of GX, thus in practise minimizing the difference ΔGX = max(GX) – min(GX) which is the specific accumulation capacity. The specific throughput of accumulated energy is also minimized by IPLPF.
 
 ### Costs of IPLPF smoothing
-The smoothing costs result from the energy accumulation. Accumulation costs are given by the rate of accumulation and the technology (e.g. Lithium-Ion RedOx, EDLC supercapacitor etc.). In theory, the accumulation rate is given by the intermittency of solar irradiance vs desired time course of the output PV power. The accumulation rate can be quantified by:
-
-- ΔSOC [Wh] reserved for smoothing \eqref{eq:4} i.e. mandated ESS capacity
-- accumulated energy throughput [Wh] by smoothing \eqref{eq:5}
-- maximum power [W] from/to ESS \eqref{eq:6}, balancing the intermittent PV power
-
-In practice, the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the illustrated example, IPLPF needs only 24% ΔSOC relative to LPF, and IPLPF accumulates about 50% of the energy throughput relative to LPF. Both ΔSOC and energy throughput reach their theoretical minimum by means of IPLPF smoothing.  
+The smoothing costs result from the accumulation technology and from the accumulation rate. The later is a tradeoff between the solar intermittency and the desired time course of the output PV power. In practice, the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the illustrated example, IPLPF needs only 24% ΔSOC relative to LPF, and IPLPF accumulates about 50% of the energy throughput relative to LPF. Both ΔSOC and energy throughput reach their theoretical minimum by means of IPLPF smoothing.  
 The higher LPF order or its lower cut-off frequency, the smoother output, but "earlier" input signal needed to eliminate the filter's time lag. (In case of PLPF smoothing: The greater Δt, the greater prediction error and the greater rate of accumulation!)  
 The IPLPF simulation has confirmed that a hybrid PV system i.e. a small-scale on-grid PV plant having its own Lithium battery (BESS) with capacity = 2 hours * P~PVmax~, need <10% of the BESS capacity to be reserved for smoothing (7% on 2022-03-04), while the rest BESS capacity stores energy for the night. The hybrid PV plant feeds its “overflowing” power into the grid, as long as the household’s consumption is satisfied and the battery has been charged. ***Having the reserved free capacity and total battery power available, the IPLPF costs are reasonably lower than the expected added value to the smooth PV power infeed.***  
 
