@@ -68,7 +68,7 @@ The measured signal GI(t) and applied LPF allow for the aggregation of specific 
 - maximum specific energy capacity ΔGX=max(GX)-min(GX) by \eqref{eq:4},
 - specific IPLPF-accumulated throughput by \eqref{eq:5}.
 
-These 3 valuesd define the rate of accumulation. ***Given LPF, the IPLPF accumulation rate quantifies the solar intermittency.***  
+These 3 valuesd define the rate of accumulation. ***Assuming the IPLPF smoothing with given LPF as the reference method, the accumulation rate quantifies the solar intermittency.***  
 Based on the accumulators' specifications and prices in 2021, the corresponding accumulation costs have been aggregated. The results have confirmed that the IPLPF operation is worthwhile with the German power purchase tariff and PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). 
 The IPLPF simulation proposes an affordable smoothing model for a hybrid small PV plant and suggests an accumulation technology for a large PV plant.  
 ### Smoothing by IPLPF vs LPF  
