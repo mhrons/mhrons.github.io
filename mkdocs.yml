@@ -40,5 +40,5 @@ plugins:
     - encryptcontent:
         title_prefix: '[LOCK] '
         summary: 'This content is not public'
-        encryption_info_message: "as long as it is related to a pending patent"
+        encryption_info_message: "as long as its related patent is pending "
         arithmatex: True
