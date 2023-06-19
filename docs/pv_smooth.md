@@ -158,7 +158,7 @@ The prediction error (see Figures 2, 6) exhibits the following dependencies of s
 - Increasing the value of SE parameter significantly increases the accumulation rate by the PLPF method (Figures 5, 9), which is for all values SE > 0 much higher than by the SPLPF method. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly in the SPLPF method, and less so the higher the filter order (1 - 3).
 
 ### Analysis by LPF order
-Filter order is the third OLAP dimension, impact of which on the smoothing performance was analyzed together with the prediction error. We analyzed the LPF orders 1 to 4 (Figures 10-21):
+Filter order is another OLAP dimension, impact of which on the smoothing performance was analyzed together with the prediction error. We analyzed the LPF orders 1 to 4 (Figures 10-21):
 
 - Filter order does not affect the power smoothing quality achieved by PLPF method. For small filter orders, the smoothing by PLPF is better than by SPLPF.
 - Increasing the filter order from 1 to 3 notably improves the smoothing quality of SPLPF, given the prediction error (Figures 10-12, 16-18).
