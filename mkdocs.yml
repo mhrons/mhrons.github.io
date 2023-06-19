@@ -4,7 +4,7 @@ nav:
     - About me: index.md
     - Photovoltaic intermitency: pv_intermit.md
     - PV Logger: pv_log.md
-    - Analysis of PV Smoothing: pv_smooth.md
+    - PV Smoothing: pv_smooth.md
     - Glossary: v_glossary.md
 theme:
   name: readthedocs
