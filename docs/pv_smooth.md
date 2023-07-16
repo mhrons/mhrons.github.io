@@ -78,7 +78,7 @@ Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific en
 The left graph shows the measured and low-passed (legend “lp”) GI signals on a day with high solar exposure and strong intermittency. The graph on the right shows the specific accumulated energy GX [Wh/m^2^] by IPLPF (legend "aavg0") vs LPF (legend "lp") on the given day. Exactly-predicted input signal GI(t+Δt) shifts the IPLPF output to the left, minimizing the standard deviation of GX, thus in practise minimizing the difference ΔGX = max(GX) – min(GX) which is the specific accumulation capacity. The specific throughput of accumulated energy is also minimized by IPLPF.
 
 ### Costs of IPLPF smoothing
-Smoothing costs result from the accumulation technology and from the accumulation rate. The accumulation rate results from the solar intermittency and from the desired ramping of smoothed PV power. In a non-ideal smoothing, the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the illustrated example, IPLPF needs only 24% ΔSOC relative to LPF, and IPLPF accumulates only about 50% of the energy throughput relative to LPF. In case of PLPF, there is a trade-off between the smoothing quality and its accumulation rate: The greater Δt, the smoother s(t), but greater prediction error and the greater rate of accumulation. Both ΔSOC and energy throughput reach their theoretical minimum by means of the IPLPF smoothing.  
+Smoothing costs result from the accumulation technology and from the accumulation rate. The accumulation rate results from the solar intermittency and from the desired ramping of smoothed PV power. In a non-ideal smoothing, the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the illustrated example, IPLPF needs only 24% ΔSOC relative to LPF, and IPLPF accumulates only about 50% of the energy throughput relative to LPF. There is a trade-off between the smoothing quality and its accumulation rate: The smoother s(t), the more accumulation. This trend is critical in the PLPF smoothing, because the prediction error rises with increased Δt, and the prediction error substantially increases the rate of accumulation. Both ΔSOC and energy throughput reach their theoretical minimum by means of the IPLPF smoothing.  
 The IPLPF simulation has confirmed, that a hybrid PV system i.e. a small-scale on-grid PV plant having its own Lithium battery (BESS) with capacity = 2 hours * P~PVmax~, need <10% of the BESS capacity to be reserved for smoothing (7% on 2022-03-04), while the rest BESS capacity stores the energy for evening and night. The hybrid PV plant feeds its excess power into the grid, as long as the household’s consumption is satisfied and the battery has been charged. ***Having the reserved free capacity and total battery power available, the IPLPF costs are reasonably lower than the expected added value to the smooth PV power infeed.***  
 
 IPLPF costs measured from 04/2021 to 03/2022. The plane of incidence and the LPF applied are the same as in the GI(t) and GX(t) plots:  
@@ -89,6 +89,7 @@ IPLPF costs measured from 04/2021 to 03/2022. The plane of incidence and the LPF
 
 #### Conditions of cost calculation:  
 1/3 of the generated PV energy is assumed as infeed to the grid (overflow) by the "Hybrid with BESS” on-grid system.  
+Microcycling of Li-Ion BESS is technically eliminated.  
 Li-Ion & supercapacitor (SC): [life cycle parameters and prices](https://batteryuniversity.com/article/bu-209-how-does-a-supercapacitor-work) are as of 2021.  
 Hybrid supercapacitor (HSC): price was estimated upon relation between Li-Ion and SC prices.
 Energy losses due to the AC/DC conversion and accumulation were neglected.
@@ -97,12 +98,12 @@ The costs are specific per 1 kW of installed PV power. Installed PV power = DC o
 CapEx = initial investment to PV smoothing. OpEx = regular (e.g. yearly) costs necessary for its uninterrupted operation. CapEx of "Hybrid with BESS” system include 90% of the BESS capacity reserved for storage, 10% for smoothing. The greater from (CapEx, interval * OpEx) defines the cost of PV smoothing for a given service interval.  
 However, when the smoothing uses >1 accumulation technologies concurrently, the service interval has to be fixed before calculating OpEx. (Reason: Given the service interval, the two technologies with different wear-outs can be optimally mixed.) We have cost-optimized the IPLPF smoothing for a large-scale PV plant by mixing 2 accumulation technologies, concurrently operating during 15 years of service. The 
 [hybrid supercapacitor](https://www.sciencedirect.com/science/article/abs/pii/S1364032118307299)
- technology (HSC) is under development, combining the advantages of EDLC & RedOx technologies.
+ technology (HSC) combines advantages of EDLC & RedOx technologies. As HSC technology is stil under development, the mixed cost model is only hypothetical.
 Hybrid systems and sole PV plants use different cost models, because the sole PV plant optimally mixes 2 accumulation technologies for smoothing.
 
 ### Applications of IPLPF
 #### Small-scale hybrid PV system
-A household with installed PV power <10kW is connected to the low-voltage grid, having a BESS with energy capacity ≈ 2h x installed PV power. After charging the BESS to a threshold SOC (e.g. 87%), the BESS provides enough power to smooth the PV infeed (overflowing PV power) to the grid for affordable costs, provided that the remaining free BESS capacity has been left for smoothing, and additional technical measures avoid the microcycling of BESS. The power intermittency of small scale PV plants has no impact on the grid, unless their concentration in the grid is high. ***IPLPF technology offers an affordable smoothing of PV power in the grid areas with high concentration of small-scale hybrid PV systems.***
+A household with installed PV power <10kW is connected to the low-voltage grid, having a BESS with energy capacity ≈ 2h x installed PV power. After charging the BESS to a threshold SOC (e.g. 87%), the BESS provides enough power to smooth the PV infeed (overflowing PV power) to the grid for affordable costs, provided that the remaining free BESS capacity has been left for smoothing, while additional technical measures avoid its microcycling. The power intermittency of small scale PV plants has no impact on the grid, unless their concentration in the grid is high. ***IPLPF technology offers an affordable smoothing of PV power in the grid areas with high concentration of small-scale hybrid PV systems.***
 
 #### Suitable accumulators for IPLPF
 Although the IPLPF shrinks the necessary capacity and accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily obscured by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a Li-Ion battery by a relative power >> 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with the IPLPF sole smoothing requirements.  
@@ -114,7 +115,7 @@ Actually, the IPLPF demands are well satisfied by a
 Water pumps provide efficient storage for large scale PV plants (cheaper and cleaner than a corresponding BESS), but no power smoothing because the water pumps are too sluggish for such a role. The large-scale PV intermittency can be smoothed by a relatively low accumulation capacity ΔGX driven by the IPLPF smoothing method, with the relative power 8 h^-1^. Such technical demands are well satisfied by the FESS technology, less by RedOx (low relative power) or EDLC (expensive capacity).
 
 ### Summary of IPLPF
-One year of continous GI(t) measurement has confirmed that the ideal PV smoothing is affordable with Lithium-Ion technology, if properly implemented in a hybrid PV system (inclusive measures against micro-cycling the battery). Although the HSC technology is yet unavailable, the intensive seek for energy makes it very likely to be soon mature for large-scale PV installations. The flywheel can be also an affordable energy storage for the IPLPF smoothing of PV power. ***Low accumulated energy by IPLPF should motivate the further development of technologies among which an accurate nowcasting of PV power and a smart filtering of PV power are crucial.***
+One year of continous GI(t) measurement has confirmed that the ideal PV smoothing is affordable with Lithium-Ion technology, if properly implemented in a hybrid PV system (inclusive measures against micro-cycling). Although the HSC technology is yet unavailable, it is being intensively researched as a potential BESS for large-scale PV installations. Existing flywheel technology is probably affordable for the IPLPF smoothing of PV power. ***Low accumulated energy by IPLPF should motivate the further development of technologies among which an accurate nowcasting of PV power and a smart filtering of PV power are crucial.***
   
 ## Real smoothing of PV power
 Our main objective is to analyze the smoothing quality and the accumulation rate (in summary: performance) of the PV power smoothing in real conditions. The measured global irradiance signal GI(t) allows not only the simulation of ideal predictive low-pass smoothing (IPLPF), but also a predictive smoothing of PV power (PLPF), exciting the low-pass filter by a predicted signal GI~f~(t+Δt). The values GI~f~ are biased by a prediction error. As we will show, this error induces a significant energy accumulation by PLPF, when compared with the IPLPF smoothing. We simulated the prediction error into the measured GI values with the aim to statistically represent the real predicted signal GI~f~(t+Δt) while having a possibility to trim the prediction error. Thus, the measured GI(t) signal allowed us to quantitatively analyze the performance of the ex-post simulated PLPF method.  
@@ -166,10 +167,10 @@ Filter order is another OLAP dimension, impact of which on the smoothing perform
 - Increasing the filter order only slightly reduces the accumulation rate by PLPF which is always substantially greater than the accumulation rate by SPLPF.
 - Increasing the filter order notably reduces the accumulation rate induced by both IPLPF and SPLPF smoothing methods (Figures 13-15, 19-21). With the simulated predictor, this trend is reversed between orders 3 and 4 by the SPLPF method. ***With the simulated predictor, SPLPF performs best with the filter order 3.***
 
-## Numeric results of smoothing
-Two days with strong solar intermittency have been selected for the simulation: a day with medium solar exposure 3.0 kWh/m^2^, and a day with high solar exposure 5.9 kWh/m^2^ (measured at the above-specified plane of incidence). A 3rd-order low-pass filter excited by the input power signal with time advance Δt = 30 minutes has been applied in order to provide a desired smoothing quality of the PV power. The rate of accumulation by four different smoothing methods has been aggregated, based on the measured signal GI(t) and the simulated-predicted signal GI~f~(t+Δt). The results are per-day summarized in Tables 2 and 3:
+## Numerical results of smoothing
 
-### Rate of accumulation by smoothing
+### Rate of accumulation by method
+Accumulation rate of each smoothing method in the selected days, using filter order 3:
 <figure markdown>
   ![IPLPF Costs](img/Accu_Rate_220304.png){ width="650"}
   <figcaption>Table 2</figcaption>
@@ -186,20 +187,21 @@ With "better prediction accuracy" during the selected days, SPLPF smoothing requ
 
 With "worse prediction accuracy" during the selected days, SPLPF smoothing required the relative ESS power between 3.8h^-1^ - 6.3h^-1^ which is 2.6 - 4.2 times more then with LPF, 3.6 - 5.1 times more than with PLPF, and eventually 58% - 86% of the IPLPF power request. The SPLPF smoothing required 24% - 33% of the ESS energy capacity used by LPF, or 19% - 28% of the capacity used by PLPF. SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by IPLPF. The SPLPF smoothing put 59% - 77% of the daily energy through ESS relative to the LPF method, or 63% - 69% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more  energy through ESS than the IPLPF method.
 
-Although we did not analyze the whole year (the numerical simulation is computationally intensive), our analysis of the 4 smoothing methods on selected days with various solar intermittency and solar exposure, with 4 filter orders, and with various prediction errors provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. ***With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The empirical results have been also theoretically proven.
+### SPLPF vs IPLPF
+Although we did not analyze the whole year (the numerical simulation is computationally intensive), our analysis of the 4 smoothing methods on selected days with various solar intermittency and solar exposure, with 4 filter orders, and with various prediction errors provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. ***With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The presented empirical results have been also theoretically proven (part of the patent application).
 
 ## Graphical display of smoothing
-The following graphs show the smoothing quality and accumulated energy according to the smoothing method and the 3 OLAP dimensions. The measured PV data from 2 selected days have been processed and plotted as the following per-day time courses:
+The following graphs show the smoothing quality and accumulated energy according to the smoothing method and the 3 OLAP dimensions. The measured PV data from 2 selected days have been processed and plotted as the following daily time courses:
 
 - Measured GI(t), synchronized with predicted GI~f~ (1 hour zoomed) - Figures 2, 6
-- Measured GI(t) and its smooth counterpart by the smoothing method and prediction accuracy, applying the optimal LPF order - Figures 3, 4, 7, 8
-- Accumulated GX(t) by the smoothing method and prediction accuracy, applying the optimal LPF order - Figures 5, 9
-- Smoothed GI(t) by the filter order and prediction accuracy, using the IPLPF and SPLPF smoothing methods - Figures 10-12, 16-18
-- Accumulated GX by the filter order and prediction accuracy, using the IPLPF and SPLPF smoothing methods - Figures 13-15, 19-21
+- Measured GI(t) and its smooth counterpart by the prediction accuracy, comparing all smoothing methods, having optimal LPF order applied - Figures 3, 4, 7, 8
+- Accumulated GX(t) by the prediction accuracy, comparing all smoothing methods, having optimal LPF order applied - Figures 5, 9
+- Smoothed GI(t) by the filter order and prediction accuracy, comparing IPLPF and SPLPF smoothing methods - Figures 10-12, 16-18
+- Accumulated GX(t) by the filter order and prediction accuracy, comparing IPLPF and SPLPF smoothing methods - Figures 13-15, 19-21
 
 ###  Analysis by prediction error
 
-####  Day with medium insolation
+####  A day with medium insolation
 
 <figure markdown>
   ![GI~f~_220304](img/2022-03-04_from11h_to12h.png){ width="650"}
@@ -221,7 +223,7 @@ The following graphs show the smoothing quality and accumulated energy according
   <figcaption>Figure 5: Time course of GX accumulated by 4 smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
   
-#### Day with high insolation
+#### A day with high insolation
 
 <figure markdown>
   ![GIf_220404](img/2022-04-04_from11h_to12h.png){ width="650"}
@@ -247,11 +249,11 @@ The following graphs show the smoothing quality and accumulated energy according
 
 Following graphs compare the smoothing by IPLPF vs SPLPF method:
 
-#### Day with medium insolation
+#### A day with medium insolation
 
 <figure markdown>
   ![GIs_aavg0_220304](img/order_gi_aavg0_2022-03-04.png){ width="650"}
-  <figcaption>Figure 10: Time course of IPLPF-smoothed GI shows similar quality for each filter order</figcaption>
+  <figcaption>Figure 10: Time course of IPLPF-smoothed GI shows its similar quality for each filter order</figcaption>
 </figure>
   
 <figure markdown>
@@ -280,11 +282,11 @@ Following graphs compare the smoothing by IPLPF vs SPLPF method:
 </figure>
 .  
 
-#### Day with high insolation
+#### A day with high insolation
 
 <figure markdown>
   ![GIs_aavg0_220404](img/order_gi_aavg0_2022-04-04.png){ width="650"}
-  <figcaption>Figure 16: Time course of IPLPF-smoothed GI shows similar quality for each filter order</figcaption>
+  <figcaption>Figure 16: Time course of IPLPF-smoothed GI shows its similar quality for each filter order</figcaption>
 </figure>
   
 <figure markdown>

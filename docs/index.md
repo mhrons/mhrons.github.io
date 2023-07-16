@@ -14,5 +14,5 @@ My photovoltaic projects:
 
 ![GI Smoothing](img/GI_PV2.3but7.5.2022-04-04.png){width="100"}
 
-You can contact me on [LinkedIn](https://www.linkedin.com/in/milan-hronsky-76132224/)
+You can contact me via [LinkedIn](https://www.linkedin.com/in/milan-hronsky-76132224/)
 
