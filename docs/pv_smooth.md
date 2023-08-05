@@ -10,7 +10,7 @@ We focus our analysis on the application of
 [LPF](https://www.analog.com/en/design-center/glossary/low-pass-filter.html)
  excited by 
 [PV predictor](https://www.sciencedirect.com/science/article/abs/pii/S0038092X14001327)
-  trained by both sky imagery and p(t) signals. We further integrate the two into one entity, utilizing the advantage of predictive filters.
+  trained by both sky imagery and p(t) signals. We further integrate the two into one entity, utilizing the principal advantage of predictive filters.
 
 <figure markdown>
   ![PLPF Schema](img/Schema_PLPF.png){ width="650"}
@@ -98,7 +98,7 @@ The costs are specific per 1 kW of installed PV power. Installed PV power = DC o
 CapEx = initial investment to PV smoothing. OpEx = regular (e.g. yearly) costs necessary for its uninterrupted operation. CapEx of "Hybrid with BESS” system include 90% of the BESS capacity reserved for storage, 10% for smoothing. The greater from (CapEx, interval * OpEx) defines the cost of PV smoothing for a given service interval.  
 However, when the smoothing uses >1 accumulation technologies concurrently, the service interval has to be fixed before calculating OpEx. (Reason: Given the service interval, the two technologies with different wear-outs can be optimally mixed.) We have cost-optimized the IPLPF smoothing for a large-scale PV plant by mixing 2 accumulation technologies, concurrently operating during 15 years of service. The 
 [hybrid supercapacitor](https://www.sciencedirect.com/science/article/abs/pii/S1364032118307299)
- technology (HSC) combines advantages of EDLC & RedOx technologies. As HSC technology is stil under development, the mixed cost model is only hypothetical.
+ technology (HSC) combines advantages of EDLC & RedOx technologies. As HSC technology is still under development, the mixed cost model is only hypothetical.
 Hybrid systems and sole PV plants use different cost models, because the sole PV plant optimally mixes 2 accumulation technologies for smoothing.
 
 ### Applications of IPLPF
