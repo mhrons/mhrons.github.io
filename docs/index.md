@@ -3,7 +3,7 @@
 My name is **Milan Hronský**  
 I work on  **better integration of renewable energy in the grid**.  
 A common problem of renewable energy is its [intermittency](https://mhrons.github.io/pv_intermit/).
-The share of fossile and nuclear energy in the grid will remain high, unless the time course of renewable power is effectively smoothed. My goal is to develop technical means to unleash a natural increase of the renewable energy share in the grid.
+The fossile and nuclear energy in the grid will remain high, unless the time course of renewable power is effectively smoothed. Trying to increase the share of renewable energy in the grid by technical means.  
 
 My photovoltaic projects:
 
