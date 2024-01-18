@@ -1,8 +1,9 @@
 ![Milan](img/Milan.jpg){width="70"}
 
 My name is **Milan Hronský**  
-I live in Slovakia, and work on  **better integration of renewable energy in the grid**.  
-A common problem of renewable energy is its [intermittency](https://mhrons.github.io/pv_intermit/)
+I work on  **better integration of renewable energy in the grid**.  
+A common problem of renewable energy is its [intermittency](https://mhrons.github.io/pv_intermit/).
+The share of fossile and nuclear energy in the grid will remain high, unless the time course of renewable power is effectively smoothed. My goal is to develop technical means to unleash a natural increase of the renewable energy share in the grid.
 
 My photovoltaic projects:
 
