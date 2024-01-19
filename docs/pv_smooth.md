@@ -6,7 +6,7 @@ The objective of PV smoothing is to meet the given ramping limits of PV power, w
 , [Kalman filter](https://www.kalmanfilter.net/default.aspx)
  have been developed to avoid the accumulation of PV energy due to the time lag of LPF. Advantage of predictive filters is that they integrate the predictor and LPF into a same functional entity, potentially accumulating less energy than a standard LPF excited by a predicted PV power does. But the self-predicted filters are trained only by information carried by the measured power signal p(t), lacking the information from sky imagery. As a result, the accumulation cost induced by predictive filters still exceeds the production costs of fossil and nuclear electricity (assuming current social cost of CO~2~ and nuclear waste). 
 Our analysis will be therefore focused on the application of
-[LPF](https://www.analog.com/en/design-center/glossary/low-pass-filter.html)
+[standard LPF](https://www.analog.com/en/design-center/glossary/low-pass-filter.html)
  excited by 
 [PV predictor](https://www.sciencedirect.com/science/article/abs/pii/S0038092X14001327)
   trained by both sky imagery and p(t) signals. We further integrate the two into one entity, utilizing the theoretical advantage of predictive filters.
@@ -22,7 +22,7 @@ In the schematic diagram on Figure 1, a PV power plant (PVPP) is connected to th
 
 - In theory, an ideal predictive smoothing **IPLPF** excites LPF by the exact future PV power signal p(t+Δt) where the time advance Δt is absolutely equal to the LPF's group delay at frequencies f<<f~c~ where f~c~ is the cut-off frequency of LPF. The smooth power signal s(t+Δt) is the response of LPF to the input signal p(t+Δt).
 
-- According to the schematic diagram, a **PLPF** smoothing method excites the LPF by a predicted PV power signal p~f~(t+Δt), approximating the signal p(t+Δt). The predictor is trained by the sky-imagery signal and by the measured PV power p(t).
+- According to the schematic diagram, a **PLPF** smoothing method excites the LPF with a predicted PV power signal p~f~(t+Δt), approximating the signal p(t+Δt). The predictor is trained by the sky-imagery signal and by the measured PV power p(t).
 
 - Eventually, a smart smoothing method **SPLPF** (patent pending) has been designed, integrating the LPF with the PV predictor trained by both the sky-imagery and the measured PV power p(t). This method uses a modified scheme.
 
@@ -93,9 +93,8 @@ IPLPF costs measured from 04/2021 to 03/2022. The plane of incidence and the app
 #### Conditions of cost calculation:  
 1/3 of the yearly-generated PV energy by the hybrid PV system is assumed as infeed to the grid (overflow).  
 Microcycling of Li-Ion BESS is eliminated by technical measures.  
-LiFePO4 [life cycle data](https://www.powertechsystems.eu/home/tech-corner/lithium-iron-phosphate-lifepo4/) and 
-[price](https://www.powertechsystems.eu/home/tech-corner/lithium-ion-vs-lead-acid-cost-analysis/) per kWh  
-Energy losses due to the AC/DC conversion and accumulation are neglected.
+LiFePO4 [life cycle data](https://www.powertechsystems.eu/home/tech-corner/lithium-iron-phosphate-lifepo4/) and per kWh price as of 2021  
+Energy losses due to AC/DC conversion and accumulation are neglected.
 The costs are specific per 1 kW of installed PV power.  
 CapEx = initial investment to PV smoothing includes 90% of the BESS capacity reserved for the basic storage, 10% for smoothing.  
 OpEx = regular (e.g. yearly) costs necessary for its uninterrupted operation.  
@@ -104,7 +103,7 @@ The greater from (CapEx, sevice_interval * OpEx) defines the cost of IPLPF smoot
 ***Having a small free BESS capacity and a total BESS power available, the smoothing by IPLPF is much cheaper than the added value to the PV power infeed is. IPLPF technology offers an affordable smoothing of PV power in grid areas with a high concentration of small-scale hybrid PV systems.***
 
 ### Suitable accumulators for IPLPF
-Although the IPLPF shrinks the necessary capacity and the accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a LiFePO4 battery by a relative power >> 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with the sole IPLPF smoothing requirements.  
+Although the IPLPF shrinks the necessary capacity and accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a LiFePO4 battery by a relative power >> 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with the sole IPLPF smoothing requirements.  
 Actually, the IPLPF demands are well satisfied by a 
 [flywheel (FESS)](https://energystorage.org/why-energy-storage/technologies/flywheel-energy-storage-systems-fess/)
 : 1) Its maximum relative power 10 h^-1^ poses no limit within demands of IPLPF smoothing. 2) IPLPF accumulates energy only on solar-intermittent days (else no accumulation is needed), and the flywheels wear out only when rotating. (Because of unknown prices and life cycle parameters, we calculated neither CapExp, nor OpExp of the flywheel in a role of IPLPF accumulator.) However, ***the native synergy between demands and features identifies the flywheel as a suitable accumulator for IPLPF smoothing.***
