@@ -82,7 +82,7 @@ Smoothing costs result from the accumulation technology and from the accumulatio
 Based on the measured GI(t) over a time span of 1 year and the LiFePO4 lifecycle data and prices, the accumulation rate of IPLPF has been aggregated and the corresponding smoothing costs have been calculated. The results show that IPLPF operation is worthwhile with the German power purchase tariff and PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between the electricity purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). 
 
 #### Small-scale hybrid PV system
-A household with installed PV power <10kW is connected to the low-voltage grid, having a LiFePO4 BESS with energy capacity ≈ 2h x installed PV power. The hybrid PV system feeds its excessive PV power to the grid, as long as the household’s consumption is satisfied and the battery has been charged. If the charging stops at e.g. 85% SOC~max~, the BESS provides enough power to smooth the excessive PV infeed to the grid with relative power <1C, provided that the remaining free BESS capacity has been left free for IPLPF smoothing (7% ΔSOC has to be reserved for IPLPF on 2022-03-04). Additional technical measures have to avoid its microcycling - e.g. the BESS consists from 2 independent batteries.  
+A household with installed PV power <10kW is connected to the low-voltage grid, having a LiFePO4 BESS with energy capacity ≈ 2h x installed PV power. The hybrid PV system feeds its excessive PV power to the grid, as long as the household’s consumption is satisfied and the battery has been charged. If the charging stopped at e.g. 85% SOC~max~, the BESS would provide enough power to smooth the excessive PV infeed to the grid with relative power <1C, provided that the remaining free BESS capacity has been reserved for IPLPF smoothing (7% ΔSOC has to be reserved for IPLPF on 2022-03-04). Additional technical measures have to avoid its microcycling - e.g. the BESS consists from 2 independent batteries.  
 
 IPLPF costs measured from 04/2021 to 03/2022. The plane of incidence and the applied LPF correspond to the GI(t) and GX(t) plots:    
 <figure markdown>
@@ -93,8 +93,8 @@ IPLPF costs measured from 04/2021 to 03/2022. The plane of incidence and the app
 #### Conditions of cost calculation:  
 1/3 of the yearly-generated PV energy by the hybrid PV system is assumed as infeed to the grid (overflow).  
 Microcycling of Li-Ion BESS is eliminated by technical measures.  
-LiFePO4 [life cycle data](https://www.powertechsystems.eu/home/tech-corner/lithium-iron-phosphate-lifepo4/)  
-LiFePO4 [price](https://www.powertechsystems.eu/home/tech-corner/lithium-ion-vs-lead-acid-cost-analysis/) per kWh  
+LiFePO4 [life cycle data](https://www.powertechsystems.eu/home/tech-corner/lithium-iron-phosphate-lifepo4/) and 
+[price](https://www.powertechsystems.eu/home/tech-corner/lithium-ion-vs-lead-acid-cost-analysis/) per kWh  
 Energy losses due to the AC/DC conversion and accumulation are neglected.
 The costs are specific per 1 kW of installed PV power.  
 CapEx = initial investment to PV smoothing includes 90% of the BESS capacity reserved for the basic storage, 10% for smoothing.  
@@ -104,7 +104,7 @@ The greater from (CapEx, sevice_interval * OpEx) defines the cost of IPLPF smoot
 ***Having a small free BESS capacity and a total BESS power available, the smoothing by IPLPF is much cheaper than the added value to the PV power infeed is. IPLPF technology offers an affordable smoothing of PV power in grid areas with a high concentration of small-scale hybrid PV systems.***
 
 ### Suitable accumulators for IPLPF
-Although the IPLPF shrinks the necessary capacity and the accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a LiFePO battery by a relative power >> 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with the IPLPF sole smoothing requirements.  
+Although the IPLPF shrinks the necessary capacity and the accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a LiFePO4 battery by a relative power >> 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with the sole IPLPF smoothing requirements.  
 Actually, the IPLPF demands are well satisfied by a 
 [flywheel (FESS)](https://energystorage.org/why-energy-storage/technologies/flywheel-energy-storage-systems-fess/)
 : 1) Its maximum relative power 10 h^-1^ poses no limit within demands of IPLPF smoothing. 2) IPLPF accumulates energy only on solar-intermittent days (else no accumulation is needed), and the flywheels wear out only when rotating. (Because of unknown prices and life cycle parameters, we calculated neither CapExp, nor OpExp of the flywheel in a role of IPLPF accumulator.) However, ***the native synergy between demands and features identifies the flywheel as a suitable accumulator for IPLPF smoothing.***
@@ -121,17 +121,17 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 3. PLPF: Input of LPF excited by the simulated-predicted signal GI~f~(t+Δt)
 4. SPLPF: Smart power filter excited by the simulated-predicted signal GI~f~.
 
-We analzed these smoothing methods by using Butterworth LPF of orders 1 to 4.
+We analzed these smoothing methods by means of Butterworth LPF of orders 1 to 4.
 
 ### OLAP analysis
-The smoothing quality and accumulation rate were analyzed on days exhibiting a strong solar intermittency and a moderate to strong insolation. We fixed the same smoothing quality (ramping limit) for each LPF order used: The low-pass filters of orders 1 to 4 have been tuned to provide equivalent output ramping by the reference IPLPF method, provided that the filter is excited by the measured, optimally shifted GI signal. (With such a tuning, increasing the LPF order increases its cut-off frequency and slightly increases the advance Δt.) Eventually, we aggregated the rate of accumulation by the following independent dimensions:
+The smoothing quality and accumulation rate were analyzed on days exhibiting a strong solar intermittency and a moderate to strong insolation. We fixed the same smoothing quality (ramping limit) to each LPF order used: The low-pass filters of orders 1 to 4 have been tuned to provide equivalent output ramping by the reference IPLPF method, provided that the filter is excited by the measured, optimally shifted GI signal. (With such a tuning, increasing the LPF order increases its cut-off frequency and slightly increases the advance Δt.) Eventually, we aggregated the rate of accumulation by the following independent dimensions:
 
 - smoothing method
 - LPF order
 - smooth_int (prediction error)
 - SE (prediction error)
 
-The first goal was to identify the LPF order accumulating the minimum energy, given the smoothing method and ramping limit. It was found out that the optimal filter order for IPLPF is also valid for other smoothing methods. Having the optimum LPF order, the performance of each smoothing method was then analyzed by varrying the prediction eror.  
+The first goal was to identify the LPF order accumulating the minimum energy, given the smoothing method and ramping limit. It was found out that the optimal LPF order for IPLPF is also valid for other smoothing methods. Having the optimum LPF order, the performance of each smoothing method was then analyzed by varrying the prediction eror.  
 The results of OLAP analysis have been tabelized, plotted, and literally expressed.
 
 ### Simulation of predicted PV power

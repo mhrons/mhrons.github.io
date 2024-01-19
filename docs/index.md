@@ -5,6 +5,8 @@ I work on  **better integration of renewable energy in the grid**.
 A common problem of renewable energy is its [intermittency](https://mhrons.github.io/pv_intermit/).
 The fossile and nuclear energy in the grid will remain high, unless the time course of renewable power is effectively smoothed. Trying to increase the share of renewable energy in the grid by technical means.  
 
+I would appreciate an offer to continue my private research on an institutional basis. A cooperation in the development of PV nowcasting, and an offer for funding my patent fees would be highly appreciated.
+
 My photovoltaic projects:
 
 - [PV Logger](https://mhrons.github.io/pv_log/)
