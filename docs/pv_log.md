@@ -2,8 +2,8 @@
 ***Accurate measurement of global irradiance (GI) is a prerequisite for the analysis of PV smoothing:***  
 
 * Accurate short-term forecasting (nowcasting) of PV power is crucial when minimizing the accumulated energy by the PV power smoothing. PV power predictors are based on artificial intelligence (AI) and they can be trained by a sky-imagery and by the measured signal GI(t), in particular its fraction intercepted by a tilted PV panel.
-* Having the measured time series GI(t), a low-pass filter can be ex-post excited by a "predicted" input signal GI~f~(t+Δt). That is, the measured signal is shifted to the left on its time axis and its values are biased with a simulated prediction error. Given the simulated-predicted PV power signal and having LPF tuned to meet the given ramping limit of PV power, the accumulated energy by the filter should be minimized by technical means to minimize the smoothing cost.
-* However low is the accumulated energy, the smoothing is not for free and it pays-off only with a favourable "smooth feed-in tariff" granted to those prosumers who meet the given PV ramping limits. The goal is to keep the sum "grid control costs" plus "PV power losses due to curtailment" plus "PV smoothing costs" at minimum. Having the PV ramping limit and the measured signal GI(t) over a time span of 1+ year and its prediction error, the accumulation rate hence the smoothing cost can be aggregated. The minimum criterion can be eventually iterated unless the PV ramping limit is optimized.
+* Having the measured time series GI(t), a low-pass filter can be ex-post excited by a "predicted" input signal GI~f~(t+Δt). That is, the measured signal is shifted to the left on its time axis and its values are biased with a simulated prediction error. Given the simulated-predicted PV power signal and having LPF tuned to meet the given ramping limit of PV power, the accumulated energy by filter should be then minimized by technical means to minimize the smoothing cost.
+* However low is the accumulated energy, the smoothing is not for free and it pays-off only with a favourable "smooth feed-in tariff" granted to those prosumers who meet the requested PV ramping limits. The goal is to keep the sum "grid control costs" plus "PV power losses due to curtailment" plus "PV smoothing costs" at minimum. Given the PV ramping limit and having the measured signal GI(t) over a time span of 1+ year and its prediction error, the accumulation rate hence the smoothing cost can be aggregated. The minimum criterion can be eventually iterated unless the PV ramping limit is optimized.
 
 Measurement of solar irradiance for the analysis of PV smoothing should meet folloowing demands:
 
@@ -21,7 +21,7 @@ A corresponding measurement system with data logger has been developed by the au
 
  The system consists of 2 units:
 
-1. external console carrying 4 reference PV panels mounted in different angles, and temperature sensors of PV panels,
+1. external console carrying 4 reference PV panels mounted at different angles, and temperature sensors of PV panels,
 2. internal measurement unit, serving as MPPT controller, battery charger, heat sink, A/D converter, and data logger.
 
 ## System features
