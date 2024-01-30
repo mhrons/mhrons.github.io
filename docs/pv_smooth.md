@@ -121,14 +121,14 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 4. SPLPF: Smart power filter excited by the simulated-predicted signal GI~f~.
 
 ### [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) analysis
-The goal is to analyze the accumulation rate by partial dimensions (independent variables), assuming a fixed smoothing quality (ramping of output power). We used GI data from days exhibiting a strong solar intermittency and a moderate to strong insolation. The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h. We aggregated the rate of accumulation by the following variables:
+The goal is to analyze the accumulation rate by partial dimensions (independent variables), assuming a fixed smoothing quality (ramping of output power). The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h. We aggregate the rate of accumulation by the following dimensions:
 
 - smoothing method
 - LPF order
 - smooth_int (prediction error)
 - SE (prediction error)
 
-First of all, we fixed the same smoothing quality to various LPF: Low-pass filters of orders 1 to 4 have been tuned to provide an equal output ramping by the reference IPLPF method, provided that the filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases the advance Δt. The goal was to identify the LPF order accumulating the minimum energy, given the smoothing method and ramping limit. It was found out that the optimal LPF order for IPLPF is also valid for other smoothing methods. Once having the optimum LPF order, the performance of each smoothing method was analyzed by varrying the prediction eror.  
+First of all, we fixed the same smoothing quality to various LPF used: Low-pass filters of orders 1 to 4 have been tuned to provide an equal output ramping by the reference IPLPF method, provided that the filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases the advance Δt. The goal was to identify the LPF order accumulating the minimum energy, given the smoothing method and ramping limit. It was found out that the optimal LPF order for IPLPF is also valid for other smoothing methods. Once having the optimum LPF order, the performance of each smoothing method was analyzed by varrying the prediction eror.  
 The results of OLAP analysis have been tabelized, plotted, and literally expressed.
 
 ### Simulation of predicted PV power
@@ -170,6 +170,8 @@ Filter order is another OLAP dimension, impact of which on the smoothing perform
 - Increasing the filter order notably reduces the accumulation rate induced by both IPLPF and SPLPF smoothing methods (Figures 13-15, 19-21). With the simulated predictor, this trend is reversed between orders 3 and 4 by the SPLPF method. ***With the simulated predictor, SPLPF performs best with the filter order 3.***
 
 ## Numerical results of smoothing
+
+The presented results are based on the measured GI data exhibiting a strong solar intermittency and a moderate to strong insolation. 
 
 ### Rate of accumulation by method
 Accumulation rate of each smoothing method in the selected days, using filter order 3:
