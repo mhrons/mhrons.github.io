@@ -132,12 +132,12 @@ First of all, we fixed the same smoothing quality to various LPF: Low-pass filte
 The results of OLAP analysis have been tabelized, plotted, and literally expressed.
 
 ### Simulation of predicted PV power
-We simulated the predicted signal GI~f~(t+Δt) from the measured, left-shifted signal GI(t+Δt) by smoothing its "future" time course and by superimposing a random error to it, with respect to the fundamental properties of PV predictors:
+The group delay of LPF is a physical function of the LPF order and its cut-off frequency. But given the ramping limit, it varries only slightly for any valid combination of the other two variables. So technically, Δt represents the smoothing quality of LPF, or the ramping of output power. Impact of the prediction error on GI~f~ is aggregated at the time t+Δt. The predicted signal GI~f~(t+Δt) is simulated from the measured, left-shifted signal GI(t+Δt) by smoothing its "future" time course and by superimposing a random error to it, with respect to the fundamental properties of PV predictors:
 
 - as the advance Δt increases, the (unwanted) smoothing of the predicted signal GI~f~ strengthens
 - as the advance Δt increases, the impact of random error on GI~f~ increases (statistically cumulates)
 
-Impact of both errors on GI~f~ is aggregated at the time t+Δt where the advance Δt (group delay of LPF) technically expresses the ramping limit (smoothing quality) of the filter. The group delay is a function of the LPF order and its cut-off frequency. We specify the prediction error by 2 quantitative dimensions (OLAP):
+We specify the prediction error by 2 quantitative dimensions (OLAP):
 
 - Interval of prediction, after passing of which the smoothing impact on the predicted signal is strengthened, is defined by the parameter smooth_int [minute]. The shorter this interval, the steeper the smoothing effect rises towards predicted future.
 - Standard deviation of the random prediction error (dimensionless parameter SE). A random value is superimposed to each future GI value. This error is re-generated after passing each 6-minute interval of prediction. The impact of random error on GI~f~(t+Δt) is statistically cumulated over Δt.
