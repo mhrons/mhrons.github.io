@@ -242,14 +242,14 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 <li>SPLPF: Smart power filter excited by the simulated-predicted signal GI<sub>f</sub>.</li>
 </ol>
 <h3 id="olap-analysis"><a href="https://en.wikipedia.org/wiki/Online_analytical_processing">OLAP</a> analysis</h3>
-<p>The goal is to analyze the accumulation rate by partial dimensions (independent variables), assuming a fixed smoothing quality (ramping of output power). We used GI data from days exhibiting a strong solar intermittency and a moderate to strong insolation. The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h. We aggregated the rate of accumulation by the following variables:</p>
+<p>The goal is to analyze the accumulation rate by partial dimensions (independent variables), assuming a fixed smoothing quality (ramping of output power). The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h. We aggregate the rate of accumulation by the following dimensions:</p>
 <ul>
 <li>smoothing method</li>
 <li>LPF order</li>
 <li>smooth_int (prediction error)</li>
 <li>SE (prediction error)</li>
 </ul>
-<p>First of all, we fixed the same smoothing quality to various LPF: Low-pass filters of orders 1 to 4 have been tuned to provide an equal output ramping by the reference IPLPF method, provided that the filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases the advance Δt. The goal was to identify the LPF order accumulating the minimum energy, given the smoothing method and ramping limit. It was found out that the optimal LPF order for IPLPF is also valid for other smoothing methods. Once having the optimum LPF order, the performance of each smoothing method was analyzed by varrying the prediction eror.<br />
+<p>First of all, we fixed the same smoothing quality to various LPF used: Low-pass filters of orders 1 to 4 have been tuned to provide an equal output ramping by the reference IPLPF method, provided that the filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases the advance Δt. The goal was to identify the LPF order accumulating the minimum energy, given the smoothing method and ramping limit. It was found out that the optimal LPF order for IPLPF is also valid for other smoothing methods. Once having the optimum LPF order, the performance of each smoothing method was analyzed by varrying the prediction eror.<br />
 The results of OLAP analysis have been tabelized, plotted, and literally expressed.</p>
 <h3 id="simulation-of-predicted-pv-power">Simulation of predicted PV power</h3>
 <p>The group delay of LPF is a physical function of the LPF order and its cut-off frequency. But given the ramping limit, it varries only slightly for any valid combination of the other two variables. So technically, Δt represents the smoothing quality of LPF, or the ramping of output power. Impact of the prediction error on GI<sub>f</sub> is aggregated at the time t+Δt. The predicted signal GI<sub>f</sub>(t+Δt) is simulated from the measured, left-shifted signal GI(t+Δt) by smoothing its "future" time course and by superimposing a random error to it, with respect to the fundamental properties of PV predictors:</p>
@@ -288,6 +288,7 @@ The results of OLAP analysis have been tabelized, plotted, and literally express
 <li>Increasing the filter order notably reduces the accumulation rate induced by both IPLPF and SPLPF smoothing methods (Figures 13-15, 19-21). With the simulated predictor, this trend is reversed between orders 3 and 4 by the SPLPF method. <strong><em>With the simulated predictor, SPLPF performs best with the filter order 3.</em></strong></li>
 </ul>
 <h2 id="numerical-results-of-smoothing">Numerical results of smoothing</h2>
+<p>The presented results are based on the measured GI data exhibiting a strong solar intermittency and a moderate to strong insolation. </p>
 <h3 id="rate-of-accumulation-by-method">Rate of accumulation by method</h3>
 <p>Accumulation rate of each smoothing method in the selected days, using filter order 3:</p>
 <figure>
