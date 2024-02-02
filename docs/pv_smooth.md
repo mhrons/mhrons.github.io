@@ -121,7 +121,7 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 4. SPLPF: Smart power filter excited by the simulated-predicted signal GI~f~.
 
 ### [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) analysis
-The goal is to analyze the accumulation rate by partial dimensions (several independent quantitative or categorical variables), assuming a given smoothing quality i.e. ramping of the filtered power. The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h, operated in IPLPF method with  Δt = 31 minutes. We aggregate the accumulation rate into an OLAP cube having following dimensions:
+The goal is to analyze the accumulation rate by partial dimensions (several independent quantitative or categorical variables), assuming a given smoothing quality i.e. ramping of the filtered power. The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h, operated by IPLPF method with  Δt = 31 minutes. We aggregate the accumulation rate into an OLAP cube having the following dimensions:
 
 - smoothing method
 - LPF order
