@@ -68,7 +68,7 @@ The measured signal GI(t) and applied LPF allow for the aggregation of specific 
 - maximum specific energy capacity ΔGX=max(GX)-min(GX) by \eqref{eq:4},
 - specific IPLPF-accumulated throughput by \eqref{eq:5}.
 
-These 3 values define the accumulation rate. ***Using a reference LPF, the accumulation rate of IPLPF smoothing is a reference quantifier of solar intermittency.***  
+These 3 values define the accumulation rate. ***Using a reference LPF, the accumulation rate of IPLPF smoothing quantifies the solar intermittency.***  
 
 ### Smoothing by IPLPF vs LPF  
 Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific energy GX accumulated by filters:  
@@ -106,7 +106,7 @@ The greater from (CapEx, sevice_interval * OpEx) defines the cost of IPLPF smoot
 Although the IPLPF shrinks the necessary capacity and accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a LiFePO4 battery by a relative power > 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with the sole IPLPF smoothing demands.  
 Actually, the IPLPF demands are well satisfied by a 
 [flywheel (FESS)](https://energystorage.org/why-energy-storage/technologies/flywheel-energy-storage-systems-fess/)
-: 1) Its maximum relative power 10 h^-1^ poses no limit within demands of IPLPF smoothing. 2) IPLPF accumulates energy only on solar-intermittent days (else no accumulation is needed), and the flywheels wear out only when rotating. 3) Flywheels are already used to compensate for reactive power in the grid, which places similar technical requirements on them as the IPLPF smoothing of PV power. (Because of unknown prices and life cycle data, we calculated neither CapExp, nor OpExp of FESS in a role of IPLPF storage.) ***The native synergy between demands and features identifies the flywheel as a suitable accumulator for IPLPF smoothing.***
+: 1) Its maximum relative power 10 h^-1^ poses no limit within demands of IPLPF smoothing. 2) IPLPF accumulates energy only on solar-intermittent days (else no accumulation is needed), and the flywheels wear out only when rotating. 3) Flywheels are already used to compensate for reactive power in the grid, which places similar technical requirements on them like the IPLPF smoothing of PV power does. (Because of unknown prices and life cycle data, we calculated neither CapExp, nor OpExp of FESS in a role of IPLPF storage.) ***The native synergy between demands and features identifies the flywheel as a suitable accumulator for IPLPF smoothing.***
 
 ### Summary of IPLPF
 One year of continous GI(t) measurement has confirmed that if the PV smoothing performed close to the ideal smoothing IPLPF, it would be affordable with LiFePO4 technology when properly implemented in a hybrid PV system (inclusive measures against micro-cycling of BESS). Existing flywheel technology is probably most suitable for the IPLPF smoothing of PV power. ***Low accumulation rate achieved by IPLPF should motivate the further development of technologies among which the high-power accumulation of energy, accurate nowcasting of PV power, and the smart filtering of intermitent power are key.***
@@ -182,7 +182,7 @@ Accumulation rate per date and smoothing method, using the reference filter:
   
 <figure markdown>
   ![IPLPF Costs](img/Accu_Rate_220404.png){ width="650"}
-  <figcaption>Table 3: Date 2022-04-04 stgrong insolation, strong intermittency</figcaption>
+  <figcaption>Table 3: Date 2022-04-04 high insolation, strong intermittency</figcaption>
 </figure>
 
 Maximum specific power from/to ESS calculated by \eqref{eq:6} is in the column "GI~ESS~". Difference between the maximum and minimum specific accumulated energy calculated by \eqref{eq:4} is in the column "ΔGX". Daily flow of the specific energy through ESS calculated by \eqref{eq:5} is in the column "Throughput". Global exposure of the plane of incidence is also displayed.
