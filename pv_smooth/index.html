@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/pv_smooth/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>PV Smoothing - Milan Docs</title>
+    <title>Smoothing of PV power - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "PV Smoothing";
+        var mkdocs_page_name = "Smoothing of PV power";
         var mkdocs_page_input_path = "pv_smooth.md";
         var mkdocs_page_url = "/pv_smooth/";
       </script>
@@ -61,7 +61,7 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">PV Smoothing</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Smoothing of PV power</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#accumulation-of-energy-by-smoothing">Accumulation of energy by smoothing</a>
     </li>
@@ -79,7 +79,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#real-smoothing-of-pv-power">Real smoothing of PV power</a>
+    <li class="toctree-l2"><a class="reference internal" href="#real-smoothing-plpf-splpf">Real smoothing (PLPF, SPLPF)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#olap-analysis">OLAP analysis</a>
     </li>
@@ -130,7 +130,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>PV Smoothing</li>
+      <li>Smoothing of PV power</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -232,9 +232,9 @@ Actually, the IPLPF demands are well satisfied by a
 : 1) Its maximum relative power 10 h<sup>-1</sup> poses no limit within demands of IPLPF smoothing. 2) IPLPF accumulates energy only on solar-intermittent days (else no accumulation is needed), and the flywheels wear out only when rotating. 3) Flywheels are already used to compensate for reactive power in the grid, which places similar technical requirements on them like the IPLPF smoothing of PV power does. (Because of unknown prices and life cycle data, we calculated neither CapExp, nor OpExp of FESS in a role of IPLPF storage.) <strong><em>The native synergy between demands and features identifies the flywheel as a suitable accumulator for IPLPF smoothing.</em></strong></p>
 <h3 id="summary-of-iplpf">Summary of IPLPF</h3>
 <p>One year of continous GI(t) measurement has confirmed that if the PV smoothing performed close to the ideal smoothing IPLPF, it would be affordable with LiFePO4 technology when properly implemented in a hybrid PV system (inclusive measures against micro-cycling of BESS). Existing flywheel technology is probably most suitable for the IPLPF smoothing of PV power. <strong><em>Low accumulation rate achieved by IPLPF should motivate the further development of technologies among which the high-power accumulation of energy, accurate nowcasting of PV power, and the smart filtering of intermitent power are key.</em></strong></p>
-<h2 id="real-smoothing-of-pv-power">Real smoothing of PV power</h2>
+<h2 id="real-smoothing-plpf-splpf">Real smoothing (PLPF, SPLPF)</h2>
 <p>Now, the objective is to analyze the smoothing quality vs accumulation rate (in summary: performance) of PV smoothing under real conditions. The measured global irradiance signal GI(t) allows not only the simulation of ideal predictive low-pass smoothing (IPLPF), but also a predictive smoothing of PV power (PLPF) having the low-pass filter excited by a real-predicted signal GI<sub>f</sub>(t+Δt). The values GI<sub>f</sub> are biased by a prediction error. The numeric results will show that this error induces a significant energy accumulated by the PLPF smoothing. We simulated the prediction error into the measured GI values in order to statistically represent the predicted signal GI<sub>f</sub>(t+Δt) and to have a possibility to adjust the prediction error. Thus, the measured GI(t) signal allowed us to analyze the impact of prediction error on the smoothing of PV power.<br />
-In addition to PLPF, we have developed a “smart predictive" low-pass smoothing method <strong><em>SPLPF</em></strong> (patent pending), minimizing the accumulated energy with respect to the real-predicted values GI<sub>f</sub>. Eventually, we analyzed the performance of the following smoothing methods:</p>
+In addition to PLPF, we have developed a “smart predictive" low-pass smoothing method <strong><em>SPLPF</em></strong> (patent pending), <strong><em>minimizing the accumulated energy with respect to the real-predicted values GI<sub>f</sub></em></strong>. Eventually, we analyzed the performance of the following smoothing methods:</p>
 <ol>
 <li>LPF: Input of LPF excited by the measured signal GI(t)</li>
 <li>IPLPF: Input of LPF excited by the measured, optimally left-shifted signal GI(t+Δt)</li>
@@ -242,17 +242,17 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 <li>SPLPF: Smart power filter excited by the simulated-predicted signal GI<sub>f</sub>.</li>
 </ol>
 <h3 id="olap-analysis"><a href="https://en.wikipedia.org/wiki/Online_analytical_processing">OLAP</a> analysis</h3>
-<p>The goal is to analyze the accumulation rate by partial dimensions (several independent quantitative or categorical variables), assuming a given smoothing quality i.e. ramping of the filtered power. The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h, operated by IPLPF method with  Δt = 30 minutes. We aggregate the accumulation rate into an OLAP cube having the following dimensions:</p>
+<p>The goal is to analyze the accumulation rate by partial dimensions (a number of independent quantitative or categorical variables), assuming a given smoothing quality i.e. max/min ramping of the filtered power. The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h, operated by IPLPF method with  Δt = 30 minutes. We aggregate the accumulation rate into an OLAP cube having the following dimensions:</p>
 <ul>
 <li>smoothing method</li>
 <li>LPF order</li>
 <li>smooth_int (prediction error)</li>
 <li>SE (prediction error)</li>
 </ul>
-<p>First of all, the same smoothing quality has been fixed to various LPF used: Low-pass filters of orders 1 to 4 have been tuned to provide equal output ramping, provided that each filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases the advance Δt. The next goal was to identify the LPF order accumulating minimum energy, given the smoothing method and ramping limit. It was found out that the optimal LPF order for SPLPF is also valid for the IPLPF smoothing method. (This is irrelevant for the remaining 2 methods since they accumulate much more energy than IPLPF and SPLPF.) Once having the optimum LPF order, the performance of smoothing methods PLPF, SPLPF was analyzed by varrying the prediction eror.<br />
+<p>First of all, the same smoothing quality has been fixed to various LPF used: Low-pass filters of orders 1 to 4 have been tuned to provide equal ramping, provided that each filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases the advance Δt. The next goal was to identify the LPF order accumulating minimum energy, given the smoothing method and ramping limit. It was found out that the optimal LPF order for SPLPF is also valid for the IPLPF smoothing method. (This is irrelevant for the remaining 2 methods since they accumulate much more energy than IPLPF and SPLPF.) Once having the optimum LPF order, the performance of smoothing methods PLPF, SPLPF was analyzed by varrying the prediction eror.<br />
 The numerical results are interpreted by tables, plots, and these are literally expressed.</p>
 <h3 id="simulation-of-predicted-pv-power">Simulation of predicted PV power</h3>
-<p>The group delay of LPF is a physical function of the LPF order and its cut-off frequency. But given the ramping limit, it changes only slightly for any valid combination of the two variables. Hence Δt technically represents the smoothing quality of LPF, or the ramping of output power. Impact of the prediction error on GI<sub>f</sub> is aggregated at the "future" time t+Δt. The predicted signal GI<sub>f</sub>(t+Δt) is derived from the measured, left-shifted signal GI(t+Δt) by smoothing its "future" time course and by superimposing a random error to it, with respect to the fundamental properties of PV predictors:</p>
+<p>The group delay of LPF is a physical function of the LPF order and its cut-off frequency. But given the ramping limit, it changes only slightly for any relevant combination of the two variables. Hence Δt technically represents the smoothing quality of LPF, or the ramping of its output power. Impact of the prediction error on GI<sub>f</sub> values is aggregated at the "future" time t+Δt. The predicted signal GI<sub>f</sub>(t+Δt) is derived from the measured, left-shifted signal GI(t+Δt) by smoothing its "future" time course and by superimposing a random error to it, with respect to the fundamental properties of PV predictors:</p>
 <ul>
 <li>as the advance Δt increases, the (unwanted) smoothing of the predicted signal GI<sub>f</sub> strengthens</li>
 <li>as the advance Δt increases, the impact of random error on GI<sub>f</sub> increases (statistically cumulates)</li>
@@ -260,7 +260,7 @@ The numerical results are interpreted by tables, plots, and these are literally 
 <p>We specify the prediction error by 2 OLAP dimensions:</p>
 <ul>
 <li>Interval of prediction, after passing of which the smoothing impact on the predicted signal is strengthened, is defined by the parameter <strong>smooth_int</strong> [minute]. The shorter this interval, the steeper the smoothing effect rises towards predicted future.</li>
-<li>Standard deviation of the random prediction error <strong>SE</strong> (a dimensionless parameter). A random value is superimposed to each future GI value. This error is re-generated after passing each 6-minute interval of prediction. The impact of random error on GI<sub>f</sub>(t+Δt) is statistically cumulated over interval Δt (Δt is obviously greater than 6 minutes).</li>
+<li>Standard deviation of the random prediction error <strong>SE</strong> (a dimensionless parameter). A random value is superimposed onto each "future" GI value. This error is re-generated after passing each 6-minute interval of prediction. The impact of random error on GI<sub>f</sub>(t+Δt) is statistically cumulated over interval Δt (obviously greater than 6 minutes).</li>
 </ul>
 <p>In this report, we simulate the GI<sub>f</sub> predictors with two different accuracies:</p>
 <ul>
@@ -280,7 +280,7 @@ The numerical results are interpreted by tables, plots, and these are literally 
 <li>Increasing of SE significantly increases the accumulation rate of PLPF method (Figures 5, 9), which is for all values SE &gt; 0 much higher than the accumulation rate of SPLPF method. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly in the SPLPF method, and less so the higher the filter order (up to 3).</li>
 </ul>
 <h3 id="analysis-by-lpf-order">Analysis by LPF order</h3>
-<p>The filter order is another OLAP dimension, impact of which on the smoothing performance was analyzed along with the prediction error. We analyzed the LPF orders 1 to 4 (Figures 10-21):</p>
+<p>The filter order is another OLAP dimension whose impact on smoothing performance was analyzed along with prediction error. We analyzed the LPF orders 1 to 4 (Figures 10-21):</p>
 <ul>
 <li>Filter order does not affect the smoothing quality achieved by PLPF method, given non-zero prediction error. For small filter orders, the output of PLPF is smoother than that of SPLPF.</li>
 <li>Increasing the filter order from 1 to 3 notably improves the smoothing quality of SPLPF, given non-zero prediction error (Figures 10-12, 16-18).</li>
@@ -305,7 +305,7 @@ The numerical results are interpreted by tables, plots, and these are literally 
 <p>With "better prediction accuracy" during the selected days, SPLPF smoothing required the relative ESS power between 5.5h<sup>-1</sup> - 7.2h<sup>-1</sup> which is 3.8 - 4.8 times more then with LPF, 2.4 - 4.2 times more than with PLPF, and eventually 84% - 99% of the IPLPF power request. The SPLPF smoothing required 21% - 22% of the ESS energy capacity used by LPF, or 24% - 41% of the capacity used by PLPF. SPLPF eventually required 1.0 - 1.2 times the ESS capacity used by IPLPF. The SPLPF smoothing put 58% - 73% of the energy through ESS relative to the LPF method, or 75% - 83% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more energy through ESS than the IPLPF method.</p>
 <p>With "worse prediction accuracy" during the selected days, SPLPF smoothing required the relative ESS power between 3.8h<sup>-1</sup> - 6.3h<sup>-1</sup> which is 2.6 - 4.2 times more then with LPF, 3.6 - 5.1 times more than with PLPF, and eventually 58% - 86% of the IPLPF power request. The SPLPF smoothing required 24% - 33% of the ESS energy capacity used by LPF, or 19% - 28% of the capacity used by PLPF. SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by IPLPF. The SPLPF smoothing put 59% - 77% of the daily energy through ESS relative to the LPF method, or 63% - 69% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more  energy through ESS than the IPLPF method.</p>
 <h3 id="splpf-vs-iplpf">SPLPF vs IPLPF</h3>
-<p>Although we did not analyze the whole year (the numerical simulation of SPLPF is computationally intensive), our analysis of the 4 smoothing methods on the selected days with high solar intermittency and various solar exposure, with 4 filter orders, and with varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. <strong><em>With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.</em></strong> The presented empirical results have been also theoretically proven (part of the patent application).</p>
+<p>Although we did not analyze the whole year (one-day numerical simulation of SPLPF is computationally intensive), our analysis of the 4 smoothing methods on the selected days with high solar intermittency and various solar exposure, with 4 filter orders, and with varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. <strong><em>With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.</em></strong> The presented empirical results have been also theoretically proven (part of the patent application).</p>
 <h2 id="graphical-display-of-smoothing">Graphical display of smoothing</h2>
 <p>The following graphs show the smoothing quality and accumulated energy according to the smoothing method and the rest OLAP dimensions. The measured data from 2 selected days have been processed and plotted as the following time series:</p>
 <ul>

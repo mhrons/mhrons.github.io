@@ -61,7 +61,7 @@
                 </li>
               </ul>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pv_smooth/">PV Smoothing</a>
+                <li class="toctree-l1"><a class="reference internal" href="../pv_smooth/">Smoothing of PV power</a>
     <ul>
     <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#accumulation-of-energy-by-smoothing">Accumulation of energy by smoothing</a>
     </li>
@@ -79,7 +79,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-smoothing-of-pv-power">Real smoothing of PV power</a>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-smoothing-plpf-splpf">Real smoothing (PLPF, SPLPF)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#olap-analysis">OLAP analysis</a>
     </li>
@@ -145,7 +145,7 @@ Moving clouds cause that the photovoltaic power is unstable over time. As the sh
 <h2 id="losless-smoothing-of-pv-power">Losless smoothing of PV power</h2>
 <p>Energy balancing between the grid and a battery may smooth the fluctuating intermittent PV power almost loss-free. The disadvantage of lossless PV smoothing is that it takes up expensive storage capacity. There have been several smoothing algorithms published, accumulating less energy than the basic application of a low-pass power filter (LPF) does. Actually, these smoothing methods still accumulate too much energy which prevents them from being commercially aaplicable.<br />
 Our first goal was to analyze an ideal PV smoothing model (IPLPF), accumulating the minimum energy in theory by exciting a LPF with an exact future PV power signal. Based on the solar radiation data measured over a time span of 1 year, the operation of the ideal smoothing model was numerically simulated. Its accumulated energy and corresponding cost have been aggregated. Given a reference LPF, the accumulation rate of IPLPF may serve as a reference quantifier of the solar intermittency, while the corresponding accumulation cost indicates the potential affordability of PV smoothing. The ideal smoothing has proven to be highly affordable with the German purchase and PV feed-in tariffs as of 2021.<br />
-Next, the smoothing model has been theoretically optimied (SPLPF) to minimize the necessary storage when the predicted PV power signal is biased with error (prediction error increases the accumulation rate). Given the measured solar data, the accumulated energy of the SPLPF model has been aggregated, using a variable prediction error. With low to medium prediction error, the optimized model performs close to the ideal smoothing, much better than the LPF excited with the same predicted signal does. Our numeric simulation justified the theoretical presumption that the optimized smoothing model SPLPF will be affordable when using a real-predicted PV power.</p>
+Next, the smoothing model has been theoretically optimied (SPLPF) to minimize the necessary storage when the predicted PV power signal is biased with error (prediction error increases the accumulation rate). Given the measured solar data, the accumulated energy of the SPLPF model has been aggregated, using a variable prediction error. With low to medium prediction error, the optimized model performs close to the ideal smoothing, much better than the LPF excited by the same predicted signal does. Our numeric simulation justified the theoretical presumption that the optimized smoothing model SPLPF will be affordable when using a real-predicted PV power.</p>
               
             </div>
           </div><footer>
