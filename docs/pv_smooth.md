@@ -121,7 +121,7 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 4. SPLPF: Smart power filter excited by the simulated-predicted signal GI~f~.
 
 ### [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) analysis
-The goal is to analyze the accumulation rate by partial dimensions (a number of independent quantitative or categorical variables), assuming a given smoothing quality i.e. max/min ramping of the filtered power. The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h, operated by IPLPF method with  Δt = 30 minutes. We aggregate the accumulation rate into an OLAP cube having the following dimensions:
+The goal is to analyze the accumulation rate by partial dimensions (a number of independent quantitative or categorical variables), assuming a given smoothing quality i.e. max/min ramping of the filtered power. The reference smoothing quality is defined by a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h, operated by IPLPF method with  Δt = 30 minutes. We aggregate the accumulation rate into an OLAP cube having following dimensions:
 
 - smoothing method
 - LPF order
@@ -149,7 +149,7 @@ In this report, we simulate the GI~f~ predictors with two different accuracies:
 
 ### Impact of prediction error
 
-The smoothing exhibits following dependencies on the partial dimensions expressing the prediction error (see Figures 2, 6):
+The quality and accumulation rate of power smoothing exhibit following dependencies on partial dimensions expressing the prediction error (see Figures 2, 6):
 
 **Smoothed predicted signal**
 
@@ -192,7 +192,7 @@ With "better prediction accuracy" during the selected days, SPLPF smoothing requ
 With "worse prediction accuracy" during the selected days, SPLPF smoothing required the relative ESS power between 3.8h^-1^ - 6.3h^-1^ which is 2.6 - 4.2 times more then with LPF, 3.6 - 5.1 times more than with PLPF, and eventually 58% - 86% of the IPLPF power request. The SPLPF smoothing required 24% - 33% of the ESS energy capacity used by LPF, or 19% - 28% of the capacity used by PLPF. SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by IPLPF. The SPLPF smoothing put 59% - 77% of the daily energy through ESS relative to the LPF method, or 63% - 69% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more  energy through ESS than the IPLPF method.
 
 ### SPLPF vs IPLPF
-Although we did not analyze the whole year (one-day numerical simulation of SPLPF is computationally intensive), our analysis of the 4 smoothing methods on the selected days with high solar intermittency and various solar exposure, with 4 filter orders, and with varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. ***With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The presented empirical results have been also theoretically proven (part of the patent application).
+Although we did not analyze the whole year (numerical simulation of SPLPF is computationally intensive), our analysis of the 4 smoothing methods on the selected days with high solar intermittency and various solar exposure, with 4 filter orders, and with varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. ***With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The presented empirical results have been also theoretically proven (part of the patent application).
 
 ## Graphical display of smoothing
 The following graphs show the smoothing quality and accumulated energy according to the smoothing method and the rest OLAP dimensions. The measured data from 2 selected days have been processed and plotted as the following time series:
