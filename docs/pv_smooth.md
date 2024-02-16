@@ -45,7 +45,8 @@ Hence the required storage capacity per cycle T (24 hours in case of PV power p(
 
 $$\Delta SOC = max(SOC) – min(SOC) ≈ min\tag{4}\label{eq:4}$$
 
-**Management of positive SOC:**  Let us expect that a prerequisite \eqref{eq:2} holds. Min(SOC) can be estimated before the beginning of each cycle (the estimation error is not critical). Let us split the ESS into 2 accumulators: The first one has to be precharged (e.g. to estimated -min(SOC)), while the other one is empty at the beginning of cycle. The smoothing power will be then rectified such that the precharged accumulator will be always discharged and the empty one will be always charged. As long as the first of accumulators is full or empty, their roles will be exchanged and so forth until the end of the cycle T. If microcycling is not harmful to ESS, then there is only 1 accumulator needed - being precharged to 1/2 of its SOC~max~ at the beginning of the cycle, assuming that SOC~max~ ≥ max(SOC) - min(SOC).
+**Management of positive SOC:**  Let us expect that a prerequisite \eqref{eq:2} holds. Min(SOC) can be estimated before the beginning of each cycle (the estimation error is not critical). Let us split the ESS into 2 accumulators: The first one has to be precharged (e.g. to estimated -min(SOC)), while the other one is empty at the beginning of a cycle. The smoothing power will be then rectified such that the precharged accumulator will be always discharged and the empty one will be always charged, unless the first one is empty or the other is full. At this moment, their roles will be exchanged and so forth until the end of the cycle T. If microcycling is not harmful to ESS, then there is only 1 accumulator needed - being precharged to 1/2 of its SOC~max~ at the beginning of the cycle, assuming that holds: SOC~max~ ≥ max(SOC) - min(SOC).  
+IPLPF smoothing ensures that the rectified charging and discharging throughputs are equal due to \eqref{eq:2}, so the periods of charge/discharge reversing are kept stable throughout the whole cycle T.
 
 Eventually, near-to-minimum throughput of the accumulated energy per cycle is achieved by IPLPF:  
 
@@ -70,8 +71,6 @@ The measured signal GI(t) and applied LPF allow for the aggregation of specific 
 - specific IPLPF-accumulated throughput by \eqref{eq:5}.
 
 These 3 values define the accumulation rate. ***Using a reference LPF, the accumulation rate of IPLPF smoothing quantifies the solar intermittency.***  
-
-**Management of positive SOC:**  IPLPF smoothing ensures that the rectified charging and discharging throughputs are equal due to \eqref{eq:2}, so the periods of charge/discharge reversing are kept stable throughout the whole cycle T.
 
 ### Smoothing by IPLPF vs LPF  
 Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific energy GX accumulated by filters:  
