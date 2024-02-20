@@ -9,7 +9,7 @@ Our analysis will be focused at first on the application of
 [standard LPF](https://www.analog.com/en/design-center/glossary/low-pass-filter.html)
  excited by 
 [PV predictor](https://www.sciencedirect.com/science/article/abs/pii/S0038092X14001327)
-  trained by both sky imagery and p(t) signals. We further integrate the two into one entity, utilizing the system advantage of predictive filters and the whole available information for PV nowcasting.
+  trained by both sky imagery and p(t) signals. We further integrate the two enetities into one, utilizing the system advantage of predictive filters and maximum available training information for PV nowcasting.
 
 <figure markdown>
   ![PLPF Schema](img/Schema_PLPF.png){ width="650"}
@@ -104,7 +104,7 @@ The greater from (CapEx, sevice_interval * OpEx) defines the cost of IPLPF smoot
 ***Having a small free BESS capacity and a total BESS power available, the smoothing by IPLPF is much cheaper than the added value to the PV power infeed is. IPLPF technology offers an affordable smoothing of PV power in grid areas with a high concentration of small-scale hybrid PV systems.***
 
 ### Suitable accumulators for IPLPF
-Although the IPLPF shrinks the necessary capacity and accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful for a sole IPLPF smoothing. It is not recommended to charge/draw a LiFePO4 battery by a relative power > 1 h^-1^, otherwise the battery’s life cycle would be curtailed. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with the sole IPLPF smoothing demands.  
+Although the IPLPF shrinks the necessary capacity and accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX up to 8 h^-1^. Regardless of its reduced capacity, ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful to perform a sole IPLPF smoothing. It is not recommended to charge/draw a LiFePO4 battery by a relative power > 1 h^-1^, otherwise the battery’s life cycle would be shortened. Such a high relative power is provided by EDLC supercapacitors (SC), but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not harmonize with the sole IPLPF smoothing demands.  
 Actually, the IPLPF demands are well satisfied by a 
 [flywheel (FESS)](https://energystorage.org/why-energy-storage/technologies/flywheel-energy-storage-systems-fess/)
 : 1) Its maximum relative power 10 h^-1^ poses no limit within demands of IPLPF smoothing. 2) IPLPF accumulates energy only on solar-intermittent days (else no accumulation is needed), and the flywheels wear out only when rotating. 3) Flywheels are already used to compensate for reactive power in the grid, which places similar technical requirements on them like the IPLPF smoothing of PV power does. (Because of unknown prices and life cycle data, we calculated neither CapExp, nor OpExp of FESS in a role of IPLPF storage.) ***The native synergy between demands and features identifies the flywheel as a suitable accumulator for IPLPF smoothing.***
@@ -122,7 +122,7 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 4. SPLPF: Smart power filter excited by the simulated-predicted signal GI~f~.
 
 ### [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) analysis
-The goal is to analyze the accumulation rate by partial dimensions (a number of independent quantitative or categorical variables), assuming a given smoothing quality i.e. max/min ramping of the filtered power. Let us define the reference smoothing quality by the output of a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h, which operates using the IPLPF method with Δt = 30 minutes. We aggregate the accumulation rate into an OLAP cube with the following dimensions:
+The goal is to analyze the accumulation rate by partial dimensions (a number of independent quantitative or categorical variables), assuming a given smoothing quality i.e. max/min ramping of the filtered power. Let us define the reference smoothing quality by the output of a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h, which operates in the IPLPF method with Δt = 30 minutes. We aggregate the accumulation rate into an OLAP cube with following dimensions:
 
 - smoothing method
 - LPF order
