@@ -9,7 +9,7 @@ Our analysis will be focused at first on the application of
 [standard LPF](https://www.analog.com/en/design-center/glossary/low-pass-filter.html)
  excited by 
 [PV predictor](https://www.sciencedirect.com/science/article/abs/pii/S0038092X14001327)
-  trained by both sky imagery and p(t) signals. We further integrate the two into one entity, utilizing the theoretical advantage of predictive filters.
+  trained by both sky imagery and p(t) signals. We further integrate the two into one entity, utilizing the system advantage of predictive filters and the whole available information for PV nowcasting.
 
 <figure markdown>
   ![PLPF Schema](img/Schema_PLPF.png){ width="650"}
@@ -27,8 +27,7 @@ In the schematic diagram on Figure 1, a PV power plant (PVPP) is connected to th
 - Eventually, a smart smoothing method **SPLPF** (patent pending) has been designed, integrating the LPF with the PV predictor trained by both the sky-imagery and the measured PV power p(t). This method has a different block diagram.
 
 ## Accumulation of energy by smoothing
-For the sake of clarity of the analysis, the energy losses in AC/DC power conversion and energy storage will be neglected.  
-The time course of the accumulated energy by ESS  
+For the sake of clarity of analysis, the energy losses in AC/DC power conversion and energy storage will be neglected. The time course of the accumulated energy by ESS  
 
 $$SOC(t)=\int_{0}^t (p(\tau)-s(\tau+\Delta t))d\tau\tag{1}\label{eq:1}$$
 
@@ -41,12 +40,9 @@ Mean quadratic deviation of SOC is near to minimum:
 
 $${1 \over T} \int_{0}^T SOC^2 (t) dt ≈ min\tag{3}\label{eq:3}$$
 
-Hence the required storage capacity per cycle T (24 hours in case of PV power p(t)) is close to minimum:  
+Hence the required storage capacity per cycle T (24 hours in case of PV power p(t)) is close to the minimum:  
 
 $$\Delta SOC = max(SOC) – min(SOC) ≈ min\tag{4}\label{eq:4}$$
-
-**Management of positive SOC:**  Let us expect that a prerequisite \eqref{eq:2} holds. Let us split the ESS into 2 accumulators: The first one is charged, while the other one is empty at the beginning of a cycle. The smoothing power will be then rectified such that the precharged accumulator will be always discharged and the empty one will be always charged by smoothing, unless the first one is empty or the other one is full. At this moment, their roles will be exchanged and so forth until the end of the cycle T.  
-The IPLPF smoothing ensures that due to \eqref{eq:2}, there is a stable balance between charging and discharging of accumulators throughout the whole cycle T. If microcycling is not harmful to ESS, then there is only 1 accumulator needed - being precharged to 1/2 of its SOC~max~ at the beginning of the cycle, assuming SOC~max~ ≥ max(SOC) - min(SOC).  
 
 Eventually, near-minimum throughput of the accumulated energy per cycle is achieved by IPLPF:  
 
@@ -56,9 +52,12 @@ The ***accumulation rate*** is quantified by \eqref{eq:4} and \eqref{eq:5} and b
 
 $$P_{ESS}=max|p(\tau)-s(\tau+\Delta t)|\tag{6}\label{eq:6}$$
 
-In practise, this value does not exceed 80% of the installed PV power.
+In practise, this value does not exceed 80% of the installed PV power.  
 
-Let us expect that the PV power p(t) is proportional to the global solar irradiance GI [W/m^2^]. In our experiment, the solar irradiance is intercepted by a planar panel 20 cm x 16 cm on the earth’s surface at latitude=48.2°N, longitude=17.1°E, with the plane of incidence elevated by 47°, south-oriented. To be exact, it should be mentioned that p(t) is usually smoother than GI(t), as the (usually greater) surface area of the corresponding PV plane acts like a moving-average filter of GI(t). Unfortunately, the size and speed of clouds prevent a sufficient smoothing effect from being achieved by the PV surface area. Assuming the proportionality between GI(t) and p(t), we analyze the worst case of PV intermittency. Let us now substitute the signals p(τ), s(τ+Δt) in \eqref{eq:1}, \eqref{eq:5}, \eqref{eq:6} by the measured signal GI(τ) and by its “predicted-and-smoothed” counterpart GI~s~(τ+Δt). After substituting, the intergal \eqref{eq:1} computes the time course of specific accumulated energy GX(t) [Wh/m^2^] by the filter, whereas particular SOC(t) is proportional to GX(t). The integral \eqref{eq:5} computes the specific accumulated throughput [Wh/m^2^] per cycle T.
+**Management of positive SOC:**  Assume that a prerequisite \eqref{eq:2} holds. Let us split the ESS into 2 accumulators: The first one is charged, while the other one is empty at the beginning of a cycle. The smoothing power will be then rectified such that the precharged accumulator will be exclusively discharged and the empty one will be exclusively charged by the smoothing, unless the first one is empty or the other one is full. At this moment, their roles will be exchanged and so forth until the end of the cycle T.  
+The IPLPF smoothing ensures that due to \eqref{eq:2}, there is a stable balance between charging and discharging of accumulators throughout the whole cycle T. If microcycling is not harmful to the ESS, then there is only 1 accumulator needed - being precharged to 1/2 of its SOC~max~ at the beginning of the cycle, assuming that SOC~max~ ≥ max(SOC) - min(SOC).  
+
+Let us expect that the PV power p(t) is proportional to the global solar irradiance GI [W/m^2^]. In our experiment, the solar irradiance is intercepted by a planar panel 20 cm x 16 cm on the earth’s surface at latitude=48.2°N, longitude=17.1°E, with the plane of incidence elevated by 47°, south-oriented. To be exact, it should be mentioned that p(t) is usually smoother than GI(t), as the (usually greater) surface area of the corresponding PV plane acts like a moving-average filter of GI(t). Unfortunately, the size and speed of clouds prevent a relevant smoothing effect from being achieved by the existing PV surface. By assuming the proportionality between GI(t) and p(t), we analyze the worst case of PV intermittency. Let us now substitute the signals p(τ), s(τ+Δt) in \eqref{eq:1}, \eqref{eq:5}, \eqref{eq:6} by the measured signal GI(τ) and by its “predicted-and-smoothed” counterpart GI~s~(τ+Δt). After substituting, the intergal \eqref{eq:1} computes the time course of specific accumulated energy GX(t) [Wh/m^2^] by the filter, whereas particular SOC(t) is proportional to GX(t). The integral \eqref{eq:5} computes the specific accumulated throughput [Wh/m^2^] per cycle T.
 
 ## Ideal predictive smoothing (IPLPF)
 We simulate the operation of ideal predictive PV smoothing (IPLPF) by means of a LPF, ex-post excited by a future signal GI(t+Δt) where GI(t) is measured and the time advance Δt (above defined) eliminates the filter’s time lag. In theory, such an ideal smoothing would minimize the accumulated energy for the given ramping limit. This analysis aims to reveal the ***potential affordability*** of PV smoothing, assuming that a real smoothing technology exists or will exist, performing close to IPLPF. The numeric experiment is based on the measured solar irradiance over a period of 1 year, and the contemporary prices of LiFePO4 accumulators.
@@ -70,7 +69,7 @@ The measured signal GI(t) and applied LPF allow for the aggregation of specific 
 - specific accumulation capacity ΔGX=max(GX)-min(GX) by \eqref{eq:4},
 - specific IPLPF-accumulated throughput by \eqref{eq:5}.
 
-These 3 values define the specific accumulation rate. ***Using a reference LPF, the specific accumulation rate of IPLPF smoothing quantifies the solar intermittency.***  
+These 3 aggregates define the specific accumulation rate. ***Using a reference LPF, the specific accumulation rate of IPLPF smoothing quantifies the solar intermittency.***  
 
 ### Smoothing by IPLPF vs LPF  
 Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific energy GX accumulated by filters:  
