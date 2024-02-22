@@ -144,17 +144,17 @@
 <ul>
 <li>Accurate short-term forecasting (nowcasting) of PV power is crucial when minimizing the accumulated energy by the PV power smoothing. PV power predictors are based on artificial intelligence (AI) and they can be trained by a sky-imagery and by the measured signal GI(t), in particular its fraction intercepted by a tilted PV panel.</li>
 <li>Having the measured time series GI(t), a low-pass filter can be ex-post excited by a "predicted" input signal GI<sub>f</sub>(t+Δt). That is, the measured signal is shifted to the left on its time axis and its values are biased with a simulated prediction error. Given the simulated-predicted PV power signal and having LPF tuned to meet the given ramping limit of PV power, the accumulated energy by filter should be then minimized by technical means to minimize the smoothing cost.</li>
-<li>However low is the accumulated energy, the smoothing is not for free and it pays-off only with a favourable "smooth feed-in tariff" granted to those prosumers who meet the requested PV ramping limits. The goal is to keep the sum "grid control costs" plus "PV power losses due to curtailment" plus "PV smoothing costs" at minimum. Given the PV ramping limit and having the measured signal GI(t) over a time span of 1+ year and its prediction error, the accumulation rate hence the smoothing cost can be aggregated. The minimum criterion can be eventually iterated unless the PV ramping limit is optimized.</li>
+<li>However low is the accumulated energy, the smoothing is not for free and it pays-off only with a favourable "smooth feed-in tariff" granted to those prosumers who meet the requested PV ramping limits. The goal is to keep the sum "grid control costs" plus "PV power losses due to a curtailment regulation" plus "PV smoothing costs" at minimum. Given the PV ramping limit and the measured signal GI(t) over a time span of 1+ year and its prediction error, the accumulation rate hence the smoothing cost can be aggregated. The minimum criterion can be eventually iterated unless the PV ramping limit is optimized.</li>
 </ul>
 <p>Folloowing demands should be met by the measurement of solar irradiance for the analysis of PV smoothing:  </p>
 <ul>
-<li>Capture the full spectrum of solar intermittency by a sufficiently high sampling frequency</li>
+<li>Capture the full spectrum of solar intermittency by an appropriately high sampling frequency</li>
 <li>Measure the fraction of irradiance which is intercepted by a tilted plane of incidence (PV panel). </li>
 <li>Respect the physical properties of planar silicon PV panels (reflexion and spectral response)</li>
 </ul>
 <p><img align="right" alt="PV console" src="../img/PV_Panels.JPG" width="300" /></p>
 <p>For general purposes, the momentary solar irradiance has to be measured at any plane of incidence under given atmospheric conditions. Fulfilling all of these demands is not possible only by measuring the global (GHI) and diffused (dHI) horizontal irradiance (both of which are regularly measured by the national weather services).</p>
-<p>A corresponding measurement system with data logger has been developed by the author and is in operation since 04/2021 at (48.2°, 17.1°).</p>
+<p>A corresponding measurement system with a data logger has been developed by the author and is in operation since 04/2021 at (48.2°, 17.1°).</p>
 <p><img align="right" alt="PV_logger" src="../img/PV_Logger.JPG" width="300" /></p>
 <p>The system consists of 2 units:</p>
 <ol>
@@ -170,8 +170,8 @@
  calibrated by the reference GHI, dHI measured at the near meteorological site. The PV panels are re-calibrated once a year.</li>
 <li>Temperature sensors are fixed onto each PV panel. The panels are always operated at the
 <a href="https://www.leonics.com/support/article2_14j/articles2_14j_en.php">maximum output power (MPPT)</a>
-. Their operating point is being dynamically adjusted for the temperature drift of their A-V characteristics and internal resistance. The measured output power of each panel is divided by its active surface area and by its (known) efficiency at the measured surface temperature. The measurement is eventually expressed as "photovoltaic global irradiance" in W/m<sup>2</sup> analogous to GI measured at given angle of the plane of incidence, but taking into account the reflexion and spectral response of PV panels.</li>
-<li>The data logger samples GI values with a dynamic frequency. The sampling period varies from 0.5 second to 10 minutes, depending on the momentary solar intermittency. This captures the whole spectrum of solar intermittency, but eliminates the redundancy in stored data. Several years of such an irregular time series can be stored in a relational database with tablespace &lt;1TB.</li>
+. Their operating point is being dynamically adjusted for the temperature drift of their A-V characteristics and internal resistance. The measured output power of each panel is divided by its active surface area and by its (known) efficiency at the measured surface temperature. The result is eventually expressed as a "photovoltaic global irradiance" in W/m<sup>2</sup> analogous to GI measured at given angle of the plane of incidence, but taking into account the reflexion and spectral response of PV panels.</li>
+<li>The data logger samples GI values with a dynamic frequency. The sampling period varies from 0.5 second to 10 minutes, depending on the momentary solar intermittency. This captures the whole spectrum of solar intermittency, but eliminates redundancy in the stored data. Several years of such an irregular time series can be stored in a relational database with a tablespace &lt;1TB.</li>
 <li>The off-grid measurement system is self-powered 24 hours x 7 days a week. In addition to measurement, the PV sensors supply power to the data logger and charge its backup accumulator. The system requires a minimum maintenance.
 <img align="right" alt="GI" src="../img/GI.2022-01-15.png" width="300" /></li>
 <li>Simultaneous measurement of GI in 4 fixed normal angles allows an accurate interpolation of GI at any plane of incidence pointing its normal vector among the fixed normal vectors (intra-normal area).</li>
