@@ -4,7 +4,7 @@ The main objective is to meet the given ramping limits of PV power while accumul
  e.g. 
 [zero group-delay filter](https://www.planetanalog.com/five-things-to-know-about-prediction-and-negative-delay-filters/)
 , [Kalman filter](https://www.kalmanfilter.net/default.aspx)
- have been developed to avoid the accumulation of PV energy due to the time lag of LPF. A principal advantage of predictive filters is that they integrate the predictor and LPF into a same functional entity, potentially accumulating less energy than a standard LPF excited by a predicted PV power does. But the self-predicted filters are trained only by historical information from the measured power signal p(t), lacking the information from a sky imagery. As a result, the accumulation costs induced by predictive filters still exceed the production costs of fossil and nuclear electricity (assuming current social cost of CO~2~ and nuclear waste). 
+ have been examined to avoid the accumulation of PV energy due to the time lag of LPF. These filters seemingly function like a system integrating the predictor and LPF into a single functional unit that potentially accumulates less energy than a standard LPF excited by the predicted PV output. However, they are trained only by historical information from the measured power signal p(t), lacking the information from sky imagery. As a result, the accumulation costs induced by such filters still exceed the production costs of fossil and nuclear electricity (assuming current social cost of CO~2~ and nuclear waste). 
 Our analysis will be focused at first on the application of
 [standard LPF](https://www.analog.com/en/design-center/glossary/low-pass-filter.html)
  excited by 
