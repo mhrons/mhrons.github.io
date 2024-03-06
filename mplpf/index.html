@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/pv_log/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/mplpf/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>PV Logger - Milan Docs</title>
+    <title> MPLPF - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "PV Logger";
-        var mkdocs_page_input_path = "pv_log.md";
-        var mkdocs_page_url = "/pv_log/";
+        var mkdocs_page_name = " MPLPF";
+        var mkdocs_page_input_path = "mplpf.md";
+        var mkdocs_page_url = "/mplpf/";
       </script>
     
     <script src="../js/jquery-3.6.0.min.js" defer></script>
@@ -54,10 +54,10 @@
     </ul>
                 </li>
               </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">PV Logger</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#system-features">System features</a>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../pv_log/">PV Logger</a>
+    <ul>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_log/#system-features">System features</a>
     </li>
     </ul>
                 </li>
@@ -116,8 +116,8 @@
     </ul>
                 </li>
               </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../mplpf/"> MPLPF</a>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./"> MPLPF</a>
                 </li>
               </ul>
               <ul>
@@ -140,7 +140,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>PV Logger</li>
+      <li> MPLPF</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -149,51 +149,35 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="measurement-of-global-irradiance">Measurement of global irradiance</h1>
-<p><strong><em>Accurate measurement of global irradiance (GI) is a prerequisite for the analysis of PV smoothing:</em></strong>  </p>
-<ul>
-<li>Accurate short-term forecasting (nowcasting) of PV power is crucial when minimizing the accumulated energy by the PV power smoothing. PV power predictors are based on artificial intelligence (AI) and they can be trained by a sky-imagery and by the measured signal GI(t), in particular its fraction intercepted by a tilted PV panel.</li>
-<li>Having the measured time series GI(t), a low-pass filter can be ex-post excited by a "predicted" input signal GI<sub>f</sub>(t+Δt). That is, the measured signal is shifted to the left on its time axis and its values are optionally biased with a simulated prediction error. Given such a predicted PV power signal and having the LPF tuned to meet the given ramping limit of PV power, the accumulated energy by filter should be then minimized by technical means to minimize the smoothing cost.</li>
-</ul>
-<p>Folloowing demands should be met by the measurement of solar irradiance for the analysis of PV smoothing:  </p>
-<ul>
-<li>Capture the full spectrum of solar intermittency by an appropriately high sampling frequency</li>
-<li>Measure the fraction of irradiance which is intercepted by a tilted plane of incidence (PV panel). </li>
-<li>Respect the physical properties of planar silicon PV panels (reflexion and spectral response)</li>
-</ul>
-<p><img align="right" alt="PV console" src="../img/PV_Panels.JPG" width="300" /></p>
-<p>For general purposes, the momentary solar irradiance has to be measured at any plane of incidence under given atmospheric conditions. Fulfilling all of these demands is not possible only by measuring the global (GHI) and diffused (dHI) horizontal irradiance (both of which are regularly measured by the national weather services).</p>
-<p>A corresponding measurement system with a data logger has been developed by the author and is in operation since 04/2021 at (48.2°, 17.1°).</p>
-<p><img align="right" alt="PV_logger" src="../img/PV_Logger.JPG" width="300" /></p>
-<p>The system consists of 2 units:</p>
-<ol>
-<li>external console carrying 4 reference PV panels mounted at different angles, and temperature sensors of PV panels,</li>
-<li>internal measurement unit, serving as MPPT controller, battery charger, heat sink, A/D converter, and data logger.</li>
-</ol>
-<h2 id="system-features">System features</h2>
-<ul>
-<li>The reference monocrystaline silicon PV panels (sensors) have been calibrated by means of 
-<a href="https://pvlib-python.readthedocs.io/en/v0.4.3/generated/pvlib.clearsky.ineichen.html">Ineichen’s clear-sky model</a>
-, having its 
-<a href="https://glossary.ametsoc.org/wiki/Linke_turbidity_factor">Linke-turbidity factor</a>
- calibrated by the reference GHI, dHI measured at the near meteorological site. The PV panels are re-calibrated once a year.</li>
-<li>Temperature sensors are fixed onto each PV panel. The panels are always operated at the
-<a href="https://www.leonics.com/support/article2_14j/articles2_14j_en.php">maximum output power (MPPT)</a>
-. Their operating point is being dynamically adjusted for the temperature drift of their A-V characteristics and internal resistance. The measured output power of each panel is divided by its active surface area and by its (known) efficiency at the measured surface temperature. The result is eventually expressed as a "photovoltaic global irradiance" in W/m<sup>2</sup> analogous to GI measured at given angle of the plane of incidence, but taking into account the reflexion and spectral response of PV panels.</li>
-<li>The data logger samples GI values with a dynamic frequency. The sampling period varies from 0.5 second to 10 minutes, depending on the momentary solar intermittency. This captures the whole spectrum of solar intermittency, but eliminates redundancy in the stored data. Several years of such an irregular time series can be stored in a relational database with a tablespace &lt;1TB.</li>
-<li>The off-grid measurement system is self-powered 24 hours x 7 days a week. In addition to measurement, the PV sensors supply power to the data logger and charge its backup accumulator. The system requires a minimum maintenance.
-<img align="right" alt="GI" src="../img/GI.2022-01-15.png" width="300" /></li>
-<li>Simultaneous measurement of GI in 4 fixed normal angles allows an accurate interpolation of GI at any plane of incidence pointing its normal vector among the fixed normal vectors (intra-normal area).</li>
-</ul>
-<p>Daily (12 h) profiles of photovoltaic GI [W/m2] measured at 4 fixed planes. GHI corresponds to the horizontal plane while extrapolated GNI corresponds to a virtual solar-tracked plane of incidence. Its normal vector points to the extra-normal area in winter when the solar elevation is lower than the elevation of the four fixed normal vectors. The approximated GNI is therefore less accurate in winter.
-<img align="right" alt="Cels" src="../img/Cels.2022-01-15.png" width="300" /></p>
-<p>Daily (24 h) temperature profiles at PV surfaces, and the ambient temperature. The PV surface's temperature is affected by the ambient temperature, solar radiation, and by wind. Since ambient temperature is higher than sky temperature, the PV panels are always cooled by their own radiation. This effect can be observed in the night when the panels are not exposed to the solar radiation.</p>
+                <div id="mkdocs-encrypted-content" style="display:none">mU44GHsKRVPUlboUo81Bwg==;zyfbvKO98O+XPAA2aAAnm99LWwcV0//pmVZA/7m8D6ijJ+WlgAE+xUPCYQakq+gayawlpypvRScNN6hhtvBNmyOom2vS9DLIWtv/didmInzSiQsGyLVK3cZ5/ApIB8peQt9fGRluoD8DSS3/dUhXmmVI4k4YR7wNevlLFLiT+P7c2Y+RHQo0v3dTalWJj45pV7cG1734hpYnlRmeC6+g2PdP20L8qv+31IBh+q5TwdZyDE0DldqP3jTMJ+OwJlHb0lmMafAn8jZdu5PQDS3zDOx0fzfkxiQwWncGFDY2BeKJPOaf/g/G/o+qeJ+83JJ1YnLiNAhoQcVKyPyfYDWm4fS+r6WNAt1qZNxG+AGbJHcaqe6Dqe38X46iB1F0XBaPgXb3I93sI9AAH1ZLWoFrbjaASQjqOuSzi/qk2iTWQqmZozSCn20hBA2vZJp2J68GM/IF/9wGCsR1JQa3ghvI9yp6iOMbUqlnNkPiWLqC/YY6We4eLqpPlBnt2FferRYn/p+S3fMG/42q6iL1U7YYzXPbTgaPPxCQAfnyW5ZcaReUuIXaBFGxBJeanukttf40MePgaiRzp4njuVT1CFjGNREqUsPubWitA4EsvJ0JXmNSitvRXFUwfg6VpjFw5PqB5gW2u4JPOa/uunr5NOy40swyyNcxbV4NxyM6G3f9vUnLxqHeCF2t+LUxMyaafidRAUpqa270GqW4i+6loNTBdpu0RoV0Wu01ceJU/MNLsc7A6vExVwwq6UWv/rwAUb6V17Tgf1F0KZXsAfQ8/FO5MQxBLoH13PmJmJKX05nr9pdeoJb2/bkmTY+6eKaNCMvFacivkgOX12JSaR63CUzNFTjYmmWo2kgLrEb5KL96Iy9n+Zh2exXKDT4cgYbSoYAvlRCeZNjJpO6YqLr1pyHKGV8w5uN53bWywWucgAHmd/77L3B6Oo1EmN/s4S6bOnUnoVB+CQfGGB/yQonzrsVvMGi6u4Zf+f5fdvw4WuNxOUInFrFAJkGDukL2OR8k1vYzYgxcT4RKfnsec5cm/d8vdM+XG2UieGnn0tLMRkjNr9TwmohDzx817Pao66QTWzoWGjKGrgOG+3/MqhTrbMC8XOfSoBev7oq1EdAsviHJUfSLQMV38D2erNy2QHSaeidzcU5DZAVN+4xQQojLB6JcEwDf6IsNn1F4TsUPBNMW0dK00EOeLRRHnx+tRA825/Uj92cJoqwfHvS3/7QAxnXkHSAkUC3zAXOllOIWYFVx81to/diEDMminxshpFcUSP8g7CTOVbXNfOZ6tcYeO5KhF3gGxVPqnCudw1tJLVDleMSp1Q2LUdzWcqPq5jBYxhdoZusYCkdk+g703a6dsP+Cu4b0WlaqLfg2nItHKKw8A1Zguc+sA+UDL1xwsjUkvOAaNz5xFziFp4tQWeul7Ld0d5lyKQ26X/Q6j7Q9eDqi5m6aTYv6L0gf/Ll1qX6/SC4ccEb1dOboOv421iy4CKDwXVbkZeuQogP2M2cxKZWsf5TjC0MwYaUe3zMgCMqcKO7X4Hx5qsrCm24JmdC21JBP1EM9wkFjPV0uPOx+ucmbjiK8O9G1SHGzK8G2EHRX/Wh6/wn1ptk1/oRFZIimOdAJzPeJ4/mCGB13gOwtCDIZ17Nmli8kEptvXiZazYeiDQTxAi0ielCMuXsG+vuHfuLv411isTE6j73pB4fuq34PLKEZeLdy3EkumRKT1ml2xGrht1flhuITAFs4ddZRd9/HPOwoYgNnQxLPJyJWztf9eFM/Hopd5RN8RTfcWxHkUiMCkgtWCKg1fwZYr5lBv8vnSskmG/2BScRl/VKBnCuiGEtB4t15VmDdw4urPsw3YpP8mUl3qnr6EhiLFTc7ds6Jqn+epcn3Ypqm1rGEVo6qG7y8mSBEeUL7JB2P8hxbkM/9Wfo77zQ22NSuVRHNBg6Fn0mh0E0lvHkOzW6VD2SDcT2LKbfDoAP4ffg2JQEx+i7BzNRetf7bUvHV2lKlKya83UJ3RDwvSsl9lc5skrcmd6heOZno8wRlq1yPT9fvL9IndoomgowUq9ivRvlHbDpEgCG4WziJWxZZ8l5eIYgxeaEQ3oB9+teMXypRsymX2mSppvMVDqj61mcj6JWd90gmxVZ5DSNKtVeTzpuXRc8H/pg5B5aAdmMC1LDwzVpfscT1JLoCwaEOajU6rXpMPcqlBQsuh9BpMlZPpNiMBkC/1Q8hcX0doB7SCTDkZtagVogQPb47o0Zm25VtQIJ6WZtfOwlLCVUCyxWT2fX4Pt7d6AJnAv88dvtXeypMpRmpMsmJt+gSp1U077sJxvgs5AuQFwDHoqjpf/pvKfl4Kx0q3Tfs8APcqrpiYGeB8XnhlH4YUPzA66TaxK3H9TuEcT4J+YV7Vsq+9mr52iE01xvCTyIliAxG+vCldwjzqw0bD6+koW5Kf1ZDspFBJAKO4lEFJnJa6pBUbuVSbITCnoLPbxUFHa0TnzqGmQPSXL98+AjxtiueYFVWlc8ijUB2c7O2DdrqdyzhCpKMhTo8MvEBehKLVBUrzr746B9LB2lut4yOCn2y1XHDeETupWbcl4Ig4oIQHSuexZQfBdXYLothSKFtgC8Cue1fnho2DwqVAWfWByeGzIPpLRx38gLdZXGiC4f+i8M+R2c965DsCiw2PCZu7Na5UUIHrWW3iX9lWhxEJfD3duEEFTgjiXP0TzyRXzf34hjFd0Kk9sFUmfUvfWNhmYaEenGtV1V8/6PNpOCCJbsXQ2aCJjM1xfAtHLdeZF3/4aUECywT9YWadA97uizciRq094Cg5q1LG/3bTCkvV6L3UeWZcTWfizPI292BS7esliiApz7u8XmzZbN3U7f43MTytDMCZn7Ep7bmjm37h0g4oLT5y5u2teRsZhd4IJB+ivEaLdVdS1cfaXa2ybA+e1aTl9B8kRV6ViJQxsbZDJcJu6LltKpIAh7xd+t+qwTt9eMz3mnKrvQtGRi8R5KMEjBIat5edtv6p7tl3MtrPzkZpVFm9NjeBrvcpXLfvW+v0916211G2DebQRmKq3bFSFaxjC9uW6EHc9weZzDWoiPIvelnLXrmCOAUujqu56KFcrM7JBNhYIhouJOpnLgajv0l/9dHueycXEd/KQs1uGz9hZ/XnWkJur7BQBx+m28rlu9wCz+K+k7R5ZCWJuMEd4RkMB+b7Y0XScdHt5aH4CbNGvEsl7z/6l7PNfKS//RhH/GoCKoR2ZbGGT3Uq7SwN7RqIRS7mmA/5uaufVVpvM3niF7vt2NEb77NoSlunh9LzFCWrRth+aGIN+cy42fzTEPeOyY2NejZDPrROT5eIr9aueaENK1MMKqzLoHSLnVfTBhgicVhuZa1X+C1YekCuaua9qgEWoW3O3pHfi8XiazmifyUDwIEVKUqvU3DaqOsCdUhKD4u726VNST4TL4LjezT0uaRVqQ4tk0qfsUFfTpLX+au1gR1Vw2fDaXve20QlTs73+Zoy8BhUSLrSSVxx2riv16j3AZbXyFFt+nNdUxqV6AWQgoVP31onKXTF37AzdxhZOM4mtASv6wvTMFEWvokiJVRd6LbuBJSWoQ1NDVgMVjfvadDVhXwvfnwL0W6daAj5ty5NSX+H7VV/Az48v5oxU+c6zOS5pQQ+IQLK2vZ8YjqItHA6GmWAEMuCaH+f9ZMku9fFXmTJ70Qas2/Hwx+kjZS5cs6X7Xngx5gDjmuR4NB/RrTR6uzVflg1kxkCGLUhl+h+bPW6eP4ivILQx3bE64d3C5QhMkULHOopXPEUwYFsk6m4TBuughbU0mFRUSw+aN31LZDRTDUtK4NtfaNu2Z86TRpQvz5gSK1YPljhbS9JHTcB8j87yjbfyvnlAU+bkyQcXId/qOdtJypW6gOuKnddcndRdtfk9RIYeOQkfcQBheXhVqkWzylsWhSpM1HSsZWxe9vKVvSDJpGW2MkNMsG8lQfDxRp0UbOWvbRjOcFOCz1fpwqdLVOEqKL2cSq668knN/aAXbYyqQmkcIPW3h0y0EYeYbHvm3PW8Y8150ffmPrx1JztBwBJykTJNymJbPDNghWjl12BVsaTSCUGcm9calJvjZ85QiambF4wvRuds1iPr5rFfFAAQHjepZJ+XtZYxGO6t3Fi9VnVlO2Fim9n4cQl3qd0aKWe0Y0dcmfX8lSmHy960FkzGd+nuwi01DaYZQtiTbBusgUPUp8Kz/Deh8pcJYkYFxr2JOGjgHFwxkkzu0s0tFyZboDzZ6AOYKGpZS8FsM+NPPj22e5AAtcPhZtnroMwVDoghcHK/5gQAjVvxRX4G3qgoafZrRbfTw7YzO/LlqFeTY975SNkKXOwqGLse5itikjCjAF9ncw7r3FVXhYE0DcB4urD89lOpmeOs5BWfFZP9lwr7K5qTRFlHg8dsrP1BDZb/mcFJff7Wh2wpYpRWEdxalWst3N7CTe+xI8Tnu7rh4=;^</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>This content is temporarily password-protected</h1>
+        <p>untill the related patent is published</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Use CTRL+ENTER to provide global password" />
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
+</div>
+
+<script type="text/javascript">
+var encryptcontent_path = "mplpf/";
+var decryption_failure_message = "Invalid password.";
+</script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="../assets/javascripts/decrypt-contents.js" defer></script>
+
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../pv_intermit/" class="btn btn-neutral float-left" title="Photovoltaic Intermitency"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../pv_smooth/" class="btn btn-neutral float-right" title="Smoothing of PV power">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../pv_smooth/" class="btn btn-neutral float-left" title="Smoothing of PV power"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../v_glossary/" class="btn btn-neutral float-right" title="Glossary">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -216,10 +200,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../pv_intermit/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../pv_smooth/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../pv_smooth/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../v_glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>  

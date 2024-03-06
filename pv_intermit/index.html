@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/pv_intermit/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Photovoltaic intermitency - Milan Docs</title>
+    <title>Photovoltaic Intermitency - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Photovoltaic intermitency";
+        var mkdocs_page_name = "Photovoltaic Intermitency";
         var mkdocs_page_input_path = "pv_intermit.md";
         var mkdocs_page_url = "/pv_intermit/";
       </script>
@@ -41,13 +41,15 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">About me</a>
+                <li class="toctree-l1"><a class="reference internal" href="..">About Me</a>
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Photovoltaic intermitency</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Photovoltaic Intermitency</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#losless-smoothing-of-pv-power">Losless smoothing of PV power</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ramping-limit-of-pv-power">Ramping limit of PV power</a>
     </li>
     </ul>
                 </li>
@@ -83,7 +85,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-smoothing-plpf-splpf">Real smoothing (PLPF, SPLPF)</a>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-smoothing-plpf-mplpf">Real smoothing (PLPF, MPLPF)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#olap-analysis">OLAP analysis</a>
     </li>
@@ -99,7 +101,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#accumulation-rate-by-method">Accumulation rate by method</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#splpf-vs-iplpf">SPLPF vs IPLPF</a>
+    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#mplpf-vs-iplpf">MPLPF vs IPLPF</a>
     </li>
         </ul>
     </li>
@@ -112,6 +114,10 @@
         </ul>
     </li>
     </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../mplpf/"> MPLPF</a>
                 </li>
               </ul>
               <ul>
@@ -134,7 +140,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>Photovoltaic intermitency</li>
+      <li>Photovoltaic Intermitency</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -145,16 +151,18 @@
               
                 <h1 id="photovoltaic-intermittency">Photovoltaic intermittency</h1>
 <p><strong>Impact on the grid</strong><br />
-Moving clouds cause that the photovoltaic power is unstable over time. As the share of PV power grows in the grid, its fluctuations pose an increasing risk to the power quality and grid stability. To mitigate this risk, the grid operator sets PV generators off-grid (or at least to a low-efficiency mode) while the solar intermittency is strong. Such losses of PV energy were e.g. 7% in 2011 in the US state Arizona. The loss-rate is determined by the solar intermittency and by the installed PV power in the grid: The larger PV share, the higher relative(!) losses of PV energy due to its intermittency. Extra grid-control costs exist due to the PV intermittency. This overall impact has been projected to the last guaranteed feed-in tariff for new PV installations in Germany: In 2020, the feed-in tariff for a newly installed small PV plant was only about 1/3 of the purchase tariff. The state guarantee has been canceled as of 2021, and there is no more doubt that only technical innovations can further augment the PV share in the grid: Smoothing of PV power could eliminate the losses of PV energy and the costs of additional grid control. A smooth time course of renewable power can be easily complemented by other resources (e.g. gas- and water turbines), which is impossible with the rapidly-changing renewable power.  </p>
+Moving clouds cause that the photovoltaic power is unstable over time. As the share of PV power grows in the grid, its fluctuations pose an increasing risk to the grid's power quality and stability. To mitigate this, the grid operator sets PV generators off-grid (or at least to a low-efficiency mode) while the solar intermittency is strong. Such losses of PV energy were e.g. 7% in 2011 in the US state Arizona. The energy loss-rate is determined by the solar intermittency and by the installed PV power in the grid: The larger PV share, the higher relative(!) losses of PV energy due to its intermittency. Extra grid-control costs exist due to the PV intermittency. This overall impact has been projected to the last guaranteed feed-in tariff for new PV installations in Germany: In 2020, the feed-in tariff for a newly installed small PV plant was only about 1/3 of the purchase tariff. The state guarantee has been canceled as of 2021, and there is no more doubt that only technical innovations can further augment the PV share in the grid: Smoothing of PV power could eliminate the losses of PV energy and the costs of additional grid control. Once smoothed, the time course of renewable power can be easily complemented by other resources (e.g. gas- and water turbines), which is impossible with the rapidly-changing renewable power.  </p>
 <h2 id="losless-smoothing-of-pv-power">Losless smoothing of PV power</h2>
-<p>Balancing of energy between the grid and a storage (ESS) may smooth the intermittent renewable power almost loss-free. A disadvantage of the lossless power smoothing is that it takes up expensive storage capacity. There have been advanced smoothing algorithms published, accumulating less energy than the basic application of a low-pass power filter (LPF) does. Actually, the known smoothing methods still accumulate too much energy, preventing them from being commercially successful.<br />
-Our first goal was to analyze an ideal PV smoothing model (IPLPF), accumulating a minimum of energy in theory by exciting LPF with an exact future PV power signal. Based on the measured solar radiation data over a time span of 1 year, the ideal smoothing model was numerically simulated. Its accumulated energy and corresponding costs have been aggregated. Given a reference LPF, the specific accumulation rate of IPLPF has been aggregated which serves as a reference quantifier of the solar intermittency, while the corresponding specific accumulation cost indicates a potential affordability of PV smoothing. The ideal smoothing has proven to be highly affordable with the German purchase and PV feed-in tariffs as of 2021.<br />
-Next, the smoothing model has been theoretically optimied (patent pending method SPLPF) in order to minimize the necessary storage when the predicted PV power signal is biased with error (prediction error increases the accumulation rate). Given the measured solar data, the accumulated energy of the SPLPF model was aggregated, applying a variable prediction error. With low to medium prediction error, the optimized model performs close to the ideal smoothing, much better than the LPF excited by the same predicted signal does. The numeric simulation has justified our theoretical presumption that the optimized smoothing model SPLPF is affordable with a real-predicted PV power signal.</p>
+<p>Balancing of energy between the grid and a storage (ESS) may smooth the intermittent renewable power almost loss-free. A disadvantage of the lossless power smoothing is that it takes up expensive storage capacity. There have been advanced smoothing algorithms published, accumulating less energy than the basic application of a low-pass power filter (LPF) does. Actually, the known filtering methods still accumulate too much energy, preventing the lossless smoothing from being commercially applied.<br />
+Our first goal was to analyze an ideal PV smoothing model (IPLPF), accumulating a minimum of energy in theory by exciting LPF with the exact future PV power signal. Based on the measured solar radiation data over a time span of 1 year, the ideal smoothing model was ex-post numerically simulated. Its accumulated energy and corresponding costs have been aggregated. Given a reference LPF, the specific accumulation rate of IPLPF has been aggregated which also serves as a reference quantifier of the solar intermittency, while the corresponding specific accumulation cost indicates a potential affordability of PV smoothing. The ideal smoothing has proven to be highly affordable with the German purchase and PV feed-in tariffs as of 2021.<br />
+Next, a novel smoothing method <strong>MPLPF</strong> (patent pending) has been theoretically optimized in order to minimize the necessary storage when the predicted PV power signal is biased with error (prediction error increases the accumulation rate). Given the measured solar data, the accumulated energy of the MPLPF model was aggregated, applying a variable prediction error. With low to medium prediction error, the optimized model performs close to the ideal smoothing, much better than the LPF excited by the same predicted signal does. The numeric simulation has confirmed our theoretical presumption that the optimized smoothing model MPLPF is affordable with a real-predicted PV power signal.  </p>
+<h2 id="ramping-limit-of-pv-power">Ramping limit of PV power</h2>
+<p>However low is the energy accumulated by the smoothing of renewable power, its storage is not for free and the smoothing pays-off only with a favourable "smooth feed-in tariff" granted to those PV prosumers who meet the given ramping limits. The goal is to keep the sum "grid control costs" plus "PV power losses due to its curtailment regulation" plus "PV smoothing costs" at minimum. Given the PV ramping limit and the measured signal GI(t) and its prediction error, the accumulation rate hence the smoothing cost can be aggregated. The minimum criterion can be eventually iterated, unless the PV ramping limit is optimized.</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="About me"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href=".." class="btn btn-neutral float-left" title="About Me"><span class="icon icon-circle-arrow-left"></span> Previous</a>
         <a href="../pv_log/" class="btn btn-neutral float-right" title="PV Logger">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
