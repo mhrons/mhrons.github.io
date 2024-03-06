@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/mplpf/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/splpf/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title> MPLPF - Milan Docs</title>
+    <title> SPLPF - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = " MPLPF";
-        var mkdocs_page_input_path = "mplpf.md";
-        var mkdocs_page_url = "/mplpf/";
+        var mkdocs_page_name = " SPLPF";
+        var mkdocs_page_input_path = "splpf.md";
+        var mkdocs_page_url = "/splpf/";
       </script>
     
     <script src="../js/jquery-3.6.0.min.js" defer></script>
@@ -85,7 +85,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-smoothing-plpf-mplpf">Real smoothing (PLPF, MPLPF)</a>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-smoothing-plpf-splpf">Real smoothing (PLPF, SPLPF)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#olap-analysis">OLAP analysis</a>
     </li>
@@ -101,7 +101,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#accumulation-rate-by-method">Accumulation rate by method</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#mplpf-vs-iplpf">MPLPF vs IPLPF</a>
+    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#splpf-vs-iplpf">SPLPF vs IPLPF</a>
     </li>
         </ul>
     </li>
@@ -117,7 +117,7 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./"> MPLPF</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="./"> SPLPF</a>
                 </li>
               </ul>
               <ul>
@@ -140,7 +140,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li> MPLPF</li>
+      <li> SPLPF</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -149,7 +149,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div id="mkdocs-encrypted-content" style="display:none">mU44GHsKRVPUlboUo81Bwg==;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;^</div>
+                <div id="mkdocs-encrypted-content" style="display:none">boESWWTxChM/kcIpit+D6g==;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;^</div>
 <div id="mkdocs-decrypted-content">
     <form id="mkdocs-decrypt-form">
         <h1>This content is temporarily password-protected</h1>
@@ -161,7 +161,7 @@
 </div>
 
 <script type="text/javascript">
-var encryptcontent_path = "mplpf/";
+var encryptcontent_path = "splpf/";
 var decryption_failure_message = "Invalid password.";
 </script>
 
