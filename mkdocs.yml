@@ -1,10 +1,11 @@
 site_name: Milan Docs
 site_url: https://mhrons.github.io/
 nav:
-    - About me: index.md
-    - Photovoltaic intermitency: pv_intermit.md
+    - About Me: index.md
+    - Photovoltaic Intermitency: pv_intermit.md
     - PV Logger: pv_log.md
     - Smoothing of PV power: pv_smooth.md
+    - MPLPF: mplpf.md
     - Glossary: v_glossary.md
 theme:
   name: readthedocs
@@ -38,7 +39,7 @@ watch:
 plugins:
     - search:
     - encryptcontent:
-        title_prefix: '[LOCK] '
-        summary: 'This content is not public'
-        encryption_info_message: "yet, as long as the related patent is pending..."
+        title_prefix: ' '
+        summary: 'This content is temporarily password-protected'
+        encryption_info_message: "untill the related patent is published"
         arithmatex: True
