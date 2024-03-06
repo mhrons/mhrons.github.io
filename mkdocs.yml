@@ -5,7 +5,7 @@ nav:
     - Photovoltaic Intermitency: pv_intermit.md
     - PV Logger: pv_log.md
     - Smoothing of PV power: pv_smooth.md
-    - MPLPF: mplpf.md
+    - SPLPF: splpf.md
     - Glossary: v_glossary.md
 theme:
   name: readthedocs

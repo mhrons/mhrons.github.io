@@ -31,5 +31,5 @@ RES = Renewable Energy Source
 SC = supercapacitor  
 SE = standard error  
 SOC = state of charge [Wh]  
-MPLPF = smart predictive low-pass filter  
+SPLPF = smart predictive low-pass filter  
 Δt = advance time interval [minute]
