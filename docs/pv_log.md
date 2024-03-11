@@ -4,7 +4,7 @@
 * Accurate short-term forecasting (nowcasting) of PV power is crucial when minimizing the accumulated energy by the PV power smoothing. PV power predictors are based on artificial intelligence (AI) and they can be trained by a sky-imagery and by the measured signal GI(t), in particular its fraction intercepted by a tilted PV panel.
 * Having the measured time series GI(t), a low-pass filter can be ex-post excited by a "predicted" input signal GI~f~(t+Δt). That is, the measured signal is shifted to the left on its time axis and its values are optionally biased with a simulated prediction error. Given such a predicted PV power signal and having the LPF tuned to meet the given ramping limit of PV power, the accumulated energy by filter should be then minimized by technical means to minimize the smoothing cost.
 
-Folloowing demands should be met by the measurement of solar irradiance for the analysis of PV smoothing:  
+Following demands should be met by the measurement of solar irradiance for the analysis of PV smoothing:  
 
 - Capture the full spectrum of solar intermittency by an appropriately high sampling frequency
 - Measure the fraction of irradiance which is intercepted by a tilted plane of incidence (PV panel). 

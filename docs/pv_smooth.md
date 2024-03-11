@@ -16,7 +16,7 @@ Our analysis will be focused at first on the application of
   <figcaption>Figure 1: Smoothing of PV power by a low-pass filter</figcaption>
 </figure>
 
-In the schematic diagram on Figure 1, a PV power plant (PVPP) is connected to the grid and its intermittent power p(t) is accumulated or compensated (i.e. smoothed) by an accumulator (ESS). The smoothing power is actuated by a bidirectional inverter AC/DC. The smoothing power is determined by the ouput signal p(t)-s(t+Δt) of a differencer. Positive sign of the smoothing power is oriented from the grid to ESS. Hence the total power superimposed to the grid by PVPP and ESS is determined by the filter’s output signal s(t+Δt). For the simplification, PVPP and ESS are single-phase-connected to the grid. Four different smoothing methods will be further analysed:
+In the schematic diagram on Figure 1, a PV power plant (PVPP) is connected to the grid and its intermittent power p(t) is accumulated or compensated (i.e. smoothed) by an accumulator (ESS). The smoothing power is actuated by a bidirectional inverter AC/DC. The smoothing power is determined by the ouput signal p(t)-s(t+Δt) of a differencer. Positive sign of the smoothing power is oriented from the grid to ESS. Hence the total power superimposed to the grid by PVPP and ESS is determined by the filter’s output signal s(t+Δt). For the simplification, PVPP and ESS are single-phase-connected to the grid. Four different smoothing methods have benn analysed:
 
 - In case of **LPF** smoothing, the measured signal p(t) bypasses the predictor, directly exciting LPF.
 
@@ -57,11 +57,11 @@ In practise, its value does not exceed 80% of the installed PV power.
 
 ### Specific accumulation rate ###
 Let us first discuss a proportionality between the PV power and the global irradiance GI: In our experiment, the solar irradiance is intercepted by planar panels of size 20 cm x 16 cm on the earth’s surface. To be exact, it should be mentioned that p(t) is usually smoother than GI(t), as the (usually greater) surface area of the corresponding PV plane acts like a moving-average filter of GI(t). Unfortunately, the size and speed of clouds prevent a relevant smoothing effect from being achieved by the existing PV surface. By assuming the proportionality between GI(t) and p(t), we analyze the worst case of PV intermittency.  
-For the sake of general validity of our analysis, we will substitute the signals p(τ), s(τ+Δt) in \eqref{eq:1}, \eqref{eq:5}, \eqref{eq:6} with the measured signal GI(τ) and by its “predicted-and-smoothed” counterpart GI~s~(τ+Δt). After substitution, the intergal \eqref{eq:1} determines the time course of the specific stored energy GX(t) [Wh/m^2^] by the filter, whereas SOC(t) is approximately proportional to GX(t). The integral \eqref{eq:5} computes the specific accumulated throughput [Wh/m^2^] per cycle T.  
+For the sake of general validity of our analysis, we will substitute the signals p(τ), s(τ+Δt) in \eqref{eq:1}, \eqref{eq:5}, \eqref{eq:6} with the measured signal GI(τ) and with its “predicted-and-smoothed” counterpart GI~s~(τ+Δt). After substitution, the intergal \eqref{eq:1} determines the time course of the specific stored energy GX(t) [Wh/m^2^] by the filter, whereas SOC(t) is approximately proportional to GX(t). The integral \eqref{eq:5} computes the specific accumulated throughput [Wh/m^2^] per cycle T.  
 The measured signal GI(t) and the LPF applied allow for the aggregation of specific ESS parameters requested by the IPLPF smoothing:  
 
 - specific accumulation capacity ΔGX=max(GX)-min(GX) by \eqref{eq:4},
-- specific IPLPF-accumulated throughput by \eqref{eq:5}.
+- specific accumulated throughput by \eqref{eq:5}.
 - maximum specific power GI~ESS~=max|GI(τ)-GI~s~(τ+Δt)| by \eqref{eq:6},
 
 These 3 aggregates define the specific accumulation rate of the PV smoothing.
@@ -71,7 +71,7 @@ Assume that the prerequisite \eqref{eq:2} holds. Let us split the ESS into 2 acc
 
 ## Ideal predictive smoothing (IPLPF)
 We simulate the operation of ideal predictive smoothing (IPLPF) by means of a LPF, ex-post excited by the future signal GI(t+Δt) where GI(t) is measured and the time advance Δt (above defined) eliminates the filter’s time lag. In theory, such an ideal smoothing would minimize the accumulated energy, given the ramping limit. ***Using a reference LPF, the specific accumulation rate of IPLPF smoothing quantifies the solar intermittency.***  
-The IPLPF analysis aims to reveal the ***potential affordability*** of PV smoothing, assuming that a real smoothing technology exists or will exist, performing close to the IPLPF. The numeric experiment is based on the measured solar irradiance over a period of 1 year, and the contemporary prices of LiFePO4 accumulators.  
+The IPLPF analysis aims to reveal the ***potential affordability*** of PV smoothing, assuming that a real smoothing technology exists or will exist, performing close to the IPLPF. Our numeric experiment is based on the measured solar irradiance over a period of 1 year, and the contemporary prices of LiFePO4 accumulators.  
   
 
 ### Smoothing by IPLPF vs LPF  
@@ -127,7 +127,7 @@ In addition to PLPF, we have developed a “smart predictive" low-pass smooth
 4. SPLPF: Smart power filter excited by the simulated-predicted signal GI~f~.
 
 ### [OLAP](https://en.wikipedia.org/wiki/Online_analytical_processing) analysis
-The goal is to analyze the accumulation rate by partial dimensions (a number of independent quantitative or categorical variables), assuming a given smoothing effect i.e. maximum ramping of the filtered power. Let us define the reference smoothing by the output of a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h operating at IPLPF (Δt = 30 minutes). We aggregate the accumulation rate into an OLAP cube by the following dimensions:
+The goal is to analyze the accumulation rate by partial dimensions (a number of independent quantitative or categorical variables), assuming a given smoothing effect i.e. maximum ramping of the filtered power. Let us define the reference smoothing by the output of a 3rd-order Butterworth filter with cut-off frequency = 7.5/12h operating in IPLPF (Δt = 30 minutes). We aggregate the accumulation rate into an OLAP cube by the following dimensions:
 
 - smoothing method
 - LPF order
@@ -296,7 +296,7 @@ Following graphs compare the smoothing by IPLPF vs SPLPF method:
 
 <figure markdown>
   ![GIs_aavg0_220404](img/order_gi_aavg0_2022-04-04.png){ width="650"}
-  <figcaption>Figure 16: Time course of IPLPF-smoothed GI shows its similar quality for each filter order</figcaption>
+  <figcaption>Figure 16: Time course of IPLPF-smoothed GI shows its similar ramping for each filter order</figcaption>
 </figure>
   
 <figure markdown>
