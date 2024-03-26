@@ -9,7 +9,7 @@ Our analysis will be focused at first on the application of a
 [standard LPF](https://www.analog.com/en/design-center/glossary/low-pass-filter.html)
  excited by a 
 [PV predictor](https://www.sciencedirect.com/science/article/abs/pii/S0038092X14001327)
-  trained by both sky imagery and p(t) signals. Then we integrate these two into a single functional enetity, exploiting the system benefit of predictive filters and maximizing the training information for PV nowcasting.
+  trained by both sky imagery and p(t) signals. Then we integrate these two into a single functional entity, exploiting the system benefit of predictive filters and maximizing the training information for PV nowcasting.
 
 <figure markdown>
   ![PLPF Schema](img/Schema_PLPF.png){ width="650"}
@@ -24,7 +24,7 @@ In the schematic diagram on Figure 1, a PV power plant (PVPP) is connected to th
 
 - According to the schematic diagram, **PLPF** smoothing method excites the LPF with a predicted PV power signal p~f~(t+Δt), approximating the signal p(t+Δt). The predictor is trained by a sky-imagery signal and by the measured PV power p(t).
 
-- Finally, a smart smoothing method **SPLPF** (patent pending) has been proposed, integrating the LPF with a PV predictor trained by both the measured PV power p(t) and the sky-imagery. This method has a modified block diagram.
+- Finally, a smart smoothing method **SPLPF** (patent pending) has been proposed, integrating the LPF with a PV predictor trained by both  measured PV power p(t) and sky-imagery. This method has a modified block diagram.
 
 ## Energy accumulated by smoothing
 For the clarity of analysis, energy losses in the AC/DC power conversion and energy storage will be neglected. The time course of the accumulated energy by ESS  
@@ -177,7 +177,7 @@ Filter order is another OLAP dimension whose impact on the smoothing performance
 
 ## Numerical results of smoothing
 
-Presented results are based on the measured GI data on days exhibiting a strong solar intermittency and a moderate to strong global insolation. 
+Presented results are based on the measured GI data on days exhibiting a strong solar intermittency and a moderate to strong insolation. 
 
 ### Accumulation rate by method
 Specific accumulation rate per date and smoothing method, using the reference filter:
@@ -191,17 +191,17 @@ Specific accumulation rate per date and smoothing method, using the reference fi
   <figcaption>Table 3: Date 2022-04-04 high insolation, strong intermittency</figcaption>
 </figure>
 
-Maximum specific power from/to ESS calculated by \eqref{eq:6} is in the column "GI~ESS~". A difference between the maximum and minimum specific accumulated energy calculated by \eqref{eq:4} is in the column "ΔGX". A daily flow of the specific energy through ESS calculated by \eqref{eq:5} is in the column "Throughput". A global exposure at the plane of incidence is also displayed.
+Maximum specific power from/to ESS calculated by \eqref{eq:6} is in the column "GI~ESS~". A difference between the maximum and minimum specific accumulated energy calculated by \eqref{eq:4} is in the column "ΔGX". Daily flow of the specific energy through ESS calculated by \eqref{eq:5} is in the column "Throughput". Daily insolation at the plane of incidence is displayed as "Global exposure".
 
 With "better prediction accuracy" during the selected days, the SPLPF smoothing required a relative ESS power between 5.5h^-1^ - 7.2h^-1^ which is 3.8 - 4.8 times more then by the LPF smoothing, 2.4 - 4.2 times more than by PLPF, and eventually 84% - 99% of the IPLPF power request. The SPLPF smoothing required 21% - 22% of the ESS capacity used by the LPF method, or 24% - 41% of the capacity used by PLPF. The SPLPF eventually required 1.0 - 1.2 times the ESS capacity used by IPLPF. The SPLPF smoothing put 58% - 73% of the energy through ESS relative to the LPF method, or 75% - 83% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more energy through ESS than the IPLPF method.
 
 With "worse prediction accuracy" during the selected days, the SPLPF smoothing required a relative ESS power between 3.8h^-1^ - 6.3h^-1^ which is 2.6 - 4.2 times more then by the LPF smoothing, 3.6 - 5.1 times more than by PLPF, and eventually 58% - 86% of the IPLPF power request. The SPLPF smoothing required 24% - 33% of the ESS capacity used by the LPF method, or 19% - 28% of the capacity used by PLPF. The SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by IPLPF. The SPLPF smoothing put 59% - 77% of the energy through ESS relative to the LPF method, or 63% - 69% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more energy through ESS than the IPLPF method.
 
 ### SPLPF vs IPLPF
-Although we did not analyze the whole year (the numerical simulation of SPLPF is computationally intensive), our analysis of the 4 smoothing methods on the selected days with high solar intermittency and various solar exposure, with 4 filter orders, and with varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. ***With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The presented empirical results have been theoretically justified (part of the patent application).
+Although we did not analyze the whole year (the numerical simulation of SPLPF is computationally intensive), our analysis of 4 smoothing methods on the selected days with high solar intermittency and various solar exposures, with 4 filter orders, and with a varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. ***With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The presented empirical results have been theoretically justified (part of the patent application).
 
 ## Graphical display of smoothing
-Following graphs show the smoothing effect and accumulated energy according to the smoothing method and other OLAP dimensions. The measured data from 2 selected days have been processed into the following time series:
+The following graphs show the smoothing effect and accumulated energy depending on the smoothing method and other OLAP dimensions. The measured data on 2 selected days have been processed into the following time series:
 
 - Measured GI(t), synchronized with predicted GI~f~ (1 hour zoomed) - Figures 2, 6
 - Measured GI(t) and its smooth counterpart by the prediction accuracy, comparing all smoothing methods, having optimal LPF order applied - Figures 3, 4, 7, 8

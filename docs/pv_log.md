@@ -21,7 +21,7 @@ A corresponding measurement system with a data logger has been developed by the 
  The system consists of 2 units:
 
 1. external console carrying 4 reference PV panels mounted at different angles, and temperature sensors of PV panels,
-2. internal measurement unit, serving as MPPT controller, battery charger, heat sink, A/D converter, and data logger.
+2. internal measurement unit serving as a MPPT controller, battery charger, heat sink, A/D converter, and data logger.
 
 ## System features
 
@@ -32,7 +32,7 @@ A corresponding measurement system with a data logger has been developed by the 
  calibrated by the reference GHI, dHI measured at the near meteorological site. The PV panels are re-calibrated once a year.
 * Temperature sensors are fixed onto each PV panel. The panels are always operated at the
 [maximum output power (MPPT)](https://www.leonics.com/support/article2_14j/articles2_14j_en.php)
-. Their operating point is being dynamically adjusted for the temperature drift of their A-V characteristics and internal resistance. The measured output power of each panel is divided by its active surface area and by its (known) efficiency at the measured surface temperature. The result is eventually expressed as a "photovoltaic global irradiance" in W/m^2^ analogous to GI measured at given angle of the plane of incidence, but taking into account the reflexion and spectral response of PV panels.
+. Their optimum operating point is dynamically adjusted according to the insolation and the temperature drift of their V-I characteristic. The measured output power of each panel is divided by its active surface area and by its (known) efficiency at the measured surface temperature. The result is eventually expressed as a "photovoltaic global irradiance" in W/m^2^ analogous to GI measured at given angle of the plane of incidence, but taking into account the reflexion and spectral response of PV panels.
 * The data logger samples GI values with a dynamic frequency. The sampling period varies from 0.5 second to 10 minutes, depending on the momentary solar intermittency. This captures the whole spectrum of solar intermittency, but eliminates redundancy in the stored data. Several years of such an irregular time series can be stored in a relational database with a tablespace <1TB.
 * The off-grid measurement system is self-powered 24 hours x 7 days a week. In addition to measurement, the PV sensors supply power to the data logger and charge its backup accumulator. The system requires a minimum maintenance.
 ![GI](img/GI.2022-01-15.png){ width="300"  align=right }

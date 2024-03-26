@@ -30,4 +30,5 @@ SC = supercapacitor
 SE = standard error  
 SOC = state of charge [Wh]  
 SPLPF = smart predictive low-pass filter  
-Δt = advance time interval [minute]
+Δt = advance time interval [minute]  
+V-I characteristics = voltage current dependency  
