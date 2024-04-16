@@ -1,7 +1,7 @@
 ![Milan](img/Milan.jpg){width="70"}
 
 Hello! My name is **Milan Hronský**  
-I am an electrical engineer researching the propagation of stochastic signals through linear systems. I am currently working on a better integration of renewable energy in the grid.  
+I am an electrical engineer researching the propagation of stochastic signals through linear systems. I am working on a better integration of renewable energy in the grid.  
 
 A common problem of renewable energy is its [intermittency](https://mhrons.github.io/pv_intermit/).
 The share of fossile and nuclear energy in the grid will remain high, unless the time course of renewable power is smooth. My goal is to **smooth the renewable power by lossless and affordable means**.  
