@@ -2,7 +2,7 @@ site_name: Milan Docs
 site_url: https://mhrons.github.io/
 nav:
     - About Me: index.md
-    - Solar & Wind Intermitency: pv_intermit.md
+    - Solar & Wind Intermittency: pv_intermit.md
     - PV Logger: pv_log.md
     - Smoothing of renewable power: pv_smooth.md
     - SPLPF: splpf.md

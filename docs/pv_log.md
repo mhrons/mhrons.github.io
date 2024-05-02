@@ -1,8 +1,8 @@
 # Measurement of global irradiance
 ***Accurate measurement of global irradiance (GI) is a prerequisite for the analysis of PV smoothing:***  
 
-* Accurate short-term forecasting (nowcasting) of PV power is crucial when minimizing the accumulated energy by the PV power smoothing. PV power predictors are based on artificial intelligence (AI) and they can be trained by a sky-imagery and by the measured signal GI(t), in particular its fraction intercepted by a tilted PV panel.
-* Having the measured time series GI(t), a low-pass filter can be ex-post excited by a "predicted" input signal GI~f~(t+Δt). That is, the measured signal is shifted to the left on its time axis and its values are optionally biased with a simulated prediction error. Given such a predicted PV power signal and having the LPF tuned to meet the given ramping limit of PV power, the accumulated energy by filter should be then minimized by technical means to minimize the smoothing cost.
+* Accurate nowcasting of PV power is crucial when minimizing the accumulated energy by the PV power smoothing. PV power predictors are based on artificial intelligence (AI) and they can be trained by a sky-imagery and by the measured signal GI(t), in particular its fraction intercepted by a tilted PV panel.
+* Having the measured time series GI(t), a low-pass filter can be ex-post excited by a "predicted" input signal GI~f~(t+Δt). That is, the measured signal is shifted to the left on its time axis and its values are optionally biased with a simulated prediction error. Given such a predicted PV power signal and having the LPF tuned to meet the given ramping limit of PV power, the accumulated energy by filter should be then minimized by technical means to minimize the smoothing costs.
 
 Following demands should be met by the measurement of solar irradiance for the analysis of PV smoothing:  
 
@@ -20,7 +20,7 @@ A corresponding measurement system with a data logger has been developed by the 
 
  The system consists of 2 units:
 
-1. external console carrying 4 reference PV panels mounted at different angles, and temperature sensors of PV panels,
+1. external console carrying 4 reference PV panels mounted at different angles, and with temperature sensors sticked onto PV panels,
 2. internal measurement unit serving as a MPPT controller, battery charger, heat sink, A/D converter, and data logger.
 
 ## System features
