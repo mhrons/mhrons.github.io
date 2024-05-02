@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/pv_intermit/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Solar & Wind Intermitency - Milan Docs</title>
+    <title>Solar & Wind Intermittency - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Solar \u0026 Wind Intermitency";
+        var mkdocs_page_name = "Solar \u0026 Wind Intermittency";
         var mkdocs_page_input_path = "pv_intermit.md";
         var mkdocs_page_url = "/pv_intermit/";
       </script>
@@ -45,7 +45,7 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Solar & Wind Intermitency</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Solar & Wind Intermittency</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#impact-on-the-grid">Impact on the grid</a>
     </li>
@@ -75,7 +75,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#ideal-predictive-smoothing-iplpf">Ideal predictive smoothing (IPLPF)</a>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#ideal-pv-smoothing-iplpf">Ideal PV smoothing (IPLPF)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#smoothing-by-iplpf-vs-lpf">Smoothing by IPLPF vs LPF</a>
     </li>
@@ -87,7 +87,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-smoothing-plpf-splpf">Real smoothing (PLPF, SPLPF)</a>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-pv-smoothing-plpf-splpf">Real PV smoothing (PLPF, SPLPF)</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#olap-analysis">OLAP analysis</a>
     </li>
@@ -99,7 +99,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#numerical-results-of-smoothing">Numerical results of smoothing</a>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#numerical-results-of-pv-smoothing">Numerical results of PV smoothing</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#accumulation-rate-by-method">Accumulation rate by method</a>
     </li>
@@ -107,7 +107,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#graphical-display-of-smoothing">Graphical display of smoothing</a>
+    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#pv-smoothing-graphs">PV smoothing graphs</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#analysis-by-prediction-error">Analysis by prediction error</a>
     </li>
@@ -142,7 +142,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>Solar & Wind Intermitency</li>
+      <li>Solar & Wind Intermittency</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -153,9 +153,9 @@
               
                 <h1 id="intermittency-of-renewable-power">Intermittency of renewable power</h1>
 <h2 id="impact-on-the-grid">Impact on the grid</h2>
-<p>Moving clouds and gusty winds make the renewable power unstable over time. As the share of renewable energy sources (RES) grows in the grid, their random power fluctuations pose an increasing risk to the grid's stability and the power quality. To mitigate this, the grid's transmission capacity is being reinforced in order to smooth the random time course of renewable power on a high aggregation level over long distances by water pumps or gass turbines. Increasing the share of renewable energy requires ever greater investment in building the grid infrastructure, which increases the price of electricity and is aesthetically damaging to the landscape.  </p>
+<p>Moving clouds and gusty winds make the renewable power unstable over time. As the share of renewable energy sources (RES) grows in the grid, their random power fluctuations pose an increasing risk to the grid's stability and the power quality. To mitigate this, the grid's transmission capacity is being reinforced in order to smooth the random time course of renewable power on a high aggregation level, and over long distances by large-scale water pumps or gass turbines. Increasing the share of renewable energy requires ever greater investment in building the grid infrastructure, which increases the price of electricity and is aesthetically damaging to the landscape.  </p>
 <h2 id="smoothing-of-renewable-power">Smoothing of renewable power</h2>
-<p>Extra grid investments, transmission losses and landscape could be saved by smoothing the intermittent power on a lower aggregation level, or even per-RES. Balancing of energy between the grid and a storage (ESS) may smooth the intermittent power almost loss-free by applying a low-pass power filter (LPF). A disadvantage of the local power smoothing is that it takes up a fast, high-capacity ESS which is expensive. There have been advanced smoothing algorithms published, accumulating less energy than a basic application of LPF does. Actually, the known filtering methods still accumulate too much energy, preventing the local application of ESS from the affordable power smoothing.<br />
+<p>Extra grid investments, transmission losses and landscape could be saved by smoothing the intermittent power on a low aggregation level, or even per-RES. Balancing of energy between the grid and a storage (ESS) may smooth the intermittent power almost loss-free by applying a low-pass power filter (LPF). A disadvantage of LPF is that it takes up a high-capacity, fast ESS which is too expensive, unless the LPF is excited with an exact future power singal. The nowcasting (ultra-short-term prediction) of the renewable power is possible on the low aggregation level, though not enough accurate in order to shrink the accumulation of energy near to its theoretical limit. Therefore the local smoothing of renewable power is yet not affordable on a commercial basis.<br />
 Our first objective was to analyze the ideal power smoothing model <a href="https://mhrons.github.io/pv_smooth/#ideal-predictive-smoothing-iplpf">IPLPF</a>, exciting a LPF with the exact future PV power signal, in theory eliminating the unnecessary accumulation of energy caused by the LPF's time lag, thus accumulating a minimum of energy. Based on the measured solar radiation <a href="https://mhrons.github.io/pv_log/">GI(t)</a> over a time span of 1+ year, the ideal power smoothing model was numerically simulated. The aggregated <a href="https://mhrons.github.io/pv_smooth/#specific-accumulation-rate">specific accumulation rate</a> provides a reference quantifier of solar intermittency on one side, while the corresponding specific accumulation cost indicates a potential affordability of the ideal smoothing of PV power.<br />
 Next, a novel <a href="https://mhrons.github.io/splpf/">SPLPF</a> smoothing method has been designed in order to minimize the accumulated energy by LPF even when its input future power signal is distorted by a prediction error, since this error increases the accumulated energy either way. Given the measured solar data <a href="https://mhrons.github.io/pv_log/">GI(t)</a>, the accumulation rate of SPLPF smoothing was aggregated while applying a variable prediction error at the LPF input: With low to medium prediction error, the SPLPF smoothing performs close to the IPLPF model and much better than the LPF excited with the same predicted input signal does. The numeric simulation has confirmed that the SPLPF smoothing is affordable with the predicted PV power signal.  </p>
 <h2 id="res-power-ramping-limit">RES power ramping limit</h2>
