@@ -24,7 +24,7 @@ In the schematic diagram on Figure 1, a PV power plant (PVPP) is connected to th
 
 - According to the schematic diagram, **PLPF** smoothing method excites the LPF with a predicted PV power signal p~f~(t+Δt), approximating the signal p(t+Δt). The predictor is trained by a sky-imagery signal and by the measured PV power p(t).
 
-- Finally, a smart smoothing method **SPLPF** (patent pending) has been proposed, integrating the LPF with a PV predictor trained by both  measured PV power p(t) and sky-imagery. This method has a modified block diagram.
+- Finally, a smart smoothing method [SPLPF](https://mhrons.github.io/splpf/) has been proposed, integrating the LPF with a PV predictor trained by both  measured PV power p(t) and sky-imagery. This method has a modified block diagram.
 
 ## Energy accumulated by smoothing
 For the clarity of analysis, energy losses in the AC/DC power conversion and energy storage will be neglected. The time course of the accumulated energy by ESS  
@@ -79,7 +79,7 @@ Global irradiance GI measured, filtered by LPF and IPLPF, and the specific energ
 ![PV Logger](img/GI_PV2.3but7.5.2022-04-04.png){: style="width: 49%; align='left';"}
 ![PV Logger](img/GX_PV2.3but7.5.2022-04-04.png){: style="width: 49%; align='right';"}
 
-The left graph shows the measured and low-passed (legend “lp”) GI signals on a day with high solar exposure and strong intermittency. The graph on the right shows the specific accumulated energy GX [Wh/m^2^] by IPLPF (legend "aavg0") vs LPF (legend "lp") on a given day. Exactly-predicted input signal GI(t+Δt) shifts the IPLPF output to the left, minimizing the standard deviation of GX, thus in practise minimizing the difference ΔGX = max(GX) – min(GX), expressing the request for the specific accumulation capacity. The specific throughput of the accumulated energy is also minimized by the IPLPF.  
+The left graph shows the measured and low-passed (legend “lp”) GI signals on a day with high solar exposure and strong intermittency. The graph on the right shows the specific accumulated energy GX [Wh/m^2^] by IPLPF (legend "aavg0") vs LPF (legend "lp") on the same day. Exactly-predicted input signal GI(t+Δt) shifts the IPLPF output to the left, minimizing the standard deviation of GX, thus in practise minimizing the difference ΔGX = max(GX) – min(GX), expressing the request for the specific accumulation capacity. The specific throughput of the accumulated energy is also minimized by the IPLPF.  
 
 ### Costs of IPLPF smoothing
 The smoothing costs result from the accumulation technology and from the accumulation rate. The accumulation rate results from the solar intermittency and from the desired ramping of smoothed PV power. In a non-ideal smoothing (e.g. PLPF), the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the illustrated example, IPLPF needs between 18% and 20% of ΔSOC relative to LPF, and IPLPF accumulates between 57% and 70% of the energy through ESS relative to LPF (see Tables 2, 3). There is a trade-off between the smoothing effect and the accumulation rate: The lower ramping limit (i.e. smoother s(t)), the higher accumulation rate. (This trend is especially critical in case of PLPF smoothing: The higher Δt, the higher prediction error, and the much higher accumulation rate!) Both ΔSOC and energy throughput reach their theoretical minimum with the IPLPF smoothing.  
@@ -163,8 +163,8 @@ The quality and accumulation rate of power smoothing exhibit following dependenc
 
 **Random error in predicted values**
 
-- Increasing of SE has no impact on the smoothing effect of PLPF, but it damages the smoothing of SPLPF (check Figure 7 vs Figure 8). In PLPF, the smoothing effect with a standard error SE > 0 is always better than in SPLPF.
-- Increasing of SE significantly increases the accumulation rate of PLPF (Figures 5, 9), which is for all values SE > 0 much higher than the accumulation rate of SPLPF. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly with SPLPF, and less so the higher the filter order (up to 3).
+- Increasing of SE has no impact on the smoothing effect of PLPF, but it damages the smoothing of SPLPF (check Figure 7 vs Figure 8). In PLPF, the smoothing effect with SE > 0 is always better than in SPLPF.
+- Increasing of SE significantly increases the accumulation rate of PLPF (Figures 5, 9), which is for values SE > 0 much higher than the accumulation rate of SPLPF. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly with SPLPF, and less so the higher the filter order (up to order=3).
 
 ### Analysis by LPF order
 The filter order is another OLAP dimension whose impact on the smoothing performance was analyzed along with the prediction error. We analyzed the LPF orders 1 to 4 (Figures 10-21):
@@ -197,7 +197,7 @@ With "better prediction accuracy" during the selected days, the SPLPF smoothing 
 With "worse prediction accuracy" during the selected days, the SPLPF smoothing required a relative ESS power between 3.8h^-1^ - 6.3h^-1^ which is 2.6 - 4.2 times more then by the LPF smoothing, 3.6 - 5.1 times more than by PLPF, and eventually 58% - 86% of the IPLPF power request. The SPLPF smoothing required 24% - 33% of the ESS capacity used by the LPF method, or 19% - 28% of the capacity used by PLPF. The SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by IPLPF. The SPLPF smoothing put 59% - 77% of the energy through ESS relative to the LPF method, or 63% - 69% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more energy through ESS than the IPLPF method.
 
 ### SPLPF vs IPLPF
-Although we did not analyze the whole year (the numerical simulation of SPLPF is computationally intensive), our analysis of 4 smoothing methods on the selected days with high solar intermittency and various solar exposures, with 4 filter orders, and with a varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than PLPF. ***With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The presented empirical results have been theoretically justified (part of the patent application).
+Although we did not analyze the whole year (the numerical simulation of SPLPF is computationally intensive), our analysis of 4 smoothing methods on the selected days with high solar intermittency and various solar exposures, with 4 filter orders, and with a varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than the PLPF. ***With a relatively small prediction error, SPLPF performs close to the ideal smoothing IPLPF.*** The presented empirical results have been theoretically justified in the chapter [SPLPF Smoothing](https://mhrons.github.io/splpf/).
 
 ## PV smoothing graphs
 The following graphs show the smoothing effect and accumulated energy depending on the smoothing method and other OLAP dimensions. The measured data on 2 selected days have been processed into the following time series:

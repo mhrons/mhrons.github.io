@@ -5,7 +5,7 @@ nav:
     - Solar & Wind Intermittency: pv_intermit.md
     - PV Logger: pv_log.md
     - Smoothing of renewable power: pv_smooth.md
-    - SPLPF: splpf.md
+    - SPLPF Smoothing: splpf.md
     - Glossary: v_glossary.md
 theme:
   name: readthedocs
@@ -40,6 +40,6 @@ plugins:
     - search:
     - encryptcontent:
         title_prefix: ' '
-        summary: 'This content is temporarily password-protected'
-        encryption_info_message: "untill the related patent is published"
+        summary: 'SPLPF in theory'
+        encryption_info_message: "This content is password-protected"
         arithmatex: True
