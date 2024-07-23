@@ -75,13 +75,13 @@ Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific en
 ![PV Logger](img/GI_PV2.3but7.5.2022-04-04.png){: style="width: 49%; align='left';"}
 ![PV Logger](img/GX_PV2.3but7.5.2022-04-04.png){: style="width: 49%; align='right';"}
 
-The left graph shows the measured, low-passed (legend “lp”), and left-shifted low-passed (legend "aavg0") GI signals on a day with high solar exposure and strong intermittency. The graph on the right shows the specific accumulated energy GX [Wh/m^2^] by IPLPF (legend "aavg0") vs LPF (legend "lp") on the same day. Exactly predicted input signal GI(t+Δt) shifts the IPLPF output to the left, minimizing the standard deviation of GX, thus in practise minimizing the difference ΔGX = max(GX) – min(GX), defining the request for the specific accumulation capacity. The specific throughput of the accumulated energy is also minimized by the IPLPF.  
+The left graphs show the measured signal GI(t), low-passed GI~s~(t) (legend “lp”), and left-shifted low-passed GI~s~(t+Δt) (legend "aavg0") on a day with high solar exposure and strong intermittency. The graphs on the right show the specific accumulated energy GX(t) [Wh/m^2^] accumulated by IPLPF (legend "aavg0") vs GX(t) accumulated by LPF (legend "lp", Δt=0) on the same day. Exactly predicted input signal GI(t+Δt) minimizes the standard deviation of GX values, in practise minimizing the difference ΔGX = max(GX) – min(GX), defining the request for the specific accumulation capacity. The specific throughput of the accumulated energy is also minimized by the IPLPF smoothing.  
 
 ### Tuning of LPF
-Δt is equal to the LPF's group delay at frequencies f<<f~c~ where f~c~ is the [cut-off frequency](https://en.wikipedia.org/wiki/Cutoff_frequency) of LPF. The LPF can be tuned by f~c~ and by its [order](https://en.wikipedia.org/wiki/Low-pass_filter#Electronic_low-pass_filters). The higher order or the lower f~c~, the smoother output and the greater Δt which is a function of order, f~c~, and the input signal's spectrum. To meet a given power ramping limit, various filter orders and f~c~ can be combined accordingly: The higher filter order, the higher f~c~ and vice versa. The time lag Δt and the accumulation rate change slightly for the relevant combinations of f~c~ and order (a subject for optimizing). In practise, we can say that Δt expresses the smoothing effect of LPF.  
+Δt is equal to the LPF's group delay at frequencies f<<f~c~ where f~c~ is the [cut-off frequency](https://en.wikipedia.org/wiki/Cutoff_frequency) of LPF. The LPF can be tuned by f~c~ and by its [order](https://en.wikipedia.org/wiki/Low-pass_filter#Electronic_low-pass_filters). The higher order or the lower f~c~, the smoother output and the greater Δt which is a function of order, f~c~, and the input signal's spectrum. To meet a given power ramping limit, various filter orders and f~c~ can be combined accordingly: The higher order, the higher f~c~ and vice versa. The time lag Δt and the accumulation rate change slightly for the relevant combinations of f~c~ and order (a subject for optimizing). In practise, we can say that Δt expresses the smoothing effect of LPF.  
 
 ### Measurement of intermittency
-In theory, the IPLPF minimizes the accumulated ΔSOC \eqref{eq:4} and energy throughput \eqref{eq:5} of the power smoothing. Assume having the LPF such tuned that its output power signal complies with a reference power ramping limit. Then the specific accumulation rate of IPLPF is the ***reference quantifier of solar intermittency.*** The IPLPF analysis reveals a ***potential affordability of the PV power smoothing***, assuming that a real smoothing technology exists or will exist, performing close to the IPLPF.
+In theory, the IPLPF smoothing minimizes the accumulated ΔSOC \eqref{eq:4} and energy throughput \eqref{eq:5}. Assume having the LPF such tuned that its output power signal complies with the reference power ramping limit. Then the specific accumulation rate of IPLPF is the ***reference quantifier of solar intermittency.*** The IPLPF analysis reveals a ***potential affordability of the PV power smoothing***, assuming that a real smoothing technology exists or will exist, performing close to the IPLPF.
 
 ### Costs of IPLPF smoothing
 The smoothing costs result from the accumulation technology, and from the accumulation rate. The accumulation rate results from the solar intermittency and from the desired ramping of the PV power. In a non-ideal smoothing (e.g. PLPF), the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the illustrated example, IPLPF needs between 18% and 20% of ΔSOC relative to LPF, and IPLPF accumulates between 57% and 70% of the energy through ESS relative to LPF (see Tables 2, 3). There is a trade-off between the smoothing effect and the accumulation rate: The lower ramping limit (i.e. smoother s(t)), the higher accumulation rate. (This trend is especially critical in the PLPF smoothing: The higher Δt, the higher prediction error, the much higher accumulation rate!)
@@ -122,7 +122,7 @@ Flywheel storage provides enough relative power for the IPLPF smoothing of a uti
   
 ## Real PV smoothing (PLPF, SPLPF)
 Now, the objective is to analyze the smoothing effect vs accumulation rate (in summary: performance) of PV smoothing in real conditions. The measured global irradiance signal GI(t) allows not only modelling of the ideal predictive low-pass smoothing (IPLPF), but also a simulation of the predictive smoothing of PV power (PLPF) having its LPF excited by a real-predicted signal GI~f~(t+Δt). The values GI~f~ are biased by a prediction error. The numeric results will show that this error induces a significant energy accumulated by the PLPF smoothing. We simulated the prediction error into the measured GI values in order to statistically represent the predicted signal GI~f~(t+Δt) and to have a possibility to adjust the prediction error. This allowed us to analyze the impact of the prediction error on the PV power smoothing.  
-In addition to the PLPF, we have developed a “smart predictive" low-pass smoothing method [SPLPF](https://mhrons.github.io/splpf/), minimizing the accumulated energy \eqref{eq:4}, \eqref{eq:5} with respect to the given ramping limit and real-predicted values GI~f~***. We eventually analyzed the performance of the following smoothing methods:
+In addition to the PLPF, we have developed a “smart predictive" low-pass smoothing method [SPLPF](https://mhrons.github.io/splpf/), minimizing the accumulated energy \eqref{eq:4}, \eqref{eq:5} with respect to the given ramping limit and real-predicted values GI~f~. We eventually analyzed the performance of the following smoothing methods:
 
 1. LPF: Input of LPF excited by the measured signal GI(t)
 2. IPLPF: Input of LPF excited by the measured, optimally left-shifted signal GI(t+Δt)
@@ -137,7 +137,7 @@ Multi-dimensional [OLAP cube](https://en.wikipedia.org/wiki/Online_analytical_pr
 - smooth_int (prediction error)
 - SE (prediction error)
 
-First of all, the same smoothing effect has to be fixed for various LPF used: Low-pass filters of orders 1 to 4 are tuned to output the equal ramping, provided that each filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases the lead time Δt. The next goal is to identify the LPF order which accumulates a minimum of energy, given the smoothing method, prediction error, and ramping limit. It was found out that the optimal LPF order for SPLPF is also valid for the IPLPF smoothing method. (This is irrelevant for the remaining 2 methods since they accumulate much more energy than IPLPF and SPLPF.) After determining the optimal LPF order, the performance of smoothing methods PLPF and SPLPF was analyzed by a variable prediction error. The numerical results are displayed in tables and graphs, and are explained in text.
+First of all, the same smoothing effect has to be fixed for various LPF used: Low-pass filters of orders 1 to 4 are tuned to output the equal ramping, provided that each filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases its time lag Δt. The next goal is to identify the LPF order which accumulates a minimum of energy, given the smoothing method, prediction error, and ramping limit. It was found out that the optimal LPF order for SPLPF is also valid for the IPLPF smoothing method. (This is irrelevant for the remaining 2 methods since they accumulate much more energy than IPLPF and SPLPF.) After determining the optimal LPF order, the performance of smoothing methods PLPF and SPLPF was analyzed by a variable prediction error. The numerical results are displayed in tables and graphs, and are explained in text.
 
 ### Simulation of predicted PV power
 The impact of prediction error on GI~f~ values is aggregated at the "future" time t+Δt. The predicted signal GI~f~(t+Δt) is derived from the measured, left-shifted signal GI(t+Δt) by superimposing a random error to its "future" time course and then by smoothing it, with respect to the fundamental properties of PV predictors:
@@ -182,7 +182,7 @@ The filter order is another OLAP dimension whose impact on the smoothing perform
 The presented results are based on the measured GI data from days exhibiting a strong solar intermittency and a moderate to high insolation. 
 
 ### Accumulation rate by method
-Specific accumulation rate per date and smoothing method, using the reference filter:
+**Specific accumulation rate per date and smoothing method, using the reference filter:**
 <figure markdown>
   ![IPLPF Costs](img/Accu_Rate_220304.png){ width="650"}
   <figcaption>Table 2: Date 2022-03-04 medium insolation, strong intermittency</figcaption>
@@ -313,7 +313,7 @@ Following graphs compare the smoothing by IPLPF vs SPLPF method:
   
 <figure markdown>
   ![GX_aavg0_220404](img/order_gx_aavg0_2022-04-04.png){ width="650"}
-  <figcaption>Figure 19 Time course of IPLPF-accumulated GX by filter order)</figcaption>
+  <figcaption>Figure 19 Time course of IPLPF-accumulated GX by filter order</figcaption>
 </figure>
   
 <figure markdown>
