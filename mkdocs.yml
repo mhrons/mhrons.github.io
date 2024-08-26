@@ -4,7 +4,7 @@ nav:
     - About Me: index.md
     - Solar & Wind Intermittency: pv_intermit.md
     - PV Logger: pv_log.md
-    - Smoothing renewable power: pv_smooth.md
+    - Smoothing Renewable Power: pv_smooth.md
     - SPLPF Smoothing: splpf.md
     - Glossary: v_glossary.md
 theme:
