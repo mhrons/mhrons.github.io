@@ -8,7 +8,7 @@
     <title>Smoothing Renewable Power - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = "/pv_smooth/";
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -65,7 +64,7 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">Smoothing Renewable Power</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Smoothing Renewable Power</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#energy-accumulated-by-smoothing">Energy accumulated by smoothing</a>
         <ul>
@@ -83,9 +82,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#measurement-of-intermittency">Measurement of intermittency</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#costs-of-iplpf-smoothing">Costs of IPLPF smoothing</a>
+    <li class="toctree-l3"><a class="reference internal" href="#costs-benefit-analysis-by-ess">Costs-benefit analysis by ESS</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#suitable-accumulators-for-iplpf">Suitable accumulators for IPLPF</a>
+    <li class="toctree-l3"><a class="reference internal" href="#hybrid-pv-system">Hybrid PV system</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#summary-of-iplpf">Summary of IPLPF</a>
     </li>
@@ -145,8 +144,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>Smoothing Renewable Power</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Smoothing Renewable Power</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -215,24 +214,39 @@ The measured signal GI(t) and the LPF applied allow for the aggregation of speci
 <h2 id="ideal-pv-smoothing-iplpf">Ideal PV smoothing (IPLPF)</h2>
 <p>The ideal predictive smoothing (IPLPF) is simulated by means of a LPF, ex-post excited by the future signal GI(t+Δt) where GI(t) is measured and the lead time interval Δt eliminates the LPF’s time lag.  </p>
 <h3 id="smoothing-by-iplpf-vs-by-lpf">Smoothing by IPLPF vs by LPF</h3>
-<p>Global irradiance GI measured, filtered by LPF and by IPLPF, and the specific energy GX accumulated by both filters:<br />
-<img alt="PV Logger" src="../img/GI_PV2.3but7.5.2022-04-04.png" style="width: 49%; align='left';" />
+<p><img alt="PV Logger" src="../img/GI_PV2.3but7.5.2022-04-04.png" style="width: 49%; align='left';" />
 <img alt="PV Logger" src="../img/GX_PV2.3but7.5.2022-04-04.png" style="width: 49%; align='right';" /></p>
+<figure>
+<figcaption>Figure 2: Global irradiance GI measured, filtered by LPF (legend lp) and by IPLPF (legend davg0, aavg0), and the specific energy GX accumulated by LPF vs IPLPF</figcaption>
+</figure>
 <p>The graphs on the left show the measured signal GI(t), low-passed GI<sub>s</sub>(t) (legend “lp”), and left-shifted low-passed GI<sub>s</sub>(t+Δt) (legend "aavg0") on a day with high solar exposure and strong intermittency. The graphs on the right show the specific energy GX(t) [Wh/m<sup>2</sup>] accumulated by IPLPF (legend "aavg0") vs GX(t) accumulated by LPF (legend "lp") on the same day. Exactly predicted input signal GI(t+Δt) minimizes the standard deviation of GX values, in practise minimizing the difference ΔGX = max(GX) – min(GX), defining the request for the specific accumulation capacity. The specific throughput of the accumulated energy is also minimized by the IPLPF smoothing.  </p>
 <h3 id="lpf-tuning">LPF tuning</h3>
-<p>Δt is equal to the LPF's group delay at frequencies f&lt;&lt;f<sub>c</sub> where f<sub>c</sub> is the <a href="https://en.wikipedia.org/wiki/Cutoff_frequency">cut-off frequency</a> of LPF. The LPF can be tuned by f<sub>c</sub> and by its <a href="https://en.wikipedia.org/wiki/Low-pass_filter#Electronic_low-pass_filters">order</a>. The higher order or the lower f<sub>c</sub>, the smoother output and the greater Δt which is a function of order, f<sub>c</sub>, and the input signal's spectrum. To meet a given power ramping limit, various filter orders and f<sub>c</sub> can be combined accordingly: The higher order, the higher f<sub>c</sub> and vice versa. The time lag Δt and the accumulation rate change only slightly for the relevant combinations of f<sub>c</sub> and order (a subject for optimizing). In practise, we can say that Δt expresses the smoothing effect of LPF.  </p>
+<p>Time shift Δt is equal to the LPF's group delay τ<sub>g</sub>(f) at frequencies in interval 0&lt;f&lt;&lt;f<sub>c</sub> where f<sub>c</sub> is the <a href="https://en.wikipedia.org/wiki/Cutoff_frequency">cut-off frequency</a> of LPF. In case of PV power, Δt is well approximated by τ<sub>g</sub>(0) since the main spectral component of GI is given by the day-night cycles providing very low frequencies compared to the random spectral components of GI generated by the atmosphere. The filter's group delay can be tuned by its parameters f<sub>c</sub> and <a href="https://en.wikipedia.org/wiki/Low-pass_filter#Electronic_low-pass_filters">order</a>. The higher order or the lower f<sub>c</sub>, the greater Δt and the smoother output power. Technically, Δt expresses the smoothing effect of LPF which in turn defines the ramping of the output power. To meet a given ramping limit, various filter orders and f<sub>c</sub> values can be combined accordingly. The accumulation rate varies slightly within the relevant combinations of f<sub>c</sub> and order. Its minimum is a subject of further optimizing.   </p>
 <h3 id="measurement-of-intermittency">Measurement of intermittency</h3>
-<p>In theory, the IPLPF smoothing of intermittent power minimizes the accumulated ΔSOC \eqref{eq:4} and energy throughput \eqref{eq:5}. Assume now having the LPF such tuned that its output power signal complies with the reference power ramping limit. Then the specific accumulation rate of IPLPF is the <strong><em>reference quantifier of power intermittency.</em></strong> The IPLPF analysis reveals a <strong><em>potential affordability of the PV power smoothing</em></strong>, assuming that a real smoothing technology exists or will exist, performing close to IPLPF. Our numeric experiment is based on the measured solar irradiance over a period of 1+ year.</p>
-<h3 id="costs-of-iplpf-smoothing">Costs of IPLPF smoothing</h3>
-<p>The smoothing costs result from the accumulation technology, and from the accumulation rate. The accumulation rate results from the solar intermittency and from the desired ramping of the PV power. In a non-ideal smoothing (e.g. PLPF), the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the illustrated example, IPLPF needs between 18% and 20% of ΔSOC relative to LPF, and IPLPF accumulates between 57% and 70% of the energy through ESS relative to LPF (see Tables 2, 3). There is a trade-off between the smoothing effect and the accumulation rate: The lower ramping limit (i.e. smoother s(t)), the higher accumulation rate. (This trend is especially critical with the PLPF smoothing: The higher Δt, the higher prediction error, the much higher accumulation rate!)
-Based on the measured GI(t) over a time span of 1+ year and the LiFePO4 lifecycle data and contemporary prices, the specific accumulation rate of IPLPF has been aggregated and the corresponding smoothing costs have been calculated. The numeric results show that IPLPF operation is worthwhile with the German electricity purchase tariff and the PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between the purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). </p>
-<p><strong>Small-scale hybrid PV system</strong><br />
-A household with the installed PV power around 10kW is connected to the low-voltage grid, having a LiFePO4 BESS with energy capacity ≈ 2h x installed PV power. The hybrid PV system feeds its excessive PV power into the grid, as long as the household’s consumption is satisfied and the battery has been charged. If the charging stopps at around 85% SOC<sub>max</sub>, then BESS can further provide enough power to smooth the excessive PV infeed to the grid with a relative power &lt;1 h<sup>-1</sup>, provided that the remaining free BESS capacity is reserved for the IPLPF smoothing (e.g. 7% ΔSOC would be reserved for IPLPF on 2022-03-04). Additional technical measures have to avoid its microcycling - e.g. a BESS consisting from 2 independent batteries. IPLPF accumulates energy only on solar-intermittent days, else no storage is used by smoothing.  </p>
-<p>IPLPF costs measured from 04/2021 to 03/2022. The plane of incidence and the applied LPF correspond to the GI(t) and GX(t) plots:  <br />
+<p>In theory, IPLPF minimizes the accumulated ΔSOC \eqref{eq:4} and energy throughput \eqref{eq:5} of the lossless power smoothing. Assume now having a LPF such tuned that its output power signal complies with a <strong><em>reference</em></strong> power ramping limit. Under such conditions, the specific accumulation rate of IPLPF can be considered as a quantifier of power intermittency. This in turn indicates <strong><em>potential affordability of PV power smoothing</em></strong>, assuming that a real smoothing technology exists or will exist, performing close to the ideal smoothing. A numeric experiment based on the measured solar irradiance over a period of 1+ year proves that such a method <a href="https://mhrons.github.io/splpf/">SPLPF</a> already exists. A numeric and graphic comparation of both methods is shown below.</p>
+<h3 id="costs-benefit-analysis-by-ess">Costs-benefit analysis by ESS</h3>
+<p>The smoothing costs result from the accumulation technology and from the accumulation rate. The accumulation rate results from the solar intermittency, from the desired ramping of PV power, and from the smoothing method. IPLPF minimizes the necessary ΔSOC and throughput, but cannot squeeze the power of accumulation. Let us first concentrate on a minimum ΔSOC (Wh capacity of ESS) demanded by IPLPF smoothing, regardless of the ESS power needed. The dashed green lines in Figure 2 display the maximum-minimum ΔGX and the standard deviation of GX on a given day. The maximum-minimum ΔGX specifies the necessary ESS capacity for an uninterrupted IPLPF smoothing on the selected day. Let us now analyze what happens, if less ΔGX capacity is available, than its maximum request:  </p>
+<p><img alt="kWh_by_Wh" src="../img/3but7.5_avg0_2022-04-04.png" style="width: 49%; align='left';" />
+<img alt="kWh_by_Wh" src="../img/3but7.5_avg0_2022.png" style="width: 49%; align='right';" />
 <figure markdown>
-  <img alt="IPLPF Costs" src="../img/IPLPF_Costs.png" width="650" />
 <br />
-<figcaption>Table 1</figcaption></p>
+<figcaption>Figure 3: Smooth, raw, and curtailed specific PV energy by specific ESS capacity</figcaption></p>
+</figure>
+<p><strong><em>Following 3 situations will happen during a PV cycle:</em></strong><br />
+1) When the GX values remain within the ΔGX interval, IPLPF smoothing works uninterrupted. This holds for all GX values if the specific capacity ΔGX ≥ 100 Wh/m<sup>2</sup> on 2022-04-04 as it is shown in Figures 2, 3, and exactly in <a href="https://mhrons.github.io/pv_smooth/#accumulation-rate-by-method">Table 3</a>.<br />
+2) When the GX values exceed the upper limit of ΔGX, then the PV power cannot be stored any more, because the ESS is full. The PV power must be either curtailed (by mistuning the MPPT controller), or fed unfiltered to the grid (as the black GI curve in Figure 2). Although the power curtailment causes energy losses, the smooth power can still be fed to the grid while the ESS is full. Rather curtail the intermittent PV power than feed it unfiltered to the grid. The red line in Figure 4 shows the lost daily energy as a function in ESS capacity.<br />
+3) When GX values pass below the lower limit of ΔGX, then the missing PV power cannot be supplied anymore by the empty ESS. At this time, there is no choice but to feed the raw low PV power directly to the grid. The blue line shows the sum of "smooth" and "raw" daily energy fed to the grid as a function in ESS capacity, whereas the green line shows only the "smooth" portion of energy. The dashed blue line eventually aggregates the total time interval of day while the raw power is fed to the grid.<br />
+Daily mean values aggregated from the whole year 2022 show that the ESS capacity 50 Wh/m<sup>2</sup> is still sufficient in average, although its capacity is only 1/2 of the maximum capacity needed on 2022-04-04.<br />
+The requested power of ESS is aggregated as a maximum absolute difference between the input and the filtered power. This is 631 W/m<sup>2</sup> on 2022-04-04 (maximum of the year in <a href="https://mhrons.github.io/pv_smooth/#accumulation-rate-by-method">Table 3</a>) with the LPF time lag Δt = 30 minutes. Hence the maximum relative power of ESS is (631/50)h<sup>-1</sup> = 12.6 h<sup>-1</sup>. Such a high relative power cannot be provided by redox accumulators. EDLC supercapacitors provide this power with margin, and possibly flywheells (FESS) having magnetic bearings.<br />
+Although the IPLPF shrinks the necessary capacity and the accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI<sub>ESS</sub>/ΔGX, as it is shown in <a href="https://mhrons.github.io/pv_smooth/#accumulation-rate-by-method">tables 2 and 3</a>. Regardless of its small capacity, the ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds, or vice versa. Knowing the input tariff, ESS price and service interval, ΔGX can be further optimized (and probably reduced) by balancing the margins of lost energy and saved ESS cost. However, accounting for the damage caused by 3) is more demanding.</p>
+<h3 id="hybrid-pv-system">Hybrid PV system</h3>
+<p>Supercapacitors are not cheap and yet there exist hybrid PV systems having inherent LiFePO4 storage providing enough smoothing power. A household with the installed PV power around 10kW is connected to the low-voltage grid, having a LiFePO4 BESS with energy capacity ≈ 2h x installed PV power. The hybrid PV system feeds its excessive PV power to the grid, as long as the household’s consumption is satisfied and the battery is charged. If the charging stopps at around 87% SOC<sub>max</sub>, then BESS can further provide enough power to smooth the excessive PV infeed to the grid with a relative power 631W/2kWh ≈ 0.32 h<sup>-1</sup> on 2022-04-04, provided that the remaining free BESS capacity is reserved for the IPLPF smoothing (that is, 100Wh/2kWh = 5% of ESS capacity reserved for IPLPF on 2022-04-04 and less in average). Additional technical measures have to avoid its microcycling - e.g. a BESS consisting of 2 independent batteries.<br />
+Based on the measured GI(t) over a time span of 1+ year and the LiFePO4 lifecycle data and contemporary prices, the specific accumulation rate of IPLPF has been aggregated and the corresponding smoothing costs have been calculated. The numeric results show that IPLPF is worthwhile with the German electricity purchase tariff and the PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between the purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). </p>
+<p>IPLPF costs measured from 04/2021 to 03/2022. The plane of incidence and the applied LPF correspond to the GI(t) and GX(t) plots:    </p>
+<figure>
+<p><img alt="IPLPF Costs" src="../img/IPLPF_Costs.png" width="650" />
+  </p>
+<figcaption>Table 1</figcaption>
 </figure>
 <p><strong>Conditions of cost calculation:</strong><br />
 1/3 of the yearly-generated PV energy by the hybrid PV system is assumed as infeed to the grid.<br />
@@ -240,21 +254,17 @@ Microcycling of BESS is eliminated by technical means.<br />
 LiFePO4 <a href="https://www.powertechsystems.eu/home/tech-corner/lithium-iron-phosphate-lifepo4/">life cycle data</a> and per kWh price as of 2021<br />
 Energy losses due to AC/DC conversion and accumulation are neglected.
 The costs are specific per 1 kW of installed PV power.<br />
-CapEx = initial investment to PV smoothing includes 90% of the BESS capacity reserved for the basic storage, 10% for smoothing.<br />
-OpEx = regular (e.g. yearly) costs necessary for its uninterrupted operation.<br />
+CapEx = initial investment to PV smoothing consists of 90% of the BESS capacity reserved for the basic storage, 10% for smoothing.<br />
+OpEx = regular (e.g. yearly) costs necessary for uninterrupted smoothing.<br />
 The greater from (CapEx, sevice_interval * OpEx) defines the cost of IPLPF smoothing for a given service interval.  </p>
 <p><strong><em>Having a small part of LiFePO4 BESS capacity reserved and its total power available, the IPLPF smoothing is much cheaper than the added value to the PV power infeed is. IPLPF technology offers an affordable smoothing of the PV power infeed in grid areas with a high concentration of small-scale hybrid PV systems.</em></strong></p>
-<h3 id="suitable-accumulators-for-iplpf">Suitable accumulators for IPLPF</h3>
-<p>Although the IPLPF shrinks the necessary capacity and the accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI<sub>ESS</sub>/ΔGX up to 7 h<sup>-1</sup>, as it is shown by <a href="https://mhrons.github.io/pv_smooth/#accumulation-rate-by-method">tables 2 and 3</a>. Regardless of its reduced capacity, the ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds. Lithium accumulators are cheap, efficient and fast, but not enough powerful to perform the sole IPLPF smoothing of PV power. It is not recommended to charge/draw a LiFePO4 battery with a relative power &gt; 1 h<sup>-1</sup>, otherwise the battery’s life cycle would be shortened. Such a high relative power is provided by EDLC supercapacitors, but on contrary to Lithium bateries, these do not provide enough cheap capacity to make the IPLPF smoothing affordable. The currently-available RedOx and EDLC technologies do not match with the IPLPF smoothing needs.<br />
-Actually, the IPLPF might harmonize with a 
-<a href="https://en.wikipedia.org/wiki/Flywheel_energy_storage">flywheel storage (FESS)</a>
-: 1) The maximum relative power of the FESS covers the IPLPF smoothing demands with a margin. 2) It is expected that the specific cost per kWh of FESS is less than that of EDLC. 3) Flywheels already regulate frequency in the grid, operating under similar conditions like in the IPLPF smoothing of PV power. (Because of unknown prices and life cycle data, we calculated neither CapExp, nor OpExp of FESS in a role of IPLPF storage.) <strong><em>High relative power and significant stored energy identify FESS as candidate storage for the IPLPF smoothing on a utility-scale level.</em></strong></p>
 <h3 id="summary-of-iplpf">Summary of IPLPF</h3>
 <p>Long-term continous GI(t) measurement has confirmed that if the PV smoothing performed close to the ideal smoothing IPLPF, it would be affordable with LiFePO4 technology when properly implemented in a hybrid PV system (inclusive measures against micro-cycling of BESS).<br />
 IPLPF smoothing of the wind turbine power exhibits a similar specific accumulation rate like the PV power smoothing. The wind power has similar intermittency like the PV power, except its weaker and random low-spectral component. (Daily cycles exhibit a relatively weak influence on wind.)<br />
-<strong><em>Low accumulated energy needed by IPLPF should motivate the research of technologies, among which the high-power accumulation of energy, accurate nowcasting of renewable power, and its smart filtering are key.</em></strong></p>
+<strong><em>Low accumulated energy needed by IPLPF should motivate the research of technologies, among which the high-power accumulation of energy, accurate nowcasting of renewable power, and its smart filtering are key.</em></strong><br />
+In a <strong><em>non-ideal smoothing</em></strong>, the values \eqref{eq:4} and \eqref{eq:5} are larger the less perfectly controlled the balancing of power between the grid and ESS. In the numeric example, IPLPF needs between 18% and 20% of ΔSOC relative to LPF, and IPLPF accumulates between 57% and 70% of the energy through ESS relative to LPF (see Tables 2, 3). The trade-off between the smoothing effect and the accumulation rate is especially critical with the PLPF smoothing: The higher Δt, the higher prediction error, the much higher accumulation rate.</p>
 <h2 id="real-pv-smoothing-plpf-splpf">Real PV smoothing (PLPF, SPLPF)</h2>
-<p>Now, the objective is to analyze the smoothing effect vs accumulation rate (performance in summary) of PV smoothing in real conditions. The measured global irradiance signal GI(t) allows not only modelling of the ideal predictive low-pass smoothing (IPLPF), but also a simulation of the predictive smoothing of PV power (PLPF) having its LPF excited by a real-predicted signal GI<sub>f</sub>(t+Δt). The values GI<sub>f</sub> are distorted by a prediction error. The numeric results will show that this error induces a significant energy accumulated by the PLPF smoothing. We simulated the prediction error into the measured GI values in order to statistically represent the predicted signal GI<sub>f</sub>(t+Δt) and to have a possibility to adjust the prediction error. This allowed us to analyze the impact of the prediction error on the PV power smoothing.<br />
+<p>Now, the objective is to analyze the smoothing effect vs. accumulation rate (performance in summary) of PV smoothing in real conditions. The measured global irradiance signal GI(t) allows not only modelling of the ideal predictive low-pass smoothing (IPLPF), but also a simulation of the predictive smoothing of PV power (PLPF) having its LPF excited by a real-predicted signal GI<sub>f</sub>(t+Δt). The values GI<sub>f</sub> are distorted by a prediction error. The numeric results will show that this error induces a significant energy accumulated by the PLPF smoothing. We simulated the prediction error into the measured GI values in order to statistically represent the predicted signal GI<sub>f</sub>(t+Δt) with a possibility to adjust the prediction error. This allowed us to analyze the impact of the prediction error on the PV power smoothing.<br />
 In addition to the PLPF, we have developed a “smart predictive" low-pass smoothing method <a href="https://mhrons.github.io/splpf/">SPLPF</a>, minimizing the accumulated energy \eqref{eq:4}, \eqref{eq:5} with respect to the given ramping limit and real-predicted values GI<sub>f</sub>. We eventually analyzed the performance of the following smoothing methods:</p>
 <ol>
 <li>LPF: Input of LPF excited by the measured signal GI(t)</li>
@@ -292,12 +302,12 @@ In addition to the PLPF, we have developed a “smart predictive" low-pass sm
 <p><strong>Smoothed predicted signal</strong>  </p>
 <ul>
 <li>Changing of smooth_int affects the smoothing effect neither of SPLPF nor PLPF method, while for all applied values, PLPF performs smoother than SPLPF (Figures 3, 4, 7, 8).</li>
-<li>Lowering of smooth_int dramatically increases the accumulation rate of PLPF, which is always much greater than the accumulation rate of SPLPF (Figures 5, 9). With "worse prediction accuracy", the PLPF method even exceeds the accumulation rate induced by the LPF method (Figure 9). In SPLPF, the accumulation rate increases only slightly and much more slowly than in PLPF.</li>
+<li>Lowering of smooth_int dramatically increases the accumulation rate of PLPF, which is always much greater than the accumulation rate of SPLPF (Figures 5, 9). With "worse prediction accuracy", the PLPF method even exceeds the accumulation rate induced by the LPF method (Figure 11). In SPLPF, the accumulation rate increases only slightly and much more slowly than in PLPF.</li>
 </ul>
 <p><strong>Random error in predicted values</strong>  </p>
 <ul>
-<li>Increasing of SE has no impact on the smoothing effect of PLPF, but it damages the smoothing of SPLPF (check Figure 7 vs Figure 8). In PLPF, the smoothing effect with SE &gt; 0 is always better than in SPLPF.</li>
-<li>Increasing of SE significantly increases the accumulation rate of PLPF (Figures 5, 9), which is for values SE &gt; 0 much higher than the accumulation rate of SPLPF. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly with SPLPF, and less so the higher the filter order (up to order=3).</li>
+<li>Increasing of SE has no impact on the smoothing effect of PLPF, but it damages the smoothing of SPLPF (check Figure 9 vs Figure 10). In PLPF, the smoothing effect with SE &gt; 0 is always better than in SPLPF.</li>
+<li>Increasing of SE significantly increases the accumulation rate of PLPF (Figures 6, 10), which is for all SE &gt; 0 much higher than the accumulation rate of SPLPF. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly with SPLPF, and less so the higher the filter order (up to order=3).</li>
 </ul>
 <h3 id="analysis-by-lpf-order">Analysis by LPF order</h3>
 <p>The filter order is another OLAP dimension whose impact on the smoothing performance was analyzed along with the prediction error. We analyzed the LPF orders 1 to 4 (Figures 10-21):</p>
@@ -327,56 +337,56 @@ In addition to the PLPF, we have developed a “smart predictive" low-pass sm
 <h3 id="splpf-vs-iplpf">SPLPF vs IPLPF</h3>
 <p>Although we did not analyze the whole year (the numerical simulation of SPLPF is computationally intensive), our analysis of 4 smoothing methods on the selected days with high solar intermittency and various solar exposures, with 4 filter orders, and with a varrying prediction error provides a detailed insight into the SPLPF performance. This smoothing method performs much better than the PLPF. <strong><em>With a moderate prediction error, SPLPF performs close to the ideal smoothing IPLPF.</em></strong> The presented empirical results are theoretically proven in the chapter <a href="https://mhrons.github.io/splpf/">SPLPF Smoothing</a>.</p>
 <h2 id="pv-smoothing-graphs">PV smoothing graphs</h2>
-<p>The following graphs show the smoothing effect and accumulated energy depending on the smoothing method and other OLAP dimensions. The measured data on 2 selected days have been processed into the following time series:</p>
+<p>The following graphs show the smoothing effect and accumulated energy depending on the smoothing method and other OLAP dimensions. The measured data on 2 selected days (medium vs. high insolation, both strong intermittency) have been processed into following time series:</p>
 <ul>
-<li>Measured GI(t), synchronized with predicted GI<sub>f</sub> (1 hour zoomed) - Figures 2, 6</li>
-<li>Measured GI(t) and its smooth counterpart by the prediction accuracy, comparing all smoothing methods, having optimal LPF order applied - Figures 3, 4, 7, 8</li>
-<li>Accumulated GX(t) by the prediction accuracy, comparing all smoothing methods, having optimal LPF order applied - Figures 5, 9</li>
-<li>Smoothed GI(t) by the filter order and prediction accuracy, comparing IPLPF and SPLPF smoothing methods - Figures 10-12, 16-18</li>
-<li>Accumulated GX(t) by the filter order and prediction accuracy, comparing IPLPF and SPLPF smoothing methods - Figures 13-15, 19-21</li>
+<li>Measured GI(t), synchronized with predicted GI<sub>f</sub> (1 hour zoomed) - Figures 4, 8</li>
+<li>Measured GI(t) and its smooth counterpart by the prediction accuracy, comparing all smoothing methods, having optimal LPF order applied - Figures 5, 6, 9, 10</li>
+<li>Accumulated GX(t) by the prediction accuracy, comparing all smoothing methods, having optimal LPF order applied - Figures 7, 11</li>
+<li>Smooth GI(t) by the filter order and prediction accuracy, comparing IPLPF and SPLPF smoothing methods - Figures 12-14, 18-20</li>
+<li>Accumulated GX(t) by the filter order and prediction accuracy, comparing IPLPF and SPLPF smoothing methods - Figures 15-17, 21-23</li>
 </ul>
 <h3 id="analysis-by-prediction-error">Analysis by prediction error</h3>
 <h4 id="a-day-with-medium-insolation">A day with medium insolation</h4>
 <figure>
 <p><img alt="GI~f~_220304" src="../img/2022-03-04_from11h_to12h.png" width="650" />
   </p>
-<figcaption>Figure 2: Measured GI synchronized with GIf (predicted 30 minutes ago) between 11:00 and 12:00. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
+<figcaption>Figure 4: Measured GI synchronized with GIf (predicted 30 minutes ago) between 11:00 and 12:00. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
 <figure>
 <p><img alt="GIs_LoErr_220304" src="../img/se0.05_6min_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 3: Measured and smoothed GI by 4 different methods; better prediction accuracy</figcaption>
+<figcaption>Figure 5: Measured and smoothed GI by 4 different methods; better prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GIs_HiErr_220304" src="../img/se0.1_3min_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 4: Measured and smoothed GI by 4 smoothing methods; worse prediction accuracy</figcaption>
+<figcaption>Figure 6: Measured and smoothed GI by 4 smoothing methods; worse prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GX_220304" src="../img/sim24_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 5: Time course of GX accumulated by 4 smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
+<figcaption>Figure 7: Time course of GX accumulated by 4 smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
 <h4 id="a-day-with-high-insolation">A day with high insolation</h4>
 <figure>
 <p><img alt="GIf_220404" src="../img/2022-04-04_from11h_to12h.png" width="650" />
   </p>
-<figcaption>Figure 6: Measured GI synchronized with GIf (predicted 30 minutes ago) between 11:00 and 12:00. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
+<figcaption>Figure 8: Measured GI synchronized with GIf (predicted 30 minutes ago) between 11:00 and 12:00. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
 <figure>
 <p><img alt="GIs_LoErr_220404" src="../img/se0.05_6min_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 7: Measured and smoothed GI by 4 smoothing methods; better prediction accuracy</figcaption>
+<figcaption>Figure 9: Measured and smoothed GI by 4 smoothing methods; better prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GIs_HiErr_220404" src="../img/se0.1_3min_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 8: Measured and smoothed GI by 4 smoothing methods; worse prediction accuracy</figcaption>
+<figcaption>Figure 10: Measured and smoothed GI by 4 smoothing methods; worse prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GX_220404" src="../img/sim24_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 9: Time course of GX accumulated by 4 smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
+<figcaption>Figure 11: Time course of GX accumulated by 4 smoothing methods. (Lo Err: better prediction accuracy, Hi Err: worse prediction accuracy)</figcaption>
 </figure>
 <h3 id="analysis-by-lpf-order_1">Analysis by LPF order</h3>
 <p>Following graphs compare the smoothing by IPLPF vs SPLPF method:</p>
@@ -384,64 +394,64 @@ In addition to the PLPF, we have developed a “smart predictive" low-pass sm
 <figure>
 <p><img alt="GIs_aavg0_220304" src="../img/order_gi_aavg0_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 10: Time course of IPLPF-smoothed GI exhibits similar ramping for each filter order</figcaption>
+<figcaption>Figure 12: Time course of IPLPF-smoothed GI exhibits similar ramping for each filter order</figcaption>
 </figure>
 <figure>
 <p><img alt="GIs_LoErr_220304" src="../img/order_gi_plp7_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 11: Time course of SPLPF-smoothed GI by filter order; better prediction accuracy</figcaption>
+<figcaption>Figure 13: Time course of SPLPF-smoothed GI by filter order; better prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GIs_HiErr_220304" src="../img/order_gi_plp13_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 12: Time course of SPLPF-smoothed GI by filter order; worse prediction accuracy</figcaption>
+<figcaption>Figure 14: Time course of SPLPF-smoothed GI by filter order; worse prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GX_aavg0_220304" src="../img/order_gx_aavg0_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 13: Time course of IPLPF-accumulated GX by filter order</figcaption>
+<figcaption>Figure 15: Time course of IPLPF-accumulated GX by filter order</figcaption>
 </figure>
 <figure>
 <p><img alt="GX_LoErr_220304" src="../img/order_gx_plp7_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 14: Time course of SPLPF-accumulated GX by filter order; better prediction accuracy</figcaption>
+<figcaption>Figure 16: Time course of SPLPF-accumulated GX by filter order; better prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GX_HiErr_220304" src="../img/order_gx_plp13_2022-03-04.png" width="650" />
   </p>
-<figcaption>Figure 15: Time course of SPLPF-accumulated GX by filter order; worse prediction accuracy</figcaption>
+<figcaption>Figure 17: Time course of SPLPF-accumulated GX by filter order; worse prediction accuracy</figcaption>
 </figure>
 <p>.  </p>
 <h4 id="a-day-with-high-insolation_1">A day with high insolation</h4>
 <figure>
 <p><img alt="GIs_aavg0_220404" src="../img/order_gi_aavg0_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 16: Time course of IPLPF-smoothed GI shows its similar ramping for each filter order</figcaption>
+<figcaption>Figure 18: Time course of IPLPF-smoothed GI shows its similar ramping for each filter order</figcaption>
 </figure>
 <figure>
 <p><img alt="GIs_LoErr_220404" src="../img/order_gi_plp7_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 17: Time course of SPLPF-smoothed GI by filter order; better prediction accuracy</figcaption>
+<figcaption>Figure 19: Time course of SPLPF-smoothed GI by filter order; better prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GIs_HiErr_220404" src="../img/order_gi_plp13_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 18: Time course of SPLPF-smoothed GI by filter order; worse prediction accuracy</figcaption>
+<figcaption>Figure 20: Time course of SPLPF-smoothed GI by filter order; worse prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GX_aavg0_220404" src="../img/order_gx_aavg0_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 19 Time course of IPLPF-accumulated GX by filter order</figcaption>
+<figcaption>Figure 21 Time course of IPLPF-accumulated GX by filter order</figcaption>
 </figure>
 <figure>
 <p><img alt="GX_LoErr_220404" src="../img/order_gx_plp7_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 20: Time course of SPLPF-accumulated GX by filter order; better prediction accuracy</figcaption>
+<figcaption>Figure 22: Time course of SPLPF-accumulated GX by filter order; better prediction accuracy</figcaption>
 </figure>
 <figure>
 <p><img alt="GX_HiErr_220404" src="../img/order_gx_plp13_2022-04-04.png" width="650" />
   </p>
-<figcaption>Figure 21: Time course of SPLPF-accumulated GX by filter order; worse prediction accuracy</figcaption>
+<figcaption>Figure 23: Time course of SPLPF-accumulated GX by filter order; worse prediction accuracy</figcaption>
 </figure>
               
             </div>
@@ -479,16 +489,17 @@ In addition to the PLPF, we have developed a “smart predictive" low-pass sm
   </span>
 </div>  
     
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
     <script async src="//static.getclicky.com/101403225.js"></script>
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101403225ns.gif" /></p></noscript>

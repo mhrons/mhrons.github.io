@@ -8,7 +8,7 @@
     <title>Milan Docs</title>
     <link rel="stylesheet" href="css/theme.css" />
     <link rel="stylesheet" href="css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = "/";
       </script>
     
-    <script src="js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -41,7 +40,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href=".">About Me</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">About Me</a>
                 </li>
               </ul>
               <ul>
@@ -83,9 +82,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="pv_smooth/#measurement-of-intermittency">Measurement of intermittency</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="pv_smooth/#costs-of-iplpf-smoothing">Costs of IPLPF smoothing</a>
+    <li class="toctree-l3"><a class="reference internal" href="pv_smooth/#costs-benefit-analysis-by-ess">Costs-benefit analysis by ESS</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="pv_smooth/#suitable-accumulators-for-iplpf">Suitable accumulators for IPLPF</a>
+    <li class="toctree-l3"><a class="reference internal" href="pv_smooth/#hybrid-pv-system">Hybrid PV system</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="pv_smooth/#summary-of-iplpf">Summary of IPLPF</a>
     </li>
@@ -145,8 +144,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>About Me</li>
+    <li><a href="." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">About Me</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -158,12 +157,12 @@
                 <p><img alt="Milan" class="float-left" height="100" src="img/Milan.jpg" width="70" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hello! My name is Milan Hronský<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I am an electrical engineer researching the propagation<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; of stochastic signals through linear systems. Working<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; of stochastic signals through linear systems. I Work<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; towards better integration of renewable energy in the grid.  </p>
 <p>A common problem of renewable energy is its <a href="https://mhrons.github.io/pv_intermit/">intermittency</a>.
 The share of fossile and nuclear energy in the grid will remain high, unless the renewable power is stable. My goal is to smooth the time course of renewable power on a low aggregation level by lossless and affordable means.<br />
 I have developed a new filter of intermittent power, accumulating a minimum of energy. My smoothing method <a href="https://mhrons.github.io/splpf/">SPLPF</a> is highly effective with low [Wh] capacity energy storage systems (ESS) providing high relative power [W/Wh] like e.g. flywheel (FESS) or supercapacitor (EDLC).<br />
-I have a pending patent app. No. PCT/SK2022/050014 in the smoothing of renewable power. The European Patent Office has recently issued an International Search Report confirming its novelty, inventive step, and industrial applicability.<br />
+I have a pending patent app. No. PCT/SK2022/050014 in the smoothing of renewable power. The European Patent Office has recently issued International Search Report confirming its novelty, inventive step, and industrial applicability.<br />
 I am currently searching an industrial &amp; funding partner who might benefit from my technology.</p>
 <p>My photovoltaic projects:</p>
 <ul>
@@ -174,8 +173,8 @@ I am currently searching an industrial &amp; funding partner who might benefit f
 <p><a href="https://mhrons.github.io/pv_smooth/">Smoothing Renewable Power</a> <img alt="GI Smoothing" src="img/GI_PV2.3but7.5.2022-04-04.png" width="120" /></p>
 </li>
 </ul>
-<p>You can reach me out at <a href="https://www.linkedin.com/in/milan-hronsky-76132224/">LinkedIn</a> or <a href="mailto:milan.hronsky@gmail.com">email</a> me.<br />
-© Milan Hronský 2024</p>
+<p>You can contact me at <a href="https://www.linkedin.com/in/milan-hronsky-76132224/">LinkedIn</a> or <a href="mailto:milan.hronsky@gmail.com">email</a><br />
+© Milan Hronský 2025</p>
               
             </div>
           </div><footer>
@@ -209,16 +208,17 @@ I am currently searching an industrial &amp; funding partner who might benefit f
   </span>
 </div>  
     
-    <script>var base_url = '.';</script>
-    <script src="js/theme_extra.js" defer></script>
-    <script src="js/theme.js" defer></script>
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
-      <script src="search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = ".";</script>
+    <script src="js/theme_extra.js"></script>
+    <script src="js/theme.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
     <script async src="//static.getclicky.com/101403225.js"></script>
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101403225ns.gif" /></p></noscript>
@@ -228,6 +228,6 @@ I am currently searching an industrial &amp; funding partner who might benefit f
 </html>
 
 <!--
-MkDocs version : 1.4.3
-Build Date UTC : 2024-08-26 14:36:16.842081+00:00
+MkDocs version : 1.6.1
+Build Date UTC : 2025-01-26 13:20:36.082990+00:00
 -->

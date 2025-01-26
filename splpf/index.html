@@ -8,7 +8,7 @@
     <title> SPLPF Smoothing - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = "/splpf/";
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -83,9 +82,9 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#measurement-of-intermittency">Measurement of intermittency</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#costs-of-iplpf-smoothing">Costs of IPLPF smoothing</a>
+    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#costs-benefit-analysis-by-ess">Costs-benefit analysis by ESS</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#suitable-accumulators-for-iplpf">Suitable accumulators for IPLPF</a>
+    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#hybrid-pv-system">Hybrid PV system</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#summary-of-iplpf">Summary of IPLPF</a>
     </li>
@@ -123,7 +122,7 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./"> SPLPF Smoothing</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#"> SPLPF Smoothing</a>
                 </li>
               </ul>
               <ul>
@@ -145,8 +144,8 @@
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li> SPLPF Smoothing</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active"> SPLPF Smoothing</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -155,29 +154,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <div id="mkdocs-encrypted-content" style="display:none">RaEGq1Tl/X0LceZqUYphjw==;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;^</div>
+                <div id="mkdocs-encrypted-content" style="display:none">Xbtruj3FjSNotgJw4Spz1w==;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</div>
 <div id="mkdocs-decrypted-content">
     <form id="mkdocs-decrypt-form">
         <h1>SPLPF in theory</h1>
         <p>This content is password-protected</p>
-        <input type="password" id="mkdocs-content-password" placeholder="Use CTRL+ENTER to provide global password" />
+        <input type="password" id="mkdocs-content-password" placeholder="Password">
         
         <p id="mkdocs-decrypt-msg"></p>
     </form>
 </div>
 
 <script type="text/javascript">
+var encryptcontent_id = "encryptcontent_1";
 var encryptcontent_path = "splpf/";
 var decryption_failure_message = "Invalid password.";
+var encryptcontent_keystore = ["TcfVj98ft8J6fM6c7vekIg==;gFdEpgMoNIuuPWjVGWYl1WvG5JOeWRrAsrnmZ0rUZ/rwlV7vSjtsmvosbIQCEmlWXNus1LtFQa89ZzkUgAAAtn3rMOwMufRpdmNEWyj87VL45TokvmG9rBoZjlQV1rRF;vuU7eZNgfbuFj4kkWTTBqQ=="];
+var encryptcontent_obfuscate = 0;
+
 </script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/enc-base64.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/cipher-core.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/md5.js"></script>
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/aes.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/sha256.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/hmac.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/pbkdf2.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/aes.js"></script>
 <script type="text/javascript" src="../assets/javascripts/decrypt-contents.js" defer></script>
-
               
             </div>
           </div><footer>
@@ -214,16 +217,17 @@ var decryption_failure_message = "Invalid password.";
   </span>
 </div>  
     
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
     <script async src="//static.getclicky.com/101403225.js"></script>
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101403225ns.gif" /></p></noscript>
