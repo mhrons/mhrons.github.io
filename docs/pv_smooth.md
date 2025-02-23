@@ -70,7 +70,7 @@ Assume that the prerequisite \eqref{eq:2} holds. Let us split the ESS into 2 acc
 ## Ideal PV smoothing (IPLPF)
 The ideal predictive smoothing (IPLPF) is simulated by means of a LPF, ex-post excited by the future signal GI(t+Δt) where GI(t) is measured and the lead time interval Δt eliminates the LPF’s time lag.  
 
-### Smoothing by IPLPF vs by LPF    
+### Smoothing by IPLPF vs LPF    
 ![PV Logger](img/GI_PV2.3but7.5.2022-04-04.png){: style="width: 49%; align='left';"}
 ![PV Logger](img/GX_PV2.3but7.5.2022-04-04.png){: style="width: 49%; align='right';"}
 <figure markdown>
@@ -85,17 +85,17 @@ The time shift Δt is equal to the LPF's group delay τ~g~(f) at frequencies in 
 ### Measurement of intermittency
 In theory, IPLPF minimizes the storage capacity \eqref{eq:4} and energy throughput \eqref{eq:5} of the lossless power smoothing. Assume now having such a LPF, the output power signal of which complies with a ***reference power ramping limit***. Under such conditions, the specific accumulation rate of IPLPF can be considered as a quantifier of power intermittency. This in turn indicates a ***potential affordability of PV power smoothing***, assuming that a real smoothing technology exists or will exist, performing close to the ideal smoothing. A numerical experiment based on measured solar irradiance over a period of >1 year proves that such a [SPLPF](https://mhrons.github.io/splpf/) smoothing already exists. A numeric and graphic comparation of both methods is shown below.
 
-### Cost-benefit analysis by ESS
+### Cost-benefit by variable ESS
 The smoothing costs result from the accumulation technology and from the accumulation rate. The accumulation rate results from the solar intermittency, from the desired ramping of PV power, and from the smoothing method. IPLPF minimizes the necessary ΔSOC and throughput, but cannot squeeze the power of accumulation. Let us first concentrate on a minimum ΔSOC (Wh capacity of ESS) demanded by IPLPF smoothing, regardless of the ESS power needed. The dashed green lines in Figure 2 display the maximum-minimum ΔGX and the standard deviation of GX on a given day. The maximum-minimum ΔGX specifies the necessary ESS capacity for an uninterrupted IPLPF smoothing on the selected day. Let us now analyze what happens, if less ΔGX capacity is available, than its maximum-minimum request:  
 
-![kWh_by_Wh](img/3but7.5_avg0_2022-04-04.png){: style="width: 49%; align='left';"}
-![kWh_by_Wh](img/3but7.5_avg0_2022.png){: style="width: 49%; align='right';"}
+![kWh_by_Wh_d](img/3but7.5_avg0_2022-04-04.png){: style="width: 49%; align='left';"}
+![kWh_by_Wh_y](img/3but7.5_avg0_2022.png){: style="width: 49%; align='right';"}
 <figure markdown>
-  <figcaption>Figure 3: Smooth, raw, and curtailed specific PV energy by specific ESS capacity</figcaption>
+  <figcaption>Figure 3: Smooth, raw, and curtailed PV energy by ESS capacity</figcaption>
 </figure>
 
 ***Following 3 cases will occure during a PV cycle:***  
-1) When the GX values remain within the given ΔGX capacity, IPLPF smoothing works uninterrupted. This holds for all GX values if the specific capacity ΔGX ≥ 96 Wh/m^2^ on 2022-04-04 as it is shown in Figures 2, 3, and exactly in [Table 3](https://mhrons.github.io/pv_smooth/#accumulation-rate-by-method).  
+1) When the GX values remain within the given ΔGX interval, then IPLPF smoothing works uninterrupted. This holds for all GX values on 2022-04-04, if the specific capacity ΔGX ≥ 96 Wh/m^2^ as it is shown in Figures 2, 3, and exactly in [Table 3](https://mhrons.github.io/pv_smooth/#accumulation-rate-by-method).  
 2) When the GX values exceed the upper limit of ΔGX, then the PV power cannot be stored any more because the ESS is full. The PV power must be either curtailed (by mistuning the MPPT controller), or fed unfiltered to the grid (as the black GI curve in Figure 2). Although the power curtailment means energy losses, the smooth power can still be fed to the grid while the ESS is full. Rather curtail the intermittent PV power than feed it unfiltered to the grid. The red line in Figure 3 shows the lost daily energy as a function in ESS capacity.  
 3) When GX values pass below the lower limit of ΔGX, then the missing PV power cannot be supplied anymore by the empty ESS. In such a case, there is no choice but to feed the raw low PV power directly to the grid. The blue line shows the sum of "smooth" and "raw" daily energy fed to the grid as a function in ESS capacity, whereas the green line shows only the "smooth portion" of delivered energy. The dashed blue line eventually aggregates the total time interval of day while the raw power was fed to the grid.  
 Daily mean values aggregated from the whole year 2022 show that the ESS capacity 40 Wh/m^2^ appears to be sufficient in average, although its capacity is less than 1/2 of the maximum capacity needed on 2022-04-04.  
@@ -103,28 +103,28 @@ The requested power of ESS is aggregated as a maximum absolute difference betwee
 Although the IPLPF shrinks the necessary capacity and the accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI~ESS~/ΔGX, as it is shown in [tables 2 and 3](https://mhrons.github.io/pv_smooth/#accumulation-rate-by-method). Regardless of its small capacity, the ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds, or vice versa. Knowing the infeed tariff, price and the service interval of ESS, ΔGX can be further optimized (probably <  40 Wh/m^2^) by balancing the margins of lost energy and saved ESS capacity. However, accounting for damage caused by the raw infeed in 3) is more complex.
 
 ### Hybrid PV system  
-Supercapacitors are not cheap and yet there exist hybrid PV systems having inherent LiFePO4 storage providing enough smoothing power. A household with the installed PV power around 10kW is connected to the low-voltage grid, having a LiFePO4 BESS with energy capacity ≈ 2h x installed PV power. The hybrid PV system feeds its excessive PV power to the grid, as long as the household’s consumption is satisfied and the battery is full. If the charging stopps at around 87% SOC~max~, then BESS can further provide enough power to smooth the excessive PV infeed to the grid with a relative power 631W/2kWh ≈ 0.32 h^-1^ on 2022-04-04, provided that the remaining free BESS capacity is reserved for the IPLPF smoothing. In the worst ΔGX case, 100Wh/2kWh = 5% of ESS capacity reserved for IPLPF on 2022-04-04 and less in average. Additional technical measures have to avoid its microcycling - e.g. a BESS consisting of 2 independent batteries.
+Supercapacitors are not cheap and yet there exist hybrid PV systems having inherent LiFePO4 storage providing enough smoothing power. A household with the installed PV power around 10kW is connected to the low-voltage grid, having a LiFePO4 BESS with energy capacity ≈ 2h x installed PV power. The hybrid PV system feeds its excessive PV power to the grid, as long as the household’s consumption is satisfied and the battery is full. If the charging stopps at around 87% SOC~max~, then BESS can further provide enough power to smooth the excessive PV infeed to the grid with a relative power 631W/2kWh ≈ 0.32 h^-1^ on 2022-04-04, provided that the remaining free BESS capacity is reserved for the IPLPF smoothing. In the worst ΔGX case, 100Wh/2kWh = 5% of ESS capacity would be reserved for IPLPF on 2022-04-04 and less in average. Additional technical measures have to avoid its microcycling - e.g. a BESS consisting of 2 independent batteries.
 
 ### PV smoothing costs
 Based on the specific accumulation rate measured over a time span of 1+ year, based on the EDLC and LiFePO4 contemporary prices and LiFePO4 lifecycle data, the IPLPF smoothing costs have been calculated. The numeric results show that IPLPF is worthwhile with the German electricity purchase tariff and with the PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between the purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). 
 
 IPLPF costs based on annual GI data (2022). The plane of incidence and applied LPF match with Figure 2, Tables 2, 3:    
 <figure markdown>
-  ![IPLPF Costs](img/IPLPF_Costs.png){ width="650"}
-  <figcaption>Table 1: IPLPF costs</figcaption>
+  ![IPLPF_Costs](img/IPLPF_Costs.png){ width="650"}
+  <figcaption>Table 1: Specific IPLPF costs</figcaption>
 </figure>
 
-**Conditions of cost calculation:**  
-The costs are specific per 1 kW installed PV power.  
+**Conditions of the cost calculation:**  
+The costs are specific per 1 kW of installed PV power.  
 1/3 of the anually-generated PV energy by the hybrid PV system is assumed as infeed to the grid.  
 Microcycling of LiFePO4 ESS is eliminated by technical means.  
 LiFePO4 [life cycle data](https://www.powertechsystems.eu/home/tech-corner/lithium-iron-phosphate-lifepo4/) (expected 6000 cycles) and price 290 €/kWh as of 2025  
 EDLC price 5000 €/kWh, expected lifetime 15 years, ESS capacity 40 Wh/kW.  
 Energy losses due to AC/DC conversion and accumulation are neglected.  
-CapEx = initial investment to PV smoothing    
+CapEx = initial investment to the smoothing    
 OpEx = regular (e.g. yearly) costs of smoothing.  
-CapEx in hybrid PV system includes 85% BESS capacity reserved for hybrid storage, 5% for smoothing.
-The greater from (CapEx, sevice_interval * OpEx) defines the cost of IPLPF smoothing for a given service interval.  
+CapEx in a hybrid PV system includes 85% BESS capacity reserved for hybrid storage, 5% for smoothing.
+The greater from (CapEx, service_interval * OpEx) defines the cost of IPLPF smoothing for a given service interval.  
 
 Having a small part of LiFePO4 BESS capacity reserved but its power available in a hybrid PV system, the IPLPF smoothing costs only a 5% increase in the BESS capacity. Such a possibility is significant in grid areas with a high concentration of small-scale hybrid PV systems.  
 EDLC supercapacitors offer a cost-effective IPLPF smoothing for the utility-scale PV plants. Furthemore, the price of EDLC is expected to drop to 1000 €/kWh in the future.
@@ -163,7 +163,7 @@ The impact of prediction error on GI~f~ values is aggregated at the "future" tim
 We specify the prediction error by 2 OLAP dimensions:
 
 - Interval of prediction, after passing of which the smoothing impact on the predicted signal is strengthened, is defined by the parameter **smooth_int** [minute]. The shorter this interval, the steeper the smoothing effect rises towards predicted future.
-- Standard deviation of the random error **SE** (a dimensionless parameter). The normally distributed random value is superimposed to all "future" GI values. This error is re-generated after passing each 6-minute interval of prediction, and repeatedly superimposed to all remaining future values. The impact of random error on GI~f~(t+Δt) is statistically cumulated over interval Δt (obviously greater than 6 minutes).
+- Standard deviation of the random error **SE** (a dimensionless parameter). A normally distributed random value is superimposed to all "future" GI values. This error is re-generated after passing each 6-minute interval of prediction, and repeatedly superimposed to all remaining future values. The impact of random error on GI~f~(t+Δt) is statistically cumulated over interval Δt (obviously greater than 6 minutes).
 
 In this report, we simulate the GI~f~ predictors with two different accuracies:
 
@@ -181,15 +181,15 @@ Quality and accumulation rate of the power smoothing exhibit following dependenc
 
 **Random error in predicted values**  
 
-- Increasing of SE has no impact on the smoothing effect of PLPF, but it damages the smoothing of SPLPF (check Figure 9 vs Figure 10). In PLPF, the smoothing effect with SE > 0 is always better than in SPLPF.
-- Increasing of SE significantly increases the accumulation rate of PLPF (Figures 6, 10), which is for all SE > 0 much higher than the accumulation rate of SPLPF. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly with SPLPF, and less so the higher the filter order (up to order=3).
+- Increasing SE has no impact on the smoothing effect of PLPF, but it damages the smoothing of SPLPF (check Figure 9 vs Figure 10). In PLPF, the smoothing effect with SE > 0 is always better than in SPLPF.
+- Increasing SE significantly increases the accumulation rate of PLPF (Figures 6, 10), which is for all SE > 0 much higher than the accumulation rate of SPLPF. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly with SPLPF, and less so the higher the filter order (up to order=3).
 
 ### Analysis by LPF order
-The filter order is another OLAP dimension whose impact on the smoothing performance was analyzed along with the prediction error. We analyzed the LPF orders 1 to 4 (Figures 10-21):
+The filter order is another OLAP dimension, the impact of which on the smoothing performance was analyzed along with the prediction error. We analyzed the LPF orders 1 to 4 (Figures 10-21):
 
 - Filter order does not affect the smoothing effect of PLPF method, given a non-zero prediction error. For small filter orders, the output of PLPF is smoother than that of SPLPF.
 - Increasing the filter order from 1 to 3 notably improves the smoothing effect of SPLPF, given a non-zero prediction error (Figures 10-12, 16-18).
-- Given the prediction error, increasing of the filter order only slightly reduces the accumulation rate of PLPF, and this is always substantially greater than the accumulation rate of SPLPF.
+- Given the prediction error, increasing of the filter order only slightly reduces the accumulation rate of PLPF which is always substantially greater than the accumulation rate of SPLPF.
 - Increasing of the filter order notably reduces the accumulation rate induced by both IPLPF (zero prediction error) and SPLPF (non-zero prediction error) smoothing methods - see Figures 13-15, 19-21. With the simulated predictor, this trend is reversed between the orders 3 and 4 by the SPLPF method. ***With the simulated predictor, SPLPF performs best with the filter order 3.***
 
 ## Numerical results of PV smoothing
