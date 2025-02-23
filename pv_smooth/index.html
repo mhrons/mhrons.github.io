@@ -86,7 +86,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#hybrid-pv-system">Hybrid PV system</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#smoothing-costs">Smoothing costs</a>
+    <li class="toctree-l3"><a class="reference internal" href="#pv-smoothing-costs">PV smoothing costs</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#summary-of-iplpf">Summary of IPLPF</a>
     </li>
@@ -242,8 +242,8 @@ The requested power of ESS is aggregated as a maximum absolute difference betwee
 Although the IPLPF shrinks the necessary capacity and the accumulated throughput to their theoretical minimum, it reciprocally increases the relative smoothing power GI<sub>ESS</sub>/ΔGX, as it is shown in <a href="https://mhrons.github.io/pv_smooth/#accumulation-rate-by-method">tables 2 and 3</a>. Regardless of its small capacity, the ESS must supply the missing PV power while the direct sun beams are temporarily shadowed by clouds, or vice versa. Knowing the infeed tariff, price and the service interval of ESS, ΔGX can be further optimized (probably &lt;  40 Wh/m<sup>2</sup>) by balancing the margins of lost energy and saved ESS capacity. However, accounting for damage caused by the raw infeed in 3) is more complex.</p>
 <h3 id="hybrid-pv-system">Hybrid PV system</h3>
 <p>Supercapacitors are not cheap and yet there exist hybrid PV systems having inherent LiFePO4 storage providing enough smoothing power. A household with the installed PV power around 10kW is connected to the low-voltage grid, having a LiFePO4 BESS with energy capacity ≈ 2h x installed PV power. The hybrid PV system feeds its excessive PV power to the grid, as long as the household’s consumption is satisfied and the battery is full. If the charging stopps at around 87% SOC<sub>max</sub>, then BESS can further provide enough power to smooth the excessive PV infeed to the grid with a relative power 631W/2kWh ≈ 0.32 h<sup>-1</sup> on 2022-04-04, provided that the remaining free BESS capacity is reserved for the IPLPF smoothing. In the worst ΔGX case, 100Wh/2kWh = 5% of ESS capacity reserved for IPLPF on 2022-04-04 and less in average. Additional technical measures have to avoid its microcycling - e.g. a BESS consisting of 2 independent batteries.</p>
-<h3 id="smoothing-costs">Smoothing costs</h3>
-<p>Based on the specific accumulation rate measured over a time span of 1+ year, based on the EDLC and LiFePO4 contemporary prices and LiFePO4 lifecycle data, the costs IPLPF smoothing have been calculated. The numeric results show that IPLPF is worthwhile with the German electricity purchase tariff and with the PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between the purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). </p>
+<h3 id="pv-smoothing-costs">PV smoothing costs</h3>
+<p>Based on the specific accumulation rate measured over a time span of 1+ year, based on the EDLC and LiFePO4 contemporary prices and LiFePO4 lifecycle data, the IPLPF smoothing costs have been calculated. The numeric results show that IPLPF is worthwhile with the German electricity purchase tariff and with the PV feed-in tariff as of 2021. The ideal smoothing costs are substantially lower than the difference between the purchase and PV feed-in tariffs (assuming that the smooth PV infeed partially eliminates the distribution costs). </p>
 <p>IPLPF costs based on annual GI data (2022). The plane of incidence and applied LPF match with Figure 2, Tables 2, 3:    </p>
 <figure>
 <p><img alt="IPLPF Costs" src="../img/IPLPF_Costs.png" width="650" />
