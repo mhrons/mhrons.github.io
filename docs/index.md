@@ -7,7 +7,7 @@
 
 A common problem of renewable energy is its [intermittency](https://mhrons.github.io/pv_intermit/).
 The share of fossile and nuclear energy in the grid will remain high, unless the renewable power is stable over time. The first stage of its stabilizing is smoothing the renewable power on a low aggregation level.  
-I have developed a lossless filter of intermittent power, accumulating a minimum of energy. It also provides [synthetic inertia](https://mhrons.github.io/pv_intermit/#smoothing-synthetic-inertia) to the grid on days with low solar intermittency, as a byproduct.  
+I have developed a lossless filter of intermittent power, accumulating a minimum of energy. It also provides [synthetic inertia](https://mhrons.github.io/pv_intermit/#smoothing-synthetic-inertia) to the grid on days with low solar intermittency, as a by-product.  
 The novel smoothing method [SPLPF](https://mhrons.github.io/splpf/) is highly effective with low [Wh] capacity energy storage systems (ESS) providing high relative power [W/Wh] like e.g. flywheel (FESS) or supercapacitor (EDLC).   I have a pending patent app. No. PCT/SK2022/050014 in the smoothing of renewable power. The European Patent Office has recently issued International Search Report confirming its novelty, inventive step, and industrial applicability.  
 I am currently searching an industrial & funding partner who might benefit from my technology.
 
