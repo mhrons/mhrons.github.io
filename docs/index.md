@@ -18,4 +18,5 @@ My photovoltaic projects:
 - [Smoothing Renewable Power](https://mhrons.github.io/pv_smooth/) ![GI Smoothing](img/GI_PV2.3but7.5.2022-04-04.png){width="120"}
 
 You can contact me at [LinkedIn](https://www.linkedin.com/in/milan-hronsky-76132224/) or [email](mailto:milan.hronsky@gmail.com)  
-© Milan Hronský 2025
+© Milan Hronský 2025  
+[mhrons.com](https://mhrons.com)
