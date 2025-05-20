@@ -19,4 +19,4 @@ My photovoltaic projects:
 
 You can contact me at [LinkedIn](https://www.linkedin.com/in/milan-hronsky-76132224/) or [email](mailto:milan.hronsky@gmail.com)  
 © Milan Hronský 2025  
-[mhrons.com](https://mhrons.com)
+[https://mhrons.com](https://mhrons.com)
