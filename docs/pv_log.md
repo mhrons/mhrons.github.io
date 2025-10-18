@@ -6,7 +6,7 @@
 
 The analysis of PV smoothing puts following demands on the measurement of solar irradiance:  
 
-- Capture the full spectrum of solar intermittency by a sufficiently high sampling frequency
+- Capture the whole spectrum of solar intermittency by a sufficiently high sampling frequency
 - Measure the fraction of irradiance intercepted by a tilted plane of incidence (PV panel). 
 - Respect the physical properties of planar silicon PV panels (reflexion and spectral response)
 
@@ -33,7 +33,7 @@ A corresponding measurement system with a data logger has been developed and ins
 * Temperature sensors are fixed onto each PV panel. The panels are always operated at their
 [maximum output power (MPPT)](https://www.leonics.com/support/article2_14j/articles2_14j_en.php)
 . Their optimum operating point is dynamically adjusted according to the insolation and the temperature drift of their V-I characteristic. The measured output power of each panel is divided by its active surface area and by its (known) efficiency at the measured surface temperature. The result is eventually expressed as "photovoltaic global irradiance" in W/m^2^ analogous to GI measured at given angle of the plane of incidence, but taking into account the reflexion and spectral response of PV panels.
-* Built-in data logger samples the GI values with a dynamic frequency: The sampling period varies from 0.5 second to 10 minutes, depending on the momentary solar intermittency. The whole spectrum of solar intermittency is captured and stored without redundancy. Several years of such a irregular time series occupy <1GB of storage.
+* Built-in data logger samples the GI values with a dynamic frequency: The sampling period varies from 0.5 second to 10 minutes, depending on the momentary solar intermittency. The whole spectrum of solar intermittency is captured and stored without redundancy. Several years of such a irregular time series occupy <1GB of memory.
 * The off-grid measurement system is self-powered 24 hours x 7 days a week. In addition to the measurement, its PV sensors supply power to the data logger and charge its backup battery. The system requires a minimum maintenance.
 * Simultaneous measurement of GI from 4 PV panels of size 20 cm x 16 cm mounted in different angles allows an accurate interpolation of GI at any plane of incidence pointing its normal vector among the 4 fixed normal vectors (intra-normal area). For the numerical simulation of PV smoothing, GI signal from the south-oriented panel having the normal vector elevated by 47° (further refered to as PV2) is applied.
   
