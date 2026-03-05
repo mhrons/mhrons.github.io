@@ -4,7 +4,7 @@ nav:
     - About Me: index.md
     - RES Impact on Grid: pv_intermit.md
     - PV Logger: pv_log.md
-    - Smoothing Renewable Power: pv_smooth.md
+    - Smoothing of Renewable Power: pv_smooth.md
     - SPLPF Smoothing: splpf.md
     - Glossary: v_glossary.md
 theme:
