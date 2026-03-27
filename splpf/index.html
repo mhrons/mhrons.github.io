@@ -5,14 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/splpf/" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>SPLPF Smoothing - Milan Docs</title>
+    <title> SPLPF Smoothing - Milan Docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "SPLPF Smoothing";
+        var mkdocs_page_name = " SPLPF Smoothing";
         var mkdocs_page_input_path = "splpf.md";
         var mkdocs_page_url = "/splpf/";
       </script>
@@ -130,7 +130,7 @@
                 </li>
               </ul>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#">SPLPF Smoothing</a>
+                <li class="toctree-l1 current"><a class="reference internal current" href="#"> SPLPF Smoothing</a>
                 </li>
               </ul>
               <ul>
@@ -153,7 +153,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">SPLPF Smoothing</li>
+      <li class="breadcrumb-item active"> SPLPF Smoothing</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -162,22 +162,33 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>If we were to smooth the renewable power by an analogue LPF implemented e. g. from elements of electrical inductance and capacity, then the excessive accumulated energy due to the filter's time lag Δt cannot be eliminated, unless its input is continuously driven by the future signal p<sub>f</sub>(t+Δt). Unlike the analogue LPF, its numerical model calculates a complete time series of the corresponding output signal s(t+Δt) immediately (if we neglect duration of its computation) at any time t, if the entire time series of input values p(τ) is available in the interval (0, t+Δt]. The numerical model of LPF can be given more precise input values from the near future, than these are predictable at the maximum advance Δt. Simultaneous excitation of the LPF model by multiple predictors (that is, by a multi-predictor) with advance intervals between 0 and Δt can significantly improve the accuracy of the aggregated signal s(t+Δt). This is reflected by the smaller accumulation rate (closer to its theoretical minimum) in contrast to the analogue LPF driven by a single input signal advancing by Δt, predicted by the equivalent technology.<br />
-Assuming that LPF is a linear, time-invariant system, the advantage of exciting the LPF model by the multi-predictor can be proven by means of the principle of superposition: Let us calculate the LPF response to the input signal p(t+Δt) as a convolution of the filter’s impulse response and its input signal:<br />
-$$s(t+\Delta t)=h(t+\Delta t)*p(t+\Delta t)=\int_{0}^{t+\Delta t} h(\tau)p(t+\Delta t-\tau)d\tau\tag{1}\label{eq:1}$$
-For the current time t holds: In the τ area where Δt-τ≤0 applies, the measured (past) values p are integrated, while in the τ area where Δt-τ&gt;0, the predicted (future) values p<sub>f</sub> are integrated. Convolution \eqref{eq:1} integrates the input signal of the filter over infinitesimally small intervals dτ. Within each differential dτ, the future value p<sub>f</sub> can be estimated by a specific predictor producing a minimized error with respect to its particular advance Δt-τ.</p>
-<figure>
-<p><img alt="SPLPF Schema" src="../img/Schema_SPLPF.png" width="650" />
-  </p>
-<figcaption>Figure 1: Smoothing of PV power by LPF model excited by multipredictor</figcaption>
-</figure>
-<p>In theory, the advantage of exciting the numerical model of LPF by the multi-predictor when smoothing the random fluctuations in the RES power results from a synergy of the following three fundamental properties: </p>
-<ol>
-<li>The lower advance Δt, the smaller prediction error in p<sub>f</sub>(t+Δt)</li>
-<li>Convolution \eqref{eq:1} integrates a product of two counter-running time signals</li>
-<li>The impulse response of an ideal LPF begins with value 0 and reaches its first extremum approximately at the time Δt.</li>
-</ol>
-<p>The synergistic effect suppresses prediction error in the filter's aggregated signal s(t+Δt) in a sense, that given the RES intermittency, the LPF model excited by the multi-predictor exhibits much less accumulation rate than the same filter does when being excited by the single predicted signal advancing by Δt. Based on the measured GI data, the numerical simulation of smoothing has confirmed that this synergy results in a significantly lower accumulation rate than with conventional smoothing methods. <a href="https://mhrons.github.io/pv_smooth/#analysis-by-prediction-error">diagrams (Figure 7, 11)</a> Its relative advantage exists regardless of the prediction technology used.</p>
+                <div id="mkdocs-encrypted-content" style="display:none">0fZ8bEox8JZ4sxuJPFz8ZQ==;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</div>
+<div id="mkdocs-decrypted-content">
+    <form id="mkdocs-decrypt-form">
+        <h1>SPLPF in theory</h1>
+        <p>This content is password-protected</p>
+        <input type="password" id="mkdocs-content-password" placeholder="Password">
+        
+        <p id="mkdocs-decrypt-msg"></p>
+    </form>
+</div>
+
+<script type="text/javascript">
+var encryptcontent_id = "encryptcontent_1";
+var encryptcontent_path = "splpf/";
+var decryption_failure_message = "Invalid password.";
+var encryptcontent_keystore = ["GqYm9RcvKMC7coK0jKjPtw==;ofr88igBYPDfsxgB5sTTLB9cAUrwojrQ4cRQkbdWZZ8HA64lQ9jRMuFbDAw/L+7UVhkBevG7cEfLQbP+hpuW1gYi0lo8Pj9u6elIFpnLwalmDODaoBWGwwlasMtF6fmm;vuU7eZNgfbuFj4kkWTTBqQ=="];
+var encryptcontent_obfuscate = 0;
+
+</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/enc-base64.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/cipher-core.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/sha256.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/hmac.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/pbkdf2.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/aes.js"></script>
+<script type="text/javascript" src="../assets/javascripts/decrypt-contents.js" defer></script>
               
             </div>
           </div><footer>
