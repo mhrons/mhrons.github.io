@@ -1,173 +1,555 @@
-<!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://mhrons.github.io/splpf/" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title> SPLPF Smoothing - Milan Docs</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
     
-      <script>
-        // Current page data
-        var mkdocs_page_name = " SPLPF Smoothing";
-        var mkdocs_page_input_path = "splpf.md";
-        var mkdocs_page_url = "/splpf/";
-      </script>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mhrons.github.io/splpf/">
+      
+      
+        <link rel="prev" href="../pv_smooth/">
+      
+      
+        <link rel="next" href="../v_glossary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
-    <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
-    <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-      <script>hljs.highlightAll();</script> 
-</head>
+    
+      
+        <title>SPLPF Smoothing - Milan Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
 
-<body class="wy-body-for-nav" role="document">
 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-    <div class="wy-side-scroll">
-      <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Milan Docs
-        </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">About Me</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pv_intermit/">RES Impact on Grid</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_intermit/#intermittency-null-pv-intertia">Intermittency &amp; null PV intertia</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_intermit/#power-smoothing">Power smoothing</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_intermit/#ramping-limit-of-res">Ramping limit of RES</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_intermit/#grid-inertia">Grid inertia</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_intermit/#smoothing-synthetic-inertia">Smoothing &amp; synthetic inertia</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pv_log/">PV Logger</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_log/#system-features">System features</a>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../pv_smooth/">Smoothing of Renewable Power</a>
-    <ul>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#energy-accumulated-by-smoothing">Energy accumulated by smoothing</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#specific-accumulation-rate">Specific accumulation rate</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#management-of-positive-soc">Management of positive SOC</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#ideal-pv-smoothing-iplpf">Ideal PV smoothing (IPLPF)</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#iplpf-vs-lpf-smoothing">IPLPF vs LPF smoothing</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#lpf-tuning">LPF tuning</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#measurement-of-intermittency">Measurement of intermittency</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#cost-benefit-by-variable-ess">Cost-benefit by variable ESS</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#hybrid-pv-system">Hybrid PV system</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#pv-smoothing-costs">PV smoothing costs</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#summary-of-iplpf">Summary of IPLPF</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#real-pv-smoothing-plpf-splpf">Real PV smoothing (PLPF, SPLPF)</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#olap-analysis">OLAP analysis</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#simulation-of-predicted-pv-power">Simulation of predicted PV power</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#impact-of-prediction-error">Impact of prediction error</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#analysis-by-lpf-order">Analysis by LPF order</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#numerical-results-of-pv-smoothing">Numerical results of PV smoothing</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#accumulation-rate-by-method">Accumulation rate by method</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#splpf-vs-iplpf">SPLPF vs IPLPF</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="../pv_smooth/#pv-smoothing-graphs">PV smoothing graphs</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#analysis-by-prediction-error">Analysis by prediction error</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="../pv_smooth/#analysis-by-lpf-order_1">Analysis by LPF order</a>
-    </li>
-        </ul>
-    </li>
-    </ul>
-                </li>
-              </ul>
-              <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="#"> SPLPF Smoothing</a>
-                </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../v_glossary/">Glossary</a>
-    <ul>
-    </ul>
-                </li>
-              </ul>
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Milan Docs" class="md-header__button md-logo" aria-label="Milan Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Milan Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+               SPLPF Smoothing
+            
+          </span>
+        </div>
       </div>
     </div>
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Milan Docs</a>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
         
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
       </nav>
-      <div class="wy-nav-content">
-        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active"> SPLPF Smoothing</li>
-    <li class="wy-breadcrumbs-aside">
-    </li>
-  </ul>
-  <hr/>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <div class="section" itemprop="articleBody">
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About Me
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pv_log/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PV Logger
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../pv_intermit/" class="md-tabs__link">
+          
+  
+  
+  Renewable Energy Sources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../v_glossary/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Glossary
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
               
-                <div id="mkdocs-encrypted-content" style="display:none">0fZ8bEox8JZ4sxuJPFz8ZQ==;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</div>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Milan Docs" class="md-nav__button md-logo" aria-label="Milan Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Milan Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PV Logger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Renewable Energy Sources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Renewable Energy Sources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_intermit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RES Impact on Grid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_smooth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Smoothing of Renewable Power
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+     SPLPF Smoothing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v_glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<div id="mkdocs-encrypted-content" style="display:none">kP30OT92wP9+Dg7iv7zj8A==;AfDD60PXsbMOKyumbbiDDnM3mLfHpUIUALEmpo0GRwBfArfWFOi23zuqRyjfGlrrTiD9+71YFmj7UNPSgc3EOfn3AOJ1EprC4rBNUcAamDjs8IN18YMluKWUX22lC58eoNd2nfMvpTiXOET6UU90IwX0W8rNjgm+a5hJRlMKUPhFTx10MhW2CHy+DLnBKnhU5yqOg3g67K+5kY3Ys6VKBJmpuVgW8Op0ujbTyFm0NVbwJGiVgG8I1inE3h/dbOc8AE89ArMWyYp606T0L+InkLiDqnfonGbihBuY1PsWHniGX+AxiXjHJ8Gjj4xXPyMjS+Bulz/TWcLv5t4bfVItdMxnIGDNdxQOO0AI6I95UcGWrqCNIGDijyUhWyA2g/QHJB339TJlaEpcInajI1blALLRMns7fsPZOFz/tvckj3vMVYJLyM40Esf8teAj3iKvyK1vdoRULVqop9N/7jrudXfgAqJQ+DSROLOaMdTXy8VeJjqd/LMuJuiD6lWqn+y+6UW2vWsUAFSUaAV1sNBZC8OvH8ks8Nl7ISFvIqzt+fDZAvubDGuKnVBztyvt4U+vf6tTjZRQkAT39hCBgDzcy/GjGEMhiYCI+UbtcKhHN5hUVoMiH/Yo/aLJQRWbxu/cw5FlhsCksTYQwOGXIK5MrQhOY8FwG6Dq5VSGz0p/bzNFTn0BG+TvImKVm9KAi9FWwiV2GgmS244dc4hJNFXWG0mdFyA9VZ5qHwwE9BL+HtUuR86Z/vLhiz77G6NVOxhO+wiLrGvzhHcHFojoKKE/dwGz5Yy7q4IHReBEbpkg1riVitl4jZWkrmZlIguH4N+gxy+3qoTBCmHn96K4SP1wFo31u6oK6KgiXtFtIlmN55m2BqBJzSGqE1MHzoiOEBYnhjEJjZ0uEbzMqIpSwlJyEoTWeCzBrJV1xn21kNl9t4heyhIsfZGK0/sAVXVGnjXJCPPZecP7Bubm9zKguqgA8GRoXjaTQUdQ+9PWDzWqiVURdBlnfT5iqLve7XY0VZ8RgO9UgxzX8sO/cqfWeoq7YYoObQIFZ0vj0hgUNYD9Inh6b8+ix1DDcZpaflGcyl8v5UY5NKKzlKr3EdgXDzdMR2qEF6FFvWmGfZxq3l/RGhmaNn3PrKdUQbTdKSYzSCpHLtEeUx+MKqi6VVHzTf0Px/rmh/f/Qd2iIEr0THVhOLq4wN9oRFwLqL0+JmQ7t2WITQOvyyJO9j5B2dVbJCi1Lf8DL0lf8jBadQQv1zV32+mWYYp+I3KI2Yoigw92VoGJ+0DiJWFZZZSR/VBtEwWnRaTcxw5MwJgstExQqte/qkN7UsYIi7S4dAI9jRacZtVLimyhGPa3lizKJfdn77FNqssrq8h5Om2k7fwvnPnjllhMM9ub9pBtUjVuRPPZ6HrmjNQuAvEDduiOffk9ks+iD5ALKsxIwy93rAX/B4KqAt5he6G85SrB7aIrr7dSnRaTbRROQMcw7GSk0qPRFppj5ZpXFqRWXDxNdB9KamaAeDy5NtZred0rKgKE+lyBhViRUgzoqqn9uw3iQb7mxSKOMXIB1UHrBuafVcp0wtAQ7JLzGHZ3JRFI9qb3BlYSMu4Z4cIHPeZuu9mfBmrBciS2hxJ0bdnU2+Ldnd0jB6XSpLIE4IEWotAFgOonQt7rAeB8V7JzUGD5tN1DO9JYM0LgWnJFh43eqzIpeGQaXIfJwapq7qy1lSWzTuTBv+4p04Nwq/F2c4RQgv8qyu/37DW98VK+KuYFnMPa+4cyKb0ucexBO1Hbtceve9X2lDJTWfoR5f/CGJ6vq16p5Wo5ErBxHfLH2hlPWi+FX99Y3Ill3dHI6SsRSKNSyVMLaxaK+3emtQwfXtRP4EB5O22dTXwUCCotY+MJ+d/HDX6sFbX9BwFfkWM5QA+iQtY0eqpSQsurgXgXcKg7kVgIX18gmGFHPi+GoBwO9j25n9Esv2abITYE1UfSsZoQNmvdqAfsEy5tEDhsi5tZCXCDPmbfdY0a42zKHbvXem9xdJLAuIP5bTmPsuic/toGhgdbUnpiAdO2ln0/Ut/gfBgANsZh4NLShiYm4PJ0T0kBCdJB2JDa6s2qfl9Pp+YWw3gFpnnyBk+/yUwHyEQ2AhojHyGSRVT2qXoclatl9UxaY/+GjIxa+n+Ux1QATu8EVAcKDONUpYAu5kb6JiG0QNJKT+Udg4eVXMF/rr/hPtg6ahq3/5u3cche1S+RYgW7c12p6O+v6hRp1PEneLcAv1N3cbW+wvd5TrS6owbMwjxcPeL15f0jj+63XSg8hl1CoRKmbuP3/t1YBh2JoY+CcuO+XmJHcOem9nhBW70VfBKbds/0UWK5kDcNojl/bGqQ3Y6Cgce/7tIS+KZctnXnUPT1+/lWMmhFXPXVS+Sy3781UFWTaqaFHJWuM2v9DrzR6vJrBdxBr3bm4j4yG6+izXwOu7C1Q+0v9efck9Sel15e8uAFHBXwuQJ6ShDNAI7Pxy35YIMCXbVTVQoYYk1z2xd5oW6kY0//CY+H6lXq7uJGg9em73m3HNPomi4sFe3+Hc+yKIYtNBeGI6hbGNzVXd1oE3W1j+REYOHvzx9IhjqOl/kTX+RnJBfGIFGTHI5fzINifMzJTUW2ZXebnlp+uoy8F1T8bQaeWLgY4L+/qmEkaE0D+CcIBIywnikR7jEkB2DzWc9R9AbK/jKr39xhjF2Mkx0op5AVOZL9p2ERxkCEhzoxvD2IL/ymz5x3WtaMREHSCBvCs58xojg+lfE+bE0S1XQrWYrUAdo/sSzKW1u+8/FVeSOMTbajMH3O/fty3y46ALCKLQeWc2sa2i+aVHiwiJCAl15BiB7XRD8pgZW0p+D6scmdTcGBRQmU6dVyjd4AWrfbbKDKtcCF3bIjaFS/aGs6ksZLt4bXwlLyZ+K/VCvcWnanJcm/ebz6Hh6Flb5kObr/2H5heEkml449pXxJtq6ZnAWY5N1IJln5lV36szCaIko6JpIPCBlPaVuY0xQoMDM10JVSSb78XZ3C8MZea2d3x4GH81V6BLdwOzKPhLzk3vPUPuGbCAMOEshK69/Ol+hxmgs2+fI+duGEb4lVTl6fdwxFAsNuAZqdkTh7OgRMzXwEX1Lj/P4k3Ct7s+LEYaoSm/Xz+kVwoSgjoa1jYYUf0JthBmw3WKAJzg8TRxr6qQZ5laVQpv3ue2I5MscHbo3CHoGsBVVRmaNKLN5+6ZaAy90zUq0TbpN5aBpbKFsVGWMFVJoWcbG99Ru/N2co6lXFT8x+ETZZsrS7ldPAGynu2CB0wraAbRPWp/JzhNcP7jjVjLMsoMuYqbiYJXi65ReQzckYPSrMpZAGAZTpgzuZ2n7ZouE1elosB01DY17Npg3SzVMBX2avjk60uQXp+UeYDovb6wgTHNmGo3Q4Y9tCkeXeuwuu7QI/HcBtN/2rkhGaAz8q9gvcGBfg7SQn/98MR2HrbmTHY3AsLRUoX1h/IFzDLnv7Dy1Krw7ngBo651hNVxwENpHh2gj1q6GRMrV+/fE5AMiCtqDbdR7LnQZIjNa4JfTcfyYycs7ARRUuQy14b26KGKVQAgjP3yqBtN2KOcpxRr3qQ3k+KFqKsjfQkRCBS1xfmO6O1en/GCw/GkENbI0mBIaCJcBHKdf9zT5g1xby/WB6l2e2lmgvM+tsCkBrBHnFvPZQNuAxvHWAEyGvtEb+UxAbLVvePWdbNjhlGDjfoRBnPttXTwn5fWGCMJV/Zq+hRBG13aWYYmQM4M1lQrCBnRZJGNvFuxSmunIpEyEAE19yL/+d+DmtG/FgvDzLxXhiEfCWW3S/4JCkhZkjXK5XKECq8Za50A+y1NoZV3PGawmVBZDvhr5xiiKVGP2m59lL+I9gsZhLnX56hsIj97P+1WBYiQMICUBbw5sf5GZPCgnWrsAWbsBB7nMoGYFxZ9hbS/DT8HEWfoVWCuYePA+toYrEaKQ5IJ3+1ham5W+Ny0mYOcQom0fmUlfGzaAA5jx17Os2fnD6sBm4DNWcQe+Z1bU6XUalHWQNuPs6iRTkdkvPuNNq/NhjMoq/ek6Zq+VpJcwz89sj1mhiQILG6Ydup+utbwysKGaEYtZUQu/CnSG5lTunbzQG61lH96DEdTz2N5IIMqobDK22B6tkAhOIctoqZQjYiym8wK203ecSHvfkzg7rgXwHIBfLoptSYyBxfq+RuQJUkDdUNp5poJ8tjoR5aebwsnRT8xjp4a/uQrOdYzj7Zl+naEUSjwfDFI1XjYlTb0IqCbYHi1JX1/SABFbSadwjWstVskqzyjOtaFN+e0D0PeqFI9EJuV2fYDpPHyIioCPrgy72zg6zBZL2UYB8yr5O1dvJExQYt2DpW9iCKUPNJHC6/Upm1xmVAUZqRoLJvPWFCnFwNK1ZVGUw9353sXqxQXqO/K6c5komtHfyU0MGA8TcQNbVf2HqohZYbby/5wZqiwOKhjc1ve2Sz+estsMfXLyGOYj8aXw5MPPpfNJjqOibiDyFKc0kRwxMeEdYbuy3VdDZC+MV9dUq5pXQYZvwso96IPGD142hu/EXHSHxiWnRcyA1DuWE2Leef4oDdQmvkcsex3pfckBVdj01vyoelLzF4W4/81VfLBAFjXN/7E3qZHOaeWhVlv4izeizJDPgxfTNrgaYUw2PBz3c1J88eJnM+UL8eL85sufJURIjyiP90TSTN+ZbSE5HWXzFr2uJo6sfsyn2Uag=</div>
 <div id="mkdocs-decrypted-content">
-    <form id="mkdocs-decrypt-form">
+    <form id="mkdocs-decrypt-form" class="md-content__inner md-typeset">
         <h1>SPLPF in theory</h1>
         <p>This content is password-protected</p>
-        <input type="password" id="mkdocs-content-password" placeholder="Password">
+        <input class="md-input" type="password" id="mkdocs-content-password" placeholder="Password">
         
         <p id="mkdocs-decrypt-msg"></p>
     </form>
@@ -177,7 +559,7 @@
 var encryptcontent_id = "encryptcontent_1";
 var encryptcontent_path = "splpf/";
 var decryption_failure_message = "Invalid password.";
-var encryptcontent_keystore = ["GqYm9RcvKMC7coK0jKjPtw==;ofr88igBYPDfsxgB5sTTLB9cAUrwojrQ4cRQkbdWZZ8HA64lQ9jRMuFbDAw/L+7UVhkBevG7cEfLQbP+hpuW1gYi0lo8Pj9u6elIFpnLwalmDODaoBWGwwlasMtF6fmm;vuU7eZNgfbuFj4kkWTTBqQ=="];
+var encryptcontent_keystore = ["4JTe20mMGNWZJpJo93a3oA==;luBlVM3ZmojhLDdLsJ0rCsjSG/GKdRdUvPFV2vFHMHoB/QLsEe0/YHjWpjTa3cL2Rh2VWxpHlF6994C/jUjNbt/4Wes76D77QPk/5+4B4VXJl7HVRDKB4gCr3cEQU6yn;vuU7eZNgfbuFj4kkWTTBqQ=="];
 var encryptcontent_obfuscate = 0;
 
 </script>
@@ -189,57 +571,68 @@ var encryptcontent_obfuscate = 0;
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/pbkdf2.js"></script>
 <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/aes.js"></script>
 <script type="text/javascript" src="../assets/javascripts/decrypt-contents.js" defer></script>
-              
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
             </div>
-          </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../pv_smooth/" class="btn btn-neutral float-left" title="Smoothing of Renewable Power"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../v_glossary/" class="btn btn-neutral float-right" title="Glossary">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-  </div>
-
-  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
           
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
-      </div>
-
-    </section>
-
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
   </div>
-
-  <div class="rst-versions" role="note" aria-label="Versions">
-  <span class="rst-current-version" data-toggle="rst-current-version">
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
     
-      <span><a href="../pv_smooth/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
-      <span><a href="../v_glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     
-  </span>
-</div>  
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
     
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-      <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      <script src="../search/main.js"></script>
-    <script>
-        jQuery(function () {
-            SphinxRtdTheme.Navigation.enable(true);
-        });
-    </script>
     <script async src="//static.getclicky.com/101403225.js"></script>
     <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101403225ns.gif" /></p></noscript>
 
-
-</body>
+  </body>
 </html>
