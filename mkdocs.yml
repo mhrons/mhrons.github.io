@@ -2,12 +2,14 @@ site_name: Milan Docs
 site_url: https://mhrons.github.io/
 nav:
     - About Me: index.md
-    - PV Logger: pv_log.md
     - Renewable Energy Sources:
         - RES Impact on Grid: pv_intermit.md
-        - Smoothing of Renewable Power: pv_smooth.md
+        - RES Power Smoothing: pv_smooth.md
+        - Real vs Ideal Smoothing: sim_smooth.md
+        - PV Smoothing Diagrams: pv_graph.md
         - SPLPF Smoothing: splpf.md
-    - Glossary: v_glossary.md
+        - Glossary: v_glossary.md
+    - PV Logger: pv_log.md
 theme:
   name: material
   features:
