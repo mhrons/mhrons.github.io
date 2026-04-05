@@ -1,0 +1,973 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mhrons.github.io/sim_smooth/">
+      
+      
+        <link rel="prev" href="../pv_smooth/">
+      
+      
+        <link rel="next" href="../pv_graph/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Real vs Ideal Smoothing - Milan Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#real-pv-smoothing-plpf-splpf" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Milan Docs" class="md-header__button md-logo" aria-label="Milan Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Milan Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Real vs Ideal Smoothing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About Me
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../pv_intermit/" class="md-tabs__link">
+          
+  
+  
+  Renewable Energy Sources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pv_log/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PV Logger
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Milan Docs" class="md-nav__button md-logo" aria-label="Milan Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Milan Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Renewable Energy Sources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Renewable Energy Sources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_intermit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RES Impact on Grid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_smooth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RES Power Smoothing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real vs Ideal Smoothing
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real vs Ideal Smoothing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#real-pv-smoothing-plpf-splpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real PV smoothing (PLPF, SPLPF)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#olap-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OLAP analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OLAP analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulation-of-predicted-pv-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation of predicted PV power
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impact-of-prediction-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impact of prediction error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-by-lpf-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis by LPF order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-results-of-pv-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numerical results of PV smoothing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerical results of PV smoothing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accumulation-rate-by-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accumulation rate by method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splpf-vs-iplpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPLPF vs IPLPF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PV Smoothing Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../splpf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SPLPF Smoothing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v_glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PV Logger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#real-pv-smoothing-plpf-splpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Real PV smoothing (PLPF, SPLPF)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#olap-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OLAP analysis
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OLAP analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#simulation-of-predicted-pv-power" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Simulation of predicted PV power
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#impact-of-prediction-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impact of prediction error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-by-lpf-order" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Analysis by LPF order
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#numerical-results-of-pv-smoothing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Numerical results of PV smoothing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Numerical results of PV smoothing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accumulation-rate-by-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accumulation rate by method
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splpf-vs-iplpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SPLPF vs IPLPF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  <h1>Real vs Ideal Smoothing</h1>
+
+<h2 id="real-pv-smoothing-plpf-splpf">Real PV smoothing (PLPF, SPLPF)</h2>
+<p>Trade-off between the smoothing effect and the accumulation rate is especially critical in the PLPF smoothing: The higher Δt, the higher prediction error, and the much higher accumulation rate.<br />
+Now, the objective is to analyze the smoothing effect vs. accumulation rate (in summary: effectivity) of PV smoothing under real conditions. The measured global irradiance signal GI(t) allows not only the numeric modelling of the ideal predictive low-pass smoothing (IPLPF), but also a simulation of the predictive smoothing (PLPF) having its LPF excited by a nowcasted signal GI<sub>f</sub>(t+Δt). The values GI<sub>f</sub> are distorted by a prediction error. The numeric results will show that this error induces a significant energy accumulation by the PLPF smoothing. We simulated the prediction error into the measured GI values, statistically representing the predicted signal GI<sub>f</sub>(t+Δt) with a possibility of varying the prediction error. This allowed us to analyze the impact of prediction error on the PV power smoothing - its quality and the rate of accumulation.<br />
+In addition to the PLPF, we have developed a “smart predictive" low-pass filtering method <a href="https://mhrons.github.io/splpf/">SPLPF</a>, minimizing the accumulated energy <a href="https://mhrons.github.io/pv_smooth/#energy-accumulated-by-smoothing">(4)</a>, <a href="https://mhrons.github.io/pv_smooth/#energy-accumulated-by-smoothing">(5)</a> with respect to the real-predicted values GI<sub>f</sub> and the given ramping limit. We eventually analyzed the performance of the following smoothing methods:</p>
+<ol>
+<li>LPF: Input of LPF excited by the measured signal GI(t)</li>
+<li>IPLPF: Input of LPF excited by the exact future signal GI(t+Δt)</li>
+<li>PLPF: Input of LPF excited by the simulated-predicted signal GI<sub>f</sub>(t+Δt)</li>
+<li>SPLPF: Smart power filter excited by the simulated-predicted signal GI<sub>f</sub>.</li>
+</ol>
+<h2 id="olap-analysis">OLAP analysis</h2>
+<p>A multi-dimensional <a href="https://en.wikipedia.org/wiki/Online_analytical_processing">OLAP cube</a> contains the pre-aggregated specific rates of accumulation along partial dimensions (a few of independent quantitative or categorical variables), provided that a constant smoothing effect meets the given power ramping limit along all dimensions. Let us define the reference smoothing as the output of a 3rd-order Butterworth filter with the cut-off frequency = 7.5/12h (Δt = 30 minutes). The OLAP cube consists of the following dimensions:</p>
+<ul>
+<li>smoothing method</li>
+<li>LPF order</li>
+<li>smooth_int (prediction error)</li>
+<li>SE (prediction error)</li>
+</ul>
+<p>First of all, the constant smoothing effect has to be fixed for various LPF used: Low-pass filters of orders 1 to 4 are tuned to output equal power ramping, provided that each filter is excited by the measured, optimally shifted signal GI(t+Δt). With such a IPLPF tuning, increasing of the LPF order increases its cut-off frequency but only slightly increases its time lag Δt. The next goal is to identify the LPF order which accumulates a minimum of energy, given ramping limit, smoothing method, and prediction error. Same optimal LPF order was identified for the SPLPF as well as for the IPLPF smoothing method. (This is irrelevant for the remaining 2 methods as they accumulate much more energy than both IPLPF and SPLPF do.) After determining the optimal LPF order, the performance of smoothing methods PLPF and SPLPF was analyzed by a variable prediction error. The numerical results are displayed in tables and graphs, and are explained in text.</p>
+<h3 id="simulation-of-predicted-pv-power">Simulation of predicted PV power</h3>
+<p>The impact of prediction error on GI<sub>f</sub> values is observed at the "future" time t+Δt. The predicted signal GI<sub>f</sub>(t+Δt) is derived from the measured, left-shifted signal GI(t+Δt) by superimposing a random error to its "future" time course and then by smoothing it with respect to the fundamental properties of PV predictors:</p>
+<ul>
+<li>as the advance Δt increases, the impact of random error on GI<sub>f</sub> statistically cumulates (increases)</li>
+<li>as the advance Δt increases, the (unwanted) smoothing of the predicted signal GI<sub>f</sub> strengthens</li>
+</ul>
+<p>We specify the prediction error by 2 OLAP dimensions:</p>
+<ul>
+<li>Interval of prediction, after passing of which the smoothing effect in the predicted signal is strengthened, is defined by the parameter <strong>smooth_int</strong> [minute]. The shorter this interval, the steeper the smoothing effect rises towards predicted future.</li>
+<li>Standard deviation of the random error <strong>SE</strong> (a dimensionless parameter). A normally distributed random value is superimposed to all "future" GI values. This error is re-generated after passing each 6-minute interval of prediction, and is repeatedly superimposed to all remaining future values. The impact of random error on GI<sub>f</sub>(t+Δt) is statistically cumulated over interval Δt (obviously greater than 6 minutes).</li>
+</ul>
+<p>In this report, we simulate the GI<sub>f</sub> predictors with two different accuracies:</p>
+<ul>
+<li>“Better prediction accuracy”: smooth_int = 6 minutes, SE = 0.05</li>
+<li>"Worse prediction accuracy": smooth_int = 3 minutets, SE = 0.1.</li>
+</ul>
+<h3 id="impact-of-prediction-error">Impact of prediction error</h3>
+<p>Quality and accumulation rate of the power smoothing exhibit following dependencies on partial dimensions expressing the prediction error (e.g. <a href="https://mhrons.github.io/pv_graph/#a-day-with-medium-insolation">Figures 5, 6 and 7</a>):</p>
+<p><strong>Smoothed predicted signal</strong>  </p>
+<ul>
+<li>Changing smooth_int affects the smoothing effect neither of SPLPF nor PLPF method, while for all applied values, PLPF performs smoother than SPLPF (e.g. <a href="https://mhrons.github.io/pv_graph/#a-day-with-medium-insolation">Figures 5, 6</a>).</li>
+<li>Lowering smooth_int dramatically increases the accumulation rate of PLPF, which is always much greater than the accumulation rate of SPLPF (e.g. <a href="https://mhrons.github.io/pv_graph/#a-day-with-medium-insolation">Figure 7</a>). With "worse prediction accuracy", the PLPF method even exceeds the accumulation rate induced by the LPF method (e.g. <a href="https://mhrons.github.io/pv_graph/#a-day-with-medium-insolation">Figure 7</a>). In SPLPF, the accumulation rate increases only slightly and much more slowly than in PLPF.</li>
+</ul>
+<p><strong>Random error in predicted values</strong>  </p>
+<ul>
+<li>Increasing SE has no impact on the smoothing effect of PLPF, but it damages the smoothing of SPLPF (e.g. <a href="https://mhrons.github.io/pv_graph/#a-day-with-high-insolation">Figure 9 vs Figure 10</a>). In PLPF, the smoothing effect with SE &gt; 0 is always better than in SPLPF.</li>
+<li>Increasing SE significantly increases the accumulation rate of PLPF (<a href="https://mhrons.github.io/pv_graph/#a-day-with-medium-insolation">Figures 7, 11</a>), which is for all SE &gt; 0 much higher than the accumulation rate of SPLPF. For some SE values, the PLPF method even exceeds the LPF method in its accumulation rate. The accumulation rate increases only slightly with SPLPF, and less so the higher the filter order (tested for order≤3).</li>
+</ul>
+<h3 id="analysis-by-lpf-order">Analysis by LPF order</h3>
+<p>The filter order is another OLAP dimension, the impact of which on the smoothing performance was analyzed along with the prediction error. We analyzed the LPF orders 1 to 4 (<a href="https://mhrons.github.io/pv_graph/#analysis-by-lpf-order">Figures 12-23</a>):</p>
+<ul>
+<li>Filter order does not affect the smoothing effect of PLPF method, given a non-zero prediction error. For small filter orders, the output of PLPF is smoother than that of SPLPF.</li>
+<li>Increasing the filter order from 1 to 3 notably improves the smoothing effect of SPLPF, given a non-zero prediction error (<a href="https://mhrons.github.io/pv_graph/#analysis-by-lpf-order">Figures 12-14, 18-20</a>).</li>
+<li>Given the prediction error, increasing of the filter order only slightly reduces the accumulation rate of PLPF which is always substantially greater than the accumulation rate of SPLPF.</li>
+<li>Increasing of the filter order notably reduces the accumulation rate induced by both IPLPF (zero prediction error) and SPLPF (non-zero prediction error) smoothing methods - see <a href="https://mhrons.github.io/pv_graph/#analysis-by-lpf-order">Figures 15-17, 21-23</a>. With the simulated predictor, this trend is reversed between the orders 3 and 4 by the SPLPF method. <strong><em>With the simulated predictor, SPLPF performs best with the filter order 3.</em></strong></li>
+</ul>
+<h2 id="numerical-results-of-pv-smoothing">Numerical results of PV smoothing</h2>
+<p>The presented results are based on the measured GI data from days exhibiting a strong solar intermittency and a moderate to high insolation. </p>
+<h3 id="accumulation-rate-by-method">Accumulation rate by method</h3>
+<p><strong>Specific accumulation rate per date and smoothing method, using the reference filter:</strong></p>
+<figure>
+<p><img alt="IPLPF Costs" src="../img/Accu_Rate_220304.png" width="650" />
+  </p>
+<figcaption>Table 2: Date 2022-03-04 medium insolation, strong intermittency</figcaption>
+</figure>
+<figure>
+<p><img alt="IPLPF Costs" src="../img/Accu_Rate_220404.png" width="650" />
+  </p>
+<figcaption>Table 3: Date 2022-04-04 high insolation, strong intermittency</figcaption>
+</figure>
+<p>Maximum specific power from/to ESS calculated by <a href="https://mhrons.github.io/pv_smooth/#energy-accumulated-by-smoothing">(6)</a> is in the column "GI<sub>ESS</sub>". A difference between the maximum and minimum specific accumulated energy calculated by <a href="https://mhrons.github.io/pv_smooth/#energy-accumulated-by-smoothing">(4)</a> is in the column "ΔGX". Daily flow of the specific energy through ESS calculated by <a href="https://mhrons.github.io/pv_smooth/#energy-accumulated-by-smoothing">(5)</a> is in the column "Throughput". Daily insolation at the plane of incidence is displayed as "Global exposure".</p>
+<p>With "better prediction accuracy" during the selected days, the SPLPF smoothing required a relative ESS power between 5.5h<sup>-1</sup> - 7.2h<sup>-1</sup> which is 3.8 - 4.8 times more then by the LPF smoothing, 2.4 - 4.2 times more than by PLPF, and eventually 84% - 99% of the IPLPF power request. The SPLPF smoothing required 21% - 22% of the ESS capacity used by the LPF method, or 24% - 41% of the capacity used by PLPF. The SPLPF eventually required 1.0 - 1.2 times the ESS capacity used by IPLPF. The SPLPF smoothing put 58% - 73% of the energy through ESS relative to the LPF method, or 75% - 83% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more energy through ESS than the IPLPF method.</p>
+<p>With "worse prediction accuracy" during the selected days, the SPLPF smoothing required a relative ESS power between 3.8h<sup>-1</sup> - 6.3h<sup>-1</sup> which is 2.6 - 4.2 times more then by the LPF smoothing, 3.6 - 5.1 times more than by PLPF, and eventually 58% - 86% of the IPLPF power request. The SPLPF smoothing required 24% - 33% of the ESS capacity used by the LPF method, or 19% - 28% of the capacity used by PLPF. The SPLPF eventually required 1.2 - 1.8 times the ESS capacity used by IPLPF. The SPLPF smoothing put 59% - 77% of the energy through ESS relative to the LPF method, or 63% - 69% of the energy throughput by PLPF. SPLPF eventually put 1.0 - 1.1 times more energy through ESS than the IPLPF method.</p>
+<h3 id="splpf-vs-iplpf">SPLPF vs IPLPF</h3>
+<p>Although we did not analyze the whole year (the numerical simulation of SPLPF is computationally intensive), our analysis of 4 smoothing methods on the selected days with high solar intermittency and various solar exposures, with 4 filter orders, and with a varying prediction error provided a detailed insight into the SPLPF performance. This smoothing method performs much better than the PLPF. <strong><em>With moderate prediction error, SPLPF performs close to the ideal smoothing IPLPF.</em></strong> The presented empirical results are theoretically proven in the chapter <a href="https://mhrons.github.io/splpf/">SPLPF Smoothing</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+      
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    <script async src="//static.getclicky.com/101403225.js"></script>
+    <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101403225ns.gif" /></p></noscript>
+
+  </body>
+</html>
