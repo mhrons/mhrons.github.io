@@ -1,0 +1,1559 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://mhrons.github.io/EE_veliciny/">
+      
+      
+        <link rel="prev" href="../pv_log/">
+      
+      
+        <link rel="next" href="../Elektrostatika/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Úvod a elektrické veličiny - Milan Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elektrotechnika-pre-stredne-skoly" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Milan Docs" class="md-header__button md-logo" aria-label="Milan Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Milan Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Úvod a elektrické veličiny
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  About Me
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../pv_intermit/" class="md-tabs__link">
+          
+  
+  
+  Renewable Energy Sources
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pv_log/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  PV Logger
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  EE pre SŠ
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Milan Docs" class="md-nav__button md-logo" aria-label="Milan Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Milan Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About Me
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Renewable Energy Sources
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Renewable Energy Sources
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_intermit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RES Impact on Grid
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_smooth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RES Power Smoothing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sim_smooth/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Real vs Ideal Smoothing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_graph/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PV Smoothing Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../splpf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SPLPF Smoothing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../v_glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pv_log/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PV Logger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EE pre SŠ
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EE pre SŠ
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod a elektrické veličiny
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Úvod a elektrické veličiny
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uvod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Úvod
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fyzikalne-veliciny-elektrotechniky" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fyzikálne veličiny elektrotechniky
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fyzikálne veličiny elektrotechniky">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skalar-a-vektor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skalár a vektor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fazor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fázor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlzka-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dĺžka [m]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Čas [s]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rychlost-ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rýchlosť [m/s]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hmotnost-kg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hmotnosť [kg]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sila-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sila [N]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frekvencia-uhlova-rychlost-s-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frekvencia, uhlová rýchlosť [s-1]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#energia-praca-j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Energia, práca [J]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elektricky-naboj-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elektrický náboj [C]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elektricky-prud-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elektrický prúd [A]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elektricke-napatie-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elektrické napätie [V]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elektricky-vykon-w" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elektrický výkon [W]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Elektrostatika/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Základné zákony
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Matematika/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matematika elektrodynamiky
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Reaktancia/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indučnosť a kapacita
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LC_obvod/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Rezonančný obovd
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Filtre_I/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtre I. rádu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AC_vykon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Výkon AC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Trojfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trojfázová sieť
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Transformatory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Meniče napätia a prúdu
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../OZ_siete/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operačné siete
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#uvod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Úvod
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fyzikalne-veliciny-elektrotechniky" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fyzikálne veličiny elektrotechniky
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fyzikálne veličiny elektrotechniky">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skalar-a-vektor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skalár a vektor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fazor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fázor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dlzka-m" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dĺžka [m]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cas-s" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Čas [s]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rychlost-ms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rýchlosť [m/s]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hmotnost-kg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hmotnosť [kg]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sila-n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sila [N]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#frekvencia-uhlova-rychlost-s-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frekvencia, uhlová rýchlosť [s-1]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#energia-praca-j" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Energia, práca [J]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elektricky-naboj-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elektrický náboj [C]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elektricky-prud-a" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elektrický prúd [A]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elektricke-napatie-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elektrické napätie [V]
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elektricky-vykon-w" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elektrický výkon [W]
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="elektrotechnika-pre-stredne-skoly">Elektrotechnika pre stredné školy</h1>
+<p>Stránka <strong>EE pre SŠ</strong> je vo výstavbe a aktuálne slúži ako záznam mojich poznámok z teoretického výkladu predmetov týkajúcich sa elektrotechniky. Jedinou kompletnou je zatiaľ kapitola "Úvod a elektrické veličiny". Ostatné kapitoly plánujem postupne textovo aj graficky zeditovať (nahradiť scany), doplniť textovým výkladom a podľa potreby rozšírim aj obsahovú štruktúru.     </p>
+<h2 id="uvod">Úvod</h2>
+<p>Asi nikto nepochybuje o tom, že teoretické vzdelanie je pre elektrotechnika užitočné a potrebné. Získať ho je však namáhavé a stojí to veľa času. Čas sú peniaze a tie sa dajú zarobiť ľahšie a rýchlejšie, ako učením sa. Štúdium je výzva na dlhú cestu, ktorá začína prácou bez zárobku, a to ešte i s neznámym cieľom. Cesta sa začína dlhým tmavým tunelom, ktorý vedie do sveta poznania. Je to skúška Vašej vytrvalosti a odolnosti. Svetlo zo vstupu tunela už zaniklo, ale vpredu je ešte stále tma. Zmietate sa v pochybnostiach, či by nebolo lepšie vrátiť sa. Ako dlho ešte bude trvať táto tmavá neistota? V najvyšší čas sa ďaleko pred Vami zjaví prvé svetlo: "Pochopil(a) som niečo dovtedy úplne nevídané, a to stálo za to! To svetlo ešte nie je na konci tunela, ale znamená, že <strong><em>všetko, čo ste raz pochopili, si už nemusíte viac detailne pamätať</em></strong>. V pamäti Vám ostanú len základné princípy, s pomocou ktorých si všetky vzorce logicky odvodíte. Takto sa pred Vami otvorí nekonečný proces poznávania. Rovnako je to aj s tým svetlom v diaľke: Nikdy naň celkom nedosiahnete, ale dokým za ním pôjdete, bude stále silnieť. Pocit, že ste v úzkom tuneli, postupne zanikne. Zistíte, že ak zabočíte, stena tunela Vám ustúpi. Tunel sa zmení na Váš komfortný pracovný priestor a odteraz Vy určujete, kam povedie - že by k novému objavu? Postupne Vám Váš tunel dá viac energie, ako stačíte minúť. Okrem radosti z nového poznania získate aj sebaistotu a rovnováhu. A tá má aspoň takú cenu, ako získané vedomosti. Nech sa páči, vstúpte! Kto sa nezľakne a vydrží, ten neoľutuje.  </p>
+<p><strong><em>Cieľom</em></strong> tohoto učebného textu je vysvetliť vybrané časti z teórie elektrických obvodov a ich praktické aplikácie tak, aby ich mohli <strong><em>pochopiť a samostatne logicky odvodiť</em></strong> žiaci stredných škôl. Základom analýzy elektrických obvodov je <strong><em>Ohmov a Kirchofove zákony</em></strong>. Učebný text používa matematický aparát bez diferenciálneho počtu. (Toto pravidlo potvrdzujú výnimky v kapitolách <a href="https://mhrons.github.io/Reaktancia/">Indukčnosť a kapacita</a> a <a href="https://mhrons.github.io/OZ_siete/">Operačné siete</a>.) Zvolený postup analýzy elektrických obvodov je v texte logicky jednoznačne odôvodnený a vysvetlený. Matematické úpravy rovníc sú komentované. V nevyhnutnom prípade možno text použiť aj pri samoštúdiu, ale z motivačného hľadiska nenahradí výklad učiteľa. Matematická analýza elektrických obvodov bez diferenciálneho počtu si vyžaduje osobitne presné textové formulácie vzťahov intenzitných a extenzívnych fyzikálnych veličín s vymedzením podmienok ich platnosti. Vždy je uvádzaný rozsah platnosti použitého matematického modelu. <strong><em>Zásada primeranosti</em></strong> si kladie za cieľ vytvoriť minimalizovaný, avšak technicky výstižný matematický model s dôrazom nezanedbať žiaden významný aspekt skúmaného objektu. Takýmto prístupom možno navrhovať technické zariadenia s dobrým komerčným potenciálom. <br />
+<strong><em>Hľadanie optimáleho kompromisu medzi zložitosťou a presnosťou fyzikálneho modelu je základnou pracovnou metódou dobrého inžiniera.</em></strong>   </p>
+<h2 id="fyzikalne-veliciny-elektrotechniky">Fyzikálne veličiny elektrotechniky</h2>
+<p>Fyzika modeluje prírodu matematickými prostriedkami a tie používajú premenné a konštanty, ktoré reprezentujú rôzne čísla. Fyzika povýšila matematické premenné na tzv. fyzikálne veličiny, ktoré popisujú prírodné objekty a ich stav dvoma údajmi:  </p>
+<ul>
+<li>reálnym číslom (niekedy komplexným - pozri fázor) vyjadrujúcim veľkosť, resp. kvantitatívnu mieru veličiny  </li>
+<li>fyzikálnou jednotkou vyjadrujúcou typ, resp. kvalitatívnu identitu veličiny.  </li>
+</ul>
+<p>Oba údaje sú navzájom neodlúčiteľné, preto ich píšeme VŽDY SPOLOČNE a matematicky predstavujú súčin (veľkosť x jednotka). Fyzikálna jednotka často v sebe obsahuje aj tzv. násobiteľ veľkosti: Je to skratka gréckeho slova, znamenajúca dekadické číslo. Ak týmto číslom vynásobíme predchádzajúce reálne číslo, vyjadríme tak veľkosť veličiny v jej základnej fyzikálnej jednotke, napr. 5km = 5*1000m = 5000m. Takýmto skratkovým zápisom sa šetrí písanie zbytočne dlhých čísel, väčšinou pozostávajúcich z opakujúcich sa núl. V elektrotechnike sa používajú najmä tieto dekadické násobitele:</p>
+<ul>
+<li>p = piko = 10<sup>-12</sup></li>
+<li>n = nano = 10<sup>-9</sup></li>
+<li>µ = mikro = 10<sup>-6</sup></li>
+<li>m = mili = 10<sup>-3</sup></li>
+<li>k = kilo = 10<sup>3</sup></li>
+<li>M = Mega = 10<sup>6</sup></li>
+<li>G = Giga = 10<sup>9</sup></li>
+<li>T = Tera = 10<sup>12</sup></li>
+</ul>
+<p>Fyzikálna veličina môže byť buď:</p>
+<ul>
+<li>základná, ktorej význam definujeme slovným popisom, alebo  </li>
+<li>odvodená fyzikálnym zákonom zo základných veličín. Príslušný fyzikálny zákon je popísaný matematickým vzorcom, ktorého premenné sú fyzikálne veličiny, prípadne konštanty. Napr. silu definuje Newtonov pohybový zákon ako súčin hmotnosti a zrýchlenia. Hmotnosť je základnou fyzikálnou veličinou a zrýchlenie možno odvodiť zo základných veličín dĺžka a čas.   </li>
+</ul>
+<p>Matematické premenné považujeme za nadmnožinu fyzikálnych veličín. Abstraktná matematika pracuje s veličinami bez fyzikálneho rozmeru. (Vystačí si s holými číslami.) Príkladom takej matematickej veličiny je uhol v radiánoch: Bezrozmerné číslo, ktorého fyzikálny význam si dokážeme predstaviť po jeho vynásobení fyzikálnou konštantou 1m, čím dostaneme dĺžku oblúka na jednotkovej kružnici, prislúchajúceho danému uhlu. (Porovnaj si vzorec na výpočet obvodu kružnice s "kruhovým" uhlom 2π.) Na rozdiel od matematickej veličiny, fyzikálna sa vždy vyjadruje veľkosťou aj fyzikálnou jednotkou.<br />
+Elektrické veličiny sú podmnožinou fyzikálnych a častým javom je, že veľkosť elektrickej veličiny sa mení v čase. To, či je veličina konštantná alebo nie, je užitočné na prvý pohľad vedieť, a preto:</p>
+<ul>
+<li>Časovo-premenné elektrické veličiny označujeme malým písmenom napr. napätie u, prípadne ako funkciu času u(t).  </li>
+<li>Konštantné elektrické veličiny sa na rozlíšenie od premenných označujú Veľkým Písmenom. (Napríklad parametre prvkov el. obvodu sú konštanty.) Vo výpočtoch ich kedykoľvek môžeme nahradiť ich číselnou hodnotou spolu s fyzikálnou jednotkou.  </li>
+</ul>
+<p>Vizuálne rozlišovanie konštánt od časových premenných je rozhodne užitočné. Elektrotechnila však používa aj iné fyzikálne veličiny, ktorých značenie historicky pochádza z fyziky, a tá pravidlo veľkých a malých písmen nepozná. Prevzaté fyzikálne veličiny označujeme rovnako ako vo fyzike a takou veľkosťou písma, aby sme sa vyhli kolízii s inou veličinou (napr. konštantná frekvencia f versus sila F). Informáciu, či sa sila v priebehu času mení alebo nie, potom vložíme za názov premennej, napr: F(t) alebo F.</p>
+<h4 id="skalar-a-vektor">Skalár a vektor</h4>
+<p>Niektoré fyzikálne veličiny vyjadrujú okrem veľkosti aj smer, ktorým sa veličina "uberá" v priestore (t.j. v pravoúhlej súradnicovej sústave 2D alebo 3D). Typickým príkladom je rýchlosť. Takáto veličina sa nazýva <strong><em>vektor</em></strong> a jeho matematický význam je <strong><em>posunutie z bodu A do bodu B</em></strong> v priestore. Veľkosť vektora je rovná vzdialenosti oboch bodov a jeho smer je daný priamkou prechádzajúcou cez oba body. Vektor možno bezo zmeny premiestniť kamkoľvek v priestore, ak rovnobežne zachováme jeho smer a nezmeníme jeho veľkosť. Takto môžeme východzí bod A umiestniť do počiatočného bodu 0 súradnej sústavy. Ak vektor zapíšeme pravoúhlymi súradnicami koncového bodu B, a priori predpokladáme, že začiatok posunutia je v bode 0. Veľkosť vektora vypočítame zo súradníc bodu B pomocou Pytagorovej vety. Ekvivalentne možno vektor zapísať pomocou uhla a veľkosti. V 3-D priestore na to potrebujeme 2 uhly: Θ (Theta) je uhol od osi x v rovine x-y a uhol Φ (Fí) je nad kolmým priemetom spojnice 0-B do roviny x-y.<br />
+Jednorozmerné veličiny vyjadrujúce len veľkosť (napr. dĺžka, hmotnosť) nazývame <strong><em>skaláry</em></strong>. <br />
+Fyzikálnou jednotkou násobíme veľkosť veličiny. V prípade vektora môžeme fyz. jednotkou alternatívne vynásobiť buď jeho veľkost, alebo všetky jeho pravoúhle súradnice.<br />
+<strong>Praktická poznámka:</strong> Výpočty so skalármi sú zjavne jednoduchšie, ako s vektormi. Počítaniu s vektormi sa preto podľa možnosti vyhýbame: Ak sa smer vektora - napr. rýchlosti - nemení v čase, súradnicovú sústavu môžeme zvoliť resp. natočiť tak, aby jedna z jej osí (napr. os x) bola rovnobežná so smerom rýchlosti. Potom má vektor rýchlosti iba jedinú nenulovú súradnicovú zložku (x) a s touto ďalej pracujeme ako so skalárom.</p>
+<h4 id="fazor">Fázor</h4>
+<p>V elektrodynamike sa často používajú harmonické časové signály reprezentované napätím u(t) alebo prúdom i(t). Takéto signály sa matematicky vyjadria goniometrickou funkciou cos alebo sin. Súčin uhlovej rýchlosti a času (ω*t) tvorí vstupný argument goniometrickej funkcie. Často potrebujeme násobiť alebo deliť celý harmonický signál iným harmonickým signálom, a to je pomocou reálnej algebry obtiažne (súčin goniom. funkcií) až nemožné (ich podiel). Fázor je komplexnou funkciou zloženou z 2 goniom. funkcií so spoločným argumentom: Reálnou zložkou fázora je pôvodný harmonický signál, jeho imaginárnou zložkou je pôvodný signál fázovo posunutý o uhol -90° (v časovom zmysle imaginárny signál mešká za reálnym signálom). Dôvodom používania fázorov v elektrodynamike je fakt, že násobenie a delenie <strong>komplexných</strong> harmonických signálov je triviálne jednoduché.<br />
+Osobitným prípadom fázora je podiel dvoch harmonických signálov rovnakej frekvencie. Tu sa jedná o komplexnú funkciu (len) uhlovej rýchlosti - napr. impedancia, admitancia, prenos dvojbrány.<br />
+Matematicky je komplexné číslo príbuzné s dvojrozmerným vektorom: Obe majú zhodne definované operácie súčet, rozdiel, absolútna hodnota. Nzov fázor je odvodený z pojmu fázový vektor. V elektrických obvodoch je však fázor komplexnou reprezentáciou skalárnych veličín u(t), i(t), alebo ich podielu resp. súčinu. Preto v elektrických obvodoch považujeme fázor za skalár.<br />
+<br><br />
+<strong>Ďalej uvádzame fyzikálne veličiny</strong>, ktoré súvisia s analýzou elektrických obvodov. Základné veličiny definujeme detailným vysvetlením a tie ostatné potom matematicky odvodíme zo základných. Názvy podkapitol jednotlivých veličín sú uvedené názvom veličiny a jej fyzikálnou jednotkou. Samostatné kapitoly sú venované elektrickým prvkom rezistor, kapacitor, induktor a tam sú vysvetlené aj ich elektrické parametre. "Neelektrické" fyzikálne veličiny vysvetľujeme len do takej hĺbky, aby sme mohli odvodiť elektrické veličiny od nich závislé. V prípadoch, keď úplné vysvetlenie neelektrickej veličiny presahuje rozsah tohoto textu, treba siahnuť po učebnici fyziky.   </p>
+<h3 id="dlzka-m">Dĺžka [m]</h3>
+<p>je základnou fyzikálnou veličinou. Bežne býva konštantná (nemení sa v čase). Dĺžka nemusí byť výhradne mierou lineárneho útvaru, ale môže vyjdrovať napríklad dĺžku vodiča zavinutého do cievka a pod.  </p>
+<ul>
+<li>jednotka: 1 meter = 1m (základná jednotka v sústave SI)  </li>
+<li>typ: vektor</li>
+<li>označenie: l, (skratka z lat. longitudo), ale aj s, r, a, b, c, d atď. malé písmená z fyziky</li>
+</ul>
+<h3 id="cas-s">Čas [s]</h3>
+<p>je základnou fyzikálnou veličinou.  </p>
+<ul>
+<li>jednotka: 1 sekunda = 1s (základná jednotka v sústave SI)  </li>
+<li>typ: skalár</li>
+<li>označenie premennej: t  (skratka z lat. tempus)</li>
+<li>konštantný čas: t<sub>1</sub>, t<sub>2</sub>,  a pod. (malé písmeno, lebo...pozri ďalej)  </li>
+<li>časový interval: Δt, T (napr. T = perióda harmonického signálu)  </li>
+</ul>
+<p><strong><em>POZOR:</em></strong> Symbolmi t, T sa označuje aj teplota!  </p>
+<h3 id="rychlost-ms">Rýchlosť [m/s]</h3>
+<p>je vektorová veličina odvodená z dĺžky a z času. Vyjadruje pohybový stav telesa, resp. intenzitu zmeny polohy telesa v priebehu času: Ak sa teleso pohybuje rovnomerným priamočiarym pohybom, potom v ľubovoľnom čase t stanovíme polohu telesa na priamke vzťahom s = v * t . Dĺžka s je vzdialenosť telesa od bodu, v ktorom sa nachádzalo v čase t=0 a konštanta v je jeho rýchlosť. Ak poznáme vzdialenosť Δs prejdenú telesom  za časový interval Δt, potom jeho priemernú rýchlosť počas tohoto intervalu vypočítame: v = Δs/Δt.  </p>
+<ul>
+<li>jednotka: 1m/s</li>
+<li>typ: vektor</li>
+<li>označenie: v  (skratka z lat. velocitas. Používame malé písmeno, V označuje objem. Premennú rýchlosť označujeme v(t).)</li>
+</ul>
+<h3 id="hmotnost-kg">Hmotnosť [kg]</h3>
+<p>je fundamentálnou mierou hmoty a fyzikálne vyjadruje mieru jej zotrvačnosti. Vysveľujú to 2 Newtonove pohybové zákony, ktoré dávajú do vzťahu hmotnosť a silu: Podľa zákona zotrvačnosti zotrvá hmotné teleso v pokoji alebo v rovnomernom priamočiarom pohybe práve vtedy, ak naň nepôsobí sila. Veľkosť hmoty meriame fyzikálnou veličinou hmotnosť.  </p>
+<ul>
+<li>jednotka: 1 kilogram = 1kg (základná jednotka v sústave SI je 1kg, a nie 1g)</li>
+<li>typ: skalár</li>
+<li>označenie veličiny: m (skratka z lat. moles, fyzika používa malé písmeno)</li>
+</ul>
+<h3 id="sila-n">Sila [N]</h3>
+<p>je vektorová veličina odvodená z hmotnosti, dĺžky a času. Newtonov pohybový zákon sily definuje silu F jej pôsobením na teleso hmotnosti m: Teleso mení rýchlosť svojho pohybu zrýchlením <em>a = F/m</em>, pričom <em>F</em> je veľkosť pôsobiacej sily na teleso, zrýchlenie <em>a = Δv/Δt</em> je zmena rýchlosti telesa <em>Δv</em> za časový interval <em>Δt</em>. Predpokladajme, že počas intervalu <em>Δt</em> je sila <em>F</em> konštantná. Potom hovoríme, že počas intervalu <em>Δt</em> je pohyb telesa rovnomerne zrýchlený.  </p>
+<ul>
+<li>odvodenie: <em>F = m*a</em></li>
+<li>jednotka: 1 Newton = 1N = 1kg*m*s<sup>-2</sup></li>
+<li>typ: vektor</li>
+<li>označenie: <em>F</em> (z lat. fortis. Používame veľké písmeno, pretože f označuje frekvenciu.)</li>
+</ul>
+<p>Podľa Newtonovho gravitačného zákona je tiažová sila <em>G</em> výsledkom vzájomného pôsobenia dvoch telies hmotností <em>m</em> a <em>M</em>, pričom veľkosť <em>G</em> je priamo úmerná súčinu hmotností <em>m*M</em>. Znamená to, že <em>G</em> je priamo úmerná hmotnosti telesa <em>m</em> a teda existuje konštanta úmernosti (pomenujeme ju gravitačné zrýchlenie <em>g</em>) taká, že platí: <em>G = m*g</em>. Aj keď my nepozorujeme, že by teleso hmotnosti <em>m</em> ležiace na zemi menilo svoju rýchlosť, pomocou gravitačného zákona sme dokázali, že jeho tiažová sila <em>G</em> je kompatibilná so zákonom sily, ktorý silu definuje matematicky.<br />
+Elektrickú silu medzi 2 nábojmi q, Q (pozri ďalej) popisuje Coulombov zákon matematicky rovnako, ako gravitačný zákon popisuje príťažlivú silu telies m, M. Rozdiel oproti gravitácii je len v tom, že elektrická sila môže byť nielen príťažlivá, ale aj odpudivá. (Zatiaľ čo hmotnosť je vždy kladná, elektrický náboj nadobúda obe znamienka.) Vektor el. sily teda môže mať aj odpudivú orientáciu, resp. v skalárnom tvare má odpudivá sila záporné znamienko. Zhodnosť matematickej formulácie Coulombovho a gravitačného zákona dokazuje, že aj elektrická sila je kompatibilná s jej definíciou zákonom sily. <br />
+Ďalej naznačíme, ako pomocou sily vzniká kruhový pohyb hmotného telesa. Pomocou sily si odvodíme prácu z nej následne elektrické napätie. Rýchlosť, sila a zrýchlenie sú vektorové veličiny (majú veľkosť aj smer) a preto existujú 2 rôzne prejavy sily pôsobiacej na hmotné teleso:  </p>
+<ol>
+<li>Ak vektory sily aj rýchlosti telesa majú zhodný smer, teleso rovnomerne zrýchľuje (<em>a &gt; 0</em>) alebo spomaľuje (<em>a &lt; 0</em>) a jeho pohyb ostane priamočiary.</li>
+<li>V prípade rôznobežných smerov oboch vektorov bude rýchlosť meniť svoj smer aj veľkosť.  </li>
+</ol>
+<p>V prvom prípade teleso zotrvá v priamočiarom pohybe. Vektor sily nemení pohybovú trajektóriu telesa, môže však zmeniť jeho orientáciu v danom smere. Ak je v 2. prípade vektor sily kolmý na vektor rýchlosti, vtedy sila mení len smer rýchlosťi, nie veľkosť. Ak je smer sily <strong><em>vždy kolmý</em></strong> na vektor rýchlosti a veľkosť sily je pritom konštantná, takáto sila zmení pohyb telesa na kruhový a silu nazývyme dostredivou. Veľkosť rýchlosti telesa sa nemení (obvodová rýchlosť je konštantná) a smer rýchlosti sa mení "rovnomerne" vďaka "dostredivému zrýchleniu" konštantnej veľkosti vyplývajúcemu z dostredivej sily. Keďže dostredivá sila ovplyvňuje len tvar dráhy telesa (nie dĺžku), táto nevykonáva prácu, resp. nespotrebúva žiadnu energiu.  </p>
+<h3 id="frekvencia-uhlova-rychlost-s-1">Frekvencia, uhlová rýchlosť [s<sup>-1</sup>]</h3>
+<p>Predstavme si rovnomerný pohyb bodu po kružnici, tzv. rovnomerný kruhový pohyb. Časový interval jednoho obehu bodu kružnicou sa nazýva perióda T. Počet obehov (cyklov) za jednotku času je frekvencia f, čiže platí T = 1/f. Uhlová rýchlosť je uhol prejdený sprievodičom pohybujúceho sa bodu po kružnici za jednotku času. Je teda intenzitou časovej zmeny uhla sprievodiča. Keďže uhol 1 cyklu je 2π radiánov a počet cyklov za 1 sekundu je frekvencia, uhol prejdený za 1s je súčinom týchto dvoch.  </p>
+<ul>
+<li>označenie frekvencie: f (z lat. frequentia)</li>
+<li>odvodenie frekvencie: f = 1/T</li>
+<li>jednotka frekvencie: 1 Hertz = 1Hz = 1s<sup>-1</sup></li>
+<li>označenie uhlovej rýchlosti: ω (malé grécke písmeno omega)</li>
+<li>odvodenie uhlovej rýchlosti: ω = 2π*f = 2π/T</li>
+<li>jednotka uhlovej rýchlosti: 1s<sup>-1</sup></li>
+<li>typ oboch veličín: skalár</li>
+</ul>
+<p>Názov Hertz bol jednotke frekvencie udelený na počesť nemeckého fyzika Heinricha Rudolfa Hertza, ktorý ako prvý experimentálne uskutočnil bezdrôtový prenos signálu rádiovými vlnami. Experimentálne potvrdil teóriu šírenia elektromagnetických vĺn - tzv. Maxwellove rovnice.</p>
+<p><strong><em>Poznámka:</em></strong> Uhol je matematickou jednotkou a nemá fyzikálny rozmer, preto nefiguruje vo fyzikálnej jednotke. Napriek tomuto faktu pri uhlovej rýchlosti odporúčame pužívať jednotku <strong><em>rad/s</em></strong> kvôli riziku jej zámeny s frekvenciou. Frekvencia je počet cyklov za jednotku času, zatiaľ čo uhlová rýchlosť je počet radiánov za jednotku času. Tak cyklus aj radián majú význam uhla, ale vo fyzikálnej jednotke uhol nevidieť, pretože uhol nemá fyzikálny rozmer. Napriek tomu, že obe veličiny f, ω majú rovnakú fyzikálnu jednotku, majú rôzny kvantitatívny význam...</p>
+<h3 id="energia-praca-j">Energia, práca [J]</h3>
+<p>Energia je schopnosť konať prácu. Jedna veličina sa môže recipročne meniť na druhú, teda práca dokáže akumulovať energiu. Ak konštantná sila F pôsobí na pohybujúce sa hmotné teleso v smere jeho pohybu (t.j. vektory sily a rýchlosti sú neustále rovnobežné), potom je vykonaná práca A rovná súčinu F*s, kde s je vzdialenosť prejdená telesom. Práca je premena zdrojovej energie W na jej inú formu. Napríklad tepelná energia W, ktorá sa uvoľnila horením plynu, sa následne prácou A zmení na mechanickú energiu W<sub>m</sub> a tepelnú energiu W<sub>t</sub>, pričom platí zákon zachovania energie: W = W<sub>m</sub> + W<sub>t</sub>. Prácou nadobudnutá mechanická energia W<sub>m</sub> môže byť buď kinetická, alebo potenciálna.  </p>
+<ul>
+<li>označenie energie: W (fyzika používa aj symbol E, ale v TE je E = intenzita elektrického poľa = sila akou pôsobí elektrické pole na náboj 1C - pozri Coulombov zákon)</li>
+<li>označenie práce: A</li>
+<li>odvodenie práce: A = F*s za predpokladu platnosti horeuvedených podmienok</li>
+<li>vzťah práce a energie: W = F*s + W<sub>t</sub> , pričom W<sub>t</sub> je zostatková energia pracovnej premeny energie (najčastejšie je tepelná)</li>
+<li>jednotka: 1 Joule = 1J = kg*m<sup>2</sup>*s<sup>-2</sup> (odvodená zo zákl. jednotiek v SI)</li>
+<li>typ: skalár </li>
+</ul>
+<p>James Prescott Joule bol anglický fyzik 19.storočia, zakladateľ termodynamiky.</p>
+<h3 id="elektricky-naboj-c">Elektrický náboj [C]</h3>
+<p>je fundamentálnou mierou elektriny.</p>
+<ul>
+<li>jednotka: 1 Coulomb = 1C (v sústave SI odvodená z prúdu a času: 1C = 1A * 1s)  </li>
+<li>typ: skalár</li>
+<li>označenie: Q, q  </li>
+</ul>
+<p>Elementárny náboj elektrónu Q<sub>e</sub>=-1,602x10<sup>-19</sup>C, náboj protónu Q<sub>p</sub>=1,602x10<sup>-19</sup>C. Fyzikálna jednotka je pomenovaná na počeť francúzskeho fyzika 18. storočia Charlesa-Augustina de Coulomba, autora fyzikálneho zákona o vzájomnom silovom pôsobení elektricky-nabitých telies.</p>
+<h3 id="elektricky-prud-a">Elektrický prúd [A]</h3>
+<p>Aj keď jednotka prúdu je základnou v sústave fyzikálnych jednotiek SI, elektrický prúd je odvodený ako množstvo elektrického náboja pretekajúceho vodičom za jednotku času. Je to intenzita toku náboja vodičom.  </p>
+<ul>
+<li>označenie veličiny: I, i</li>
+<li>odvodenie: Pri konštantnej intenzite toku náboja je množstvo pretečeného náboja vodičom priamo úmerné časovému intervalu a intenzite toku, počas ktorého tok sledujeme. Ak za časový interval Δt pretiekol vodičom náboj ΔQ, potom hodnota prúdu je I = ΔQ/Δt.  </li>
+<li>jednotka: 1 Ampér = 1A (základná jednotka v sústave SI)  </li>
+<li>typ: skalár</li>
+</ul>
+<p>Fyzikálna jednotka je pomenovaná na počesť francúzskeho fyzika 18. storočia André-Marie Ampére, zakladateľa teórie elektromagnetizmu. Ako prvý popísal silu pôsobiacu na pohybujúci sa náboj v magnetickom poli (Ampérov záklon).</p>
+<h3 id="elektricke-napatie-v">Elektrické napätie [V]</h3>
+<p>"Mechanické" veličiny sila, energia, práca sme uviedli preto, aby sme mohli definovať veličinu elektrické napätie. Predstavme si elektrický dvojpól ako "blackbox" s dvoma el. kontaktami (pólmi), každý s rozdielnym elektrickým nábojom. Je zrejmé, že medzi nabitými pólmi dvojpólu existuje nenulová elektrická sila. Napätie medzi pólmi je práca, resp. energia W</p>
+<ul>
+<li>potrebná na "dobitie" dvojpólu o náboj 1C, t.j. na prenesenie 1C vodivou cestou medzi jeho pólmi proti existujúcej elektrickej sile danej celkovým nábojom dvojpólu, alebo</li>
+<li>ktorú dvojpól vykoná resp. vydá "vybitím sa" o náboj 1C, ktorý prenesie vodivou cestou medzi pólmi vlastnou elektrickou silou vyplývajúcou z jeho celkového náboja.  </li>
+</ul>
+<p>Elektrické napätie sa ekvivalentne definuje ako rozdiel potenciálov medzi 2 pólmi trojpólu, pričom potenciál každého z jeho pólov 1 a 2 je rovný práci potrebnej na prenesenie náboja 1C zo vzťažného (nultého) pólu do daného pólu.  </p>
+<ul>
+<li>označenie: U, u, v angl. dokumentácii V (skratka Voltage)</li>
+<li>odvodenie: Elektrický dvojpól si reálne možno predstaviť ako <a href="https://mhrons.github.io/L_C_skok/#kapacita">kapacitor</a>. Náboj 1C je pomerne veľký a dobitie bežnej kapacity o takýto náboj by významne zmenilo elektrickú silu medzi pólmi kapacitora. V takom prípade by sa práca vykonaná na prenesenie prvého elektrónu (náboj = 1e) výrazne líšila od práce potrebnej na prenesenie posledného elektrónu. Aby sme sa tomu vyhli, prenesieme iba tak malé množstvo náboja ΔQ &lt;&lt; 1C, pri ktorom sa práca na prenesenie jednotlivých elektrónov  zmení iba zanedbateľne málo oproti svojej priemernej hodnote. Napätie U dvojpólu potom definujeme pomocou energie ΔW potrebnej na prenesenie "malého" náboja ΔQ takto: U = ΔW/ΔQ .</li>
+<li>jednotka:  1V = 1J/1C = kg*m<sup>2</sup>*A<sup>-1</sup>s<sup>-3</sup> </li>
+<li>typ: skalár</li>
+</ul>
+<p>Elektrické napätie sa často (najmä v angl. textoch) označuje pojmom elektromotorická sila. Tento pojem si však nezamieňajme s elektrickou silou. Je tam podobnosť názvov, pretože medzi oboma veličinami existuje príčinná súvislosť: Tak napätie, ako aj elektrická sila medzi 2 pólmi sú priamo úmerné náboju dvojpólu.</p>
+<h3 id="elektricky-vykon-w">Elektrický výkon [W]</h3>
+<p>je množstvo práce vykonané elektrickým zdrojom za jednotku času, teda intenzita práce. Elementárna práca vykonaná zdrojom je rovná súčinu jeho napätia U a "vytečeného" elementárneho náboja ΔQ. (Elementárny náboj je tak malý, aby sme jeho vybitím len zanedbateľne málo pozmenili napätie kapacitora, alebo chemického článku.) Príslušný elektrický výkon P je potom daný súčinom napätia zdroja a elektrického prúdu, pretože prúd je intenzita toku náboja.</p>
+<ul>
+<li>označenie: P, p</li>
+<li>odvodenie: P = U * I</li>
+<li>jednotka: 1 Watt = 1W = J/s = kg*m<sup>2</sup>*s<sup>-3</sup></li>
+<li>typ: skalár</li>
+</ul>
+<p>Jednotka výkonu je pomenovaná na počesť škótskeho vynálezcu a inžiniera Jamesa Watta - samouka 18. storočia, ktorý významne zdokonalil parný stroj. Okrem iného je vynálezcom odstredivého regulátora výkonu parného stroja. Odstredivý regulátor sa donedávna používal aj v benzínových spaľovacích motoroch.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.instant"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+      
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+    <script async src="//static.getclicky.com/101403225.js"></script>
+    <noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101403225ns.gif" /></p></noscript>
+
+  </body>
+</html>
