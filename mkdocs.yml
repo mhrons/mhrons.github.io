@@ -10,6 +10,17 @@ nav:
         - SPLPF Smoothing: splpf.md
         - Glossary: v_glossary.md
     - PV Logger: pv_log.md
+    - EE pre SŠ:
+        - Úvod a elektrické veličiny: EE_veliciny.md
+        - Základné zákony: Elektrostatika.md
+        - Matematika elektrodynamiky: Matematika.md
+        - Indučnosť a kapacita : Reaktancia.md
+        - Rezonančný obovd: LC_obvod.md
+        - Filtre I. rádu: Filtre_I.md
+        - Výkon AC: AC_vykon.md
+        - Trojfázová sieť: Trojfaz.md
+        - Meniče napätia a prúdu: Transformatory.md
+        - Operačné siete: OZ_siete.md
 theme:
   name: material
   features:
