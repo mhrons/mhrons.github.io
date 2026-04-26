@@ -3,7 +3,7 @@
 &nbsp;&nbsp; I research the propagation of stochastic signals in linear systems. My research  
 &nbsp;&nbsp; aims to better integrate the renewable energy into the grid.  
 &nbsp;&nbsp; I am also a teacher at the Secondary Technical School of **E**lectrical **E**ngineering  
-&nbsp;&nbsp; in Slovakia. For the sake of education, my textbook "**EE** pre SŠ" is written   
+&nbsp;&nbsp; in Slovakia. For the sake of education, my textbook [EE pre SŠ](https://mhrons.github.io/EE_veliciny/) is written   
 &nbsp;&nbsp; in Slovak. Here I aim to provide a comprehensive but exact explanation of the theory of electrical engineering to students of secondary schools.
 
 A common problem of renewable power is its [intermittency](https://mhrons.github.io/pv_intermit/).
