@@ -1295,18 +1295,18 @@ trained by both sky imagery and p(t) signals. We further integrate these two int
 </ul>
 <h2 id="energy-accumulated-by-smoothing">Energy accumulated by smoothing</h2>
 <p>For the clarity of analysis, energy losses in the AC/DC power conversion and energy storage will be neglected. The time course of the accumulated energy by ESS  </p>
-<p>$$SOC(t)=\int_{0}^t (p(\tau)-s(\tau+\Delta t))d\tau\tag{1}\label{eq:1}$$</p>
+<div class="arithmatex">\[SOC(t)=\int_{0}^t (p(\tau)-s(\tau+\Delta t))d\tau\tag{1}\label{eq:1}\]</div>
 <p>expresses the change in state-of-charge [Wh] since the time 0 until t. While the integral may acquire both positive and negative values, always-positive SOC values are technically managed by precharging the ESS to SOC<sub>0</sub> at the time 0 (e.g. at the begining of PV cycle). The lead time Δt reduces absolute values of the integrated function. The IPLPF-defined signal s(τ+Δt) ensures that following 4 technical criteria are satisfied:<br />
 Mean value of <em>SOC(t)</em> is near to zero:  </p>
-<p>$${1 \over T} \int_{0}^T SOC (t) dt ≈ 0\tag{2}\label{eq:2}$$</p>
+<div class="arithmatex">\[{1 \over T} \int_{0}^T SOC (t) dt ≈ 0\tag{2}\label{eq:2}\]</div>
 <p>Mean quadratic deviation of <em>SOC(t)</em> is near to minimum:  </p>
-<p>$${1 \over T} \int_{0}^T SOC^2 (t) dt ≈ min\tag{3}\label{eq:3}$$</p>
+<div class="arithmatex">\[{1 \over T} \int_{0}^T SOC^2 (t) dt ≈ min\tag{3}\label{eq:3}\]</div>
 <p>Hence the required storage capacity per cycle <em>T</em> (24 hours in case of PV power p(t)) is close to the minimum:  </p>
-<p>$$\Delta SOC = max(SOC) – min(SOC) ≈ min\tag{4}\label{eq:4}$$</p>
+<div class="arithmatex">\[\Delta SOC = max(SOC) – min(SOC) ≈ min\tag{4}\label{eq:4}\]</div>
 <p>Throughput of the accumulated energy per cycle <em>T</em> is near to its minimum:</p>
-<p>$${1 \over 2} \int_{0}^T|p(\tau)-s(\tau+\Delta t)|d \tau ≈ min\tag{5}\label{eq:5}$$</p>
+<div class="arithmatex">\[{1 \over 2} \int_{0}^T|p(\tau)-s(\tau+\Delta t)|d \tau ≈ min\tag{5}\label{eq:5}\]</div>
 <p>The <strong><em>accumulation rate</em></strong> is quantified by \eqref{eq:4} and \eqref{eq:5} and by the demanded power from/to ESS during a sudden loss or a peak of direct sunlight:  </p>
-<p>$$P_{ESS}=max|p(\tau)-s(\tau+\Delta t)|\tag{6}\label{eq:6}$$</p>
+<div class="arithmatex">\[P_{ESS}=max|p(\tau)-s(\tau+\Delta t)|\tag{6}\label{eq:6}\]</div>
 <p>In practise, <em>P<sub>ESS</sub></em> does not exceed 80% of the installed PV power.  </p>
 <h3 id="specific-accumulation-rate">Specific accumulation rate</h3>
 <p>Let us first discuss the proportionality between PV power and global irradiance GI: By definition, GI should be measured at a single point in the plane of incidence. In our experiment, the solar irradiance is intercepted by a small planar panel fixed on the earth’s surface. A real PV power p(t) is usually smoother than GI(t) as the (usually greater) surface area of the corresponding PV plane acts like a moving-average filter on GI(t). Unfortunately, the surface area of PV plants is not enough large to aggregate a sufficient smoothing effect. So by assuming the proportionality between GI(t) and p(t), we will analyze the worst case of PV intermittency.<br />
@@ -1620,9 +1620,9 @@ In addition to the PLPF, we have developed a “smart predictive" low-pass fi
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script src="../mathjax_config.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
       
     
     <script async src="//static.getclicky.com/101403225.js"></script>

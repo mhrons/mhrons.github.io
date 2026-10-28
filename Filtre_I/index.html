@@ -827,6 +827,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Filtre RC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dolnopriepustny-filter-dpf-lpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dolnopriepustný filter DPF (LPF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hornopriepustny-filter-hpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hornopriepustný filter HPF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -837,6 +865,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Filtre RL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hornopriepustny-filter-hpf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hornopriepustný filter HPF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dolnopriepustny-filter-rl-dpf-lpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dolnopriepustný filter RL (DPF, LPF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1023,6 +1079,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Filtre RC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dolnopriepustny-filter-dpf-lpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dolnopriepustný filter DPF (LPF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hornopriepustny-filter-hpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hornopriepustný filter HPF
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1033,6 +1117,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Filtre RL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hornopriepustny-filter-hpf_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hornopriepustný filter HPF
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dolnopriepustny-filter-rl-dpf-lpf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dolnopriepustný filter RL (DPF, LPF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1078,9 +1190,113 @@
   <h1>Filtre I. rádu</h1>
 
 <h2 id="filtre-rc">Filtre RC</h2>
-<p><img alt="Filtre RC" src="../scan/Filtre_RC.png" width="650" /></p>
+<p>RC-filter I. rádu. Obvod tvorí rezistor <span class="arithmatex">\(R\)</span> a kondenzátor <span class="arithmatex">\(C\)</span>. Vstupom je napätie <span class="arithmatex">\(\mathcal{U}\)</span> zdroja, výstupom je napätie <span class="arithmatex">\(\mathcal{U}_C\)</span> na kondenzátore.</p>
+<p><img alt="Sériový obvod RC" src="../svg/Filtre_I_RC_obvod.svg" width="300" /></p>
+<h3 id="dolnopriepustny-filter-dpf-lpf">Dolnopriepustný filter DPF (LPF)</h3>
+<p>Hľadáme funkciu, ktorou sa vstupné napätie zmení na výstupné: <span class="arithmatex">\(\mathcal{U}_C=f_{DPF}(\mathcal{U})\)</span>, <span class="arithmatex">\(\;f_{DPF}=\,?\)</span></p>
+<div class="arithmatex">\[
+\mathcal{U}=\mathcal{U}_C+\mathcal{U}_R=R\,\mathcal{I}+\mathcal{Z}_C\,\mathcal{I}=\underbrace{(R+\mathcal{Z}_C)}_{\mathcal{Z}_{RC}}\,\mathcal{I}=\left(R+\frac{1}{\mathrm{j}\omega C}\right)\mathcal{I}
+\]</div>
+<div class="arithmatex">\[
+\mathcal{I}=\frac{\mathcal{U}}{\mathcal{Z}_{RC}}=\mathcal{U}\,\frac{\mathrm{j}\omega C}{1+\mathrm{j}\omega RC}
+\]</div>
+<div class="arithmatex">\[
+\mathcal{U}_C=\mathcal{Z}_C\,\mathcal{I}=\frac{1}{\mathrm{j}\omega C}\cdot\frac{\mathrm{j}\omega C}{1+\mathrm{j}\omega RC}\,\mathcal{U}=\underbrace{\frac{1}{1+\mathrm{j}\omega RC}}_{\mathcal{H}_{DPF}(\omega)}\cdot\,\mathcal{U}
+\]</div>
+<p><span class="arithmatex">\(\mathcal{H}_{DPF}(\omega)\)</span> je <strong>prenosová funkcia</strong>.</p>
+<p>Tri význačné frekvencie:</p>
+<ul>
+<li><span class="arithmatex">\(\omega RC\ll 1\)</span>: <span class="arithmatex">\(\;\mathcal{U}_C\cong\mathcal{U}\)</span></li>
+<li><span class="arithmatex">\(\omega RC\gg 1\)</span>: <span class="arithmatex">\(\;\mathcal{U}_C\cong\dfrac{\mathcal{U}}{\mathrm{j}\omega RC}\cong\dfrac{\mathcal{U}}{2\pi f RC}\,e^{-\mathrm{j}\frac{\pi}{2}}\)</span></li>
+<li><span class="arithmatex">\(\omega=\dfrac{1}{RC}\)</span>: <span class="arithmatex">\(\;\mathcal{U}_C=\mathcal{U}\,\dfrac{1}{1+\mathrm{j}}=\dfrac{\mathcal{U}}{\sqrt{2}}\,e^{-\mathrm{j}\frac{\pi}{4}}\)</span></li>
+</ul>
+<p>Lebo <span class="arithmatex">\(1+\mathrm{j}=\sqrt{2}\,e^{\mathrm{j}\frac{\pi}{4}}\)</span>:</p>
+<p><img alt="Číslo 1+j v komplexnej rovine" src="../svg/Filtre_I_1plusj.svg" width="240" /></p>
+<p>Graf <span class="arithmatex">\(\mathcal{H}(\omega)\)</span> v komplexnej rovine: Prenos sa nachádza na polkružnici.</p>
+<p><img alt="Prenosová funkcia DPF filtra RC v komplexnej rovine" src="../svg/Filtre_I_RC_DPF_polkruznica.svg" width="440" /></p>
+<p><img alt="Amplitúdová charakteristika DPF filtra RC" src="../svg/Filtre_I_RC_DPF_H.svg" width="560" /></p>
+<p><img alt="Fázová charakteristika DPF filtra RC" src="../svg/Filtre_I_RC_DPF_phi.svg" width="560" /></p>
+<p>Frekvenčná charakteristika:</p>
+<div class="arithmatex">\[
+\mathcal{H}(\omega)=\frac{1}{1+\mathrm{j}\omega RC}=H(\omega)\,e^{\mathrm{j}\varphi(\omega)}
+\]</div>
+<div class="arithmatex">\[
+H(\omega)=\frac{1}{\sqrt{1+\omega^2R^2C^2}},\qquad
+\varphi(\omega)=\arg\left(\frac{1}{1+\mathrm{j}\omega RC}\right)=-\operatorname{arctg}(\omega RC)
+\]</div>
+<h3 id="hornopriepustny-filter-hpf">Hornopriepustný filter HPF</h3>
+<p>Výstupom je napätie na rezistore: <span class="arithmatex">\(\mathcal{U}_R=f_{HPF}(\mathcal{U})\)</span></p>
+<div class="arithmatex">\[
+\mathcal{U}_R=R\,\mathcal{I}=\underbrace{\frac{\mathrm{j}\omega RC}{1+\mathrm{j}\omega RC}}_{\mathcal{H}_{HPF}(\omega)}\cdot\,\mathcal{U}
+\]</div>
+<p>Tri význačné frekvencie:</p>
+<ul>
+<li><span class="arithmatex">\(\omega\ll\dfrac{1}{RC}\)</span>: <span class="arithmatex">\(\;\mathcal{U}_R=\omega RC\cdot\mathcal{U}\,e^{\mathrm{j}\frac{\pi}{2}}\)</span></li>
+<li><span class="arithmatex">\(\omega=\dfrac{1}{RC}\)</span>: <span class="arithmatex">\(\;\mathcal{U}_R=\mathcal{U}\,\dfrac{\mathrm{j}}{1+\mathrm{j}}=\dfrac{\mathcal{U}}{\sqrt{2}}\,e^{+\mathrm{j}\frac{\pi}{4}}\)</span></li>
+<li><span class="arithmatex">\(\omega\gg\dfrac{1}{RC}\)</span>: <span class="arithmatex">\(\;\mathcal{U}_R=\mathcal{U}\)</span></li>
+</ul>
+<div class="arithmatex">\[
+\frac{\mathrm{j}}{1+\mathrm{j}}=\frac{1}{1-\mathrm{j}}=\frac{1}{\sqrt{2}\,e^{-\mathrm{j}\frac{\pi}{4}}}=\frac{1}{\sqrt{2}}\,e^{+\mathrm{j}\frac{\pi}{4}}
+\]</div>
+<p><img alt="Prenosová funkcia HPF filtra RC v komplexnej rovine" src="../svg/Filtre_I_RC_HPF_polkruznica.svg" width="440" /></p>
+<p><img alt="Amplitúdová charakteristika HPF filtra RC" src="../svg/Filtre_I_RC_HPF_H.svg" width="560" /></p>
+<p><img alt="Fázová charakteristika HPF filtra RC" src="../svg/Filtre_I_RC_HPF_phi.svg" width="560" /></p>
 <h2 id="filtre-rl">Filtre RL</h2>
-<p><img alt="Filtre RL" src="../scan/Filtre_RL.png" width="650" /></p>
+<p>RL-filter I. rádu.</p>
+<p>Zadanie: <span class="arithmatex">\(\mathcal{U}=\mathcal{U}(\omega)=V\,e^{\mathrm{j}\omega t}\)</span>; <span class="arithmatex">\(R\)</span>, <span class="arithmatex">\(L\)</span>. Úloha: <span class="arithmatex">\(\mathcal{U}_L=\,?\)</span></p>
+<h3 id="hornopriepustny-filter-hpf_1">Hornopriepustný filter HPF</h3>
+<p><img alt="Sériový obvod RL" src="../svg/Filtre_I_RL_obvod.svg" width="300" /></p>
+<div class="arithmatex">\[
+\mathcal{U}=\mathcal{U}_R+\mathcal{U}_L=R\,\mathcal{I}+\mathcal{Z}_L\,\mathcal{I}=(R+\mathcal{Z}_L)\,\mathcal{I}=\underbrace{(R+\mathrm{j}\omega L)}_{\mathcal{Z}_{RL}}\,\mathcal{I}
+\]</div>
+<div class="arithmatex">\[
+\mathcal{I}=\frac{\mathcal{U}}{\mathcal{Z}_{RL}}=\frac{\mathcal{U}}{R+\mathrm{j}\omega L}
+\]</div>
+<div class="arithmatex">\[
+\mathcal{U}_L=\mathcal{Z}_L\,\mathcal{I}=\frac{\mathrm{j}\omega L}{R+\mathrm{j}\omega L}\,\mathcal{U}=\underbrace{\frac{\mathrm{j}\omega\frac{L}{R}}{1+\mathrm{j}\omega\frac{L}{R}}}_{\text{prenosová funkcia}}\cdot\,\mathcal{U}=\mathcal{H}_{HPF}\cdot\mathcal{U}
+\]</div>
+<div class="arithmatex">\[
+\mathcal{H}_{HPF}(\omega)=\frac{\mathrm{j}\omega\frac{L}{R}}{1+\mathrm{j}\omega\frac{L}{R}}
+\]</div>
+<p>3 význačné frekvencie:</p>
+<ul>
+<li><span class="arithmatex">\(\omega\dfrac{L}{R}\ll 1\)</span>: <span class="arithmatex">\(\;\mathcal{H}(\omega)\cong\mathrm{j}\cdot 0=0\cdot e^{\mathrm{j}\frac{\pi}{2}}\)</span></li>
+<li><span class="arithmatex">\(\omega\dfrac{L}{R}\gg 1\)</span>: <span class="arithmatex">\(\;\mathcal{H}(\omega)\cong 1\)</span>, <span class="arithmatex">\(\;\mathcal{U}_L=\mathcal{U}\)</span></li>
+<li><span class="arithmatex">\(\omega=\dfrac{R}{L}\)</span>: <span class="arithmatex">\(\;\mathcal{H}(\omega)=\dfrac{\mathrm{j}}{1+\mathrm{j}}=\dfrac{1}{1-\mathrm{j}}=\dfrac{1}{\sqrt{2}\,e^{-\mathrm{j}\frac{\pi}{4}}}=\dfrac{1}{\sqrt{2}}\,e^{\mathrm{j}\frac{\pi}{4}}\)</span></li>
+</ul>
+<p>Graf <span class="arithmatex">\(\mathcal{H}(\omega)\)</span> v komplexnej rovine:</p>
+<p><img alt="Prenosová funkcia HPF filtra RL v komplexnej rovine" src="../svg/Filtre_I_RL_HPF_polkruznica.svg" width="440" /></p>
+<p>Frekvenčná charakteristika HPF:</p>
+<div class="arithmatex">\[
+\mathcal{H}(\omega)=\underbrace{H(\omega)}_{\text{AFCH}}\cdot e^{\underbrace{\mathrm{j}\varphi(\omega)}_{\text{FFCH}}}=\frac{\mathrm{j}\omega\frac{L}{R}}{1+\mathrm{j}\omega\frac{L}{R}}
+\]</div>
+<div class="arithmatex">\[
+H(\omega)=\left|\frac{1}{1+\frac{1}{\mathrm{j}\omega\frac{L}{R}}}\right|=\frac{1}{\sqrt{1+\dfrac{1}{\omega^2L^2/R^2}}}=\frac{1}{\sqrt{1+\dfrac{R^2}{\omega^2L^2}}}
+\]</div>
+<div class="arithmatex">\[
+\varphi(\omega)=\arg\left(\frac{1}{1-\dfrac{\mathrm{j}}{\omega\frac{L}{R}}}\right)=-\arg\left(1-\frac{\mathrm{j}}{\omega\frac{L}{R}}\right)=\operatorname{arctg}\left(\frac{1}{\omega\frac{L}{R}}\right)
+\]</div>
+<p><img alt="Amplitúdová charakteristika HPF filtra RL" src="../svg/Filtre_I_RL_HPF_H.svg" width="560" /></p>
+<p><img alt="Fázová charakteristika HPF filtra RL" src="../svg/Filtre_I_RL_HPF_phi.svg" width="560" /></p>
+<h3 id="dolnopriepustny-filter-rl-dpf-lpf">Dolnopriepustný filter RL (DPF, LPF)</h3>
+<div class="arithmatex">\[
+\mathcal{U}_R=R\,\mathcal{I}=\frac{R}{R+\mathrm{j}\omega L}\cdot\mathcal{U}=\frac{1}{1+\mathrm{j}\omega\frac{L}{R}}\cdot\mathcal{U}
+\]</div>
+<div class="arithmatex">\[
+\mathcal{H}(\omega)=\frac{1}{1+\mathrm{j}\omega\frac{L}{R}}=H(\omega)\,e^{\mathrm{j}\varphi(\omega)}
+\]</div>
+<div class="arithmatex">\[
+H(\omega)=\frac{1}{\sqrt{1+\omega^2L^2/R^2}}\,;\qquad
+\varphi(\omega)=\arg\left(\frac{1}{1+\mathrm{j}\omega\frac{L}{R}}\right)=-\operatorname{arctg}\left(\omega\frac{L}{R}\right)
+\]</div>
+<p><img alt="Amplitúdová charakteristika DPF filtra RL" src="../svg/Filtre_I_RL_DPF_H.svg" width="560" /></p>
+<p><img alt="Fázová charakteristika DPF filtra RL" src="../svg/Filtre_I_RL_DPF_phi.svg" width="560" /></p>
+<ul>
+<li><span class="arithmatex">\(\omega\ll\dfrac{R}{L}\)</span>: <span class="arithmatex">\(\;\mathcal{H}(\omega)=1\)</span></li>
+<li><span class="arithmatex">\(\omega=\dfrac{R}{L}\)</span>: <span class="arithmatex">\(\;\mathcal{H}(\omega)=\dfrac{1}{1+\mathrm{j}}=\dfrac{1}{\sqrt{2}}\,e^{-\mathrm{j}\frac{\pi}{4}}\)</span></li>
+<li><span class="arithmatex">\(\omega\gg\dfrac{R}{L}\)</span>: <span class="arithmatex">\(\;\mathcal{H}(\omega)\cong\dfrac{1}{\mathrm{j}\omega\frac{L}{R}}=\dfrac{R}{\omega L}\,e^{-\mathrm{j}\frac{\pi}{2}}\)</span></li>
+</ul>
+<p><img alt="Prenosová funkcia DPF filtra RL v komplexnej rovine" src="../svg/Filtre_I_RL_DPF_polkruznica.svg" width="440" /></p>
 <h2 id="dolnopriepustne-filtre-rc-lr">Dolnopriepustné filtre RC, LR</h2>
 <h2 id="hornopriepustne-filtre-cr-rl">Hornopriepustné filtre CR, RL</h2>
 
@@ -1138,9 +1354,9 @@
     
       <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script src="../mathjax_config.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script>
       
     
     <script async src="//static.getclicky.com/101403225.js"></script>

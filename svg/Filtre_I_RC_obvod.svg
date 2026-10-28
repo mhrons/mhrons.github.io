@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 200" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16">
+  <title>Sériový obvod RC: zdroj napätia U, rezistor R a kondenzátor C, napätia U_R a U_C, prúd I</title>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#222" stroke="none"/>
+    </marker>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#c0392b" stroke="none"/>
+    </marker>
+  </defs>
+  <circle cx="60" cy="110" r="18"/>
+  <path d="M51 110 q4.5 -9 9 0 t9 0" stroke-width="1.5"/>
+  <path d="M60 92 V40 H180 V58 M180 98 V134"/>
+  <rect x="172" y="58" width="16" height="40"/>
+  <path d="M180 134 V134 M168 134 H192 M168 142 H192 M180 142 V180"/>
+  <path d="M180 180 H60 V128"/>
+  <path d="M28 88 V132" marker-end="url(#ar)" stroke-width="1.5"/>
+  <text x="10" y="115" font-style="italic" fill="#222" stroke="none">U</text>
+  <path d="M96 24 H130" marker-end="url(#ar)" stroke-width="1.5"/>
+  <text x="113" y="18" text-anchor="middle" font-style="italic" fill="#222" stroke="none">I</text>
+  <path d="M208 62 V94" marker-end="url(#ar)" stroke-width="1.5"/>
+  <text x="218" y="84" font-style="italic" fill="#222" stroke="none">U<tspan baseline-shift="sub" font-size="70%">R</tspan></text>
+  <path d="M208 138 V176" marker-end="url(#ar)" stroke-width="1.5"/>
+  <text x="218" y="163" font-style="italic" fill="#222" stroke="none">U<tspan baseline-shift="sub" font-size="70%">C</tspan></text>
+  <text x="150" y="84" text-anchor="end" font-style="italic" fill="#222" stroke="none">R</text>
+  <text x="150" y="144" text-anchor="end" font-style="italic" fill="#222" stroke="none">C</text>
+</svg>

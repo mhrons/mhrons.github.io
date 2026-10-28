@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 270" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16">
+  <title>Prenosová funkcia DPF filtra RC v komplexnej rovine: dolná polkružnica od 1 do 0</title>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#222" stroke="none"/>
+    </marker>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#c0392b" stroke="none"/>
+    </marker>
+  </defs>
+  <path d="M60 110 H370" stroke-width="1.5" marker-end="url(#ar)"/>
+  <path d="M80 255 V20" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="370" y="100" text-anchor="end" fill="#222" stroke="none">+</text>
+  <text x="72" y="26" text-anchor="end" fill="#222" stroke="none">+j</text>
+  <path d="M80 230 H200" stroke="#888" stroke-width="1" stroke-dasharray="5 4"/>
+  <path d="M200 110 V230" stroke="#888" stroke-width="1" stroke-dasharray="5 4"/>
+  <path d="M80 110 L200 230" stroke-width="1.5" marker-end="url(#ar)"/>
+  <path d="M320 110 A120 120 0 0 1 80 110" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arr)"/>
+  <circle cx="200" cy="230" r="4" fill="#c0392b" stroke="none"/>
+  <path d="M80 106 V114" stroke-width="1"/>
+  <path d="M200 106 V114" stroke-width="1"/>
+  <path d="M320 106 V114" stroke-width="1"/>
+  <path d="M76 230 H84" stroke-width="1"/>
+  <text x="74" y="102" text-anchor="end" font-size="13" fill="#222" stroke="none">0</text>
+  <text x="200" y="100" text-anchor="middle" font-size="13" fill="#222" stroke="none">1/2</text>
+  <text x="324" y="100" font-size="13" fill="#222" stroke="none">1</text>
+  <text x="72" y="235" text-anchor="end" font-size="13" fill="#222" stroke="none">−j/2</text>
+  <text x="200" y="252" text-anchor="middle" font-size="14" font-style="italic" fill="#222" stroke="none">ω=1/RC</text>
+  <path d="M50 84 L76 106" stroke-width="1" marker-end="url(#ar)"/>
+  <text x="48" y="78" text-anchor="end" font-size="14" fill="#222" stroke="none">ω→∞</text>
+  <path d="M360 132 L326 114" stroke-width="1" marker-end="url(#ar)"/>
+  <text x="362" y="148" font-size="14" fill="#222" stroke="none">ω→0</text>
+  <text x="132" y="174" text-anchor="end" font-size="13" fill="#222" stroke="none">1/√2</text>
+  <text x="334" y="200" font-size="18" font-style="italic" fill="#c0392b" stroke="none">ℋ<tspan baseline-shift="sub" font-size="70%">DPF</tspan>(ω)</text>
+</svg>
