@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 250" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16">
+  <title>Číslo 1+j v komplexnej rovine: dĺžka √2 a uhol π/4</title>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#222" stroke="none"/>
+    </marker>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#c0392b" stroke="none"/>
+    </marker>
+  </defs>
+  <circle cx="130" cy="125" r="113.1" stroke="#888" stroke-width="1" stroke-dasharray="5 4"/>
+  <path d="M10 125 H250" stroke-width="1.5" marker-end="url(#ar)"/>
+  <path d="M130 240 V10" stroke-width="1.5" marker-end="url(#ar)"/>
+  <path d="M210 125 V45 M130 45 H210" stroke="#888" stroke-width="1" stroke-dasharray="5 4"/>
+  <path d="M130 125 L210 45" marker-end="url(#ar)"/>
+  <path d="M210 121 V129" stroke-width="1"/>
+  <text x="210" y="145" text-anchor="middle" font-size="13" fill="#222" stroke="none">1</text>
+  <path d="M50 121 V129" stroke-width="1"/>
+  <text x="50" y="145" text-anchor="middle" font-size="13" fill="#222" stroke="none">−1</text>
+  <path d="M126 45 H134" stroke-width="1"/>
+  <text x="120" y="50" text-anchor="end" font-size="13" fill="#222" stroke="none">j</text>
+  <path d="M126 205 H134" stroke-width="1"/>
+  <text x="120" y="210" text-anchor="end" font-size="13" fill="#222" stroke="none">−j</text>
+  <path d="M164 125 A34 34 0 0 0 154.0 101.0" stroke-width="1"/>
+  <text x="170" y="117" font-size="13" fill="#222" stroke="none">π/4</text>
+  <text x="150" y="73" text-anchor="end" fill="#222" stroke="none">√2</text>
+  <text x="218" y="39" fill="#222" stroke="none">1+j</text>
+</svg>

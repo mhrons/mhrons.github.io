@@ -1,9 +1,20 @@
 window.MathJax = {
   tex: {
-    inlineMath: [['$', '$'], ['\\(', '\\)']]
-    tag: 'all'
+    inlineMath: [["\\(", "\\)"]],
+    displayMath: [["\\[", "\\]"]],
+    processEscapes: true,
+    processEnvironments: true
   },
-  svg: {
-    fontCache: 'global'
+  options: {
+    ignoreHtmlClass: ".*|",
+    processHtmlClass: "arithmatex"
   }
 };
+
+// re-typeset after Material's instant navigation swaps the page content
+document$.subscribe(() => {
+  MathJax.startup.output.clearCache();
+  MathJax.typesetClear();
+  MathJax.texReset();
+  MathJax.typesetPromise();
+});

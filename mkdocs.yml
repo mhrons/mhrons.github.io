@@ -35,22 +35,24 @@ theme:
   titles_only: false
 
 extra_javascript: 
-#    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'    
-    - https://polyfill.io/v3/polyfill.min.js?features=es6
-    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-#    - mathjax_config.js
+    - mathjax_config.js
+    - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
 
 markdown_extensions:
-#    - mdx_math
     - attr_list
     - md_in_html
     - meta
     - pymdownx.betterem
-#    - pymdownx.arithmatex
+    - pymdownx.arithmatex:
+        generic: true
     - pymdownx.caret
     - pymdownx.mark
     - pymdownx.tilde
     
+exclude_docs: |
+    scan/Filtre_RC.png
+    scan/Filtre_RL.png
+
 watch: 
     - custom_theme/
 

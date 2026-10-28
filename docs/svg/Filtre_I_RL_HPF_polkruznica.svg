@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 230" fill="none" stroke="#222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" font-family="'Helvetica Neue', Arial, sans-serif" font-size="16">
+  <title>Prenosová funkcia HPF filtra RL v komplexnej rovine: horná polkružnica od 0 do 1</title>
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#222" stroke="none"/>
+    </marker>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1 L9 5 L0 9 z" fill="#c0392b" stroke="none"/>
+    </marker>
+  </defs>
+  <path d="M60 180 H370" stroke-width="1.5" marker-end="url(#ar)"/>
+  <path d="M80 210 V20" stroke-width="1.5" marker-end="url(#ar)"/>
+  <text x="370" y="202" text-anchor="end" fill="#222" stroke="none">+</text>
+  <text x="72" y="26" text-anchor="end" fill="#222" stroke="none">+j</text>
+  <path d="M80 60 H370" stroke="#888" stroke-width="1" stroke-dasharray="5 4"/>
+  <path d="M200 180 V60" stroke="#888" stroke-width="1" stroke-dasharray="5 4"/>
+  <path d="M80 180 L200 60" stroke-width="1.5" marker-end="url(#ar)"/>
+  <path d="M80 180 A120 120 0 0 1 320 180" stroke="#c0392b" stroke-width="2.5" marker-end="url(#arr)"/>
+  <circle cx="200" cy="60" r="4" fill="#c0392b" stroke="none"/>
+  <path d="M80 176 V184" stroke-width="1"/>
+  <path d="M200 176 V184" stroke-width="1"/>
+  <path d="M320 176 V184" stroke-width="1"/>
+  <path d="M76 60 H84" stroke-width="1"/>
+  <text x="74" y="200" text-anchor="end" font-size="13" fill="#222" stroke="none">0</text>
+  <text x="200" y="200" text-anchor="middle" font-size="13" fill="#222" stroke="none">1/2</text>
+  <text x="324" y="200" font-size="13" fill="#222" stroke="none">1</text>
+  <text x="72" y="65" text-anchor="end" font-size="13" fill="#222" stroke="none">j/2</text>
+  <path d="M114 180 A34 34 0 0 0 104.0 156.0" stroke-width="1"/>
+  <text x="120" y="160" font-size="13" fill="#222" stroke="none">π/4</text>
+  <text x="280" y="40" font-size="18" font-style="italic" fill="#c0392b" stroke="none">ℋ(ω)</text>
+</svg>
