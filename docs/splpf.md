@@ -12,6 +12,6 @@ In theory, the advantage of exciting the numerical model of LPF by the multi-pre
 
 1. The lower advance Δt, the smaller prediction error in p~f~(t+Δt)
 2. Convolution \eqref{eq:1} integrates a product of two counter-running time signals
-3. The impulse response of an ideal LPF begins with value 0 and reaches its first extremum approximately at the time Δt.
+3. The impulse response of a causal LPF begins with value 0 and reaches its first extremum approximately at the time Δt.
 
 The synergistic effect suppresses the impact of prediction error on the filter's aggregated signal s(t+Δt) in a sense, that given the RES power intermittency and LPF, the LPF model excited by the multi-predictor exhibits much less accumulation rate than if the same LPF is excited by the single predicted signal advancing by Δt. Based on the measured GI data, the numerical simulation of smoothing has confirmed that this synergy exhibits a significantly lower accumulation rate than the conventional smoothing methods - see [diagrams (Figures 7, 11)](https://mhrons.github.io/pv_graph/#analysis-by-prediction-error). This relative advantage of SPLPF exists regardless of the prediction technology applied.
